@@ -2,8 +2,10 @@
 title: "I tested 6 AI coding assistants so you don’t have to"
 description: "I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. He"
 pubDate: "Jul 17 2026"
-heroImage: "/blog-placeholder-3.jpg"
+heroImage: "/coder-desk.jpg"
 ---
+
+![AI coding assistant concept](/coder-desk.jpg)
 
 I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. Here’s what I found.
 

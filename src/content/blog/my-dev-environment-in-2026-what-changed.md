@@ -2,8 +2,10 @@
 title: "My dev environment in 2026 — what changed, what stayed"
 description: "I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?"
 pubDate: "Jul 17 2026"
-heroImage: "/blog-placeholder-3.jpg"
+heroImage: "/dev-environment.jpg"
 ---
+
+![Modern software developer workstation](/dev-environment.jpg)
 
 I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?
 
