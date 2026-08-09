@@ -1,0 +1,101 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const staticPages = [
+	{ title: 'Home', url: '/' },
+	{ title: 'About', url: '/about' },
+	{ title: 'Contact Me', url: '/contact-me' },
+	{ title: 'Privacy Policy', url: '/privacy-policy' },
+	{ title: 'XML Sitemap', url: '/sitemap-index.xml' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Sitemap - ${SITE_TITLE}`} description="HTML Sitemap for Techtips.fun - Navigate all pages and blog posts." />
+		<style>
+			.sitemap-container {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1.5rem;
+				color: rgb(var(--black));
+			}
+			h2 {
+				font-size: 1.5rem;
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				border-bottom: 2px solid rgb(var(--gray-light));
+				padding-bottom: 0.5rem;
+				color: rgb(var(--black));
+			}
+			ul {
+				list-style-type: disc;
+				padding-left: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+			li {
+				margin: 0.5rem 0;
+			}
+			a {
+				color: rgb(var(--accent));
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.post-date {
+				font-size: 0.85rem;
+				color: rgb(var(--gray));
+				margin-left: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="sitemap-container">
+				<h1>HTML Sitemap</h1>
+				<p>Welcome to the sitemap of <strong>Techtips.fun</strong>. Use this page to easily find and navigate to all static pages and published blog posts on our website.</p>
+
+				<h2>Main Pages</h2>
+				<ul>
+					{staticPages.map((page) => (
+						<li>
+							<a href={page.url}>{page.title}</a>
+						</li>
+					))}
+				</ul>
+
+				<h2>Blog Posts ({posts.length})</h2>
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+							<span class="post-date">
+								({post.data.pubDate.toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})})
+							</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
