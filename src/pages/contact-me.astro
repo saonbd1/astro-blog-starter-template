@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Contact Me"
+	description="Get in touch with Techtips.fun"
+	pubDate={new Date()}
+>
+	<h2>Get in Touch 📬</h2>
+	
+	<p>
+		If you have any questions, feedback, or collaboration ideas, feel free to send me a message using the form below or reach out via email.
+	</p>
+
+	<form class="contact-form" action="https://formspree.io/f/xblyzrzq" method="POST">
+		<div class="form-group">
+			<label for="name">Your Name</label>
+			<input type="text" id="name" name="name" required placeholder="John Doe" />
+		</div>
+
+		<div class="form-group">
+			<label for="email">Your Email</label>
+			<input type="email" id="email" name="email" required placeholder="john@example.com" />
+		</div>
+
+		<div class="form-group">
+			<label for="message">Your Message</label>
+			<textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+		</div>
+
+		<button type="submit" class="submit-btn">Send Message</button>
+	</form>
+
+	<style>
+		.contact-form {
+			margin-top: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			max-width: 600px;
+		}
+		.form-group {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		label {
+			font-weight: 600;
+			color: rgb(var(--black));
+			font-size: 0.95rem;
+		}
+		input, textarea {
+			padding: 0.75rem 1rem;
+			border: 1px solid rgb(var(--gray-light));
+			border-radius: 8px;
+			font-family: inherit;
+			font-size: 1rem;
+			transition: border-color 0.2s, box-shadow 0.2s;
+			background-color: white;
+		}
+		input:focus, textarea:focus {
+			outline: none;
+			border-color: rgb(var(--accent));
+			box-shadow: 0 0 0 3px rgba(var(--accent), 0.15);
+		}
+		.submit-btn {
+			align-self: flex-start;
+			background-color: rgb(var(--accent));
+			color: white;
+			padding: 0.75rem 2rem;
+			border: none;
+			border-radius: 8px;
+			font-size: 1rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: opacity 0.2s, transform 0.1s;
+		}
+		.submit-btn:hover {
+			opacity: 0.9;
+		}
+		.submit-btn:active {
+			transform: scale(0.98);
+		}
+	</style>
+</Layout>
