@@ -26,7 +26,7 @@ const posts = (await getCollection('blog'))
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${category} articles`} description={`Browse ${category} posts on Techtips.fun.`} />
+		<BaseHead title={`${category} articles`} description={`Browse ${category} posts on Techtips.fun.`} noindex />
 		<style>
 			main { width: 960px; }
 			header { margin-bottom: 2rem; text-align: center; }

@@ -1,11 +1,9 @@
 # Techtips.fun crawler rules
-# Canonical blog posts remain crawlable. Taxonomy and utility archives are excluded
-# to reduce duplicate-content crawling.
+# Canonical blog posts remain crawlable. Taxonomy archives remain reachable so
+# crawlers can read their noindex directives, but they are omitted from the XML sitemap.
 
 User-agent: *
 Allow: /
-Disallow: /categories/
-Disallow: /tags/
 Disallow: /sitemap/
 Disallow: /rss.xml
 
