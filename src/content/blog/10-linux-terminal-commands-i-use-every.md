@@ -3,6 +3,9 @@ title: "10 Linux terminal commands I use every single day"
 description: "I’ve been using Linux as my daily driver for over five years. In that time, I’ve collected dozens of commands — but the ones below are the ones that"
 pubDate: "Jul 17 2026"
 heroImage: "/linux-server.webp"
+category: "Linux & Terminal"
+tags: ["Linux", "Terminal", "Command Line", "Developer Tools"]
+
 ---
 
 ![Linux terminal and server management](/linux-server.webp)

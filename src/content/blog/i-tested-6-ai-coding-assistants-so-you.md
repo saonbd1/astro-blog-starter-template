@@ -3,6 +3,9 @@ title: "I tested 6 AI coding assistants so you don’t have to"
 description: "I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. He"
 pubDate: "Jul 17 2026"
 heroImage: "/ai-coding-assistants-cover.png"
+category: "AI Tools"
+tags: ["AI", "Coding Assistants", "Developer Tools", "Productivity"]
+
 ---
 
 ![Six AI coding assistants converging on a codebase](/ai-coding-assistants-cover.png)

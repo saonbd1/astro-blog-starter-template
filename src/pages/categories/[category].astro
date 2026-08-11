@@ -1,0 +1,71 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { toTaxonomySlug } from '../../utils/taxonomy';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const categories = [...new Set(posts.map((post) => post.data.category))];
+
+	return categories.map((category) => ({
+		params: { category: toTaxonomySlug(category) },
+		props: { category },
+	}));
+}
+
+const { category } = Astro.props as { category: string };
+const posts = (await getCollection('blog'))
+	.filter((post) => post.data.category === category)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${category} articles`} description={`Browse ${category} posts on Techtips.fun.`} />
+		<style>
+			main { width: 960px; }
+			header { margin-bottom: 2rem; text-align: center; }
+			h1 { margin-bottom: 0.4rem; }
+			.intro { color: rgb(var(--gray)); }
+			.post-list { display: grid; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+			.post-list a { align-items: center; color: inherit; display: grid; gap: 1.25rem; grid-template-columns: 180px 1fr; text-decoration: none; }
+			.post-list li { border-bottom: 1px solid rgb(var(--gray-light)); padding-bottom: 1rem; }
+			.post-list img { aspect-ratio: 16 / 9; border-radius: 10px; object-fit: cover; width: 100%; }
+			.title { color: rgb(var(--black)); margin: 0 0 0.45rem; }
+			.date, .description { color: rgb(var(--gray)); margin: 0; }
+			.description { margin-top: 0.45rem; }
+			.post-list a:hover .title { color: rgb(var(--accent)); }
+			@media (max-width: 720px) { .post-list a { grid-template-columns: 1fr; gap: 0.65rem; } .post-list img { max-width: 100%; } }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header>
+				<p class="intro">Category</p>
+				<h1>{category}</h1>
+				<p class="intro">{posts.length} {posts.length === 1 ? 'post' : 'posts'} in this category.</p>
+			</header>
+			<ul class="post-list">
+				{posts.map((post: CollectionEntry<'blog'>) => (
+					<li>
+						<a href={`/blog/${post.id}/`}>
+							<img src={post.data.heroImage} alt="" width="360" height="203" />
+							<div>
+								<h2 class="title">{post.data.title}</h2>
+								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+								<p class="description">{post.data.description}</p>
+							</div>
+						</a>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

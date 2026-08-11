@@ -1,0 +1,55 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { toTaxonomySlug } from '../../utils/taxonomy';
+
+const posts = await getCollection('blog');
+const categoryCounts = new Map<string, number>();
+
+for (const post of posts) {
+	categoryCounts.set(post.data.category, (categoryCounts.get(post.data.category) ?? 0) + 1);
+}
+
+const categories = [...categoryCounts.entries()]
+	.map(([name, count]) => ({ name, count, slug: toTaxonomySlug(name) }))
+	.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Categories" description="Browse Techtips.fun posts by category." />
+		<style>
+			main { width: 720px; }
+			header { margin-bottom: 2rem; text-align: center; }
+			h1 { margin-bottom: 0.4rem; }
+			p { color: rgb(var(--gray)); }
+			.category-list { display: grid; gap: 0.8rem; list-style: none; margin: 0; padding: 0; }
+			.category-list a { align-items: center; background: rgba(var(--gray-light), 0.35); border-radius: 12px; color: rgb(var(--gray-dark)); display: flex; font-weight: 600; justify-content: space-between; padding: 1rem 1.2rem; text-decoration: none; transition: 0.2s ease; }
+			.category-list a:hover { background: rgb(var(--gray-light)); color: rgb(var(--accent)); transform: translateY(-2px); }
+			.count { background: white; border-radius: 999px; color: rgb(var(--gray)); font-size: 0.85rem; padding: 0.2rem 0.65rem; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header>
+				<h1>Categories</h1>
+				<p>Browse practical guides and technology notes by subject.</p>
+			</header>
+			<ul class="category-list">
+				{categories.map((category) => (
+					<li>
+						<a href={`/categories/${category.slug}/`}>
+							<span>{category.name}</span>
+							<span class="count">{category.count} {category.count === 1 ? 'post' : 'posts'}</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -3,6 +3,9 @@ title: "Simple Tips to Solve Your PC Startup And Shutdown Problems"
 description: "In this article we will look at steps to resolve one of the most common Windows PC startup and shutdown errors known as DLL errors."
 pubDate: "Aug 06 2026"
 heroImage: "/coder-desk.jpg"
+category: "PC Troubleshooting"
+tags: ["Windows", "PC Maintenance", "Troubleshooting", "Beginner Guide"]
+
 ---
 
 In this article we will look at steps to resolve one of the most common Windows PC startup and shutdown errors known as DLL errors. You may encounter a DLL error, such as the mfc80u.dll or comdlg32.dll error when you start or shutdown your Windows computer. Contrary to popular belief, DLL errors can be easily resolved and there is no need to be intimidated by them. Simply perform the following steps to fix DLL errors:

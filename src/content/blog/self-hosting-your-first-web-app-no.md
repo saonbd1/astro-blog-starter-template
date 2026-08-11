@@ -3,6 +3,9 @@ title: "Self-hosting your first web app — the no-nonsense guide"
 description: "I spent way too long being intimidated by self-hosting. It seemed like something only sysadmin wizards did. Then I actually tried it — and it took on"
 pubDate: "Jul 17 2026"
 heroImage: "/self-hosting.webp"
+category: "Self-Hosting"
+tags: ["Self-Hosting", "Web Apps", "Deployment", "Beginner Guide"]
+
 ---
 
 ![Self-hosting server setup](/self-hosting.webp)

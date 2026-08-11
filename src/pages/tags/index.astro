@@ -1,0 +1,52 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { toTaxonomySlug } from '../../utils/taxonomy';
+
+const posts = await getCollection('blog');
+const tagCounts = new Map<string, number>();
+
+for (const post of posts) {
+	for (const tag of post.data.tags) {
+		tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+	}
+}
+
+const tags = [...tagCounts.entries()]
+	.map(([name, count]) => ({ name, count, slug: toTaxonomySlug(name) }))
+	.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Tags" description="Browse Techtips.fun posts by tag." />
+		<style>
+			main { width: 720px; }
+			header { margin-bottom: 2rem; text-align: center; }
+			h1 { margin-bottom: 0.4rem; }
+			p { color: rgb(var(--gray)); }
+			.tag-list { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; margin: 0; padding: 0; }
+			.tag-list a { background: rgba(var(--gray-light), 0.45); border-radius: 999px; color: rgb(var(--gray-dark)); display: inline-flex; font-weight: 600; gap: 0.45rem; padding: 0.55rem 0.85rem; text-decoration: none; transition: 0.2s ease; }
+			.tag-list a:hover { background: rgb(var(--accent)); color: white; transform: translateY(-2px); }
+			.count { font-size: 0.85em; opacity: 0.75; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header>
+				<h1>Tags</h1>
+				<p>Find posts by a specific technology, tool, or skill.</p>
+			</header>
+			<ul class="tag-list">
+				{tags.map((tag) => (
+					<li><a href={`/tags/${tag.slug}/`}><span>#{tag.name}</span><span class="count">{tag.count}</span></a></li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

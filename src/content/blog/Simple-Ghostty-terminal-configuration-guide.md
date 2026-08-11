@@ -3,6 +3,8 @@ title: "Ghostty Terminal Configuration Guide"
 description: "A practical guide to configuring Ghostty for a cleaner, faster, and more comfortable terminal workflow."
 pubDate: "Aug 10 2026"
 heroImage: "/ghostty-hero.png"
+category: "Linux & Terminal"
+tags: ["Ghostty", "Terminal", "Configuration", "Developer Tools"]
 ---
 
 ![Ghostty terminal UI and developer workspace pixel art](/ghostty-hero.png)

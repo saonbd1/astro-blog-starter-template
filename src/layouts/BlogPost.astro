@@ -4,11 +4,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import { toTaxonomySlug } from '../utils/taxonomy';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const props = Astro.props.frontmatter || Astro.props;
-const { title, description, pubDate, updatedDate, heroImage } = props;
+const { title, description, pubDate, updatedDate, heroImage, category = 'General', tags = [] } = props;
 ---
 
 <html lang="en">
@@ -49,9 +50,14 @@ const { title, description, pubDate, updatedDate, heroImage } = props;
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
 			}
-			.last-updated-on {
-				font-style: italic;
-			}
+							.last-updated-on {
+					font-style: italic;
+				}
+				.taxonomy { align-items: center; display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-top: 0.9rem; }
+				.taxonomy-label { color: rgb(var(--gray)); font-size: 0.85rem; font-weight: 700; margin-right: 0.1rem; text-transform: uppercase; }
+				.taxonomy a { background: rgba(var(--gray-light), 0.55); border-radius: 999px; color: rgb(var(--gray-dark)); font-size: 0.9rem; padding: 0.32rem 0.65rem; text-decoration: none; transition: 0.2s ease; }
+				.taxonomy a:hover { background: rgb(var(--accent)); color: white; }
+
 		</style>
 	</head>
 
@@ -74,8 +80,14 @@ const { title, description, pubDate, updatedDate, heroImage } = props;
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+							<h1>{title}</h1>
+							<div class="taxonomy" aria-label="Post taxonomy">
+								<span class="taxonomy-label">Category</span>
+								<a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a>
+								{tags.length > 0 && <span class="taxonomy-label">Tags</span>}
+								{tags.map((tag: string) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
+							</div>
+							<hr />
 					</div>
 					<slot />
 				</div>

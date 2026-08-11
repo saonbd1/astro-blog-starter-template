@@ -3,6 +3,9 @@ title: "Top free AI models you can use right now in 2026"
 description: "You no longer need a $200/month API subscription to access state-of-the-art language models. In 2026, the best free and open-source AI models rival"
 pubDate: "Jul 17 2026"
 heroImage: "/minimal-desk.jpg"
+category: "AI Tools"
+tags: ["AI", "Open Source", "Free Tools", "Local AI"]
+
 ---
 
 ![Minimal desk setup for local AI development](/minimal-desk.jpg)

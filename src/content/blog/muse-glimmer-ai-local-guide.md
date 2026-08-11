@@ -3,6 +3,9 @@ title: "Facebook's Meta Reveals Muse Glimmer AI: What's it and How to Run It Loc
 description: "Learn what Muse Glimmer AI is, what hardware it needs, how to run it locally, and where it fits among open-weight agent models."
 pubDate: "Aug 11 2026"
 heroImage: "/muse-glimmer-ai-feature-image.png"
+category: "AI Tools"
+tags: ["AI", "Local AI", "AI Agents", "Open Source"]
+
 ---
 
 Meta released **Muse Glimmer** on August 10, 2026. It is a 30-billion-parameter open-weight model for local AI agents. It focuses on tool use, long tasks, coding, image input, and failure recovery. It runs on a Mac or PC with suitable memory and a compatible runtime.

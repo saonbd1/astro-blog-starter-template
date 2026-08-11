@@ -3,6 +3,9 @@ title: "My dev environment in 2026 — what changed, what stayed"
 description: "I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?"
 pubDate: "Jul 17 2026"
 heroImage: "/dev-environment.jpg"
+category: "Developer Productivity"
+tags: ["Developer Tools", "Productivity", "Workstation", "Software Development"]
+
 ---
 
 ![Modern software developer workstation](/dev-environment.jpg)

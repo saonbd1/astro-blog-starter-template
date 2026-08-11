@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { toTaxonomySlug } from '../../utils/taxonomy';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -16,93 +17,57 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
+			main { width: 960px; }
+			.topic-links { display: flex; gap: 0.75rem; justify-content: center; margin: 0 0 2rem; }
+			.topic-links a { background: rgba(var(--gray-light), 0.5); border-radius: 999px; color: rgb(var(--gray-dark)); font-weight: 700; padding: 0.45rem 0.8rem; text-decoration: none; }
+			.topic-links a:hover { background: rgb(var(--accent)); color: white; }
+			.post-grid { display: flex; flex-wrap: wrap; gap: 2rem; list-style-type: none; margin: 0; padding: 0; }
+			.post-grid > li { width: calc(50% - 1rem); }
+			.post-grid > li:first-child { margin-bottom: 1rem; text-align: center; width: 100%; }
+			.post-grid > li:first-child img { width: 100%; }
+			.post-grid > li:first-child .title { font-size: 2.369rem; }
+			.post-card { display: block; text-decoration: none; }
+			.post-card img { border-radius: 12px; margin-bottom: 0.5rem; }
+			.post-card img, .post-card .title, .post-card .date { transition: 0.2s ease; }
+			.title { color: rgb(var(--black)); line-height: 1; margin: 0; }
+			.date { color: rgb(var(--gray)); margin: 0.45rem 0 0; }
+			.post-card:hover h4, .post-card:hover .date { color: rgb(var(--accent)); }
+			.post-card:hover img { box-shadow: var(--box-shadow); }
+			.taxonomy { align-items: center; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+			.taxonomy a { background: rgba(var(--gray-light), 0.55); border-radius: 999px; color: rgb(var(--gray-dark)); font-size: 0.82rem; padding: 0.25rem 0.55rem; text-decoration: none; }
+			.taxonomy a:hover { background: rgb(var(--accent)); color: white; }
+			.taxonomy .category { font-weight: 700; }
 			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
+				.post-grid { gap: 1.25rem; }
+				.post-grid > li { text-align: center; width: 100%; }
+				.post-grid > li:first-child { margin-bottom: 0; }
+				.post-grid > li:first-child .title { font-size: 1.563em; }
+				.taxonomy { justify-content: center; }
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
+			<nav class="topic-links" aria-label="Browse blog topics">
+				<a href="/categories/">Browse categories</a>
+				<a href="/tags/">Browse tags</a>
+			</nav>
 			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
+				<ul class="post-grid">
+					{posts.map((post) => (
+						<li>
+							<a class="post-card" href={`/blog/${post.id}/`}>
+								<img width={720} height={360} src={post.data.heroImage} alt="" />
+								<h4 class="title">{post.data.title}</h4>
+								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+							</a>
+							<div class="taxonomy" aria-label="Post taxonomy">
+								<a class="category" href={`/categories/${toTaxonomySlug(post.data.category)}/`}>{post.data.category}</a>
+								{post.data.tags.map((tag) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
+							</div>
+						</li>
+					))}
 				</ul>
 			</section>
 		</main>
