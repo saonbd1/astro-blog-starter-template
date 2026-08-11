@@ -1,0 +1,12 @@
+# Techtips.fun crawler rules
+# Canonical blog posts remain crawlable. Taxonomy and utility archives are excluded
+# to reduce duplicate-content crawling.
+
+User-agent: *
+Allow: /
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /sitemap/
+Disallow: /rss.xml
+
+Sitemap: https://www.techtips.fun/sitemap-index.xml
