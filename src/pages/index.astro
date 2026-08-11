@@ -1,42 +1,142 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import { toTaxonomySlug } from '../utils/taxonomy';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const [featuredPost, ...remainingPosts] = posts;
+const recentPosts = remainingPosts.slice(0, 4);
+const categories = [...new Set(posts.map((post) => post.data.category))].slice(0, 6);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main { max-width: 1120px; padding: 0 1.25rem 4rem; width: 100%; }
+			.intro { max-width: 720px; padding: 4.5rem 0 2.6rem; }
+			.eyebrow { color: rgb(var(--accent)); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; margin: 0 0 0.8rem; text-transform: uppercase; }
+			.intro h1 { color: rgb(var(--black)); font-size: clamp(2.5rem, 6vw, 4.8rem); letter-spacing: -0.065em; line-height: 0.96; margin: 0; max-width: 760px; }
+			.intro p:last-child { color: rgb(var(--gray)); font-size: 1.14rem; line-height: 1.65; margin: 1.25rem 0 0; max-width: 650px; }
+			.section-heading { align-items: end; display: flex; gap: 1rem; justify-content: space-between; margin: 0 0 1.1rem; }
+			.section-heading h2 { color: rgb(var(--black)); font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0; }
+			.section-heading a { color: rgb(var(--accent)); font-weight: 700; text-decoration: none; }
+			.section-heading a:hover { text-decoration: underline; }
+			.featured { background: rgb(var(--gray-light)); border-radius: 22px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr); margin-bottom: 4rem; overflow: hidden; }
+			.featured-image { display: block; min-height: 100%; }
+			.featured-image img { display: block; height: 100%; min-height: 370px; object-fit: cover; transition: transform 0.35s var(--ease-out, ease-out); width: 100%; }
+			.featured:hover .featured-image img { transform: scale(1.025); }
+			.featured-content { align-content: center; display: grid; padding: clamp(1.75rem, 4vw, 3.5rem); }
+			.featured-content h2 { font-size: clamp(2rem, 3.4vw, 3.35rem); letter-spacing: -0.045em; line-height: 1.02; margin: 0.75rem 0; }
+			.featured-content h2 a { color: rgb(var(--black)); text-decoration: none; }
+			.featured-content h2 a:hover { color: rgb(var(--accent)); }
+			.description { color: rgb(var(--gray-dark)); line-height: 1.6; margin: 0 0 1.25rem; }
+			.meta { color: rgb(var(--gray)); font-size: 0.92rem; margin: 0 0 1.25rem; }
+			.category, .tag { border-radius: 999px; display: inline-block; font-size: 0.82rem; font-weight: 750; line-height: 1; padding: 0.45rem 0.65rem; text-decoration: none; }
+			.category { background: rgba(var(--accent), 0.1); color: rgb(var(--accent)); }
+			.category:hover { background: rgb(var(--accent)); color: white; }
+			.button { align-items: center; background: rgb(var(--black)); border-radius: 999px; color: white; display: inline-flex; font-weight: 750; justify-content: center; padding: 0.72rem 1rem; text-decoration: none; width: fit-content; }
+			.button:hover { background: rgb(var(--accent)); transform: translateY(-1px); }
+			.recent-section { margin-top: 1rem; }
+			.post-grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
+			.post-card { display: grid; grid-template-rows: auto 1fr; }
+			.post-card-image { display: block; overflow: hidden; }
+			.post-card-image img { aspect-ratio: 16 / 9; border-radius: 12px; display: block; object-fit: cover; transition: transform 0.3s var(--ease-out, ease-out); width: 100%; }
+			.post-card:hover .post-card-image img { transform: scale(1.035); }
+			.post-card-body { display: flex; flex-direction: column; padding-top: 0.85rem; }
+			.post-card h3 { font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.2; margin: 0.7rem 0 0; }
+			.post-card h3 a { color: rgb(var(--black)); text-decoration: none; }
+			.post-card h3 a:hover { color: rgb(var(--accent)); }
+			.post-card .meta { margin: 0.5rem 0 0; }
+			.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.85rem; }
+			.tag { background: rgba(var(--gray-light), 0.7); color: rgb(var(--gray-dark)); font-weight: 600; }
+			.tag:hover { background: rgb(var(--accent)); color: white; }
+			.topic-strip { align-items: center; border-top: 1px solid rgb(var(--gray-light)); display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 4rem; padding-top: 2rem; }
+			.topic-strip strong { color: rgb(var(--gray-dark)); margin-right: 0.2rem; }
+			.topic-strip a { color: rgb(var(--gray-dark)); font-size: 0.92rem; font-weight: 700; text-decoration: none; }
+			.topic-strip a:hover { color: rgb(var(--accent)); text-decoration: underline; }
+			@media (max-width: 900px) { .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+			@media (max-width: 720px) {
+				main { padding: 0 1rem 3rem; }
+				.intro { padding: 3rem 0 2rem; }
+				.featured { grid-template-columns: 1fr; margin-bottom: 3rem; }
+				.featured-image img { min-height: 245px; }
+				.featured-content { padding: 1.5rem; }
+				.post-grid { gap: 2rem 1rem; }
+			}
+			@media (max-width: 430px) { .post-grid { grid-template-columns: 1fr; } .section-heading { align-items: start; flex-direction: column; } }
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀Real tech, real experience!</h1>
-			<p>
-				Welcome to Techtips.fun! Here, we share real tech experiences, tips, and insights to help you navigate the everyday tech world. From troubleshooting guides to product reviews, we provide practical advices and solution for tech lovers and enthusiasts. Join our community and stay updated with the latest tech trends and tips!
-			</p>
-			<p>
-				This month's featured post is live now! Besides that, we are adding more blockchain tech lessons for both pro and noobs people. When AI meets crypto everything becomes chaotic. So don't miss this chance.
-			</p>
-
-			<section>
-				<h2>Key Lessons I Learned from AI Agents, Tools &amp; DeFi Investments</h2>
-				<h3>Lesson 1: The AI-Driven MEV Double-Edged Sword</h3>
-				<p>AI-driven MEV bots have become incredibly sophisticated. They provide a service by reordering transactions for arbitrage, ensuring prices are aligned across protocols. However, they are also predatory, extracting value from users via sandwich attacks and frontrunning. This increases transaction costs and erodes trust.</p>
-				<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80" alt="AI trading bot monitoring blockchain transactions on a screen" />
-
-				<h3>Lesson 2: The Oracle is the Single Point of Failure</h3>
-				<p>Numerous DeFi hacks originated from manipulated price oracles. Whether through flash-loan attacks on DEX pools or simple data-feed publisher errors, if the data source is flawed, the AI's decisions are flawed, no matter how smart the model is.</p>
-				<img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Secure blockchain infrastructure with connected data nodes" />
-
-				<h3>Lesson 3: Black Box Models Are a Governance Nightmare</h3>
-				<p>Some protocols have experimented with AI to set parameters like interest rates or collateralization factors. When a model is a black box, the community cannot understand why it made a specific decision. This makes risk management, debugging, and governance nearly impossible.</p>
-
-				<h3>Lesson 4: Automated Liquidations Can Create Death Spirals</h3>
-				<p>AI liquidation bots are essential for healthy lending protocols. However, during market crashes, a cascade of automated liquidations can dump collateral assets on the market, causing prices to crater and triggering even more liquidations.</p>
+			<section class="intro" aria-labelledby="homepage-title">
+				<p class="eyebrow">Practical technology, clearly explained</p>
+				<h1 id="homepage-title">Real tech. Useful lessons. No noise.</h1>
+				<p>Read practical guides on AI tools, local computing, web development, privacy, and the everyday systems that keep your technology working.</p>
 			</section>
+
+			{featuredPost && (
+				<section aria-labelledby="latest-post-heading">
+					<div class="section-heading">
+						<h2 id="latest-post-heading">Latest from the blog</h2>
+						<a href="/blog/">View all posts</a>
+					</div>
+					<article class="featured">
+						<a class="featured-image" href={`/blog/${featuredPost.id}/`} aria-label={`Read ${featuredPost.data.title}`}>
+							<img src={featuredPost.data.heroImage} alt="" width="960" height="540" />
+						</a>
+						<div class="featured-content">
+							<a class="category" href={`/categories/${toTaxonomySlug(featuredPost.data.category)}/`}>{featuredPost.data.category}</a>
+							<h2><a href={`/blog/${featuredPost.id}/`}>{featuredPost.data.title}</a></h2>
+							<p class="meta"><FormattedDate date={featuredPost.data.pubDate} /></p>
+							<p class="description">{featuredPost.data.description}</p>
+							<a class="button" href={`/blog/${featuredPost.id}/`}>Read the latest post <span aria-hidden="true">→</span></a>
+						</div>
+					</article>
+				</section>
+			)}
+
+			{recentPosts.length > 0 && (
+				<section class="recent-section" aria-labelledby="recent-posts-heading">
+					<div class="section-heading">
+						<h2 id="recent-posts-heading">More recent posts</h2>
+						<a href="/tags/">Browse tags</a>
+					</div>
+					<ul class="post-grid">
+						{recentPosts.map((post) => (
+							<li>
+								<article class="post-card">
+									<a class="post-card-image" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>
+										<img src={post.data.heroImage} alt="" width="640" height="360" />
+									</a>
+									<div class="post-card-body">
+										<a class="category" href={`/categories/${toTaxonomySlug(post.data.category)}/`}>{post.data.category}</a>
+										<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+										<p class="meta"><FormattedDate date={post.data.pubDate} /></p>
+										<div class="tags" aria-label="Post tags">
+											{post.data.tags.slice(0, 2).map((tag) => <a class="tag" href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
+										</div>
+									</div>
+								</article>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<nav class="topic-strip" aria-label="Browse categories">
+				<strong>Explore by topic:</strong>
+				{categories.map((category) => <a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a>)}
+				<a href="/categories/">All categories →</a>
+			</nav>
 		</main>
 		<Footer />
 	</body>
