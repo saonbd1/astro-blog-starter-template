@@ -2,12 +2,14 @@
 title: "I tested 6 AI coding assistants so you don’t have to"
 description: "I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. He"
 pubDate: "Jul 17 2026"
-heroImage: "/coder-desk.jpg"
+heroImage: "/ai-coding-assistants-cover.png"
 ---
 
-![AI coding assistant concept](/coder-desk.jpg)
+![Six AI coding assistants converging on a codebase](/ai-coding-assistants-cover.png)
 
 I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. Here’s what I found.
+
+![Editorial layout highlighting the six contenders, Cursor as the daily-use winner, and Codeium as the best free option](/ai-coding-assistants-interior-layout.png)
 
 ## The contenders
 
