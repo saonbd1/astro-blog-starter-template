@@ -20,7 +20,7 @@ The model is built for agents, not only chat. An agent can plan a task, call a t
 
 Meta released the model weights under the **Apache 2.0 license**. The weights are available through Hugging Face. The model card describes commercial and research use, subject to the license and usage policy. Read the license and usage policy before you deploy the model in a product.
 
-### Features of Muse Glimmer 30B in nutshell:
+## Features of Muse Glimmer 30B in nutshell:
 
 - This model size is about 29.6 billion parameters
 - Model type is Dense causal transformer with a perception encoder 
@@ -48,17 +48,17 @@ Public setup guidance from Unsloth lists about 17 GB for a 4-bit build, 20–22 
 A laptop with 8 GB or 16 GB of memory is not a good target for a complete Muse Glimmer setup. Partial offload can make a model load, but it can reduce speed. Treat model loading and useful performance as separate goals.
 
 
-### How to run Muse Glimmer locally
+## How to run Muse Glimmer locally
 
 The simplest setup depends on your operating system and your goal. A desktop app is useful for a first test. A command-line runtime gives you more control. A server runtime is useful when an agent or application needs an OpenAI-compatible endpoint.
 
-# Option 1: Use a desktop app
+### Option 1: Use a desktop app
 
 LM Studio and Unsloth provide desktop paths for local model use. Search for Muse Glimmer in the model section. Select a quantized build that fits your memory. Start with a 4-bit build when your system has about 17 GB or more of usable memory.
 
 This path is useful for testing prompts, images, and basic chat. It is less suitable for a production agent until you add permissions, logs, and safety checks.
 
-# Option 2: Use llama.cpp
+### Option 2: Use llama.cpp
 
 The GGUF release includes quantized model files. The vision workflow also needs a perception encoder file. The DFlash file is optional and can improve decoding speed.
 
@@ -79,7 +79,7 @@ Then download a text model and the perception encoder. A typical server command 
 
 Use the exact file names from the model page. Keep `--jinja` enabled for the chat template. Start with a smaller context length during testing. Increase it after you confirm that the server fits in memory.
 
-# Option 3: Use Ollama or vLLM
+### Option 3: Use Ollama or vLLM
 
 Ollama is a convenient choice for a local command-line workflow. The GGUF model page lists an Ollama path for the model. vLLM is a better fit for a service that needs an OpenAI-compatible API and concurrent requests.
 
@@ -125,11 +125,11 @@ Qwen can lead on several reported coding and multimodal benchmarks. Gemma can le
 
 Frequently Asked Questions
 
-# Is Muse Glimmer free?
+### Is Muse Glimmer free?
 
 The downloadable model weights do not have a per-token Meta API price. You can download the weights under the Apache 2.0 license, subject to the model’s usage policy. You still need suitable hardware or a paid hosted service. Hosting costs can include compute, storage, bandwidth, and operations.
 
-# Is Muse Glimmer safe for production?
+### Is Muse Glimmer safe for production?
 
 Do not treat the model as a complete production system. Meta recommends additional safeguards for systems that use tools. The model can make errors, follow unsafe instructions, or produce incorrect output. Local execution protects the data path from a cloud endpoint, but it does not solve prompt injection or excessive permissions.
 
@@ -137,7 +137,6 @@ Use a sandbox for code execution. Give each tool the smallest permission that it
 
 ## Last thinking 
 
-Muse Glimmer AI is a strong option for developers who want a local, multimodal agent model. It is most useful when the workflow needs code, tools, long tasks, or image input. A quantized build can fit high-end consumer hardware, but a complete setup needs more memory than the model file alone suggests.
+Muse Glimmer AI is a strong option for developers who want a local, multimodal agent model. It is most useful when the workflow needs code, tools, long tasks, or image input.
 
-Start with a 4-bit build and a short context. Use llama.cpp, Ollama, LM Studio, Unsloth, or vLLM based on your workflow. Then test the model on real tasks. Measure accuracy, speed, memory use, and failure recovery. Do not select a model from benchmark scores alone.
 
