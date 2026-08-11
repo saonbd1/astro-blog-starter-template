@@ -19,13 +19,13 @@ Meta released the model weights under the **Apache 2.0 license**. The weights ar
 
 ### Features of Muse Glimmer 30B in nutshell:
 
-This model size is about 29.6 billion parameters
-Model type is Dense causal transformer with a perception encoder 
-Context size 131,072 tokens or more, according to the model card
-The model is licensed under Apache 2.0
-The Main focus area is local agents, coding, tool use, and multimodal tasks
-Reasoning control ability is Low, medium, high, and xhigh
-Deployment is available on local hardware, servers, and supported inference runtimes
+- This model size is about 29.6 billion parameters
+- Model type is Dense causal transformer with a perception encoder 
+- Context size 131,072 tokens or more, according to the model card
+- The model is licensed under Apache 2.0
+- The Main focus area is local agents, coding, tool use, and multimodal tasks
+- Reasoning control ability is Low, medium, high, and xhigh
+- Deployment is available on local hardware, servers, and supported inference runtimes
 
 
 ## What can Muse Glimmer do?
@@ -38,7 +38,7 @@ The model also supports visual work. You can give it a screenshot, chart, or doc
 
 ## What hardware does Muse Glimmer need?
 
-Hardware depends on the model format. Full-precision BF16 weights need much more memory than a quantized build. Meta states that 4-bit quantization reduces the language model weights to under 20 GB. The complete local stack also needs memory for the KV cache, the perception encoder, and the optional DFlash drafter. [1] [3]
+Hardware depends on the model format. Full-precision BF16 weights need much more memory than a quantized build. Meta states that 4-bit quantization reduces the language model weights to under 20 GB. The complete local stack also needs memory for the KV cache, the perception encoder, and the optional DFlash drafter.
 
 Public setup guidance from Unsloth lists about 17 GB for a 4-bit build, 20–22 GB for a 6-bit build, and 34 GB for an 8-bit build. It lists about 58 GB for BF16. These numbers are guidance for specific builds. Your real need changes with context length, runtime, operating system, and other processes. 
 
@@ -49,13 +49,13 @@ A laptop with 8 GB or 16 GB of memory is not a good target for a complete Muse G
 
 The simplest setup depends on your operating system and your goal. A desktop app is useful for a first test. A command-line runtime gives you more control. A server runtime is useful when an agent or application needs an OpenAI-compatible endpoint.
 
-## Option 1: Use a desktop app
+# Option 1: Use a desktop app
 
 LM Studio and Unsloth provide desktop paths for local model use. Search for Muse Glimmer in the model section. Select a quantized build that fits your memory. Start with a 4-bit build when your system has about 17 GB or more of usable memory.
 
 This path is useful for testing prompts, images, and basic chat. It is less suitable for a production agent until you add permissions, logs, and safety checks.
 
-## Option 2: Use llama.cpp
+# Option 2: Use llama.cpp
 
 The GGUF release includes quantized model files. The vision workflow also needs a perception encoder file. The DFlash file is optional and can improve decoding speed.
 
@@ -76,17 +76,17 @@ Then download a text model and the perception encoder. A typical server command 
 
 Use the exact file names from the model page. Keep `--jinja` enabled for the chat template. Start with a smaller context length during testing. Increase it after you confirm that the server fits in memory.
 
-## Option 3: Use Ollama or vLLM
+# Option 3: Use Ollama or vLLM
 
 Ollama is a convenient choice for a local command-line workflow. The GGUF model page lists an Ollama path for the model. vLLM is a better fit for a service that needs an OpenAI-compatible API and concurrent requests.
 
-Check that the runtime supports the model format before you download several gigabytes of files. Runtime support can change quickly after a new model release.
+Check that the runtime supports the model format and the quantization before you download several gigabytes of files. Runtime support can change quickly after a new model release, and quantization reduces the precision of model weights and lowers memory use. It can also enhance the quality. A higher-bit format usually needs more memory but can preserve more quality.
 
-## Which quantization fits your system?
+## Tips for your local build
 
-Quantization reduces the precision of model weights. It lowers memory use. It can also cause small quality changes. A higher-bit format usually needs more memory but can preserve more quality.
-
-Start with a 4-bit build if you want a balance between memory and quality. Choose a smaller build when your system cannot fit the 4-bit model. Choose BF16 when you have enough memory and need a full-precision base for research or fine-tuning.
+- Start with a 4-bit build if you want a balance between memory and quality.
+- Choose a smaller build when your system cannot fit the 4-bit model.
+- Choose BF16 when you have enough memory and prefer a full-precision base for research or fine-tuning.
 
 Do not compare quantization names alone. Compare the total memory needed, context length, vision files, and runtime overhead. A model file that fits on disk can still fail during generation because the KV cache also needs memory.
 
@@ -94,15 +94,15 @@ Do not compare quantization names alone. Compare the total memory needed, contex
 
 Meta reports strong results for Muse Glimmer in agentic and coding benchmarks. Its published results include **51.2 on SWE-Bench Pro**, **76.0 on SWE-Bench Verified**, and **51.7 on TerminalBench 2.1**. These are vendor-reported results.
 
-The results do not make Muse Glimmer the best model for every task. Meta’s table shows Qwen3.6-27B ahead on several benchmarks, including SWE-Bench Verified, TerminalBench 2.1, and OSWorld-Verified. A good comparison must use the task that matters to you.
+The results do not make Muse Glimmer the best ai model for every task. Meta’s table shows Qwen3.6-27B ahead on several benchmarks, including SWE-Bench Verified, TerminalBench 2.1, and OSWorld-Verified. A good comparison must use the task that matters to you.
 
 ## Why Muse Glimmer is a good candidate and What to test 
 
-Local coding agent: Coding, tool calls, and failure recovery. Test edits, tests, and multi-file changes
-Screenshot analysis: Native text and image input. Test small text and complex layouts
-Private document work: Local execution keeps files on your machine. Test access controls and prompt injection
-Long-running workflow: Long context and persistent agent scaffolds. Test recovery after tool errors
-Production API vLLM and other server paths exist. Test concurrency, latency, and logging 
+- Local coding agent: Coding, tool calls, and failure recovery. Test edits, tests, and multi-file changes
+- Screenshot analysis: Native text and image input. Test small text and complex layouts
+- Private document work: Local execution keeps files on your machine. Test access controls and prompt injection
+- Long-running workflow: Long context and persistent agent scaffolds. Test recovery after tool errors
+- Production API vLLM and other server paths exist. Test concurrency, latency, and logging 
 
 ## Why does local AI matter?
 
