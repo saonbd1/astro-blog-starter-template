@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import { toTaxonomySlug } from '../utils/taxonomy';
+
+const categories = [...new Set((await getCollection('blog')).map((post) => post.data.category))].sort(
+	(a, b) => a.localeCompare(b),
+);
+
+const pathname = Astro.url.pathname;
+const currentCategorySlug = pathname.startsWith('/categories/') ? pathname.split('/')[2] : '';
+const isAllActive = pathname === '/blog/' || pathname === '/blog';
+---
+
+<nav class="category-nav" aria-label="Blog categories">
+	<div class="category-nav__inner">
+		<a class:list={[{ active: isAllActive }]} href="/blog/">All posts</a>
+		{
+			categories.map((category) => {
+				const slug = toTaxonomySlug(category);
+				return (
+					<a class:list={[{ active: currentCategorySlug === slug }]} href={`/categories/${slug}/`}>
+						{category}
+					</a>
+				);
+			})
+		}
+	</div>
+</nav>
+
+<style>
+	.category-nav {
+		background: rgb(var(--gray-light));
+		border-bottom: 1px solid rgba(var(--gray), 0.2);
+		padding: 0 1rem;
+	}
+
+	.category-nav__inner {
+		display: flex;
+		gap: 0.45rem;
+		margin: 0 auto;
+		max-width: 960px;
+		overflow-x: auto;
+		padding: 0.6rem 0;
+		scrollbar-width: thin;
+	}
+
+	.category-nav__inner::-webkit-scrollbar {
+		height: 4px;
+	}
+
+	.category-nav__inner::-webkit-scrollbar-thumb {
+		background: rgba(var(--gray), 0.45);
+		border-radius: 999px;
+	}
+
+	.category-nav a {
+		background: white;
+		border: 1px solid transparent;
+		border-radius: 999px;
+		color: rgb(var(--gray-dark));
+		flex: 0 0 auto;
+		font-size: 0.88rem;
+		font-weight: 700;
+		padding: 0.45rem 0.8rem;
+		text-decoration: none;
+		transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+	}
+
+	.category-nav a:hover,
+	.category-nav a.active {
+		background: rgb(var(--accent));
+		border-color: rgb(var(--accent));
+		color: white;
+	}
+
+	.category-nav a:focus-visible {
+		outline: 3px solid rgba(var(--accent), 0.35);
+		outline-offset: 2px;
+	}
+
+	@media (max-width: 720px) {
+		.category-nav {
+			padding: 0 0.75rem;
+		}
+
+		.category-nav__inner {
+			padding: 0.5rem 0;
+		}
+	}
+</style>

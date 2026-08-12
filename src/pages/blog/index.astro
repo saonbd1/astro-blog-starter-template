@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
 import { toTaxonomySlug } from '../../utils/taxonomy';
 
 const posts = (await getCollection('blog')).sort(
@@ -47,18 +48,18 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
-			<nav class="topic-links" aria-label="Browse blog topics">
-				<a href="/categories/">Browse categories</a>
-				<a href="/tags/">Browse tags</a>
-			</nav>
+			<Header />
+			<CategoryNav />
+			<main>
+				<nav class="topic-links" aria-label="Browse blog topics">
+					<a href="/tags/">Browse tags</a>
+				</nav>
 			<section>
 				<ul class="post-grid">
 					{posts.map((post) => (
 						<li>
 							<a class="post-card" href={`/blog/${post.id}/`}>
-								<img width={720} height={360} src={post.data.heroImage} alt="" />
+								<img width={960} height={480} src={post.data.heroImage ?? '/blog-placeholder-1.jpg'} alt={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
 							</a>

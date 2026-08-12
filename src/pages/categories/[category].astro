@@ -4,6 +4,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
 import { getCollection } from 'astro:content';
 import { toTaxonomySlug } from '../../utils/taxonomy';
 
@@ -44,8 +45,9 @@ const posts = (await getCollection('blog'))
 		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
+			<Header />
+			<CategoryNav />
+			<main>
 			<header>
 				<p class="intro">Category</p>
 				<h1>{category}</h1>
@@ -55,7 +57,7 @@ const posts = (await getCollection('blog'))
 				{posts.map((post: CollectionEntry<'blog'>) => (
 					<li>
 						<a href={`/blog/${post.id}/`}>
-							<img src={post.data.heroImage} alt="" width="360" height="203" />
+							<img src={post.data.heroImage ?? '/blog-placeholder-1.jpg'} alt={post.data.title} width="960" height="480" />
 							<div>
 								<h2 class="title">{post.data.title}</h2>
 								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
