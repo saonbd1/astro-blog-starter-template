@@ -52,7 +52,7 @@ The use of outdated drivers also causes DLL errors due to compatibility issues. 
 
 A corrupt registry is often found to be the root cause of recurring DLL errors, such as the mfcu80.dll or comdlg32.dll error. To fix pc startup problems that are occurring due to registry issues, clean your Windows registry with the help of a reliable and easy-to-use registry cleaning utility or follow these manual tips.
 
-![registry-clean-dism-command](/dism-regestry-cleaner.png)
+![registry-clean-dism-command](/dism-registry-cleaner.png)
 
 - Start Run by pressing Windows + R.
 - Type "CMD" to start the "Command Prompt" terminal.
