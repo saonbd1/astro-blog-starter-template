@@ -12,13 +12,21 @@ In this article we will look at steps to resolve one of the most common Windows 
 
 ![PC Hardware Repair Concept](/coder-desk.jpg)
 
+### Clean Temporary Folder Regularly
+![Clean Temp Files ](/temp-file-cleaner.png)
+Cleaning the temporary folder regularly can speedup your pc. Press windows + R on keyboard to start Run command app. Type %TEMP% and press enter button. Delete all files and folders from this folder. After delete clean the recycle bin as well. 
+
+### Disable Unnecessary Startup Apps:
+![Disable Startup Apps](/startup-apps-windows.png)
+Apps can be configured to start when you log in. Normally, these apps start silently and perform background tasks. To disable such apps, type " startup apps " in the search box to open startup apps settings. Toggle off apps that you don't need to run at startup.    
+
 ### Extract the DLL file from your Windows installation disc
 
 Some third-party software programs are known to replace Windows files, such as the comdlg32.dll file with their own DLL files. As a result, when you install such programs, you may encounter a DLL error. To fix this kind of DLL issue, extract the DLL file reported in the error message from your Windows installation disc.
 
 ### Download the missing DLL file from the Internet
 
-In case the DLL file mentioned in the error message is not a Windows file, then you can repair the missing DLL error by downloading a fresh copy of the DLL file from a trustworthy online DLL directory. Save the DLL file in its correct location. If you are not sure of this location, then you can save the DLL file in your System folder (By default, for Windows 7, Windows Vista, and Windows XP the System folder is C:\Windows\System32).
+In case the DLL file mentioned in the error message is not a Windows file, then you can repair the missing DLL error by downloading a fresh copy of the DLL file from a trustworthy online DLL directory. Save the DLL file in its correct location. If you are not sure of this location, then you can save the DLL file in your System folder (By default, for Windows 10 or Windows 11 the System folder is C:\Windows\System32).
 
 ### Complete a malware scan
 
