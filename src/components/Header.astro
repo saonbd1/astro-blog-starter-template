@@ -7,7 +7,8 @@ import { toTaxonomySlug } from '../utils/taxonomy';
 const categories = [...new Set((await getCollection('blog')).map((post) => post.data.category))].sort(
 	(a, b) => a.localeCompare(b),
 );
-const isCategoriesActive = Astro.url.pathname.startsWith('/categories');
+const isBlogActive =
+	Astro.url.pathname.startsWith('/blog') || Astro.url.pathname.startsWith('/categories');
 ---
 
 <header>
@@ -15,11 +16,11 @@ const isCategoriesActive = Astro.url.pathname.startsWith('/categories');
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 			<div class="internal-links">
 				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/blog">Blog</HeaderLink>
-				<details class:list={[{ 'category-dropdown': true, active: isCategoriesActive }]}>
-					<summary>Categories</summary>
+				<details class:list={[{ 'category-dropdown': true, active: isBlogActive }]}>
+					<summary>Blog</summary>
 					<div class="category-dropdown__menu">
-						<a href="/categories/">All categories</a>
+						<a href="/blog/">All posts</a>
+						<p class="category-dropdown__label">Categories</p>
 						{
 							categories.map((category) => (
 								<a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a>
@@ -132,6 +133,14 @@ const isCategoriesActive = Astro.url.pathname.startsWith('/categories');
 			border: 1px solid rgb(var(--gray-light));
 			border-radius: 0.5rem;
 			box-shadow: var(--box-shadow);
+		}
+		.category-dropdown__label {
+			margin: 0.35rem 0.75rem 0.2rem;
+			color: rgb(var(--gray));
+			font-size: 0.75rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
 		}
 		.category-dropdown__menu a {
 			display: block;
