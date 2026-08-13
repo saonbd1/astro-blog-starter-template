@@ -8,12 +8,10 @@ import PostShare from '../components/PostShare.astro';
 import PostAuthor from '../components/PostAuthor.astro';
 import { toTaxonomySlug } from '../utils/taxonomy';
 
-
 type Props = CollectionEntry<'blog'>['data'] & {
 	socialImage?: string;
 	showToc?: boolean;
 };
-
 
 const props = Astro.props.frontmatter || Astro.props;
 const {
@@ -30,7 +28,6 @@ const {
 const publishedTime = pubDate instanceof Date ? pubDate.toISOString() : undefined;
 const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : undefined;
 ---
-
 
 <html lang="en">
 	<head>
@@ -71,3 +68,209 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				box-sizing: border-box;
 				margin: 0;
 				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+			.taxonomy {
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				justify-content: center;
+				margin-top: 0.9rem;
+			}
+			.taxonomy-label {
+				color: rgb(var(--gray));
+				font-size: 0.85rem;
+				font-weight: 700;
+				margin-right: 0.1rem;
+				text-transform: uppercase;
+			}
+			.taxonomy a {
+				background: rgba(var(--gray-light), 0.55);
+				border-radius: 999px;
+				color: rgb(var(--gray-dark));
+				font-size: 0.9rem;
+				padding: 0.32rem 0.65rem;
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
+			.taxonomy a:hover {
+				background: rgb(var(--accent));
+				color: white;
+			}
+			.post-layout {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr);
+				gap: 1.5rem;
+				width: 100%;
+				max-width: none;
+				margin: 0;
+			}
+			.post-layout .post-content {
+				width: 100%;
+				max-width: none;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			.toc {
+				width: 100%;
+				max-width: none;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0 1em;
+			}
+			.toc details {
+				border: 1px solid rgba(var(--gray-light), 0.85);
+				border-radius: 12px;
+				background: rgba(var(--gray-light), 0.22);
+				padding: 0.8rem 1rem;
+			}
+			.toc summary {
+				cursor: pointer;
+				color: rgb(var(--gray-dark));
+				font-weight: 700;
+				letter-spacing: 0.01em;
+			}
+			.toc nav {
+				margin-top: 0.75rem;
+			}
+			.toc ol {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.toc li + li {
+				margin-top: 0.45rem;
+			}
+			.toc a {
+				color: rgb(var(--gray-dark));
+				font-size: 0.92rem;
+				line-height: 1.35;
+				text-decoration: none;
+			}
+			.toc a:hover,
+			.toc a:focus-visible {
+				color: rgb(var(--accent));
+				text-decoration: underline;
+			}
+			.toc .toc-subitem {
+				padding-left: 0.85rem;
+			}
+			.post-content :is(h2, h3) {
+				scroll-margin-top: 5.5rem;
+			}
+			/* Keep the table of contents above the article at every viewport size. */
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero-image">
+					{heroImage && <img width={1020} height={510} src={heroImage} alt={title} />}
+				</div>
+				<div class="prose">
+					<div class="title">
+						<div class="date">
+							<FormattedDate date={pubDate} />
+							{
+								updatedDate && (
+									<div class="last-updated-on">
+										Last updated on <FormattedDate date={updatedDate} />
+									</div>
+								)
+							}
+						</div>
+						<h1>{title}</h1>
+						{(category || tags.length > 0) && (
+							<div class="taxonomy" aria-label="Post taxonomy">
+								{category && <><span class="taxonomy-label">Category</span><a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a></>}
+								{tags.length > 0 && <span class="taxonomy-label">Tags</span>}
+								{tags.map((tag: string) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
+							</div>
+						)}
+						<hr />
+					</div>
+				</div>
+				{showToc ? (
+					<div class="post-layout">
+						<aside class="toc" data-toc aria-label="Table of contents">
+							<details open>
+								<summary>On this page</summary>
+								<nav aria-label="Article sections">
+									<ol data-toc-list></ol>
+								</nav>
+							</details>
+						</aside>
+						<div class="post-content" data-post-content>
+							<slot />
+						</div>
+					</div>
+				) : (
+					<div class="post-content"><slot /></div>
+				)}
+					<PostShare />
+					<PostAuthor />
+
+				</article>
+		</main>
+		<Footer />
+		{showToc && (
+			<script>
+				const toc = document.querySelector<HTMLElement>('[data-toc]');
+				const content = document.querySelector<HTMLElement>('[data-post-content]');
+				const list = document.querySelector<HTMLOListElement>('[data-toc-list]');
+
+				if (toc && content && list) {
+					const headings = Array.from(content.querySelectorAll<HTMLHeadingElement>('h2, h3'));
+
+					headings.forEach((heading, index) => {
+						if (!heading.id) {
+							const text = heading.textContent?.trim().toLowerCase() || `section-${index + 1}`;
+							const base = text
+								.normalize('NFD')
+								.replace(/[\u0300-\u036f]/g, '')
+								.replace(/[^a-z0-9]+/g, '-')
+								.replace(/^-|-$/g, '') || `section-${index + 1}`;
+							let id = base;
+							let suffix = 2;
+
+							while (document.getElementById(id)) {
+								id = `${base}-${suffix++}`;
+							}
+
+							heading.id = id;
+						}
+
+						const item = document.createElement('li');
+						item.className = heading.tagName === 'H3' ? 'toc-subitem' : 'toc-item';
+						const link = document.createElement('a');
+						link.href = `#${heading.id}`;
+						link.textContent = heading.textContent?.trim() || `Section ${index + 1}`;
+						item.append(link);
+						list.append(item);
+					});
+
+					if (headings.length === 0) toc.remove();
+				}
+			</script>
+		)}
+	</body>
+</html>
