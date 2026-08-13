@@ -3,7 +3,14 @@ const today = new Date();
 ---
 
 	<footer>
-		&copy; {today.getFullYear()} Techtips.fun All rights reserved. | <a href="/sitemap" style="color: rgb(var(--accent)); text-decoration: none;">Sitemap</a>
+		<nav class="footer-nav" aria-label="Footer navigation">
+			<a href="/about/">About</a>
+			<a href="/privacy-policy/">Privacy Policy</a>
+			<a href="/contact-me/">Contact</a>
+			<a href="/sitemap">Sitemap</a>
+		</nav>
+		<p class="copyright">&copy; {today.getFullYear()} Techtips.fun All rights reserved.</p>
+
 	<div class="social-links">
 		<a href="#" target="_blank">
 			<span class="sr-only">Follow SaonBD on Mastodon</span>
@@ -46,7 +53,26 @@ const today = new Date();
 		color: rgb(var(--gray));
 		text-align: center;
 	}
+	.footer-nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+	.footer-nav a {
+		color: rgb(var(--accent));
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+	.footer-nav a:hover {
+		text-decoration: underline;
+	}
+	.copyright {
+		margin: 0;
+	}
 	.social-links {
+
 		display: flex;
 		justify-content: center;
 		gap: 1em;
