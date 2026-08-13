@@ -44,20 +44,27 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				max-width: 100%;
 				margin: 0;
 			}
+			article {
+				width: min(100%, 760px);
+				margin: 0 auto;
+			}
 			.hero-image {
 				width: 100%;
 			}
 			.hero-image img {
 				display: block;
+				width: 100%;
+				height: auto;
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
 			}
 			.prose,
 			.post-content {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
+				width: 100%;
+				max-width: none;
+				box-sizing: border-box;
+				margin: 0;
 				padding: 1em;
 				color: rgb(var(--gray-dark));
 			}
@@ -109,19 +116,21 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				display: grid;
 				grid-template-columns: minmax(0, 1fr);
 				gap: 1.5rem;
-				max-width: 980px;
-				margin: 0 auto;
+				width: 100%;
+				max-width: none;
+				margin: 0;
 			}
 			.post-layout .post-content {
-				width: auto;
-				max-width: 720px;
-				margin: 0 auto;
+				width: 100%;
+				max-width: none;
+				margin: 0;
 				box-sizing: border-box;
 			}
 			.toc {
-				width: min(100%, 720px);
+				width: 100%;
+				max-width: none;
 				box-sizing: border-box;
-				margin: 0 auto;
+				margin: 0;
 				padding: 0 1em;
 			}
 			.toc details {
