@@ -8,10 +8,21 @@ import { toTaxonomySlug } from '../utils/taxonomy';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	socialImage?: string;
+	showToc?: boolean;
 };
 
 const props = Astro.props.frontmatter || Astro.props;
-const { title, description, pubDate, updatedDate, heroImage, category, tags = [], socialImage } = props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	category,
+	tags = [],
+	socialImage,
+	showToc = false,
+} = props;
 const publishedTime = pubDate instanceof Date ? pubDate.toISOString() : undefined;
 const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : undefined;
 ---
@@ -42,7 +53,8 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
 			}
-			.prose {
+			.prose,
+			.post-content {
 				width: 720px;
 				max-width: calc(100% - 2em);
 				margin: auto;
@@ -93,6 +105,90 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				background: rgb(var(--accent));
 				color: white;
 			}
+			.post-layout {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr);
+				gap: 1.5rem;
+				max-width: 980px;
+				margin: 0 auto;
+			}
+			.post-layout .post-content {
+				width: auto;
+				max-width: 720px;
+				margin: 0 auto;
+				box-sizing: border-box;
+			}
+			.toc {
+				width: min(100%, 720px);
+				box-sizing: border-box;
+				margin: 0 auto;
+				padding: 0 1em;
+			}
+			.toc details {
+				border: 1px solid rgba(var(--gray-light), 0.85);
+				border-radius: 12px;
+				background: rgba(var(--gray-light), 0.22);
+				padding: 0.8rem 1rem;
+			}
+			.toc summary {
+				cursor: pointer;
+				color: rgb(var(--gray-dark));
+				font-weight: 700;
+				letter-spacing: 0.01em;
+			}
+			.toc nav {
+				margin-top: 0.75rem;
+			}
+			.toc ol {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.toc li + li {
+				margin-top: 0.45rem;
+			}
+			.toc a {
+				color: rgb(var(--gray-dark));
+				font-size: 0.92rem;
+				line-height: 1.35;
+				text-decoration: none;
+			}
+			.toc a:hover,
+			.toc a:focus-visible {
+				color: rgb(var(--accent));
+				text-decoration: underline;
+			}
+			.toc .toc-subitem {
+				padding-left: 0.85rem;
+			}
+			.post-content :is(h2, h3) {
+				scroll-margin-top: 5.5rem;
+			}
+			@media (min-width: 58rem) {
+				.post-layout {
+					grid-template-columns: minmax(11rem, 12rem) minmax(0, 45rem);
+					align-items: start;
+					justify-content: center;
+				}
+				.toc {
+					position: sticky;
+					top: 1.25rem;
+					width: auto;
+					margin: 0;
+					padding: 1rem 0 0;
+				}
+				.toc details {
+					padding: 0;
+					border: 0;
+					background: transparent;
+				}
+				.toc summary {
+					cursor: default;
+				}
+				.toc summary::marker {
+					display: none;
+				}
+			}
 		</style>
 	</head>
 
@@ -123,13 +219,68 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 								{tags.map((tag: string) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
 							</div>
 						)}
-
 						<hr />
 					</div>
-					<slot />
 				</div>
+				{showToc ? (
+					<div class="post-layout">
+						<aside class="toc" data-toc aria-label="Table of contents">
+							<details open>
+								<summary>On this page</summary>
+								<nav aria-label="Article sections">
+									<ol data-toc-list></ol>
+								</nav>
+							</details>
+						</aside>
+						<div class="post-content" data-post-content>
+							<slot />
+						</div>
+					</div>
+				) : (
+					<div class="post-content"><slot /></div>
+				)}
 			</article>
 		</main>
 		<Footer />
+		{showToc && (
+			<script>
+				const toc = document.querySelector<HTMLElement>('[data-toc]');
+				const content = document.querySelector<HTMLElement>('[data-post-content]');
+				const list = document.querySelector<HTMLOListElement>('[data-toc-list]');
+
+				if (toc && content && list) {
+					const headings = Array.from(content.querySelectorAll<HTMLHeadingElement>('h2, h3'));
+
+					headings.forEach((heading, index) => {
+						if (!heading.id) {
+							const text = heading.textContent?.trim().toLowerCase() || `section-${index + 1}`;
+							const base = text
+								.normalize('NFD')
+								.replace(/[\u0300-\u036f]/g, '')
+								.replace(/[^a-z0-9]+/g, '-')
+								.replace(/^-|-$/g, '') || `section-${index + 1}`;
+							let id = base;
+							let suffix = 2;
+
+							while (document.getElementById(id)) {
+								id = `${base}-${suffix++}`;
+							}
+
+							heading.id = id;
+						}
+
+						const item = document.createElement('li');
+						item.className = heading.tagName === 'H3' ? 'toc-subitem' : 'toc-item';
+						const link = document.createElement('a');
+						link.href = `#${heading.id}`;
+						link.textContent = heading.textContent?.trim() || `Section ${index + 1}`;
+						item.append(link);
+						list.append(item);
+					});
+
+					if (headings.length === 0) toc.remove();
+				}
+			</script>
+		)}
 	</body>
 </html>

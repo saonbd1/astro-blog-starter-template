@@ -23,6 +23,6 @@ const { post, socialImage } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} socialImage={socialImage}>
+<BlogPost {...post.data} socialImage={socialImage} showToc>
 	<Content />
 </BlogPost>
