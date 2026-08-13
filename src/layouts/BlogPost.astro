@@ -9,7 +9,7 @@ import { toTaxonomySlug } from '../utils/taxonomy';
 type Props = CollectionEntry<'blog'>['data'];
 
 const props = Astro.props.frontmatter || Astro.props;
-const { title, description, pubDate, updatedDate, heroImage, category = 'General', tags = [] } = props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags = [] } = props;
 ---
 
 <html lang="en">
@@ -81,12 +81,14 @@ const { title, description, pubDate, updatedDate, heroImage, category = 'General
 							}
 						</div>
 							<h1>{title}</h1>
-							<div class="taxonomy" aria-label="Post taxonomy">
-								<span class="taxonomy-label">Category</span>
-								<a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a>
-								{tags.length > 0 && <span class="taxonomy-label">Tags</span>}
-								{tags.map((tag: string) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
-							</div>
+															{(category || tags.length > 0) && (
+									<div class="taxonomy" aria-label="Post taxonomy">
+										{category && <><span class="taxonomy-label">Category</span><a href={`/categories/${toTaxonomySlug(category)}/`}>{category}</a></>}
+										{tags.length > 0 && <span class="taxonomy-label">Tags</span>}
+										{tags.map((tag: string) => <a href={`/tags/${toTaxonomySlug(tag)}/`}>#{tag}</a>)}
+									</div>
+								)}
+
 							<hr />
 					</div>
 					<slot />
