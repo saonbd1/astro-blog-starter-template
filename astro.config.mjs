@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://www.techtips.fun",
-		integrations: [
+	integrations: [
 			mdx(),
 			sitemap({
 				filter: (page) => !page.includes('/categories/') && !page.includes('/tags/') && !page.includes('/sitemap/'),

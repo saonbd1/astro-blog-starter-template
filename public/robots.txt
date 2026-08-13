@@ -1,10 +1,7 @@
 # Techtips.fun crawler rules
-# Canonical blog posts remain crawlable. Taxonomy archives remain reachable so
-# crawlers can read their noindex directives, but they are omitted from the XML sitemap.
+# Public pages are crawlable; non-canonical archives use page-level noindex directives.
 
 User-agent: *
 Allow: /
-Disallow: /sitemap/
-Disallow: /rss.xml
 
 Sitemap: https://www.techtips.fun/sitemap-index.xml

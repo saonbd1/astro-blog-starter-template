@@ -26,7 +26,7 @@ const posts = (await getCollection('blog'))
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${tag} articles`} description={`Browse posts tagged ${tag} on Techtips.fun.`} noindex />
+		<BaseHead title={`Posts tagged ${tag}`} description={`Explore TechTips.fun posts tagged ${tag}, with practical tutorials and technology insights.`} noindex />
 		<style>
 			main { width: 960px; }
 			header { margin-bottom: 2rem; text-align: center; }
@@ -55,7 +55,7 @@ const posts = (await getCollection('blog'))
 				{posts.map((post: CollectionEntry<'blog'>) => (
 					<li>
 						<a href={`/blog/${post.id}/`}>
-							<img src={post.data.heroImage} alt="" width="360" height="203" />
+							<img src={post.data.heroImage} alt={post.data.title} width="360" height="203" />
 							<div>
 								<h2 class="title">{post.data.title}</h2>
 								<p class="date"><FormattedDate date={post.data.pubDate} /></p>

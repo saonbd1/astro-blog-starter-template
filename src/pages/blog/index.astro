@@ -2,7 +2,6 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import CategoryNav from '../../components/CategoryNav.astro';
@@ -11,12 +10,14 @@ import { toTaxonomySlug } from '../../utils/taxonomy';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const pageTitle = 'All TechTips.fun articles';
+const pageDescription = 'Browse practical guides on AI, Linux, privacy, open systems, web development, and everyday technology.';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={pageTitle} description={pageDescription} />
 		<style>
 			main { width: 960px; }
 			.topic-links { display: flex; gap: 0.75rem; justify-content: center; margin: 0 0 2rem; }
@@ -30,9 +31,9 @@ const posts = (await getCollection('blog')).sort(
 			.post-card { display: block; text-decoration: none; }
 			.post-card img { border-radius: 12px; margin-bottom: 0.5rem; }
 			.post-card img, .post-card .title, .post-card .date { transition: 0.2s ease; }
-			.title { color: rgb(var(--black)); line-height: 1; margin: 0; }
+			.title { color: rgb(var(--black)); font-size: 1.563em; line-height: 1; margin: 0; }
 			.date { color: rgb(var(--gray)); margin: 0.45rem 0 0; }
-			.post-card:hover h4, .post-card:hover .date { color: rgb(var(--accent)); }
+			.post-card:hover h2, .post-card:hover .date { color: rgb(var(--accent)); }
 			.post-card:hover img { box-shadow: var(--box-shadow); }
 			.taxonomy { align-items: center; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
 			.taxonomy a { background: rgba(var(--gray-light), 0.55); border-radius: 999px; color: rgb(var(--gray-dark)); font-size: 0.82rem; padding: 0.25rem 0.55rem; text-decoration: none; }
@@ -60,7 +61,7 @@ const posts = (await getCollection('blog')).sort(
 						<li>
 							<a class="post-card" href={`/blog/${post.id}/`}>
 								<img width={960} height={480} src={post.data.heroImage ?? '/blog-placeholder-1.webp'} alt={post.data.title} />
-								<h4 class="title">{post.data.title}</h4>
+								<h2 class="title">{post.data.title}</h2>
 								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
 							</a>
 							<div class="taxonomy" aria-label="Post taxonomy">

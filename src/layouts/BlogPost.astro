@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import PostShare from '../components/PostShare.astro';
+import PostAuthor from '../components/PostAuthor.astro';
 import { toTaxonomySlug } from '../utils/taxonomy';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -183,7 +184,7 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <img width={1020} height={510} src={heroImage} alt={title} />}
 				</div>
 				<div class="prose">
 					<div class="title">
@@ -226,7 +227,9 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 					<div class="post-content"><slot /></div>
 				)}
 					<PostShare />
-			</article>
+					<PostAuthor />
+
+				</article>
 		</main>
 		<Footer />
 		{showToc && (

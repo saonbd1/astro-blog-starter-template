@@ -2,129 +2,139 @@
 const today = new Date();
 ---
 
-	<footer>
-			<nav class="footer-sections" aria-label="Footer navigation">
-			<section class="footer-section" aria-labelledby="footer-explore">
-				<h2 id="footer-explore">Explore</h2>
-				<ul>
-					<li><a href="/about/">About</a></li>
-					<li><a href="/contact-me/">Contact</a></li>
-					<li><a href="/sitemap">Sitemap</a></li>
-				</ul>
-			</section>
-			<section class="footer-section" aria-labelledby="footer-policies">
-				<h2 id="footer-policies">Policies</h2>
-				<ul>
-					<li><a href="/privacy-policy/">Privacy Policy</a></li>
-					<li><a href="/cookies/">Cookie Policy</a></li>
-				</ul>
-			</section>
-			<section class="footer-section" aria-labelledby="footer-terms">
-				<h2 id="footer-terms">Terms &amp; disclosures</h2>
-				<ul>
-					<li><a href="/terms-of-service/">Terms of Service</a></li>
-					<li><a href="/disclosure/">Disclosure</a></li>
-				</ul>
-			</section>
-		</nav>
+<footer>
+	<nav class="footer-sections" aria-label="Footer navigation">
+		<section class="footer-section" aria-labelledby="footer-explore">
+			<p id="footer-explore" class="footer-label">Explore</p>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/contact-me/">Contact</a></li>
+				<li><a href="/sitemap/">Sitemap</a></li>
+			</ul>
+		</section>
+		<section class="footer-section" aria-labelledby="footer-policies">
+			<p id="footer-policies" class="footer-label">Policies</p>
+			<ul>
+				<li><a href="/privacy-policy/">Privacy Policy</a></li>
+				<li><a href="/cookies/">Cookie Policy</a></li>
+			</ul>
+		</section>
+		<section class="footer-section" aria-labelledby="footer-terms">
+			<p id="footer-terms" class="footer-label">Terms &amp; disclosures</p>
+			<ul>
+				<li><a href="/terms-of-service/">Terms of Service</a></li>
+				<li><a href="/disclosure/">Disclosure</a></li>
+			</ul>
+		</section>
+	</nav>
 
-		<div class="social-links">
-		<a href="#" target="_blank">
-			<span class="sr-only">Follow SaonBD on Mastodon</span>
-			<svg
-				viewBox="0 0 16 16"
-				aria-hidden="true"
-				width="32"
-				height="32"
-				astro-icon="social/mastodon"
-				><path
-					fill="currentColor"
-					d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-				></path></svg
-			>
+	<div class="social-links">
+<a href="https://www.facebook.com/saon.islam.bd" target="_blank" rel="noopener noreferrer">
+				<span class="sr-only">Follow SaonBD on Facebook</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/facebook"><path fill="currentColor" d="M16 8.05C16 3.6 12.42 0 8 0S0 3.6 0 8.05c0 4.02 2.93 7.35 6.75 7.95v-5.63H4.72V8.05h2.03V6.28c0-2.02 1.19-3.13 3.02-3.13.88 0 1.8.16 1.8.16v1.98h-1.01c-1 0-1.31.62-1.31 1.26v1.5h2.23l-.36 2.32H9.25V16C13.07 15.4 16 12.07 16 8.05z" /></svg>
 		</a>
-		<a href="https://x.com/ayenaldewan/" target="_blank">
-			<span class="sr-only">Follow SaonBD on Twitter</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"
-				><path
-					fill="currentColor"
-					d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-				></path></svg
-			>
+		<a href="https://x.com/ayenaldewan/" target="_blank" rel="noopener noreferrer">
+			<span class="sr-only">Follow SaonBD on X</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" /></svg>
 		</a>
-		<a href="https://github.com/saonbd1/astro-blog-starter-template/" target="_blank">
-			<span class="sr-only">Go to Techtips GitHub repo</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
-				><path
-					fill="currentColor"
-					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-				></path></svg
-			>
+		<a href="https://github.com/saonbd1/astro-blog-starter-template/" target="_blank" rel="noopener noreferrer">
+			<span class="sr-only">Go to Techtips GitHub repository</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg>
 		</a>
-		</div>
-		<p class="copyright">&copy; {today.getFullYear()} Techtips.fun All rights reserved.</p>
-	</footer>
+	</div>
+	<p class="copyright">&copy; {today.getFullYear()} Techtips.fun All rights reserved.</p>
+</footer>
+
 <style>
-		footer {
-			padding: 3rem 1rem 4rem;
-			background: linear-gradient(var(--gray-gradient)) no-repeat;
-			color: rgb(var(--gray));
-			text-align: center;
-		}
-		.footer-sections {
-			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 2rem;
-			width: min(100%, 760px);
-			margin: 0 auto;
-			text-align: left;
-		}
-		.footer-section h2 {
+	footer {
+		padding: 3rem 1rem 4rem;
+		background:
+			radial-gradient(circle at 10% 0%, rgba(104, 112, 246, 0.36), transparent 38%),
+			radial-gradient(circle at 90% 20%, rgba(90, 180, 255, 0.2), transparent 35%),
+			linear-gradient(115deg, #0b0e19, #20264b);
+		color: #aeb4d6;
+		text-align: center;
+	}
+
+	.footer-sections {
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 2rem;
+		width: min(100%, 760px);
+		margin: 0 auto;
+		padding: 1.4rem;
+		border: 1px solid rgba(217, 220, 255, 0.14);
+		border-radius: 0.85rem;
+		background: rgba(7, 10, 22, 0.18);
+		text-align: left;
+	}
+
+.footer-label {
 			margin: 0 0 0.75rem;
-			color: rgb(var(--gray-dark));
+			color: #fff;
 			font-size: 0.9rem;
+			font-weight: 700;
 			letter-spacing: 0.04em;
+			line-height: 1.2;
 			text-transform: uppercase;
 		}
-		.footer-section ul {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		.footer-section li + li {
-			margin-top: 0.5rem;
-		}
-		.footer-section a {
-			color: rgb(var(--accent));
-			font-size: 0.95rem;
-			text-decoration: none;
-		}
-		.footer-section a:hover,
-		.footer-section a:focus-visible {
-			text-decoration: underline;
-		}
-		.copyright {
-			margin: 1.25rem 0 0;
-		}
-	.social-links {
 
+	.footer-section ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.footer-section li + li {
+		margin-top: 0.5rem;
+	}
+
+	.footer-section a {
+		color: #c8ccff;
+		font-size: 0.95rem;
+		text-decoration: none;
+	}
+
+	.footer-section a:hover,
+	.footer-section a:focus-visible {
+		text-decoration: underline;
+	}
+
+	.social-links {
 		display: flex;
 		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		gap: 1rem;
+		margin-top: 1rem;
 	}
+
 	.social-links a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.3rem;
+		height: 2.3rem;
+		border: 1px solid rgba(217, 220, 255, 0.24);
+		border-radius: 50%;
+		color: #e9eaff;
 		text-decoration: none;
-		color: rgb(var(--gray));
 	}
-		.social-links a:hover {
-			color: rgb(var(--gray-dark));
+
+	.social-links a:hover,
+	.social-links a:focus-visible {
+		border-color: rgba(217, 220, 255, 0.55);
+		color: #bfc4ff;
+	}
+
+	.copyright {
+		margin: 1.25rem 0 0;
+	}
+
+	@media (max-width: 36rem) {
+		.footer-sections {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+			text-align: center;
 		}
-		@media (max-width: 36rem) {
-				.footer-sections {
-					grid-template-columns: 1fr;
-					gap: 1.75rem;
-					text-align: center;
-				}
-			}
-	</style>
+	}
+</style>

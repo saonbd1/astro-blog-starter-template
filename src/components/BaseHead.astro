@@ -27,6 +27,39 @@ const {
 	noindex = false,
 } = Astro.props;
 const imageURL = new URL(socialImage ?? image, Astro.site ?? Astro.url);
+const articleImageURL = new URL(image, Astro.site ?? Astro.url);
+const siteURL = new URL('/', Astro.site ?? Astro.url);
+const authorURL = new URL('/about/', Astro.site ?? Astro.url);
+const articleSchema =
+	type === 'article' && publishedTime
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BlogPosting',
+				'@id': `${canonicalURL.href}#blogposting`,
+				mainEntityOfPage: {
+					'@type': 'WebPage',
+					'@id': canonicalURL.href,
+				},
+				headline: title,
+				description,
+				image: [articleImageURL.href],
+				datePublished: publishedTime,
+				dateModified: modifiedTime ?? publishedTime,
+				author: {
+					'@type': 'Person',
+					name: 'SaonBD',
+					url: authorURL.href,
+				},
+				publisher: {
+					'@type': 'Organization',
+					'@id': `${siteURL.href}#organization`,
+					name: 'Techtips.fun',
+					url: siteURL.href,
+				},
+				inLanguage: 'en',
+				isAccessibleForFree: true,
+			}
+		: undefined;
 ---
 
 <!-- Global Metadata -->
@@ -73,3 +106,6 @@ const imageURL = new URL(socialImage ?? image, Astro.site ?? Astro.url);
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
 <meta name="twitter:image:alt" content={`${title} social sharing card`} />
+{articleSchema && (
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+)

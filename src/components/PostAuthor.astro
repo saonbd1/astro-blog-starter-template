@@ -1,0 +1,122 @@
+<article class="post-author" aria-label="About the author">
+	<img class="post-author__portrait" src="/portrait.webp" alt="SaonBD" width="144" height="144" />
+	<div class="post-author__content">
+		<p class="post-author__eyebrow">ABOUT THE AUTHOR</p>
+		<h2>SaonBD</h2>
+		<p>SaonBD writes practical guides on AI, Linux, privacy, and open systems—turning technical ideas into useful next steps.</p>
+		<div class="post-author__actions">
+			<a href="/about/">More about SaonBD <span aria-hidden="true">→</span></a>
+			<a href="https://x.com/ayenaldewan/" target="_blank" rel="noopener noreferrer">Follow on X <span aria-hidden="true">↗</span></a>
+		</div>
+	</div>
+</article>
+
+<style>
+	.post-author {
+		align-items: center;
+		box-sizing: border-box;
+		display: flex;
+		gap: 1.35rem;
+		margin: 3rem auto 1rem;
+		padding: 1.4rem;
+		width: calc(100% - 2rem);
+		border: 1px solid rgba(142, 169, 255, 0.34);
+		border-radius: 1rem;
+		border-top: 3px solid #84a5ff;
+		background: radial-gradient(circle at 92% 0%, rgba(100, 135, 255, 0.28), transparent 42%), linear-gradient(135deg, #0b1024, #17264d);
+		box-shadow: 0 14px 28px rgba(10, 16, 36, 0.2);
+		color: #f7f9ff;
+	}
+
+	.post-author__portrait {
+		display: block;
+		flex: 0 0 auto;
+		height: 5.4rem;
+		object-fit: cover;
+		width: 5.4rem;
+		border: 3px solid #8caaff;
+		border-radius: 50%;
+		box-shadow: 0 0 0 3px rgba(140, 170, 255, 0.14);
+	}
+
+	.post-author__content {
+		min-width: 0;
+	}
+
+	.post-author__eyebrow {
+		color: #bdd0ff;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		margin: 0 0 0.48rem;
+		text-transform: uppercase;
+	}
+
+	.post-author h2 {
+		color: #fff;
+		font-size: 1.28rem;
+		letter-spacing: -0.025em;
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	.post-author__content > p:not(.post-author__eyebrow) {
+		color: #d4deee;
+		font-size: 0.94rem;
+		line-height: 1.55;
+		margin: 0.7rem 0 0;
+	}
+
+	.post-author__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem 1rem;
+		margin-top: 1rem;
+	}
+
+	.post-author__actions a {
+		color: #bdd0ff;
+		font-size: 0.86rem;
+		font-weight: 750;
+		text-decoration: none;
+	}
+
+	.post-author__actions a:hover,
+	.post-author__actions a:focus-visible {
+		color: #fff;
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+
+	.post-author__actions span {
+		margin-left: 0.15rem;
+	}
+
+	@media (max-width: 560px) {
+		.post-author {
+			align-items: flex-start;
+			gap: 1rem;
+			padding: 1.15rem;
+			width: calc(100% - 1rem);
+		}
+
+		.post-author__portrait {
+			height: 4.3rem;
+			width: 4.3rem;
+		}
+
+		.post-author h2 {
+			font-size: 1.15rem;
+		}
+	}
+
+	@media (max-width: 410px) {
+		.post-author {
+			flex-direction: column;
+		}
+
+		.post-author__actions {
+			gap: 0.65rem;
+		}
+	}
+</style>
