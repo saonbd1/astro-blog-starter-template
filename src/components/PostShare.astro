@@ -1,0 +1,147 @@
+<section class="post-share" aria-labelledby="share-post-heading">
+	<div class="share-minimal-row">
+		<h2 id="share-post-heading" class="share-minimal-label">Share this post</h2>
+		<div class="share-text-actions" aria-label="Share this post">
+			<button type="button" data-share="x" aria-label="Share this post on X">X</button>
+			<button type="button" data-share="facebook" aria-label="Share this post on Facebook">Facebook</button>
+			<button type="button" data-share="linkedin" aria-label="Share this post on LinkedIn">LinkedIn</button>
+			<button type="button" data-share="whatsapp" aria-label="Share this post on WhatsApp">WhatsApp</button>
+			<button type="button" data-share="copy">Copy link</button>
+		</div>
+	</div>
+	<p class="share-status" data-share-status aria-live="polite"></p>
+</section>
+
+<style>
+	.post-share {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 2.75rem 0 1.25rem;
+		padding: 0 1rem;
+	}
+
+	.share-minimal-row {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.25rem;
+		padding: 1.05rem 0;
+		border-top: 1px solid rgba(var(--gray), 0.36);
+		border-bottom: 1px solid rgba(var(--gray), 0.36);
+	}
+
+	.share-minimal-label {
+		margin: 0;
+		color: rgb(var(--gray-dark));
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.share-text-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.2rem 0.65rem;
+	}
+
+	.share-text-actions button {
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: rgb(var(--gray-dark));
+		font: inherit;
+		font-size: 0.9rem;
+		cursor: pointer;
+		text-decoration: underline;
+		text-decoration-color: rgba(var(--accent), 0.55);
+		text-underline-offset: 0.22em;
+	}
+
+	.share-text-actions button:not(:last-child)::after {
+		content: '·';
+		padding-left: 0.65rem;
+		color: rgb(var(--gray));
+		text-decoration: none;
+	}
+
+	.share-text-actions button:hover,
+	.share-text-actions button:focus-visible {
+		color: rgb(var(--accent));
+		outline: none;
+	}
+
+	.share-status {
+		min-height: 1.2em;
+		margin: 0.5rem 0 0;
+		color: rgb(var(--gray));
+		font-size: 0.82rem;
+	}
+
+	@media (max-width: 36rem) {
+		.share-minimal-row {
+			gap: 0.55rem 1rem;
+		}
+	}
+</style>
+
+<script>
+	const shareButtons = document.querySelectorAll<HTMLButtonElement>('[data-share]');
+	const shareStatus = document.querySelector<HTMLElement>('[data-share-status]');
+
+	const getShareDetails = () => {
+		const url = window.location.href;
+		const title = document.querySelector('h1')?.textContent?.trim() || document.title;
+		return { url, title };
+	};
+
+	const setStatus = (message: string) => {
+		if (shareStatus) shareStatus.textContent = message;
+	};
+
+	const copyPostLink = async (url: string) => {
+		try {
+			if (navigator.clipboard?.writeText) {
+				await navigator.clipboard.writeText(url);
+			} else {
+				const fallback = document.createElement('textarea');
+				fallback.value = url;
+				fallback.setAttribute('readonly', '');
+				fallback.style.position = 'fixed';
+				fallback.style.opacity = '0';
+				document.body.append(fallback);
+				fallback.select();
+				document.execCommand('copy');
+				fallback.remove();
+			}
+
+			setStatus('Link copied to your clipboard.');
+		} catch {
+			window.prompt('Copy this post link:', url);
+		}
+	};
+
+	shareButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const { url, title } = getShareDetails();
+			const encodedUrl = encodeURIComponent(url);
+			const encodedTitle = encodeURIComponent(title);
+			const destination = button.dataset.share;
+
+			if (destination === 'copy') {
+				void copyPostLink(url);
+				return;
+			}
+
+			const shareUrls: Record<string, string> = {
+				x: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+				facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+				linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+				whatsapp: `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`,
+			};
+
+			const shareUrl = destination ? shareUrls[destination] : undefined;
+			if (shareUrl) window.open(shareUrl, '_blank', 'noopener,noreferrer');
+		});
+	});
+</script>
