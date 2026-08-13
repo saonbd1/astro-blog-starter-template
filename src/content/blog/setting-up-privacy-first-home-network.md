@@ -2,13 +2,13 @@
 title: "Setting up a privacy-first home network with Pi-hole + WireGuard"
 description: "My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunn..."
 pubDate: "Jul 17 2026"
-heroImage: "/home-network.png"
+heroImage: "/home-network.webp"
 category: "Networking & Privacy"
 tags: ["Home Network", "Privacy", "Networking", "Self-Hosting"]
 
 ---
 
-![Privacy-first home network concept](/home-network.png)
+![Privacy-first home network concept](/home-network.webp)
 
 My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunnel into it from anywhere. Here’s how I got there.
 

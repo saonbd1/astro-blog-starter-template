@@ -2,13 +2,13 @@
 title: "CSS Grid vs Flexbox when to actually use each one"
 description: "This debate has been running since Grid shipped. Most explanations are either too vague (“Grid is 2D, Flexbox is 1D”) or too prescriptive. Here’s the"
 pubDate: "Feb 18 2026"
-heroImage: "/css-grid-vs-flexbox.jpg"
+heroImage: "/css-grid-vs-flexbox.webp"
 category: "Web Development"
 tags: ["CSS", "Frontend", "Web Design", "Layouts"]
 
 ---
 
-![CSS Grid vs Flexbox visual comparison](/css-grid-vs-flexbox.jpg)
+![CSS Grid vs Flexbox visual comparison](/css-grid-vs-flexbox.webp)
 
 This debate has been running since Grid shipped. Most explanations are either too vague (“Grid is 2D, Flexbox is 1D”) or too prescriptive. Here’s the mental model that finally made it click for me.
 
@@ -93,7 +93,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ### Output
 
-![blog placeholder](/blog-placeholder-about.jpg)
+![blog placeholder](/blog-placeholder-about.webp)
 
 ## Blockquotes
 

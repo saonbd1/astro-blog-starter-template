@@ -20,6 +20,7 @@
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
+		"sharp": "^0.35.3",
 		"wrangler": "4.88.0"
 	},
 	"engines": {
@@ -28,7 +29,8 @@
 	"private": true,
 	"scripts": {
 		"astro": "astro",
-		"build": "astro build",
+		"generate:assets": "node scripts/generate-social-assets.mjs",
+		"build": "npm run generate:assets && astro build",
 		"cf-typegen": "wrangler types",
 		"check": "astro build && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",

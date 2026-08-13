@@ -2,13 +2,13 @@
 title: "AI Tools Hunt: The Best AI Tools for Researchers and Students in 2026"
 description: "Discover the best AI tools for researchers and students in 2026. Compare top discovery, literature review, and synthesis platforms tailored for beginners."
 pubDate: "Aug 06 2026"
-heroImage: "/minimal-desk.jpg"
+heroImage: "/minimal-desk.webp"
 category: "AI Tools"
 tags: ["AI", "Research", "Students", "Productivity"]
 
 ---
 
-![Minimal desk setup for academic AI research](/minimal-desk.jpg)
+![Minimal desk setup for academic AI research](/minimal-desk.webp)
 
 Starting an **AI tools hunt** for academic research can feel overwhelming. Every week, a new platform promises to revolutionize literature reviews, automate paper writing, or summarize massive datasets in seconds. For undergraduate students, graduate researchers, and early-career academics, sorting through the noise is half the battle. General-purpose chatbots like ChatGPT are useful for brainstorming, but they are a weak foundation for literature reviews and source selection because they frequently hallucinate citations and lack direct access to locked academic corpora [1].
 

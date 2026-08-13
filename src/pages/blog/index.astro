@@ -59,7 +59,7 @@ const posts = (await getCollection('blog')).sort(
 					{posts.map((post) => (
 						<li>
 							<a class="post-card" href={`/blog/${post.id}/`}>
-								<img width={960} height={480} src={post.data.heroImage ?? '/blog-placeholder-1.jpg'} alt={post.data.title} />
+								<img width={960} height={480} src={post.data.heroImage ?? '/blog-placeholder-1.webp'} alt={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 								<p class="date"><FormattedDate date={post.data.pubDate} /></p>
 							</a>

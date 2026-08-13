@@ -2,12 +2,12 @@
 title: "Ghostty Terminal Configuration Guide"
 description: "A practical guide to configuring Ghostty for a cleaner, faster, and more comfortable terminal workflow."
 pubDate: "Aug 10 2026"
-heroImage: "/ghostty-hero.png"
+heroImage: "/ghostty-hero.webp"
 category: "Linux & Terminal"
 tags: ["Ghostty", "Terminal", "Configuration", "Developer Tools"]
 ---
 
-![Ghostty terminal UI and developer workspace pixel art](/ghostty-hero.png)
+![Ghostty terminal UI and developer workspace pixel art](/ghostty-hero.webp)
 
 If you spend hours in the terminal, your setup matters. A fast, readable terminal can make a big difference in focus, speed, and comfort. Ghostty is a modern terminal emulator that gives you a clean, lightweight experience without a lot of extra clutter.
 
@@ -168,7 +168,7 @@ For performance, focus on:
 
 If your terminal feels sluggish, check the shell startup path before you change the emulator itself. In many cases, slow startup comes from shell configuration rather than the terminal.
 
-![Ghostty configuration file pixel art](/ghostty-config.png)
+![Ghostty configuration file pixel art](/ghostty-config.webp)
 
 ## Recommended starter config
 
