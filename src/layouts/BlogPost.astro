@@ -164,31 +164,7 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 			.post-content :is(h2, h3) {
 				scroll-margin-top: 5.5rem;
 			}
-			@media (min-width: 58rem) {
-				.post-layout {
-					grid-template-columns: minmax(11rem, 12rem) minmax(0, 45rem);
-					align-items: start;
-					justify-content: center;
-				}
-				.toc {
-					position: sticky;
-					top: 1.25rem;
-					width: auto;
-					margin: 0;
-					padding: 1rem 0 0;
-				}
-				.toc details {
-					padding: 0;
-					border: 0;
-					background: transparent;
-				}
-				.toc summary {
-					cursor: default;
-				}
-				.toc summary::marker {
-					display: none;
-				}
-			}
+			/* Keep the table of contents above the article at every viewport size. */
 		</style>
 	</head>
 
