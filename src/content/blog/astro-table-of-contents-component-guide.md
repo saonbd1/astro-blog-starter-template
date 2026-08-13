@@ -1,6 +1,7 @@
 ---
 title: "How to Add an Accessible Table of Contents to an Astro Blog"
 description: "Build a reusable Astro table of contents component that creates stable heading links, works on mobile, and stays accessible without an extra package."
+heroImage: "/article-media/astro-table-of-contents-hero.jpg"
 pubDate: "Aug 14 2026"
 category: "Web Development"
 tags: ["Astro", "Blog", "Accessibility", "Frontend"]
@@ -10,9 +11,9 @@ A long article is easier to scan when readers can jump directly to the section t
 
 The solution targets three practical search needs: **Astro table of contents**, **Astro table of contents component**, and **add table of contents Astro**. It uses standard Astro templates, semantic HTML, and a small browser script. You do not need another package.
 
-![A TechTips article showing the generated table of contents below the article title and tags.](/article-media/astro-toc-desktop.webp)
+![Focused desktop implementation example showing the accessible table-of-contents panel and its heading links.](/article-media/astro-toc-focus-desktop-final.png)
 
-*The table of contents appears before the article body and lists the available sections from a real local production preview.*
+*Focused desktop implementation view. This tinted panel isolates the table-of-contents component; it is not a full live-page screenshot.*
 
 ## What you will build
 
@@ -165,9 +166,9 @@ Use the table of contents as a normal part of the article flow first. This is mo
 
 The `minmax(0, 1fr)` rule is useful in responsive layouts because it allows the content track to shrink instead of forcing overflow. The `scroll-margin-top` rule prevents a sticky or tall header from covering the section title after a reader selects a link.
 
-![A narrow mobile TechTips preview showing the compact header and the table of contents contained within the article column.](/article-media/astro-toc-mobile.webp)
+![Focused mobile implementation example showing the accessible table-of-contents panel in a narrow format.](/article-media/astro-toc-focus-mobile.png)
 
-*At a 390 px viewport, long section names wrap inside the table-of-contents panel instead of creating horizontal scrolling.*
+*Focused mobile implementation view. The color treatment distinguishes this component example from the live site while showing how the heading links remain contained on a narrow screen.*
 
 ## Enable the component from your blog route
 
