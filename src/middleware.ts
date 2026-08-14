@@ -1,20 +1,31 @@
 import { defineMiddleware } from "astro:middleware";
 
 const canonicalHost = "www.techtips.fun";
+const apexHost = "techtips.fun";
+
+function getRequestProtocol(request: Request, fallback: string) {
+  const visitorHeader = request.headers.get("cf-visitor");
+
+  if (visitorHeader) {
+    try {
+      const visitor = JSON.parse(visitorHeader) as { scheme?: string };
+      if (visitor.scheme === "http" || visitor.scheme === "https") {
+        return visitor.scheme;
+      }
+    } catch {
+      // Fall back to the URL protocol when the Cloudflare header is invalid.
+    }
+  }
+
+  return fallback.replace(":", "");
+}
 
 export const onRequest = defineMiddleware((context, next) => {
   const hostname = context.url.hostname.toLowerCase();
-  const protocol = context.request.headers.get("cf-visitor")
-    ? JSON.parse(context.request.headers.get("cf-visitor") || "{}").scheme
-    : context.url.protocol.replace(":", "");
+  const protocol = getRequestProtocol(context.request, context.url.protocol);
+  const shouldRedirect = protocol === "http" || hostname === apexHost;
 
-  const isApexHost = hostname === "techtips.fun";
-  const isWwwHost = hostname === canonicalHost;
-  const isHttpRequest = protocol === "http";
-
-  // Redirect all HTTP requests to HTTPS
-  // Redirect apex domain (techtips.fun) to www (www.techtips.fun)
-  if (isHttpRequest || isApexHost) {
+  if (shouldRedirect) {
     const canonicalUrl = new URL(context.url);
     canonicalUrl.protocol = "https:";
     canonicalUrl.hostname = canonicalHost;
