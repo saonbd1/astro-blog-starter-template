@@ -4,7 +4,7 @@ description: "I’ve been using Linux as my daily driver for over five years. In
 pubDate: "Jul 17 2026"
 heroImage: "/linux-server.webp"
 category: "Linux & Terminal"
-tags: ["Linux", "Terminal", "Command Line", "Developer Tools"]
+tags: ["Linux", "Terminal"]
 
 ---
 
