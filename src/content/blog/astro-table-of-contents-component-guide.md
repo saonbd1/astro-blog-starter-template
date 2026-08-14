@@ -4,7 +4,7 @@ description: "Build a reusable Astro table of contents component that creates st
 heroImage: "/article-media/astro-table-of-contents-hero.jpg"
 pubDate: "Aug 14 2026"
 category: "Web Development"
-tags: ["Astro", "Blog", "Accessibility", "Frontend"]
+tags: ["Blog", "Accessibility", "Frontend"]
 ---
 
 A long article is easier to scan when readers can jump directly to the section they need. In this guide, you will add an **Astro table of contents** that reads the headings already rendered in a post, creates stable anchor links, and works in a shared article layout.
