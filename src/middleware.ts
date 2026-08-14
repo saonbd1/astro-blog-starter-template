@@ -14,7 +14,7 @@ export const onRequest = defineMiddleware((context, next) => {
   
   const isApexHost = hostname === "techtips.fun";
   
-  const isHttpRequest = !tlsVersion;
+  const isHttpRequest = tlsVersion === "none";
   
 
   
