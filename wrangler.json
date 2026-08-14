@@ -24,6 +24,14 @@
 			
 			"zone_id": "7c53d51c78a988e2c4fd381738899f61"
 			
+		},
+		
+		{
+			
+			"pattern": "www.techtips.fun/*",
+			
+			"zone_id": "7c53d51c78a988e2c4fd381738899f61"
+			
 		}
 		
 	],
@@ -37,6 +45,10 @@
 	"upload_source_maps": true
 	
 }
+
+
+
+
 
 
 
