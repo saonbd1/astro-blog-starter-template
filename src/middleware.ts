@@ -10,11 +10,11 @@ export const onRequest = defineMiddleware((context, next) => {
   
   const hostname = context.url.hostname.toLowerCase();
   
-  const forwardedProto = context.request.headers.get("x-forwarded-proto")?.toLowerCase();
+  const tlsVersion = context.request.cf?.tlsVersion;
   
   const isApexHost = hostname === "techtips.fun";
   
-  const isHttpRequest = forwardedProto === "http";
+  const isHttpRequest = !tlsVersion;
   
 
   
