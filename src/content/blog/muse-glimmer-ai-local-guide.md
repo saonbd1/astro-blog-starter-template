@@ -4,7 +4,7 @@ description: "Learn what Muse Glimmer AI is, what hardware it needs, how to run 
 pubDate: "Aug 11 2026"
 heroImage: "/muse-glimmer-ai-feature-image.webp"
 category: "AI Tools"
-tags: ["AI", "Local AI", "AI Agents", "Open Source"]
+tags: ["Local AI", "AI Agents", "Open Source"]
 
 ---
 
