@@ -4,7 +4,7 @@ description: "A practical guide to configuring Ghostty for a cleaner, faster, an
 pubDate: "Aug 10 2026"
 heroImage: "/ghostty-hero.webp"
 category: "Linux & Terminal"
-tags: ["Ghostty", "Terminal", "Configuration", "Developer Tools"]
+tags: ["Ghostty", "Terminal", "Developer Tools"]
 ---
 
 ![Ghostty terminal UI and developer workspace pixel art](/ghostty-hero.webp)
