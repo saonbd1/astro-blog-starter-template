@@ -2,7 +2,7 @@
 title: "How to Create Categories and Tags in an Astro Blog"
 description: "Create clear categories and useful tags in an Astro blog, generate archive pages at build time, and choose the right navigation option for readers."
 heroImage: "/article-media/astro-categories-tags-hero.jpg"
-pubDate: "Aug 14 2026"
+pubDate: "Aug 15 2026"
 category: "Web Development"
 tags: ["Astro", "Blog", "Content Collections", "SEO", "Frontend"]
 ---
