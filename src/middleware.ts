@@ -24,6 +24,10 @@ function getRequestProtocol(request: Request, fallback: string) {
 }
 
 export const onRequest = defineMiddleware((context, next) => {
+  if (context.url.pathname === "/sitemap.xml") {
+    return Response.redirect("https://www.techtips.fun/sitemap-index.xml", 301);
+  }
+
   const legacyTarget = legacyArticleRedirects.get(context.url.pathname);
   if (legacyTarget) {
     const targetUrl = new URL(legacyTarget, context.url.origin);
