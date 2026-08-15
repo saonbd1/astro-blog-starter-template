@@ -3,12 +3,24 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
+
+const siteUrl = new URL('/', Astro.site);
+const contactSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'ContactPage',
+	'@id': `${siteUrl.href}contact-me/#webpage`,
+	url: `${siteUrl.href}contact-me/`,
+	name: `Contact Me - ${SITE_TITLE}`,
+	description: 'Get in touch with TechTips.fun for questions, feedback, or collaboration ideas.',
+	isPartOf: { '@id': `${siteUrl.href}#website` },
+	mainEntity: { '@id': `${siteUrl.href}#organization` },
+};
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Contact Me - ${SITE_TITLE}`} description="Get in touch with Techtips.fun" />
+		<BaseHead title={`Contact Me - ${SITE_TITLE}`} description="Get in touch with Techtips.fun" schema={contactSchema} />
 	</head>
 	<body>
 		<Header />

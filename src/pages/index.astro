@@ -21,12 +21,42 @@ const popularPosts = popularPostIds
 	.map((id) => posts.find((post) => post.id === id))
 	.filter((post): post is (typeof posts)[number] => Boolean(post));
 const categories = [...new Set(posts.map((post) => post.data.category))].slice(0, 6);
----
+const siteUrl = new URL('/', Astro.site);
+const homepageSchema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': `${siteUrl.href}#website`,
+			url: siteUrl.href,
+			name: SITE_TITLE,
+			description: SITE_DESCRIPTION,
+			publisher: { '@id': `${siteUrl.href}#organization` },
+		},
+		{
+			'@type': 'Organization',
+			'@id': `${siteUrl.href}#organization`,
+			name: SITE_TITLE,
+			url: siteUrl.href,
+			description: SITE_DESCRIPTION,
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${siteUrl.href}#webpage`,
+			url: siteUrl.href,
+			name: SITE_TITLE,
+			description: SITE_DESCRIPTION,
+			isPartOf: { '@id': `${siteUrl.href}#website` },
+			about: { '@id': `${siteUrl.href}#organization` },
+		},
+	],
+};
+	---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} schema={homepageSchema} />
 		<style>
 			main { max-width: 1120px; padding: 0 1.25rem 4rem; width: 100%; }
 			.intro { max-width: 720px; padding: 4.5rem 0 2.6rem; }

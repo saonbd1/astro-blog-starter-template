@@ -1,5 +1,31 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+
+const siteUrl = new URL('/', Astro.site);
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      '@id': `${siteUrl.href}about/#webpage`,
+      url: `${siteUrl.href}about/`,
+      name: 'About SaonBD | TechTips.fun',
+      description: 'Meet SaonBD, the creator of TechTips.fun and a longtime explorer of SEO, AI, open source, privacy, and Web3.',
+      isPartOf: { '@id': `${siteUrl.href}#website` },
+      mainEntity: { '@id': `${siteUrl.href}about/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl.href}about/#person`,
+      name: 'SaonBD',
+      url: `${siteUrl.href}about/`,
+      description: 'SEO, AI, open source, privacy, and Web3 writer and creator of TechTips.fun.',
+      image: new URL('/portrait.webp', Astro.site).href,
+      sameAs: ['https://x.com/ayenaldewan/', 'https://github.com/saonbd1/'],
+      worksFor: { '@id': `${siteUrl.href}#organization` },
+    },
+  ],
+};
 ---
 
 <Layout
@@ -7,6 +33,7 @@ import Layout from '../layouts/BlogPost.astro';
   description="Meet SaonBD, the creator of TechTips.fun and a longtime explorer of SEO, AI, open source, privacy, and Web3."
   pubDate={new Date()}
   heroImage="/portrait.webp"
+  schema={aboutSchema}
 >
   <div class="about-page">
     <section class="about-intro" aria-labelledby="about-heading">

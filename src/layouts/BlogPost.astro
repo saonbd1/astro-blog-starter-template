@@ -11,6 +11,7 @@ import { toTaxonomySlug } from '../utils/taxonomy';
 type Props = CollectionEntry<'blog'>['data'] & {
 	socialImage?: string;
 	showToc?: boolean;
+	schema?: Record<string, unknown>;
 };
 
 const props = Astro.props.frontmatter || Astro.props;
@@ -24,6 +25,7 @@ const {
 	tags = [],
 	socialImage,
 	showToc = false,
+	schema,
 } = props;
 const publishedTime = pubDate instanceof Date ? pubDate.toISOString() : undefined;
 const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : undefined;
@@ -38,8 +40,9 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 			socialImage={socialImage}
 			type={socialImage ? 'article' : 'website'}
 			publishedTime={publishedTime}
-			modifiedTime={modifiedTime}
-		/>
+				modifiedTime={modifiedTime}
+				schema={schema}
+			/>
 		<style>
 			main {
 				width: 100%;
