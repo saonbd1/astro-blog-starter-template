@@ -135,6 +135,43 @@ const posts = (await getCollection('blog'))
 
 Then render the `posts` array as normal cards or a simple list. The result is a category page such as `/categories/web-development/` and a tag page such as `/tags/astro/`. If you want an all-tags index, Astro’s official [tag-index tutorial](https://docs.astro.build/en/tutorial/5-astro-api/3/) shows the same collection-data approach.
 
+The route logic only prepares the data. The page still needs markup that gives readers a useful preview of each post. This compact example renders a responsive list with a linked title, a descriptive image, a summary, and a machine-readable publication date:
+
+```astro
+---
+const { category, posts } = Astro.props;
+---
+
+<h1>{category}</h1>
+
+<ul class="post-list">
+  {posts.map((post) => (
+    <li>
+      <a href={`/blog/${post.id}/`}>
+        {post.data.heroImage && (
+          <img
+            src={post.data.heroImage}
+            alt={post.data.title}
+            width="640"
+            height="360"
+            loading="lazy"
+          />
+        )}
+        <div>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString()}
+          </time>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>
+```
+
+Add a small grid or flex layout around `.post-list`, then test long titles and missing hero images at a narrow viewport. The `loading="lazy"` attribute is appropriate for archive thumbnails below the first visible content, while the explicit dimensions help reserve space before an image loads.
+
 ## Create URL-safe taxonomy slugs
 
 Never use the raw category or tag value directly as a URL. A small helper keeps paths predictable when labels contain spaces, punctuation, or an ampersand.
@@ -191,6 +228,10 @@ For a narrow screen, let the category links scroll horizontally rather than wrap
 Taxonomy helps only when it stays intentional. Use categories for your long-term editorial pillars, and merge tags that mean the same thing. For example, choose either `AI Tools` or `Artificial Intelligence Tools`, not both. Review your category and tag list every few months as the blog grows.
 
 Do not create a new tag for a phrase used in one post unless you expect related posts to follow. A tag archive with one thin result rarely helps readers. In contrast, a category page with several related practical articles can become a helpful navigation page even if you choose not to include it in your XML sitemap.
+
+### Decide whether taxonomy pages should be indexed
+
+Taxonomy pages can be valuable for readers without being valuable search landing pages. In the TechTips.fun implementation, the category and tag index routes use `noindex,follow`: search engines may continue to follow the post links, but the thin archive pages themselves are not requested as indexed results. This is a deliberate choice for small or overlapping archives, not a requirement for every blog. Review the page depth and usefulness before applying the same rule, and see Google’s [robots meta tag documentation](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag) for the meaning of `noindex` and `follow`.
 
 ## Test before you publish
 
