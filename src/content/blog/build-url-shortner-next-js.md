@@ -26,7 +26,7 @@ The project stores links in a local JSON file. Replace this file with a durable 
 
 The user submits a URL such as `www-ton/asd`. The browser sends the URL to `POST /api/shorten`.
 
-![Check the project build.](/article-media/link-shortner-2.png)
+![Check the project build.](/article-media/link-shortner2.jpg)
 
 The API validates the URL and checks the stored destinations. It creates a six-character code when no matching link exists. It then stores the link and returns a short URL.
 
@@ -168,7 +168,7 @@ These controls were not part of the verified project work.
 
 The project used the following test sequence:
 
-![URL shortner routing.](/article-media/linkshortner-next-js.png)
+![URL shortner routing](/article-media/linkshortner-next-js.png)
 
 ## Conclusion
 
