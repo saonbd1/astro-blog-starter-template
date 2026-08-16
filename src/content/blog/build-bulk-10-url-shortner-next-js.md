@@ -1,14 +1,12 @@
 ---
-title: "Build a Bulk URL Shortner Platform With Next JS"
-description: " Follow Easy Steps Next.js for URL redirect route; Learn more about URL shortener API validation; dynamic short URL route."
+title: "Build a Bulk 10 URL Shortener Platform Using Next.JS"
+description: " Follow Easy Steps on Next.js for URL redirect route; Learn more about URL shortener API validation; dynamic short URL route."
 heroImage: "/article-media/bulk-url-shortner.png"
 pubDate: "Aug 17 2026"
 category: "Web Development"
 tags: ["Next JS", "Tools", "Frontend"]
 ---
 
-
-![Bulk link shortner 10 links](/bulk-url-shortner.png)
 
 ## Introduction
 
