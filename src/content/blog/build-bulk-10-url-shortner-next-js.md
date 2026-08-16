@@ -12,13 +12,13 @@ tags: ["Next JS", "Tools", "Frontend"]
 
 A URL shortener accepts a long URL and returns a shorter URL. The short URL must still point to the original destination.
 
-The eslotmain.xyz project uses the Next.js App Router for this process. The project has an API route, local link storage, a dynamic redirect route, and a client form.
+I just implemented and published a url shortener on (https://eslotmain.xyz). Anyone can try this tool now with 2 ways:
+ - A single url submitter for quick generation. No login or signup needed to generate .
+ - A bulk url submitter for batch submission. Up to 10 urls can be shortened from a single submission.   
 
-The production build passed. A generated short code also returned an HTTP 307 redirect to its original destination.
+This project uses the Next.js App Router for this process. The project has an API route, local link storage, a dynamic redirect route, and a client form. The production build passed. A generated short code also returned an HTTP 307 redirect to its original destination.
 
-This article explains the project structure and the main design choices. It does not claim production deployment, traffic growth, or permanent storage.
-
-The project stores links in a local JSON file. Replace this file with a durable database before production use.
+Here I explain the project structure and the main design choices. I do not claim production deployment, traffic growth, or permanent storage. The project stores links in a local JSON file. Replace this file with a durable database before production use.
 
 ## What the project builds
 
@@ -78,7 +78,7 @@ The project also compares the normalized destination with stored destinations. I
 
 This rule prevents repeated submissions from creating duplicate records during local use.
 
-## Step 3: Return the short URL
+## Step 3: Deliver the short URL
 
 The API builds the result from the request origin. It does not use a fixed development hostname:
 
@@ -134,7 +134,7 @@ This separation keeps the main security rules on the server.
 
 ## Common problems and fixes
 
-### The build passes, but the short link does not redirect
+### The project deployment is Okay, but the short link does not redirect
 
 A successful build shows that the application compiles. It does not show that the dynamic route finds a stored record.
 
@@ -175,6 +175,4 @@ The main pattern has five parts. Validate the destination on the server. Create 
 This pattern gives the project a clear path from local JSON storage to a durable database.
 
 The next features can include authentication, analytics, rate limits, and durable storage. Add these features after the create-and-redirect flow has automated tests.
-
-
 
