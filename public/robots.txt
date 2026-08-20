@@ -1,33 +1,23 @@
 # Techtips.fun crawler rules
-# Public editorial content is intentionally available to search engines and AI crawlers.
+# Public editorial content is available to search engines and AI search crawlers.
+# Cloudflare's managed robots.txt block controls AI-training access with ai-train=no.
 # Keep private, draft, or non-canonical URLs out of the site build instead of relying on robots.txt.
 
 User-agent: *
 Allow: /
 
-# OpenAI: allow ChatGPT search, user-request retrieval, and model-training crawls.
+# OpenAI search and user-request retrieval.
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: GPTBot
-Allow: /
-
-# Anthropic: allow Claude search, user-request retrieval, and model-training crawls.
+# Anthropic search and user-request retrieval.
 User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: Claude-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-# Google: preserve Search visibility and allow AI/LLM controls to access public content.
-# Google-Extended is a control token; it does not use a separate crawler user agent.
-User-agent: Google-Extended
 Allow: /
 
 # Perplexity search crawler.
