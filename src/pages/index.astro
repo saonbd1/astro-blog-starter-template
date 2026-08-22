@@ -68,7 +68,7 @@ const homepageSchema = {
 			.section-heading a { color: rgb(var(--accent)); font-weight: 700; text-decoration: none; }
 			.section-heading a:hover { text-decoration: underline; }
 			.featured { background: rgb(var(--gray-light)); border-radius: 22px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr); margin-bottom: 4rem; overflow: hidden; }
-			.featured-image { aspect-ratio: 16 / 9; display: block; min-height: 370px; overflow: hidden; }
+			.featured-image { aspect-ratio: 16 / 9; display: block; overflow: hidden; }
 			.featured-image img { display: block; height: 100%; min-height: 0; object-fit: cover; transition: transform 0.35s var(--ease-out, ease-out); width: 100%; }
 			.featured:hover .featured-image img { transform: scale(1.025); }
 			.featured-content { align-content: center; display: grid; padding: clamp(1.75rem, 4vw, 3.5rem); }
@@ -125,7 +125,7 @@ const homepageSchema = {
 				main { padding: 0 1rem 3rem; }
 				.intro { padding: 3rem 0 2rem; }
 				.featured { grid-template-columns: 1fr; margin-bottom: 3rem; }
-				.featured-image { min-height: 245px; }
+				.featured-image { aspect-ratio: 16 / 9; }
 				.featured-content { padding: 1.5rem; }
 					.post-grid { gap: 2rem 1rem; }
 					.post-card-body { min-height: 0; }
