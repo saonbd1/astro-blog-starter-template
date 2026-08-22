@@ -15,21 +15,15 @@ For most websites that want search engines to understand their pages and qualify
 
 Choose **Schema.org with JSON-LD** when your priority is search-engine understanding, supported Google Search features, and a structured format that is easy to maintain separately from your visible HTML. Choose **microformats** when you need lightweight, human-readable HTML that works with IndieWeb tools, Webmentions, or microformat parsers.
 
-You can use both on the same page when each describes the same visible information and the two representations stay consistent. Adding markup does not guarantee a rich result, and Google requires structured data to accurately represent content that users can see on the page.[1]
+You can use both on the same page when each describes the same visible information and the two representations stay consistent. Adding markup does not guarantee a rich result, and Google requires structured data to accurately represent content that users can see on the page.
 
-| Question | Schema.org with JSON-LD | Microformats |
-| --- | --- | --- |
-| What is it? | A vocabulary of types and properties for describing entities and relationships | HTML conventions built from semantic elements and class names |
-| Common syntax | JSON-LD in a `<script>` element; Schema.org can also be used with Microdata or RDFa | Classes and attributes such as `h-card`, `p-name`, and `dt-published` |
-| Best fit | SEO, structured-data systems, and supported rich-result features | IndieWeb publishing, Webmentions, and HTML-based parsers |
-| Main advantage | Broad vocabulary and separation from presentation markup | Simple, visible, and easy to add directly to existing HTML |
-| Main limitation | Requires careful validation and accurate entity modeling | Smaller vocabulary and less direct support for modern search features |
+
 
 ## What is Schema.org markup?
 
 [Schema.org](https://schema.org/) is a shared vocabulary for describing things on the web. It defines types such as `Article`, `Person`, `Product`, `Organization`, and `Event`, together with properties such as `headline`, `author`, `price`, and `startDate`.
 
-Schema.org is the **vocabulary**, not the encoding format. You can express the vocabulary with JSON-LD, Microdata, or RDFa. Google recommends JSON-LD in general because it is usually easier to implement and maintain at scale.[2]
+Schema.org is the **vocabulary**, not the encoding format. You can express the vocabulary with JSON-LD, Microdata, or RDFa. Google recommends JSON-LD in general because it is usually easier to implement and maintain at scale.
 
 ### Schema.org with JSON-LD
 
@@ -107,7 +101,7 @@ This distinction matters because “Schema.org versus JSON-LD” is not a true c
 
 ### 2. They target different ecosystems
 
-Schema.org is widely used by search engines and other systems that consume structured data. Google Search supports JSON-LD, Microdata, and RDFa for structured data, although its documentation generally recommends JSON-LD for maintainability.[2]
+Schema.org is widely used by search engines and other systems that consume structured data. Google Search supports JSON-LD, Microdata, and RDFa for structured data, although its documentation generally recommends JSON-LD for maintainability.
 
 Microformats are designed around ordinary HTML and are strongly associated with decentralized publishing and the IndieWeb. They are a good fit when a human-readable DOM structure is important to your downstream tools.
 
@@ -115,11 +109,11 @@ Microformats are designed around ordinary HTML and are strongly associated with 
 
 Schema.org covers many entity types and relationships, including products, recipes, organizations, local businesses, courses, and events. Microformats cover a smaller set of common publishing patterns, such as people, organizations, posts, events, and reviews.
 
-A larger vocabulary is not automatically better. Use the most specific model that accurately represents the page, and do not add properties simply to insert more keywords. Structured data must be relevant, complete enough for the feature you are targeting, and consistent with the visible content.[1]
+A larger vocabulary is not automatically better. Use the most specific model that accurately represents the page, and do not add properties simply to insert more keywords. Structured data must be relevant, complete enough for the feature you are targeting, and consistent with the visible content.
 
 ### 4. Search visibility is not guaranteed
 
-Structured data can help search engines understand a page and can make it eligible for certain enhanced search appearances. It is not a ranking shortcut or a guarantee that a rich result will appear. Google may choose a different presentation based on the query, device, location, page quality, and other signals.[1]
+Structured data can help search engines understand a page and can make it eligible for certain enhanced search appearances. It is not a ranking shortcut or a guarantee that a rich result will appear. Google may choose a different presentation based on the query, device, location, page quality, and other signals.
 
 Microformats can support semantic discovery and third-party parsers, but they are not a substitute for following the documentation for the specific search feature you want. Always check the current Google Search Central guidance before implementing a feature-specific markup type.
 
@@ -139,7 +133,7 @@ Microformats are also useful when you want relationships and content properties 
 
 ### Use both when there is a clear reason
 
-A page can expose an `h-entry` for IndieWeb consumers and a `BlogPosting` JSON-LD object for search engines. If you do this, keep the title, author, URL, dates, and other shared details synchronized. Do not mark up content that is hidden, misleading, or unrelated to the main page.[1]
+A page can expose an `h-entry` for IndieWeb consumers and a `BlogPosting` JSON-LD object for search engines. If you do this, keep the title, author, URL, dates, and other shared details synchronized. Do not mark up content that is hidden, misleading, or unrelated to the main page.
 
 A practical implementation might look like this:
 
@@ -167,22 +161,7 @@ A practical implementation might look like this:
 
 The two blocks are not competing ranking signals. They are two representations for different consumers. The important requirement is that both describe the same page accurately.
 
-## SEO implementation checklist
-
-Before publishing structured data, review the page as both a reader and a parser. The following checklist keeps the implementation focused:
-
-| Check | What to verify |
-| --- | --- |
-| Page purpose | The main structured-data type matches the page’s primary content. |
-| Visibility | Marked-up information is visible to users and is not misleading. |
-| Accuracy | Titles, authors, dates, URLs, images, and entity relationships match the page. |
-| Completeness | Required properties for the intended Google feature are present. |
-| Format | JSON-LD, Microdata, or RDFa is valid and placed on the page it describes. |
-| Crawlability | The page and referenced images can be crawled and indexed. |
-| Validation | Run the page through Google’s Rich Results Test and review Search Console after deployment. |
-| Consistency | If using both systems, shared values do not contradict one another. |
-
-Google’s documentation states that structured data enables a feature but does not guarantee that the feature will appear in search results.[1] Treat it as a way to communicate meaning clearly, not as a promise of higher rankings.
+Google’s documentation states that structured data enables a feature but does not guarantee that the feature will appear in search results. Treat it as a way to communicate meaning clearly, not as a promise of higher rankings.
 
 ## Common mistakes to avoid
 
@@ -192,7 +171,7 @@ These terms describe different layers. Schema.org is a vocabulary. JSON-LD and M
 
 ### Adding markup that users cannot see
 
-Do not describe a review, author, price, event, or rating that is not represented in the visible page content. Misleading or irrelevant structured data can make a page ineligible for rich results and may lead to a manual action.[1]
+Do not describe a review, author, price, event, or rating that is not represented in the visible page content. Misleading or irrelevant structured data can make a page ineligible for rich results and may lead to a manual action.
 
 ### Treating markup as a keyword field
 
@@ -200,7 +179,7 @@ Structured data is not a place to repeat target phrases or invent extra entities
 
 ### Assuming valid markup guarantees a rich result
 
-Syntax validation confirms that the markup can be read. It does not guarantee eligibility or display. Use the Rich Results Test for technical checks, then monitor the page in Search Console after it is live.[2]
+Syntax validation confirms that the markup can be read. It does not guarantee eligibility or display. Use the Rich Results Test for technical checks, then monitor the page in Search Console after it is live.
 
 ## Final recommendation
 
@@ -208,10 +187,3 @@ For most websites, start with **Schema.org vocabulary in JSON-LD**. It offers br
 
 If you need both, implement both deliberately and keep their shared information identical. The best markup is not the markup with the most fields. It is the markup that gives search engines and other software a clear, accurate description of content that people can actually see.
 
-## References
-
-[1]: https://developers.google.com/search/docs/appearance/structured-data/sd-policies "Google Search Central: General structured data guidelines"
-[2]: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data "Google Search Central: Introduction to structured data markup in Google Search"
-[3]: https://schema.org/docs/gs.html "Schema.org: Getting started with schema.org using Microdata"
-[4]: https://microformats.org/wiki/Main_Page "Microformats Wiki: Microformats"
-[5]: https://indieweb.org/microformats "IndieWeb: Microformats"
