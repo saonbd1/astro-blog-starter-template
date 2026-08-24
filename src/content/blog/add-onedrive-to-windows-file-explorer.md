@@ -1,8 +1,8 @@
 ---
 title: "Missing OneDrive on Windows 11 PC, How to Add it on File Explorer?"
 description: "Learn how to add OneDrive to File Explorer on Windows 10 and Windows 11. Follow setup steps and fix a OneDrive folder not showing in File Explorer."
-pubDate: Feb 25 2026
-heroImage: "/"
+pubDate: "Feb 25 2026"
+heroImage: "/search-onedrive-start-menu.png"
 category: "PC Troubleshooting"
 tags: ["Windows", "Cloud Storage", "How To", "Developer Tools"]
 ---
@@ -27,7 +27,7 @@ Make sure your operating system is activated and it is up to date. If you need t
 
 If you have done things above I am pretty sure OneDrive is already installed on your system. Check it by searching on the taskbar “One Drive” and you will see it. 
 
-![Search OneDrive or Open From Start Menu](/article-media/search-onedrive-start-menu.png)
+![Search OneDrive or Open From Start Menu](/search-onedrive-start-menu.png)
 
 But if you don’t then follow this: 
 
@@ -35,7 +35,7 @@ But if you don’t then follow this:
 
 ### Step 1: Download and Install OneDrive Manually 
 
-![Official download link for microsoft onedrive](/article-media/download-onedrive-manually.png)
+![Official download link for microsoft onedrive](/download-onedrive-manually.png)
 
 Download it from the [official OneDrive download page](https://www.microsoft.com/microsoft-365/onedrive/download). Then install the app. Now open it from the start menu or search it on searchbox. 
 
@@ -43,7 +43,7 @@ Download it from the [official OneDrive download page](https://www.microsoft.com
 
 When OneDrive Setup opens, enter your Microsoft account email address. Select **Sign in**.
 
-![Sign in to start using onedrive](/article-media/onedrive-signin-page-login.png)
+![Sign in to start using onedrive](/onedrive-signin-page-login.png)
 
 Enter your microsoft account email and password if OneDrive asks for it. Complete any account security step that appears.
 
@@ -55,7 +55,7 @@ OneDrive Setup shows the location for your OneDrive folder. Select **Next** to u
 
 To use a custom folder location of your choice, select **Change location**. Choose the folder on your PC. Then complete the setup. You can also change the location anytime from onedrive setting 
 
-![Choose your prefered OneDrive folder ](/article-media/select-onedrive-sync-folder.png)
+![Choose your prefered OneDrive folder ](/select-onedrive-sync-folder.png)
 
 Select the folder location before OneDrive starts the full sync. This is the best time to change the location. 
 
