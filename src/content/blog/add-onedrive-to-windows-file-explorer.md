@@ -1,7 +1,7 @@
 ---
 title: "Missing OneDrive on Windows 11 PC, How to Add it on File Explorer?"
 description: "Learn how to add OneDrive to File Explorer on Windows 10 and Windows 11. Follow setup steps and fix a OneDrive folder not showing in File Explorer."
-pubDate: "Feb 25 2026"
+pubDate: "Aug 25 2026"
 heroImage: "/search-onedrive-start-menu.png"
 category: "PC Troubleshooting"
 tags: ["Windows", "Cloud Storage", "How To", "Developer Tools"]
