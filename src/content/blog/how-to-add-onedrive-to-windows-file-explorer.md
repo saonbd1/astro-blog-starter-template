@@ -27,7 +27,7 @@ Make sure your operating system is activated and it is up to date. If you need t
 
 If you have done things above I am pretty sure OneDrive is already installed on your system. Check it by searching on the taskbar “One Drive” and you will see it. 
 
-![OneDrive Setting](/article-media/one-drive-app-settings.png)
+![][image1]
 
 But if you don’t then follow this: 
 
@@ -35,18 +35,17 @@ But if you don’t then follow this:
 
 ### Step 1: Download and Install OneDrive Manually 
 
-![download onedrive](/article-media/download-one-drive-manually.png)
+![][image2]
 
-
-Download it from the [official OneDrive download page](https://www.microsoft.com/microsoft-365/onedrive/download). Then install the app. Now open it from the start menu or search it on search box. 
+Download it from the [official OneDrive download page](https://www.microsoft.com/microsoft-365/onedrive/download). Then install the app. Now open it from the start menu or search it on searchbox. 
 
 ### Step 2: Sign in to OneDrive
 
 When OneDrive Setup opens, enter your Microsoft account email address. Select **Sign in**.
 
-![signin onedrive](/article-media/signin-one-drive-account.png)
+![][image3]
 
-Enter your Microsoft account email and password if OneDrive asks for it. Complete any account security step that appears.
+Enter your microsoft account email and password if OneDrive asks for it. Complete any account security step that appears.
 
 OneDrive supports a personal account and work or school accounts. You can use more than one work or school account. You can use only one personal OneDrive account on one PC. 
 
@@ -56,7 +55,7 @@ OneDrive Setup shows the location for your OneDrive folder. Select **Next** to u
 
 To use a custom folder location of your choice, select **Change location**. Choose the folder on your PC. Then complete the setup. You can also change the location anytime from onedrive setting 
 
-![one drive folder selection](/article-media/one-drive-folder-select.png)
+![][image4]
 
 Select the folder location before OneDrive starts the full sync. This is the best time to change the location. 
 
