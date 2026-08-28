@@ -31,12 +31,10 @@ This is the recommended **DISM RestoreHealth then sfc scannow** order. Do not cl
 
 Although both tools repair Windows, they work at different levels. DISM repairs the Windows image and component store. SFC then uses the repaired store or its cached copies to verify protected operating-system files.
 
-| Tool | Main purpose | Command | Typical position in the repair sequence |
-|---|---|---|---|
-| DISM | Repairs the Windows image and component store | `DISM.exe /Online /Cleanup-Image /RestoreHealth` | Run first |
-| SFC | Scans protected system files and replaces damaged files when possible | `sfc /scannow` | Run after DISM |
+**DISM** repairs the Windows image and component store. Run it first with `DISM.exe /Online /Cleanup-Image /RestoreHealth`. The `/Online` option targets the Windows installation that is currently running. The `/Cleanup-Image` option selects image servicing, and `/RestoreHealth` tells DISM to scan for component-store corruption and repair it.
 
-The `/Online` option tells DISM to work on the Windows installation that is currently running. The `/Cleanup-Image` option selects image servicing, and `/RestoreHealth` tells DISM to scan for component-store corruption and repair it.
+**SFC** scans protected system files and replaces damaged files when a suitable replacement is available. Run it after DISM with `sfc /scannow`. SFC can use the repaired component store or its cached copies to restore protected operating-system files.
+
 
 > Microsoft recommends running DISM before the System File Checker because DISM provides the files required to repair corrupted system files.[1]
 
