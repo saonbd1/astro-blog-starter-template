@@ -84,12 +84,20 @@ After the commands finish, restart Windows 11 and check whether the original pro
 
 SFC provides a useful summary at the end of the scan. The wording may vary slightly by Windows version, but the main outcomes are consistent.
 
-| SFC result | Meaning | Recommended next step |
-|---|---|---|
-| Windows Resource Protection did not find any integrity violations | SFC did not find missing or corrupted protected system files. | Restart if needed, then investigate updates, drivers, applications, malware, or hardware if the problem remains. |
-| Windows Resource Protection found corrupt files and successfully repaired them | SFC found damaged files and repaired them. | Restart Windows and test the system again. |
-| Windows Resource Protection found corrupt files but was unable to fix some of them | Some files remain damaged or their replacement source was unavailable. | Review the SFC details, confirm DISM completed successfully, and use Windows recovery options if the issue persists. |
-| Windows Resource Protection could not perform the requested operation | SFC could not complete the requested scan. | Try the scan in Safe Mode and check the conditions Microsoft documents for this result.[1] |
+SFC can report several different results after the scan. If Windows Resource Protection did not find any integrity violations, SFC did not detect missing or corrupted protected system files. Restart Windows if needed. If the problem remains, investigate Windows updates, drivers, applications, malware, or hardware.
+
+If Windows Resource Protection found corrupt files and successfully repaired them, SFC found damaged files and repaired them. Restart Windows and test the system again.
+
+If Windows Resource Protection found corrupt files but was unable to fix some of them, some files remain damaged or the required replacement source was unavailable. Review the SFC details, confirm that DISM completed successfully, and use Windows recovery options if the issue continues.
+
+If Windows Resource Protection could not perform the requested operation, SFC could not complete the scan. Try running the scan in Safe Mode and check the conditions Microsoft documents for this result.[1]
+
+<ul>
+<li><strong>No integrity violations:</strong> SFC found no missing or corrupted protected system files. Restart if needed, then investigate other possible causes if the problem remains.</li>
+<li><strong>Corrupt files repaired:</strong> SFC found damaged files and repaired them. Restart Windows and test the system again.</li>
+<li><strong>Some corrupt files could not be repaired:</strong> Review the SFC details, confirm DISM completed successfully, and use Windows recovery options if necessary.</li>
+<li><strong>Requested operation could not be performed:</strong> Run SFC in Safe Mode and review Microsoft's documented troubleshooting conditions.[1]</li>
+</ul>
 
 ## What to do when sfc /scannow cannot fix corrupted files
 
