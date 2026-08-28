@@ -42,7 +42,7 @@ Although both tools repair Windows, they work at different levels. DISM repairs 
 
 Save your open work and connect the computer to reliable power. The scans can take time, and the apparent progress may pause for several minutes. Avoid restarting, shutting down, or closing the command window during a scan.
 
-It is also sensible to install pending Windows updates and restart the computer before starting. Microsoft includes updating and restarting among its preliminary steps for using SFC.[2] If Windows is unstable, back up important personal files first. SFC and DISM are designed to repair Windows components, but a backup protects your data if the underlying problem is a failing drive or another hardware fault.
+It is also sensible to install pending Windows updates and restart the computer before starting. Microsoft includes updating and restarting among its preliminary steps for using SFC. If your pc is unstable, back up important personal files first. SFC and DISM are designed to repair Windows components, but a backup protects your data if the underlying problem is a failing drive or another hardware fault.
 
 ## How to run SFC and DISM in Windows 11
 
@@ -94,7 +94,7 @@ If Windows Resource Protection could not perform the requested operation, SFC co
 <li><strong>No integrity violations:</strong> SFC found no missing or corrupted protected system files. Restart if needed, then investigate other possible causes if the problem remains.</li>
 <li><strong>Corrupt files repaired:</strong> SFC found damaged files and repaired them. Restart Windows and test the system again.</li>
 <li><strong>Some corrupt files could not be repaired:</strong> Review the SFC details, confirm DISM completed successfully, and use Windows recovery options if necessary.</li>
-<li><strong>Requested operation could not be performed:</strong> Run SFC in Safe Mode and review Microsoft's documented troubleshooting conditions.[1]</li>
+<li><strong>Requested operation could not be performed:</strong> Run SFC in Safe Mode and review Microsoft's documented troubleshooting conditions.</li>
 </ul>
 
 ## What to do when sfc /scannow cannot fix corrupted files
@@ -131,7 +131,7 @@ To extract SFC-related entries into a readable file on the desktop, run this com
 findstr /c:"[SR]" %windir%\Logs\CBS\CBS.log >"%userprofile%\Desktop\sfcdetails.txt"
 ```
 
-Open **sfcdetails.txt** and review the entries from the most recent scan. The file can contain records from earlier SFC runs, so check the date and time before deciding which files remain unrepaired.[1] [3]
+Open **sfcdetails.txt** and review the entries from the most recent scan. The file can contain records from earlier SFC runs, so check the date and time before deciding which files remain unrepaired.
 
 Do not download replacement DLL files from unverified websites. A file with the correct name may still be the wrong Windows version, modified, infected, or incompatible with the installed build. Manual replacement is an advanced procedure and should not be the first response to an SFC failure.
 
