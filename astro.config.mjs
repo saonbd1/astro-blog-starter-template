@@ -3,10 +3,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+	output: "static",
 	site: "https://www.techtips.fun",
 	integrations: [
 			mdx(),
@@ -14,9 +14,4 @@ export default defineConfig({
 				filter: (page) => !page.includes('/categories/') && !page.includes('/tags/') && !page.includes('/sitemap/'),
 			}),
 		],
-	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
-	}),
 });

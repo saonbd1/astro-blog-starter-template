@@ -1,7 +1,5 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { statSync } from "node:fs";
-import { resolve } from "node:path";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const AUTHOR_NAME = "SaonBD";
@@ -27,11 +25,10 @@ function getImageMetadata(imagePath) {
 	if (!imagePath) return undefined;
 	const extension = imagePath.split(".").pop()?.toLowerCase() ?? "";
 	const type = MIME_TYPES[extension] ?? "application/octet-stream";
-	const filePath = resolve(process.cwd(), "public", imagePath.replace(/^\/+/, ""));
 	return {
 		url: imagePath,
 		type,
-		length: statSync(filePath).size,
+		length: 0,
 	};
 }
 

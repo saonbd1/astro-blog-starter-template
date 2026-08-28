@@ -1,71 +1,22 @@
 {
-	
-	"name": "astro-blog-starter-template",
-	
-	"compatibility_date": "2025-10-08",
-	
-	"compatibility_flags": ["nodejs_compat"],
-	
-	"main": "./dist/_worker.js/index.js",
-	
-	"assets": {
-		
-		"directory": "./dist",
-		
-		"binding": "ASSETS"
-		
-	},
-	
-	"routes": [
-		
-		{
-			
-			"pattern": "techtips.fun/*",
-			
-			"zone_id": "7c53d51c78a988e2c4fd381738899f61"
-			
-		},
-		
-		{
-			
-			"pattern": "www.techtips.fun/*",
-			
-			"zone_id": "7c53d51c78a988e2c4fd381738899f61"
-			
-		}
-		
-	],
-	
-	"observability": {
-		
-		"enabled": true
-		
-	},
-	
-	"upload_source_maps": true
-	
+  "name": "astro-blog-starter-template",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    {
+      "pattern": "techtips.fun/*",
+      "zone_id": "7c53d51c78a988e2c4fd381738899f61"
+    },
+    {
+      "pattern": "www.techtips.fun/*",
+      "zone_id": "7c53d51c78a988e2c4fd381738899f61"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": false
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
