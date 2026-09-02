@@ -7,7 +7,7 @@ category: "PC Troubleshooting"
 tags: ["Windows", "PC Maintenance", "Troubleshooting", "Command Line", "Beginner Guide"]
 ---
 
-If you are ruuning Windows 11 operating, it may become unstable when any protected system files are missing, damaged, or changed. You may noticed some common symptoms like repeated error messages, some Windows features that suddenly stopped working, failed automatic updates, application crashes, freezing, or unexpected restarts. To fix these Micorosoft team includes two built-in tools on Windows 11 that can easily repair this type of problems: **Deployment Image Servicing and Management (DISM)** and **System File Checker (SFC)**.
+If you are running Windows 11 operating system, it may become unstable when any protected system files are missing, damaged, or changed. You may noticed some common symptoms like repeated error messages, some Windows features that suddenly stopped working, failed automatic updates, application crashes, freezing, or unexpected restarts. To fix these Micorosoft team includes two built-in tools on Windows 11 that can easily repair this type of problems: **Deployment Image Servicing and Management (DISM)** and **System File Checker (SFC)**.
 
 The standard repair sequence is simple: run **DISM RestoreHealth**, wait for it to finish successfully, and then run **sfc /scannow**. DISM repairs the Windows component store that supplies replacement files, while SFC checks protected system files and replaces damaged copies when possible.
 
