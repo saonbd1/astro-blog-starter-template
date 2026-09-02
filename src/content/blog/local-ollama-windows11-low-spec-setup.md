@@ -8,9 +8,6 @@ tags: ["AI", "Windows", "Beginner Guide"]
 
 ---
 
-
-# How to Run Ollama Locally on a Low-Spec Windows 11 PC
-
 Ollama can run large language models on your own computer. You do not need a GPU. You do not need any cloud storage. With a small model and a few tweaks, a 4 GB RAM laptop can serve text generation in under a second.
 
 This guide shows the minimum setup that works on weak hardware.
