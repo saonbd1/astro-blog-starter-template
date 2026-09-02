@@ -101,13 +101,13 @@ If you have limited hardware but want strong reasoning capabilities, Phi-4 is th
 
 You don’t need a cloud subscription. Here are three ways to run open-source models on your own machine:
 
--  **Ollama**  — the easiest way. One command to download and run any model. Works on Mac, Linux, and Windows.
+-  **Ollama**  — the easiest way. One command to [download and run any model Windows 11 PC.](https://www.techtips.fun/blog/local-ollama-windows11-low-spec-setup/)
+ in one go
 -  **LM Studio**  — a desktop app with a clean UI. Great for trying different models without touching the terminal.
 -  **Jan**  — open-source, privacy-first. Runs entirely offline with a ChatGPT-like interface.
 
 ```
-# [Install Ollama and run Llama4 locally] (https://www.techtips.fun/blog/local-ollama-windows11-low-spec-setup/)
- in one go
+# Install Ollama and run Llama4 in one go
 curl -fsSL https://ollama.com/install.sh | sh
 ollama run llama4:scout-8b
 ```
