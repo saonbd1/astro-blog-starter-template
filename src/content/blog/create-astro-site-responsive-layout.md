@@ -1,5 +1,5 @@
 ---
-title: "How to Build a Responsive Astro Site Layout?"
+title: "Create an Astro Site Layout Responsive & Mobile Friendly"
 description: "Build an Astro blog/site template fully responsive. Implement the header, footer and navigation components using shared layout system, see example."
 heroImage: "/responsive-astro-site.png"
 pubDate: "Sep 08 2026"
