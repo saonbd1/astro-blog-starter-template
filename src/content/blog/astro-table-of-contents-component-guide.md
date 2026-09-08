@@ -65,7 +65,7 @@ The important parts are `data-toc`, `data-post-content`, and `data-toc-list`. Th
 
 ## Add a stable heading-ID generator
 
-A table-of-contents link needs a matching ID on its target heading. Some Markdown pipelines add heading IDs automatically. Astro’s [Markdown and heading guide](https://docs.astro.build/en/guides/markdown-content/) explains the default Markdown behavior, but do not assume IDs are present in every case—especially when content can come from Markdown, MDX, or a custom component.
+A table-of-contents link needs a matching ID on its target heading. Some Markdown pipelines add heading IDs automatically. Astro’s [Markdown and heading guide](https://docs.astro.build/en/guides/markdown-content/) explains the default Markdown behavior, but do not assume IDs are present in every case—especially when content can come from [schema or microformat Markup](https://www.techtips.fun/blog/schema-vs-microformats-markup-guide/), MDX, or a custom component. 
 
 Add this script below the article markup in the same layout. It finds headings in the post body only, so it does not accidentally include headings from the header, footer, or author card.
 
