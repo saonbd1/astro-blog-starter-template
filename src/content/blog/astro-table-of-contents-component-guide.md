@@ -24,7 +24,7 @@ The finished component will do four things:
 - Add an ordered list of links that point to those IDs.
 - Remove the table of contents when an article has no qualifying headings.
 
-This approach works well for an Astro blog because the same layout can wrap every post. Astro content can be rendered inside a shared layout, while the content itself remains simple Markdown or MDX. See Astro’s [content-collections documentation](https://docs.astro.build/en/guides/content-collections/) for the supported content and rendering workflow.
+This approach works well for an [responsive astro blog layout](https://www.techtips.fun/blog/create-astro-site-responsive-layout/), it can wrap every post. Astro content can be rendered inside a shared layout, while the content itself remains simple Markdown or MDX. See Astro’s [content-collections documentation](https://docs.astro.build/en/guides/content-collections/) for the supported content and rendering workflow.
 
 ## Start with a shared article layout
 
