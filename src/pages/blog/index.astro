@@ -10,7 +10,7 @@ import { toTaxonomySlug } from '../../utils/taxonomy';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const pageTitle = 'All TechTips.fun articles';
+const pageTitle = 'All Articles on Tech Tips';
 const pageDescription = 'Browse practical guides on AI, Linux, privacy, open systems, web development, and everyday technology.';
 const siteUrl = new URL('/', Astro.site);
 const blogSchema = {
@@ -71,7 +71,7 @@ const blogSchema = {
 			<Header />
 			<CategoryNav />
 				<main>
-					<h1>All TechTips.fun articles</h1>
+					<h1>All Articles on Tech Tips</h1>
 					<nav class="topic-links" aria-label="Browse blog topics">
 					<a href="/tags/">Browse tags</a>
 				</nav>
