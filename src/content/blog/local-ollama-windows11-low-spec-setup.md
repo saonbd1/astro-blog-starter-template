@@ -4,13 +4,13 @@ description: "With a small model and a few tweaks, a 4 GB RAM laptop can serve t
 pubDate: "Sep 03 2026"
 heroImage: "/ollama-windows-cover-option-2.png"
 category: "AI Tools"
-tags: ["AI", "Windows", "Beginner Guide"]
+tags: ["AI", "Windows", "Beginner Guide", "Ollama", "Gemma", "Deepseek" ]
 
 ---
 
-Ollama can run large language models on your own computer. You do not need a GPU. You do not need any cloud storage. With a small model and a few tweaks, a 4 GB RAM laptop can serve text generation in under a second.
+Ollama can run large language models on your own computer. You do not need a GPU to run it on your pc. And there are no need of any cloud storage. With a small model and a few tweaks on a stable pc, a 4 to 8 GB RAM laptop can serve text generation in under a second.
 
-This guide shows the minimum setup that works on weak hardware.
+This guide shows the minimum setup that works on low spec hardware.
 
 ## What You Need
 
@@ -20,35 +20,47 @@ This guide shows the minimum setup that works on weak hardware.
 
 ## Step 1: Install Ollama
 
-Download the Windows installer from the Ollama website. Run the file. Accept the defaults. Ollama starts as a background service and listens on port `11434`.
+[Download the Windows installer from the Ollama website](https://ollama.com/download/OllamaSetup.exe). Run the file. Accept the defaults. Ollama starts as a background service and listens on port `11434`.
 
 ## Step 2: Pick a Small Model
 
 Large models need more RAM than a weak PC has. Pick a model that fits your memory.
 
-For 4 GB of free RAM, use the smallest tier:
+### For 4 GB of free RAM, use the smallest tier like tinnyllama:
 
 ```
 ollama pull tinyllama
 ```
 
-For 6 to 8 GB of free RAM, use a balanced tier:
+### For 6 to 8 GB of free RAM, use a balanced tier like phi3 mini
 
 ```
 ollama pull phi3:mini
 ```
 
-For 8 GB or more of free RAM, use a stronger tier:
+### For 8 GB or more of free RAM, use a stronger tier from below:
+
+#### LLAMA 3.2: 1b or 3b
 
 ```
 ollama pull llama3.2:3b
+```
+#### Deepseek R1 is Fine 
+
+```
+ollama pull deepseek-r1:8b
+```
+#### Gemma4 e2b 
+
+```
+ollama run gemma4:e2b
 ```
 
 The first pull downloads the weights. A small model is about 600 MB. A larger model is about 2 GB.
 
 ## Step 3: Run the Model
 
-Open PowerShell. Start a chat session:
+Open PowerShell with Admin From Start Menu. Start a chat session:
 
 ```
 ollama run tinyllama
@@ -58,23 +70,23 @@ Type any question. Press Enter. Wait for the reply. The first reply takes longer
 
 To stop the session, type `/bye`.
 
-## Step 4: Lower Memory Use
+## Step 4: Set The AI Lower Memory Use 
 
-These settings reduce RAM use on low config hardware. Open PowerShell as admin and run the commands before you start the model.
+These settings reduce RAM usage on a low config pc. Open PowerShell as admin and run the commands before you start the model.
 
-Set the number of layers the GPU can load. Zero means the CPU does all the work:
+### Set the number of layers the GPU can load. Zero means the CPU does all the work:
 
 ```
 [System.Environment]::SetEnvironmentVariable("OLLAMA_NUM_GPU", "0", "User")
 ```
 
-Set the number of CPU threads. Match the number of physical cores:
+### Set the number of CPU threads. Choose how many physical cores it use:
 
 ```
 [System.Environment]::SetEnvironmentVariable("OLLAMA_NUM_THREADS", "4", "User")
 ```
 
-Set the context size. A smaller context uses less memory:
+### Set the AI model context size. A smaller context uses less memory:
 
 ```
 [System.Environment]::SetEnvironmentVariable("OLLAMA_NUM_CTX", "512", "User")
@@ -98,7 +110,7 @@ curl http://localhost:11434/api/generate -d '{
 
 The response is JSON. The text is in the `response` field.
 
-## Step 6: Stop the Service
+## Step 6: Stop the AI Service Running in Background
 
 Ollama runs in the background. To free the RAM, stop the service from PowerShell as admin:
 
@@ -112,11 +124,11 @@ Start it again later with:
 Start-Service -Name "Ollama"
 ```
 
-## Troubleshooting
+## Troubleshooting Errors
 
-### The model is slow
+### The AI model is running slow
 
-Close every other program that uses RAM. A browser tab can use more memory than the model itself.
+Close every other program that uses RAM. A guide on how to [Cleanup your windows 11 pc and make it faster](https://www.techtips.fun/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/)
 
 ### PowerShell reports `ollama` is not recognized
 
@@ -143,3 +155,5 @@ Running a model on the CPU drains a laptop battery fast. Plug in the charger bef
 - Add a web UI such as Open WebUI for a chat interface
 - Write a small script that calls the API for a specific task
 - Swap the model for a larger one when you upgrade the RAM
+
+That's all for today. I will be back with something new and interesting for you. Take care.
