@@ -1,7 +1,7 @@
 ---
 layout: "../layouts/BlogPost.astro"
 title: "Cookie Policy"
-description: "How TechTips.fun uses cookies and similar technologies."
+description: "How Tech Tips in fun uses cookies and similar technologies."
 pubDate: "Aug 13 2026"
 ---
 
