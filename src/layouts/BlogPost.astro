@@ -8,10 +8,17 @@ import PostShare from '../components/PostShare.astro';
 import PostAuthor from '../components/PostAuthor.astro';
 import { toTaxonomySlug } from '../utils/taxonomy';
 
+type Heading = {
+	depth: number;
+	slug: string;
+	text: string;
+};
+
 type Props = CollectionEntry<'blog'>['data'] & {
 	socialImage?: string;
 	showToc?: boolean;
 	schema?: Record<string, unknown>;
+	headings?: Heading[];
 };
 
 const props = Astro.props.frontmatter || Astro.props;
@@ -26,6 +33,7 @@ const {
 	socialImage,
 	showToc = false,
 	schema,
+	headings = [],
 } = props;
 const publishedTime = pubDate instanceof Date ? pubDate.toISOString() : undefined;
 const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : undefined;
@@ -117,49 +125,29 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 				background: rgb(var(--accent));
 				color: white;
 			}
-			.post-layout {
-				display: grid;
-				grid-template-columns: minmax(0, 1fr);
-				gap: 1.5rem;
-				width: 100%;
-				max-width: none;
-				margin: 0;
-			}
-			.post-layout .post-content {
-				width: 100%;
-				max-width: none;
-				margin: 0;
-				box-sizing: border-box;
-			}
 			.toc {
-				width: 100%;
-				max-width: none;
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0 1em;
-			}
-			.toc details {
-				border: 1px solid rgba(var(--gray-light), 0.85);
+				background: rgba(var(--gray-light), 0.45);
+				border: 1px solid rgb(var(--gray-light));
 				border-radius: 12px;
-				background: rgba(var(--gray-light), 0.22);
-				padding: 0.8rem 1rem;
+				box-sizing: border-box;
+				margin: 0 0 2.5rem;
+				padding: 1rem 1.25rem 0.75rem;
 			}
-			.toc summary {
-				cursor: pointer;
-				color: rgb(var(--gray-dark));
-				font-weight: 700;
-				letter-spacing: 0.01em;
+			.toc-title {
+				color: rgb(var(--gray));
+				font-size: 1rem;
+				letter-spacing: 0.06em;
+				margin: 0 0 0.6rem;
+				text-transform: uppercase;
 			}
-			.toc nav {
-				margin-top: 0.75rem;
-			}
-			.toc ol {
+			.toc-list {
 				list-style: none;
 				margin: 0;
 				padding: 0;
 			}
-			.toc li + li {
-				margin-top: 0.45rem;
+			.toc-item {
+				line-height: 1.45;
+				margin-bottom: 0.25rem;
 			}
 			.toc a {
 				color: rgb(var(--gray-dark));
@@ -212,68 +200,26 @@ const modifiedTime = updatedDate instanceof Date ? updatedDate.toISOString() : u
 						<hr />
 					</div>
 				</div>
-				{showToc ? (
-					<div class="post-layout">
-						<aside class="toc" data-toc aria-label="Table of contents">
-							<details open>
-								<summary>On this page</summary>
-								<nav aria-label="Article sections">
-									<ol data-toc-list></ol>
-								</nav>
-							</details>
-						</aside>
-						<div class="post-content" data-post-content>
-							<slot />
-						</div>
-					</div>
-				) : (
-					<div class="post-content"><slot /></div>
-				)}
+				<div class="post-content">
+					{showToc && headings.length > 0 && (
+						<nav class="toc" aria-labelledby="toc-heading">
+							<h2 class="toc-title" id="toc-heading">On this page</h2>
+							<ol class="toc-list">
+								{headings.map((heading) => (
+									<li class={heading.depth > 2 ? 'toc-item toc-subitem' : 'toc-item'}>
+										<a href={`#${heading.slug}`}>{heading.text}</a>
+									</li>
+								))}
+							</ol>
+						</nav>
+					)}
+					<slot />
+				</div>
 					<PostShare />
 					<PostAuthor />
 
 				</article>
 		</main>
 		<Footer />
-		{showToc && (
-			<script>
-				const toc = document.querySelector<HTMLElement>('[data-toc]');
-				const content = document.querySelector<HTMLElement>('[data-post-content]');
-				const list = document.querySelector<HTMLOListElement>('[data-toc-list]');
-
-				if (toc && content && list) {
-					const headings = Array.from(content.querySelectorAll<HTMLHeadingElement>('h2, h3'));
-
-					headings.forEach((heading, index) => {
-						if (!heading.id) {
-							const text = heading.textContent?.trim().toLowerCase() || `section-${index + 1}`;
-							const base = text
-								.normalize('NFD')
-								.replace(/[\u0300-\u036f]/g, '')
-								.replace(/[^a-z0-9]+/g, '-')
-								.replace(/^-|-$/g, '') || `section-${index + 1}`;
-							let id = base;
-							let suffix = 2;
-
-							while (document.getElementById(id)) {
-								id = `${base}-${suffix++}`;
-							}
-
-							heading.id = id;
-						}
-
-						const item = document.createElement('li');
-						item.className = heading.tagName === 'H3' ? 'toc-subitem' : 'toc-item';
-						const link = document.createElement('a');
-						link.href = `#${heading.id}`;
-						link.textContent = heading.textContent?.trim() || `Section ${index + 1}`;
-						item.append(link);
-						list.append(item);
-					});
-
-					if (headings.length === 0) toc.remove();
-				}
-			</script>
-		)}
 	</body>
 </html>
