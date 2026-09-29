@@ -35,7 +35,7 @@ Windows 11 has a troubleshooter that repairs common network errors. The Get Help
 
 A router that runs for weeks can stop a stable connection. A restart clears its memory.
 
-![restart your router]("/router-restart-screen.png")
+![restart your router](/router-restart-screen.png)
 - Disconnect the power from the router.
 - Wait 30 seconds.
 - Connect the power to the router.
@@ -45,7 +45,7 @@ A router that runs for weeks can stop a stable connection. A restart clears its 
 ## Fix 3: Forget the Network and Connect Again
 
 Windows stores the password and the security type of every network. A wrong stored password stops the connection.
-![wifi network forget]("/wifi-network-forget.png")
+![wifi network forget](/wifi-network-forget.png)
 CAUTION: Do not forget a network that uses a certificate for sign-in. The computer needs the certificate to connect again.
 
 - Open Settings.
@@ -58,7 +58,7 @@ CAUTION: Do not forget a network that uses a certificate for sign-in. The comput
 ## Fix 4: Stop the Adapter Power Saving
 
 Windows turns off the wireless adapter to save power. This turn off breaks the connection after a few minutes. This fault causes most of the drops.
-![wifi power management]("/wifi-power-management.png")
+![wifi power management](/wifi-power-management.png)
 
 - Select Search on the taskbar.
 - Type Device Manager and select Device Manager.
@@ -154,8 +154,4 @@ If these fixes do not stop the drops, the adapter hardware can be faulty. Test t
 - [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism)
 - [Setting up a privacy-first home network with Pi-hole and WireGuard](/blog/setting-up-privacy-first-home-network)
 
-<!-- Add these links when the articles are published:
-- [Windows 11 No Sound After Update? 7 Ways to Get It Back](/blog/windows-11-no-sound-after-update)
-- [7 Ways to Fix a Fast-Draining Windows 11 Battery](/blog/windows-11-battery-drains-fast)
-- [7 Fixes for a Windows 11 Taskbar and Start Menu Missing](/blog/windows-11-taskbar-start-menu-not-showing)
--->
+
