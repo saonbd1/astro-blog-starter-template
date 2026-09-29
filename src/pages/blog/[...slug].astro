@@ -20,9 +20,13 @@ type Props = {
 };
 
 const { post, socialImage } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+// Only h2/h3 sections belong in the table of contents. Astro also reports any
+// h1/h4+ headings found in the body (some posts demo Markdown heading syntax).
+const toc = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
 ---
 
-<BlogPost {...post.data} socialImage={socialImage} showToc>
+<BlogPost {...post.data} socialImage={socialImage} showToc headings={toc}>
 	<Content />
 </BlogPost>

@@ -2,6 +2,7 @@ import { defineMiddleware } from "astro:middleware";
 
 const canonicalHost = "www.techtips.fun";
 const apexHost = "techtips.fun";
+const productionHosts = new Set([canonicalHost, apexHost]);
 const legacyArticleRedirects = new Map([
   ["/2026/07/get-rid-of-all-kinds-of-pre-installed.html", "/blog/simple-tips-to-solve-your-pc-startup-and-shutdown-problems/"],
   ["/2026/07/self-hosting-your-first-web-app-no.html", "/blog/self-hosting-your-first-web-app-no/"],
@@ -25,7 +26,8 @@ function getRequestProtocol(request: Request, fallback: string) {
 
 export const onRequest = defineMiddleware((context, next) => {
   if (context.url.pathname === "/sitemap.xml") {
-    return Response.redirect("https://www.techtips.fun/sitemap-index.xml", 301);
+    // Host-relative so previews stay on their own host.
+    return Response.redirect(new URL("/sitemap-index.xml", context.url).toString(), 301);
   }
 
   const legacyTarget = legacyArticleRedirects.get(context.url.pathname);
@@ -35,6 +37,14 @@ export const onRequest = defineMiddleware((context, next) => {
   }
 
   const hostname = context.url.hostname.toLowerCase();
+
+  // Only canonicalise on the production hosts. Local dev servers (localhost),
+  // Cloudflare preview URLs (*.workers.dev) and LAN addresses are served as-is,
+  // otherwise every preview request 301s to the live domain.
+  if (!productionHosts.has(hostname)) {
+    return next();
+  }
+
   const protocol = getRequestProtocol(context.request, context.url.protocol);
   const shouldRedirect = protocol === "http" || hostname === apexHost;
   if (shouldRedirect) {
