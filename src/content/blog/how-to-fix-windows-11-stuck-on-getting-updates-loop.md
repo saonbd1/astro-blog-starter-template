@@ -1,7 +1,7 @@
 ---
 title: "Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps"
 description: "Windows 11 stuck on the Getting updates loop? Run 5 fixes in order, from a simple restart to a full update cache reset. Most take under 30 minutes."
-pubDate: "Sep 28 2026"
+pubDate: "Sep 29 2026"
 heroImage: "/windows-11-stuck-getting-updates-loop-cover.png"
 category: "PC Troubleshooting"
 tags: ["Windows", "PC Maintenance", "Troubleshooting", "Beginner Guide"]
