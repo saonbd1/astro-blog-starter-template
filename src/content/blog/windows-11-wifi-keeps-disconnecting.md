@@ -25,7 +25,6 @@ The fixes below start with the easiest one. Each fix takes 1 to 15 minutes. If o
 Windows 11 has a troubleshooter that repairs common network errors. The Get Help app contains a second troubleshooter.
 
 ![Windows 11 Settings page showing the Other troubleshooters list, with the Network & Internet troubleshooter available to run. The screen presents diagnostic options in a calm, practical system interface.](/other-troubleshoot-windows-11.png)
-
 - Open Settings.
 - Select System > Troubleshoot > Other troubleshooters.
 - Select Run for Network & Internet.
@@ -37,7 +36,6 @@ Windows 11 has a troubleshooter that repairs common network errors. The Get Help
 A router that runs for weeks can stop a stable connection. A restart clears its memory.
 
 ![restart your router]("/router-restart-screen.png")
-
 - Disconnect the power from the router.
 - Wait 30 seconds.
 - Connect the power to the router.
@@ -75,8 +73,7 @@ Windows turns off the wireless adapter to save power. This turn off breaks the c
 
 Some routers use the same name for the 2.4 GHz band and the 5 GHz band. An adapter with automatic band selection can then lose the connection.
 
-![wireless network band](\wireless-network-band.png)
-
+![wireless network band](/wireless-network-band.png)
 - Right-click your wireless network adapter in Device Manager and select Properties.
 - Select the Advanced tab.
 - Find the setting for Wireless Mode or Band.
