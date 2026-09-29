@@ -30,7 +30,7 @@ One update can need up to two hours on a slow network.
 
 ## Method 2: Run the Windows Update Troubleshooter
 
-![other-troubleshoot-windows-11](other-troubleshoot-windows-11.png)
+![other-troubleshoot-windows-11](/other-troubleshoot-windows-11.png)
 Windows Update includes a troubleshooter for common problems.
 
 - Select Start > Settings > System > Troubleshoot > Other troubleshooters.
