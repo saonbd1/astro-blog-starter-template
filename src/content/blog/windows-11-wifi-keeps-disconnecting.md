@@ -2,7 +2,7 @@
 title: "Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It"
 description: "Windows 11 Wi-Fi keeps disconnecting every few minutes? Try these 9 fixes, from a driver setting to a full network reset."
 pubDate: "Sep 29 2026"
-heroimage: "/windows11_wifi_fix_diagram.webp"
+heroimage: "public/windows11_wifi_fix_diagram.webp"
 category: "PC Troubleshooting"
 tags: ["Windows", "PC Maintenance", "Troubleshooting", "Networking"]
 ---
