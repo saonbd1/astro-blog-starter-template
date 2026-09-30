@@ -1,7 +1,7 @@
 ---
 title: "Windows 11 No Sound After Update? 7 Ways to Get It Back"
 description: "Windows 11 has no sound after an update? Run 7 fixes, from the output device to a driver rollback and a Windows update removal."
-pubDate: "Sep 28 2026"
+pubDate: "Sep 30 2026"
 heroImage: "/article-media/windows-11-no-sound-after-update.png"
 category: "PC Troubleshooting"
 tags: ["Windows", "PC Maintenance", "Troubleshooting", "Beginner Guide"]
