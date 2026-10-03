@@ -2,7 +2,7 @@
 title: "7 Fixes for a Windows 11 Taskbar and Start Menu Missing"
 description: "Windows 11 taskbar or Start menu not showing? Restart Explorer, repair system files, and re-register the shell with 7 fixes."
 pubDate: "Oct 02 2026"
-heroimage: "/7-fix-windows-taskbar.png"
+heroImage: "/7-fix-windows-taskbar.png"
 category: "PC Troubleshooting"
 tags: ["Windows", "PC Maintenance", "Troubleshooting", "Beginner Guide"]
 ---
