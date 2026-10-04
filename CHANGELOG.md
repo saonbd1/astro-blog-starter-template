@@ -5,6 +5,7 @@ Custom features and changes on top of the upstream `astro-blog-starter-template`
 ## [2026-10-04]
 ### Added
 - **LinkedIn cross-posting automation** — `scripts/share-to-linkedin.mjs` composes a short teaser (title + truncated frontmatter `description`, ~250 chars) with the canonical article link and publishes it via the LinkedIn legacy `/v2/shares` API (`LINKEDIN_TOKEN` env var, `openid profile w_member_social` scopes; the owner URN `urn:li:person:{sub}` is resolved dynamically from `/v2/userinfo`). Run with a slug, `--latest`, or `--dry-run`. Wired to `.github/workflows/linkedin-share.yml`, which auto-fires when a new post is added to `src/content/blog/` (i.e., right after the scheduled-publish workflow commits) and also supports manual dispatch. (The newer `/v2/ugcPosts` endpoint rejects `urn:li:person` URNs for apps created under a Company Page, so the legacy endpoint is used instead.)
+- **Three automation articles staged** in `pending-posts/` (publishing one per day at 09:00 UTC from 2026-10-05, in `.order` sequence): `automate-linkedin-posts-github-actions`, `linkedin-api-pricing-free-posting-endpoint`, `content-repurposing-automation-linkedin`. Each targets a search gap validated against Google/Bing/DuckDuckGo autocomplete, answers the autocomplete questions in an FAQ section, and ships a branded 1200×630 OG card in `public/og/` (generated with `npm run generate:assets`).
 
 ## Custom features
 
