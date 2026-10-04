@@ -129,10 +129,10 @@ If these fixes do not slow the drain, the battery or the hardware is faulty. A U
 
 ## Related Articles
 
-- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop)
-- [Windows 11 No Sound After Update? 7 Ways to Get It Back](/blog/windows-11-no-sound-after-update)
-- [Simple Tips to Solve Your PC Startup and Shutdown Problems](/blog/simple-tips-to-solve-your-pc-startup-and-shutdown-problems)
+- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
+- [Windows 11 No Sound After Update? 7 Ways to Get It Back](/blog/windows-11-no-sound-after-update/)
+- [Simple Tips to Solve Your PC Startup and Shutdown Problems](/blog/simple-tips-to-solve-your-pc-startup-and-shutdown-problems/)
 
 <!-- Add this link when the article is published:
-- [7 Fixes for a Windows 11 Taskbar and Start Menu Missing](/blog/windows-11-taskbar-start-menu-not-showing)
+- [7 Fixes for a Windows 11 Taskbar and Start Menu Missing](/blog/windows-11-taskbar-start-menu-not-showing/)
 -->

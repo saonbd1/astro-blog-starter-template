@@ -6,7 +6,11 @@ name: Schedule post publishing
 # - Order: pending-posts/.order (one filename per line, first line publishes first).
 #
 # The job moves the next article into src/content/blog/, stamps today's date as
-# pubDate, moves its social card if one exists, then commits and pushes.
+# pubDate, normalises internal links to directory-style URLs (/blog/slug/),
+# moves its social card if one exists, commits and pushes — then posts the
+# LinkedIn teaser itself. (The push uses the automatic GITHUB_TOKEN, which
+# does not trigger other workflows, so the teaser cannot rely on the push
+# event in linkedin-share.yml.)
 # If your Cloudflare project auto-deploys on push, the post goes live automatically.
 # If you deploy manually with `npx wrangler deploy`, uncomment the deploy step below.
 
@@ -47,6 +51,7 @@ jobs:
           echo "No pending posts left. Nothing to publish."
 
       - name: Publish the post
+        id: publish
         if: steps.pick.outputs.found == 'true'
         env:
           FILE: ${{ steps.pick.outputs.file }}
@@ -56,6 +61,12 @@ jobs:
 
           # 1. Move the article into the content collection
           mv "pending-posts/$FILE" "src/content/blog/$FILE"
+
+          # 1b. Normalise internal links. The site serves directory-style
+          # URLs (/blog/slug/); a link without the trailing slash gets a
+          # 307 redirect from the Worker, so patch any /blog/<slug> link
+          # that is missing the slash before the commit goes out.
+          sed -i -E 's#\]\(/blog/([a-z0-9-]+)\)#](/blog/\1/)#g' "src/content/blog/$FILE"
 
           # 2. Stamp pubDate with the actual publish day
           sed -i "s/^pubDate: .*/pubDate: \"$TODAY\"/" "src/content/blog/$FILE"
@@ -74,6 +85,18 @@ jobs:
           git push
 
           echo "Published $FILE on $TODAY"
+          echo "slug=${FILE%.md}" >> "$GITHUB_OUTPUT"
+
+      # The publish commit above is pushed with the automatic GITHUB_TOKEN,
+      # which does not trigger other workflows — so the LinkedIn teaser is
+      # posted here directly instead of relying on the push event.
+      - name: Share the new post to LinkedIn
+        if: steps.publish.outputs.slug != ''
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          node scripts/share-to-linkedin.mjs "${{ steps.publish.outputs.slug }}"
 
       # Optional: deploy from this workflow instead of Cloudflare Git integration.
       # Requires the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets.

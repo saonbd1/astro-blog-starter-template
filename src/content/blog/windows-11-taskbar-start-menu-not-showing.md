@@ -67,7 +67,7 @@ Damaged system files can break the taskbar. Windows includes two repair tools: D
 - Wait until the command finishes.
 - Run `sfc /scannow`.
 - If the scan finds damaged files, restart the computer.
-- For the full repair guide, read [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism).
+- For the full repair guide, read [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/).
 
 ## Fix 5: Install the Pending Updates
 
@@ -127,8 +127,8 @@ If these fixes do not restore the taskbar, the Windows installation needs a repa
 
 ## Related Articles
 
-- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism)
-- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop)
-- [Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It](/blog/windows-11-wifi-keeps-disconnecting)
-- [Windows 11 No Sound After Update? 7 Ways to Get It Back](/blog/windows-11-no-sound-after-update)
-- [7 Ways to Fix a Fast-Draining Windows 11 Battery](/blog/windows-11-battery-drains-fast)
+- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/)
+- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
+- [Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It](/blog/windows-11-wifi-keeps-disconnecting/)
+- [Windows 11 No Sound After Update? 7 Ways to Get It Back](/blog/windows-11-no-sound-after-update/)
+- [7 Ways to Fix a Fast-Draining Windows 11 Battery](/blog/windows-11-battery-drains-fast/)

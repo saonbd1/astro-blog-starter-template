@@ -150,8 +150,8 @@ If these fixes do not stop the drops, the adapter hardware can be faulty. Test t
 
 ## Related Articles
 
-- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop)
-- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism)
-- [Setting up a privacy-first home network with Pi-hole and WireGuard](/blog/setting-up-privacy-first-home-network)
+- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
+- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/)
+- [Setting up a privacy-first home network with Pi-hole and WireGuard](/blog/setting-up-privacy-first-home-network/)
 
 

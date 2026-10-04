@@ -127,11 +127,11 @@ If these fixes do not restore the sound, the audio hardware can be faulty. A USB
 
 ## Related Articles
 
-- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop)
-- [Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It](/blog/windows-11-wifi-keeps-disconnecting)
-- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism)
+- [Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps](/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
+- [Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It](/blog/windows-11-wifi-keeps-disconnecting/)
+- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/)
 
 <!-- Add these links when the articles are published:
-- [7 Ways to Fix a Fast-Draining Windows 11 Battery](/blog/windows-11-battery-drains-fast)
-- [7 Fixes for a Windows 11 Taskbar and Start Menu Missing](/blog/windows-11-taskbar-start-menu-not-showing)
+- [7 Ways to Fix a Fast-Draining Windows 11 Battery](/blog/windows-11-battery-drains-fast/)
+- [7 Fixes for a Windows 11 Taskbar and Start Menu Missing](/blog/windows-11-taskbar-start-menu-not-showing/)
 -->

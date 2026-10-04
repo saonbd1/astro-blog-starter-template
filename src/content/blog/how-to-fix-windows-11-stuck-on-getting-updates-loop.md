@@ -73,7 +73,7 @@ net start cryptsvc
 
 ## Method 4: Repair System Files
 
-A damaged system file can block Windows Update. Windows includes two repair tools: DISM and System File Checker. For the full repair guide, read [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism).
+A damaged system file can block Windows Update. Windows includes two repair tools: DISM and System File Checker. For the full repair guide, read [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/).
 
 - Open Command Prompt as administrator.
 - Run `DISM /Online /Cleanup-Image /RestoreHealth`.
@@ -97,8 +97,8 @@ If these methods do not fix the problem, the Windows Update components need a de
 
 ## Related Articles
 
-- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism)
-- [Simple Tips to Solve Your PC Startup and Shutdown Problems](/blog/simple-tips-to-solve-your-pc-startup-and-shutdown-problems)
+- [How to Repair Corrupted Windows 11 System Files with SFC and DISM](/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/)
+- [Simple Tips to Solve Your PC Startup and Shutdown Problems](/blog/simple-tips-to-solve-your-pc-startup-and-shutdown-problems/)
 
 <!-- Add these links when the articles are published:
 - [Why Windows 11 Keeps Disconnecting Wi-Fi, and How to Fix It](/blog/windows-11-wifi-keeps-disconnecting/)
