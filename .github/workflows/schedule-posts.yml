@@ -90,6 +90,12 @@ jobs:
       # The publish commit above is pushed with the automatic GITHUB_TOKEN,
       # which does not trigger other workflows — so the LinkedIn teaser is
       # posted here directly instead of relying on the push event.
+      # Short wait first: gives the Cloudflare Git deploy a head start so
+      # the teaser's link is (usually) live by the time it goes out.
+      - name: Wait for the Cloudflare deploy
+        if: steps.publish.outputs.slug != ''
+        run: sleep 60
+
       - name: Share the new post to LinkedIn
         if: steps.publish.outputs.slug != ''
         env:

@@ -25,7 +25,7 @@ Custom features and changes on top of the upstream `astro-blog-starter-template`
 
 ### Scheduled publishing
 - `pending-posts/` staging queue with `pending-posts/.order` (first line publishes first).
-- `.github/workflows/schedule-posts.yml` publishes one pending post per day at 09:00 UTC (or on demand via workflow_dispatch): moves the article into `src/content/blog/`, stamps `pubDate` with the publish day, normalises internal `/blog/` links to directory-style URLs, moves the staged OG card into `public/og/`, commits and pushes — the Cloudflare Git integration then deploys — and finally posts the LinkedIn teaser directly via `scripts/share-to-linkedin.mjs` (the push itself uses `GITHUB_TOKEN`, which does not trigger other workflows).
+- `.github/workflows/schedule-posts.yml` publishes one pending post per day at 09:00 UTC (or on demand via workflow_dispatch): moves the article into `src/content/blog/`, stamps `pubDate` with the publish day, normalises internal `/blog/` links to directory-style URLs, moves the staged OG card into `public/og/`, commits and pushes — the Cloudflare Git integration then deploys — waits 60s for the deploy, and finally posts the LinkedIn teaser directly via `scripts/share-to-linkedin.mjs` (the push itself uses `GITHUB_TOKEN`, which does not trigger other workflows).
 
 ### Hosting & site
 - Astro 7 on Cloudflare Workers (`@astrojs/cloudflare`, `wrangler`); sitemap and RSS enabled.
