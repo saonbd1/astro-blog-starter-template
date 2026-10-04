@@ -13,6 +13,7 @@
 - [ ] Optional: make re-runs idempotent (e.g., a `.shared` marker per slug) so re-pushes don't double-post
 - [ ] Optional: 60s sleep in `schedule-posts.yml` before the LinkedIn workflow triggers (Cloudflare Git deploy race)
 - [x] Rotate the LinkedIn client secret after it appeared in chat (done 2026-10-04: regenerated in the Developer Portal, old secret invalidated; new value stored as GitHub secret `LINKEDIN_CLIENT_SECRET` via `gh secret set --repo`; access token `LINKEDIN_TOKEN` unaffected — client-secret rotation does not invalidate existing tokens, so posting continues to ~2026-12-04; the secret is only needed for the OAuth token exchange at the next re-authorization)
+- [ ] Renew the LinkedIn access token before it expires (~2026-12-04, 60-day member token): re-run the OAuth flow using the stored client secret (`gh secret get LINKEDIN_CLIENT_SECRET --repo saonbd1/astro-blog-starter-template` — never paste plaintext), then update both stores: `gh secret set LINKEDIN_TOKEN --repo saonbd1/astro-blog-starter-template` (used by the GitHub Actions workflows) and the local DPAPI file `~\.linkedin-credential.xml` (auto-loads into `$env:LINKEDIN_TOKEN`). Flow documented in `pending-posts/how-to-set-up-linkedin-oauth-client.md`
 
 ## Social / SEO
 - [ ] Re-scrape https://www.techtips.fun/blog/migrate-static-html-site-to-astro/ in the LinkedIn Post Inspector — the preview was cached before the OG image fix (OG tags verified correct on 2026-10-04)
