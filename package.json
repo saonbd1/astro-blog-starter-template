@@ -30,6 +30,7 @@
 	"scripts": {
 		"astro": "astro",
 		"generate:assets": "node scripts/generate-social-assets.mjs",
+		"share:linkedin": "node scripts/share-to-linkedin.mjs",
 		"build": "npm run generate:assets && astro build",
 		"cf-typegen": "wrangler types",
 		"check": "astro build && tsc && wrangler deploy --dry-run",

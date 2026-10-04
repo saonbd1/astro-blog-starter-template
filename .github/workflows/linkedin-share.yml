@@ -1,0 +1,76 @@
+name: Share new posts to LinkedIn
+
+# Posts a short teaser + link to LinkedIn for every newly published article.
+# - Automatic: fires on pushes to main that add a file to src/content/blog/
+#   (the Schedule post publishing workflow's commit triggers this, so the
+#   LinkedIn post goes out right after each scheduled publish).
+# - Manual: use the "Run workflow" button and enter a post slug.
+#
+# Requires the repository secret LINKEDIN_TOKEN (LinkedIn OAuth access token
+# with the openid profile w_member_social scopes). Create an app at
+# https://www.linkedin.com/developers with the "Share on LinkedIn" AND
+# "Sign In with LinkedIn" products.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/**'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Post slug to share (filename without .md/.mdx)
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Detect newly added posts
+        id: posts
+        run: |
+          set -euo pipefail
+          if [ -n "${{ github.event.inputs.slug }}" ]; then
+            echo "slugs=${{ github.event.inputs.slug }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          BEFORE="${{ github.event.before }}"
+          ALL_ZERO="0000000000000000000000000000000000000000"
+          if [ "$BEFORE" = "$ALL_ZERO" ]; then
+            echo "Initial push; skipping automatic share."
+            echo "slugs=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          FILES=$(git diff --name-only --diff-filter=A "$BEFORE" "${{ github.event.sha }}" -- src/content/blog/ | grep -E '\.(md|mdx)$' || true)
+          if [ -z "$FILES" ]; then
+            echo "No newly added posts."
+            echo "slugs=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          SLUGS=$(echo "$FILES" | sed -E 's#.*/##; s/\.(md|mdx)$//' | paste -sd,)
+          echo "New posts: $SLUGS"
+          echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+
+      - name: Post to LinkedIn
+        if: steps.posts.outputs.slugs != ''
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -ra SLUGS <<< "${{ steps.posts.outputs.slugs }}"
+          for slug in "${SLUGS[@]}"; do
+            node scripts/share-to-linkedin.mjs "$slug"
+          done
