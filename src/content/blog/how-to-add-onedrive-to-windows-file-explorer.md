@@ -21,7 +21,7 @@ On Windows 11, OneDrive is already installed on most PCs. Open the app and sign 
 
 You need a Windows 10 or Windows 11 PC with an internet connection. You also need a Microsoft personal account, work account, or school account. If you do not have one, check Microsoft's instructions for [registering a Microsoft account](https://account.microsoft.com/account).
 
-Make sure your operating system is activated and up to date. If you need help activating Windows, follow Microsoft's [Windows activation guidance](https://support.microsoft.com/en-us/windows/activate-windows-c3942028-19ae-4c8c-8b3c-4d8c8a2f0e2f).
+Make sure your operating system is activated and up to date. If you need help activating Windows, follow Microsoft's [Windows activation guidance](https://support.microsoft.com/en-us/windows/activation/activate-windows).
 
 OneDrive is already installed on most current Windows systems. Check by searching for **OneDrive** on the taskbar or in the Start menu.
 

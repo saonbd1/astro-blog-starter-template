@@ -21,7 +21,7 @@ Create a separate LinkedIn app for each application. This keeps credentials and 
 
 ## Step 1: Create a LinkedIn developer app
 
-1. Open the [LinkedIn Developer Portal](https://www.linkedin.com/developers/).
+1. Open the [LinkedIn Developer Portal](https://developer.linkedin.com/).
 2. Select **Create App**.
 3. Fill in the app name, description, and your application's logo.
 4. Note the **Client ID** and **Client Secret** on the app's auth page.
