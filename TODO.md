@@ -12,6 +12,7 @@
 - [ ] Test end-to-end: first scheduled publish (2026-10-05 09:00 UTC) should auto-fire the LinkedIn teaser — 3 articles already staged in `pending-posts/` with branded OG cards in `public/og/`
 - [ ] Optional: make re-runs idempotent (e.g., a `.shared` marker per slug) so re-pushes don't double-post
 - [ ] Optional: 60s sleep in `schedule-posts.yml` before the LinkedIn workflow triggers (Cloudflare Git deploy race)
+- [x] Rotate the LinkedIn client secret after it appeared in chat (done 2026-10-04: regenerated in the Developer Portal, old secret invalidated; new value stored as GitHub secret `LINKEDIN_CLIENT_SECRET` via `gh secret set --repo`; access token `LINKEDIN_TOKEN` unaffected — client-secret rotation does not invalidate existing tokens, so posting continues to ~2026-12-04; the secret is only needed for the OAuth token exchange at the next re-authorization)
 
 ## Social / SEO
 - [ ] Re-scrape https://www.techtips.fun/blog/migrate-static-html-site-to-astro/ in the LinkedIn Post Inspector — the preview was cached before the OG image fix (OG tags verified correct on 2026-10-04)
