@@ -2,6 +2,7 @@
 title: "How to Set Up a LinkedIn OAuth Client for Posting"
 description: "I set up a LinkedIn OAuth client to post articles automatically. Here is the app, the scopes, the token, and the 422 trap I hit."
 pubDate: "Oct 04 2026"
+heroImage: "/article-media/linkedin-oauth-client-setup.png"
 category: "Web Development"
 tags: ["LinkedIn", "OAuth", "API", "Developer Guide"]
 ---
