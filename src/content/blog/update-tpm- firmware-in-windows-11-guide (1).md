@@ -59,7 +59,7 @@ If BitLocker protects the system drive, suspend protection when the manufacturer
 
 ## How to update TPM firmware in Windows 11
 
-TPM firmware usually comes from the computer or motherboard manufacturer. Windows Update can install operating system updates, but it does not replace every device-specific TPM firmware package. If you having problem with [windows updating see this how to fix that](blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
+TPM firmware usually comes from the computer or motherboard manufacturer. Windows Update can install operating system updates, but it does not replace every device-specific TPM firmware package. If you having problem with [windows updating see this how to fix that](https://www.techtips.fun/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/)
 
 ### Step 1: Install Windows updates first
 
