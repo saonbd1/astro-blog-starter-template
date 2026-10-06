@@ -2,6 +2,7 @@
 title: "Automate LinkedIn Posts from Your Blog with GitHub Actions"
 description: "I cross-post every blog article to LinkedIn automatically with GitHub Actions and the LinkedIn API. Here is the free setup, plus the 422 error that broke it."
 pubDate: "Oct 05 2026"
+heroImage: "/coder-desk.webp"
 category: "Automation"
 tags: ["LinkedIn", "GitHub Actions", "Automation", "API"]
 ---
