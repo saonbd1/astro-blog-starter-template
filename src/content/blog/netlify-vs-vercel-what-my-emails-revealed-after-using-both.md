@@ -1,7 +1,7 @@
 ---
 title: "Netlify vs Vercel: What My Emails Revealed After Using Both"
 description: "I used both Netlify and Vercel for similar projects. Here is what I observed about free tiers, credit warnings, and the deployment emails that followed."
-pubDate: "Oct 04 2026"
+pubDate: "Oct 06 2026"
 updatedDate: "Oct 03 2026"
 heroImage: "/article-media/netlify-vs-vercel-cover.png"
 category: "Web Development"
