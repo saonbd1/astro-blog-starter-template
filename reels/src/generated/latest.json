@@ -1,0 +1,51 @@
+{
+  "slug": "placeholder",
+  "title": "Placeholder reel",
+  "description": "Run `npm run props -- --latest` to replace this with a real article.",
+  "category": "Dev Notes",
+  "tags": ["remotion", "reels"],
+  "url": "https://www.techtips.fun/",
+  "theme": "github-dark",
+  "durationInFrames": 300,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "TechTips.fun",
+      "title": "Turn your articles into reels",
+      "subtitle": "Animated code + word-by-word captions",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "How it works",
+      "heading": "One template, many articles",
+      "body": "Every article becomes a data file. The composition turns that data into a vertical 1080x1920 video.",
+      "durationInFrames": 90
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week.",
+      "url": "techtips.fun",
+      "durationInFrames": 90
+    }
+  ],
+  "captions": [
+    { "text": "Turn", "startMs": 0, "endMs": 400 },
+    { "text": "your", "startMs": 400, "endMs": 700 },
+    { "text": "articles", "startMs": 700, "endMs": 1200 },
+    { "text": "into", "startMs": 1200, "endMs": 1500 },
+    { "text": "reels", "startMs": 1500, "endMs": 2000 }
+  ],
+  "themeColors": {
+    "background": "#24292e",
+    "editor": {
+      "foreground": "#e1e4e8",
+      "lineHighlightBackground": "#2b3137",
+      "rangeHighlightBackground": "#2b3137"
+    },
+    "icon": {
+      "foreground": "#b6ff2b"
+    }
+  }
+}
