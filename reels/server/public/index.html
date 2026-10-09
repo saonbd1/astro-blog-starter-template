@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reel Studio · TechTips.fun</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span class="brand">TECH-TIPS.FUN</span>
+      <h1>Reel Studio</h1>
+      <p class="sub">
+        Paste a Markdown article &rarr; get a vertical 1080&times;1920 reel with
+        animated code and TikTok-style captions.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="field">
+          <label for="source">Start from an existing post</label>
+          <select id="source"><option value="">&mdash; paste my own &mdash;</option></select>
+        </div>
+
+        <div class="field grow">
+          <label for="markdown">Article Markdown</label>
+          <textarea id="markdown" spellcheck="false" placeholder="# My article title
+
+An intro paragraph that sets up the problem.
+
+## 1. The first step
+
+```bash
+npm run build
+```"></textarea>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="theme">Code theme</label>
+            <select id="theme"></select>
+          </div>
+          <div class="field">
+            <label for="maxSeconds">Max length</label>
+            <select id="maxSeconds">
+              <option value="15">15 seconds</option>
+              <option value="30" selected>30 seconds</option>
+              <option value="45">45 seconds</option>
+              <option value="60">60 seconds</option>
+              <option value="120">Whole article</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="generate" class="primary">Generate reel</button>
+          <button id="poster" class="ghost">Preview a frame</button>
+        </div>
+        <p class="hint">
+          Generating takes roughly 30&ndash;90 seconds (it renders every frame in a
+          real browser). A frame preview is much faster.
+        </p>
+      </section>
+
+      <section class="panel output">
+        <div id="empty" class="empty">
+          Nothing rendered yet. Paste an article on the left and hit
+          <strong>Generate reel</strong>.
+        </div>
+
+        <div id="summary" class="hidden">
+          <h2 id="summaryTitle"></h2>
+          <p id="summaryMeta" class="meta"></p>
+          <div id="sceneChips" class="chips"></div>
+        </div>
+
+        <div id="warnings" class="warnings hidden"></div>
+
+        <div id="progressWrap" class="progress-wrap hidden">
+          <div class="progress-head">
+            <span id="progressLabel">Working&hellip;</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+
+        <div id="result" class="result hidden"></div>
+      </section>
+    </main>
+  </body>
+  <script src="/app.js"></script>
+</html>

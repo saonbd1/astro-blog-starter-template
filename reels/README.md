@@ -62,6 +62,49 @@ npm run reel -- --slug <slug> --from 0 --duration 8 --out demos/teaser.mp4
 | `--duration <sec>` | reel | Render only this many seconds (e.g. a teaser) |
 | `--concurrency <n>` | reel | Parallel render tabs |
 
+## The GUI (Reel Studio)
+
+```bash
+cd reels
+npm run gui          # then open http://localhost:4317
+```
+
+Paste an article's Markdown, choose a code theme and a max length, then:
+
+- **Generate reel** - renders the MP4 in a real browser, plays it back in the page
+  and offers a download.
+- **Preview a frame** - renders a single PNG at ~40% of the timeline (much faster).
+
+While you type (or when you pick a post from the dropdown) the right panel shows
+what will be rendered: the scene breakdown (title - points - code - outro) with
+per-scene durations, the total length and the caption word count.
+
+Notes:
+
+- Renders are queued and run **one at a time**, so a small host never runs two
+  Chromes at once.
+- The GUI and the CLI share the same code path (`scripts/build-reel-props.mjs`
+  plus the Remotion CLI), so anything the CLI can do the GUI can do too.
+- Markdown **without frontmatter works**: the first `# H1` becomes the title and
+  the first paragraph the description.
+- Characters outside the reel's font subset (emoji, `→ ...`) are replaced with
+  spaces and reported in the UI, because Chromium's font fallback crashes the
+  renderer in a fontless container.
+- Deep link: `http://localhost:4317/?slug=<slug>` preloads a post.
+- Scratch space lives in `server/work/` (gitignored).
+
+### REST API
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /api/meta` | themes + defaults |
+| `GET /api/posts` / `GET /api/posts/:slug` | list posts / fetch one as Markdown |
+| `POST /api/inspect` | `{markdown, theme?, maxSeconds?}` -> scene plan, no render |
+| `POST /api/still` | `{markdown, at?}` -> `{jobId}` for a poster PNG |
+| `POST /api/render` | `{markdown, clipSeconds?}` -> `{jobId}` for an MP4 |
+| `GET /api/jobs/:id` | status, `percent`, `label`, `fileUrl` |
+| `GET /api/files/:id` | the rendered file |
+
 ## How it works
 
 ```
@@ -98,6 +141,9 @@ same props file always produces the same video.
 | `src/captions/CaptionOverlay.tsx` | TikTok-style pagination + word highlight |
 | `src/schema.ts` | Props contract (zod, also powers the Studio props editor) |
 | `src/brand.ts` | Brand tokens, reel size, safe area |
+| `server/index.mjs` | Reel Studio: static UI + render job queue |
+| `server/public/*` | The GUI itself (plain HTML/CSS/JS, no build step) |
+| `scripts/lib/remotion-cli.mjs` | Shared Remotion CLI spawn + progress parsing |
 
 ## Customising
 

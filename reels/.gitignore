@@ -9,3 +9,6 @@ out/
 
 # Locally extracted Chrome system libraries (see README > Running headless on Linux)
 .chromedeps/
+
+# Reel Studio render scratch space
+server/work/

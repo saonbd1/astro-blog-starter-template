@@ -21,7 +21,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { getThemeColors } from "@code-hike/lighter";
 import { highlight } from "codehike/code";
-import { warnAboutGlyphs } from "./glyph-audit.mjs";
+import { sanitizeReelProps } from "./glyph-audit.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REELS_ROOT = path.resolve(HERE, "..");
@@ -29,6 +29,7 @@ const BLOG_DIR = path.resolve(REELS_ROOT, "..", "src", "content", "blog");
 const GENERATED_DIR = path.resolve(REELS_ROOT, "src", "generated");
 
 const SITE_URL = "https://www.techtips.fun";
+const OUTRO_URL = "techtips.fun";
 
 const FPS = 30;
 const TITLE_FRAMES = 105;
@@ -36,7 +37,7 @@ const POINT_FRAMES = 120;
 const CODE_STEP_FRAMES = 95;
 const OUTRO_FRAMES = 105;
 const MAX_SECTIONS = 6;
-const MAX_TOTAL_FRAMES = 1740;
+const DEFAULT_MAX_SECONDS = 58;
 const MAX_CODE_BLOCKS_PER_SECTION = 2;
 const MAX_CODE_LINES = 9;
 const MAX_WORDS_PER_CAPTION_PAGE = 4;
@@ -191,7 +192,7 @@ const narrationFor = (scene) => {
  * Word-level captions with timings proportional to the scene durations, so the
  * highlight tracks what is on screen without needing an audio track.
  */
-const buildCaptions = (scenes) => {
+const buildCaptions = (scenes, wordsPerPage = MAX_WORDS_PER_CAPTION_PAGE) => {
   const captions = [];
   let cursorMs = 0;
 
@@ -212,7 +213,7 @@ const buildCaptions = (scenes) => {
     words.forEach((word, index) => {
       const share = (weights[index] / totalWeight) * usable;
       const isLastWordOfScene = index === words.length - 1;
-      const pageIsFull = (index + 1) % MAX_WORDS_PER_CAPTION_PAGE === 0;
+      const pageIsFull = (index + 1) % wordsPerPage === 0;
       captions.push({
         // Whisper-style leading space: createTikTokStyleCaptions only starts a
         // new caption page when the incoming token begins with a space.
@@ -222,7 +223,7 @@ const buildCaptions = (scenes) => {
         // Force a page flush every few words (so text-heavy scenes don't produce
         // one giant line) and never let a page bleed into the next scene.
         ...(isLastWordOfScene || pageIsFull ? { pageBreakAfter: true } : {}),
-      });
+  });
       cursor += share;
     });
 
@@ -234,7 +235,7 @@ const buildCaptions = (scenes) => {
 
 /* ------------------------------------------------------------- props builder */
 
-const buildScenes = (frontmatter, sections) => {
+const buildScenes = (frontmatter, sections, options) => {
   const scenes = [];
   const category = frontmatter.category || "Tech";
 
@@ -249,8 +250,8 @@ const buildScenes = (frontmatter, sections) => {
   let total = TITLE_FRAMES;
 
   for (const section of sections) {
-    if (scenes.length - 1 >= MAX_SECTIONS) break;
-    if (total + CODE_STEP_FRAMES + OUTRO_FRAMES > MAX_TOTAL_FRAMES) break;
+    if (scenes.length - 1 >= options.maxSections) break;
+    if (total + CODE_STEP_FRAMES + OUTRO_FRAMES > options.maxTotalFrames) break;
     if (!section.heading) continue;
 
     const codeBlocks = section.code
@@ -270,7 +271,7 @@ const buildScenes = (frontmatter, sections) => {
           ...(block.lang && block.lang !== "text" ? { label: block.lang } : {}),
         })),
         durationInFrames: duration,
-      });
+  });
       total += duration;
       continue;
     }
@@ -292,7 +293,7 @@ const buildScenes = (frontmatter, sections) => {
     type: "outro",
     heading: "Read the full article",
     body: "New posts every week on the blog.",
-    url: "techtips.fun",
+    url: options.outroUrl,
     durationInFrames: OUTRO_FRAMES,
   });
 
@@ -325,10 +326,102 @@ const highlightScenes = async (scenes, theme) =>
     }),
   );
 
-const buildReelProps = async ({ slug, frontmatter, body, theme }) => {
-  const sections = parseSections(body);
-  const scenes = buildScenes(frontmatter, sections);
-  const highlighted = await highlightScenes(scenes, theme);
+export const slugify = (value) =>
+  String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60) || "pasted-article";
+
+/**
+ * Pasted Markdown often has no frontmatter at all. Fall back to the first H1 and
+ * the first paragraph so the GUI works with a raw article dump.
+ */
+const deriveFrontmatter = (body, fallbackTitle) => {
+  let title = "";
+  let description = "";
+
+  for (const rawLine of body.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const h1 = line.match(/^#\s+(.*)$/);
+    if (h1) {
+      if (!title) title = stripInlineMarkdown(h1[1]);
+      continue;
+    }
+
+    if (!title || description) continue;
+    if (
+      line.startsWith("#") ||
+      line.startsWith("![") ||
+      line.startsWith("```") ||
+      line.startsWith(">") ||
+      line.startsWith("|")
+    ) {
+      continue;
+    }
+
+    description = stripInlineMarkdown(stripListBullet(line));
+    break;
+  }
+
+  return {
+    title: title || fallbackTitle || "Pasted article",
+    description,
+    category: "Tech",
+    tags: [],
+  };
+};
+
+/**
+ * The single entry point shared by the CLI and the GUI: Markdown text in,
+ * fully-baked (and safely sanitised) props out.
+ */
+export const buildReelPropsFromMarkdown = async ({
+  slug,
+  markdown,
+  theme = DEFAULT_THEME,
+  maxSeconds = DEFAULT_MAX_SECONDS,
+  url,
+  wordsPerPage = MAX_WORDS_PER_CAPTION_PAGE,
+}) => {
+  const parsed = parseFrontmatter(markdown);
+  const derived = deriveFrontmatter(parsed.body, slug);
+  const frontmatter = { ...derived, ...parsed.data };
+
+  for (const key of Object.keys(derived)) {
+    if (
+      frontmatter[key] === undefined ||
+      frontmatter[key] === "" ||
+      (Array.isArray(frontmatter[key]) && frontmatter[key].length === 0)
+    ) {
+      frontmatter[key] = derived[key];
+    }
+  }
+
+  const resolvedSlug = slug || slugify(frontmatter.title);
+  const sections = parseSections(parsed.body);
+  const rawScenes = buildScenes(frontmatter, sections, {
+    maxSections: MAX_SECTIONS,
+    maxTotalFrames: Math.max(
+      TITLE_FRAMES + OUTRO_FRAMES,
+      Math.round(maxSeconds * FPS),
+    ),
+    outroUrl: OUTRO_URL,
+  });
+
+  const { props: safe, removed } = sanitizeReelProps({
+    slug: resolvedSlug,
+    title: frontmatter.title,
+    description: frontmatter.description,
+    category: frontmatter.category,
+    tags: frontmatter.tags,
+    url: url || `${SITE_URL}/blog/${resolvedSlug}/`,
+    scenes: rawScenes,
+  });
+
+  const highlighted = await highlightScenes(safe.scenes, theme);
   const durationInFrames = highlighted.reduce(
     (sum, scene) => sum + scene.durationInFrames,
     0,
@@ -336,17 +429,15 @@ const buildReelProps = async ({ slug, frontmatter, body, theme }) => {
   const themeColors = await getThemeColors(theme);
 
   return {
-    slug,
-    title: frontmatter.title || slug,
-    description: frontmatter.description || "",
-    category: frontmatter.category || "Tech",
-    tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
-    url: `${SITE_URL}/blog/${slug}/`,
-    theme,
-    durationInFrames,
-    scenes: highlighted,
-    captions: buildCaptions(highlighted),
-    themeColors,
+    props: {
+      ...safe,
+      theme,
+      durationInFrames,
+      scenes: highlighted,
+      captions: buildCaptions(highlighted, wordsPerPage),
+      themeColors,
+    },
+    removedGlyphs: removed,
   };
 };
 
@@ -366,7 +457,7 @@ export const readArticle = async (slug) => {
     try {
       const source = await fs.readFile(filePath, "utf8");
       const { data, body } = parseFrontmatter(source);
-      return { frontmatter: data, body };
+      return { frontmatter: data, body, source };
     } catch {
       /* try the next extension */
     }
@@ -399,12 +490,29 @@ const writeProps = async (props) => {
   return target;
 };
 
-export const buildForSlug = async (slug, theme = DEFAULT_THEME) => {
-  const { frontmatter, body } = await readArticle(slug);
-  const props = await buildReelProps({ slug, frontmatter, body, theme });
-  warnAboutGlyphs(props);
+export const describeRemovedGlyphs = (removedGlyphs) => {
+  if (!removedGlyphs || removedGlyphs.length === 0) return null;
+  return removedGlyphs
+    .map((item) => `"${item.char}" (${item.code}) x${item.count}`)
+    .join(", ");
+};
+
+export const buildForSlug = async (slug, theme = DEFAULT_THEME, options = {}) => {
+  const { source } = await readArticle(slug);
+  const { props, removedGlyphs } = await buildReelPropsFromMarkdown({
+    slug,
+    markdown: source,
+    theme,
+    ...options,
+  });
+
+  const removedNote = describeRemovedGlyphs(removedGlyphs);
+  if (removedNote) {
+    console.warn(`  ! ${slug}: replaced non-Latin glyphs: ${removedNote}`);
+  }
+
   const target = await writeProps(props);
-  return { props, target };
+  return { props, target, removedGlyphs };
 };
 
 const parseArgs = (argv) => {
@@ -412,6 +520,7 @@ const parseArgs = (argv) => {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--slug") args.slug = argv[++index];
+    else if (arg === "--max-seconds") args.maxSeconds = Number(argv[++index]);
     else if (arg === "--theme") args.theme = argv[++index];
     else if (arg === "--latest") args.latest = true;
     else if (arg === "--all") args.all = true;
@@ -430,7 +539,9 @@ const main = async () => {
 
   if (args.all) {
     for (const slug of await listArticles()) {
-      const { props, target } = await buildForSlug(slug, args.theme);
+      const { props, target } = await buildForSlug(slug, args.theme, {
+    maxSeconds: args.maxSeconds,
+  });
       const seconds = (props.durationInFrames / FPS).toFixed(1);
       console.log(
         `${slug}: ${props.scenes.length} scenes, ${seconds}s -> ${path.relative(process.cwd(), target)}`,
@@ -438,7 +549,9 @@ const main = async () => {
     }
     // Leave latest.json pointing at the newest article, not whichever slug
     // happened to sort last.
-    await buildForSlug(await newestSlug(), args.theme);
+    await buildForSlug(await newestSlug(), args.theme, {
+      maxSeconds: args.maxSeconds,
+    });
     return;
   }
 
@@ -449,7 +562,9 @@ const main = async () => {
     );
   }
 
-  const { props, target } = await buildForSlug(slug, args.theme);
+  const { props, target } = await buildForSlug(slug, args.theme, {
+    maxSeconds: args.maxSeconds,
+  });
   const seconds = (props.durationInFrames / FPS).toFixed(1);
   console.log(
     `${slug}: ${props.scenes.length} scenes, ${props.captions.length} caption words, ${seconds}s -> ${path.relative(process.cwd(), target)}`,

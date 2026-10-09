@@ -6,26 +6,24 @@
  *   node scripts/render-reel.mjs --latest           # newest article
  *   node scripts/render-reel.mjs --all              # every article
  *   node scripts/render-reel.mjs --latest --still   # PNG poster instead of MP4
+ *   node scripts/render-reel.mjs --slug <slug> --from 0 --duration 8
  *
  * Props are rebuilt from the Markdown first, so a single command always renders
  * the current state of the article.
  */
 
-import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { buildForSlug, listArticles, newestSlug } from "./build-reel-props.mjs";
 import {
-  buildForSlug,
-  listArticles,
-  newestSlug,
-} from "./build-reel-props.mjs";
+  COMPOSITION_ID,
+  FPS,
+  REELS_ROOT,
+  spawnRemotion,
+} from "./lib/remotion-cli.mjs";
 
-const HERE = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(HERE, "..");
-const OUT_DIR = path.join(ROOT, "out");
-const GENERATED_DIR = path.join(ROOT, "src", "generated");
-const COMPOSITION = "Reel";
+const OUT_DIR = path.join(REELS_ROOT, "out");
+const GENERATED_DIR = path.join(REELS_ROOT, "src", "generated");
 
 const parseArgs = (argv) => {
   const args = { frame: 45 };
@@ -37,6 +35,7 @@ const parseArgs = (argv) => {
     else if (arg === "--frame") args.frame = Number(argv[++index]);
     else if (arg === "--from") args.from = Number(argv[++index]);
     else if (arg === "--duration") args.duration = Number(argv[++index]);
+    else if (arg === "--max-seconds") args.maxSeconds = Number(argv[++index]);
     else if (arg === "--concurrency") args.concurrency = argv[++index];
     else if (arg === "--latest") args.latest = true;
     else if (arg === "--all") args.all = true;
@@ -46,95 +45,55 @@ const parseArgs = (argv) => {
   return args;
 };
 
-const remotionBin = () => {
-  const local = path.join(ROOT, "node_modules", ".bin", "remotion");
-  return fs.existsSync(local) ? local : "npx";
-};
-
-/**
- * Remotion keeps one ~8 MB shared-memory pool per concurrent tab. Containers
- * frequently mount a tiny /dev/shm (64 MB), which makes Chrome crash mid-render
- * with "target closed". When that is the case, fall back to Remotion's
- * file-backed pools in /tmp instead.
- */
-const resolveShmBackend = () => {
-  if (process.env.REMOTION_SHARED_MEMORY_BACKEND) {
-    return process.env.REMOTION_SHARED_MEMORY_BACKEND;
-  }
-  try {
-    const stats = fs.statfsSync("/dev/shm");
-    const bytes = Number(stats.bsize) * Number(stats.blocks);
-    if (bytes > 0 && bytes < 512 * 1024 * 1024) {
-      return "file";
-    }
-  } catch {
-    /* /dev/shm may not exist (macOS/Windows) - leave the default alone */
-  }
-  return undefined;
-};
-
-const runRemotion = ({ args, propsPath, outputPath, still, frame }) => {
-  const bin = remotionBin();
-  const command = still ? "still" : "render";
-  const cliArgs = [
-    command,
-    COMPOSITION,
-    outputPath,
-    `--props=${propsPath}`,
-    "--log=info",
-  ];
-
-  if (still) cliArgs.push(`--frame=${frame}`);
-
-  // Render only a slice of the reel (e.g. a short teaser clip).
-  const FPS = 30;
-  if (args.duration) {
-    const start = Math.max(0, Math.round((args.from ?? 0) * FPS));
-    const end = start + Math.round(args.duration * FPS) - 1;
-    cliArgs.push(`--frames=${start}-${end}`);
-  }
-  if (args.concurrency) cliArgs.push(`--concurrency=${args.concurrency}`);
-  if (args.theme) cliArgs.push(`--props=${propsPath}`);
-
-  const shmBackend = resolveShmBackend();
-
-  const result = spawnSync(bin, cliArgs, {
-    cwd: ROOT,
-    stdio: "inherit",
-    env: {
-      ...process.env,
-      ...(shmBackend ? { REMOTION_SHARED_MEMORY_BACKEND: shmBackend } : {}),
-    },
-  });
-
-  if (result.status !== 0) {
-    throw new Error(`Remotion ${command} failed with code ${result.status}`);
-  }
-};
-
 const renderSlug = async (slug, args) => {
-  const { props, target } = await buildForSlug(slug, args.theme ?? undefined);
+  const { props, target, removedGlyphs } = await buildForSlug(
+    slug,
+    args.theme ?? undefined,
+    { maxSeconds: args.maxSeconds },
+  );
+
   await fs.promises.mkdir(OUT_DIR, { recursive: true });
+
+  if (removedGlyphs?.length) {
+    console.log(
+      `  note: replaced ${removedGlyphs.length} unsafe glyph(s) so the render cannot crash.`,
+    );
+  }
 
   const extension = args.still ? "png" : "mp4";
   const outputPath = args.out
     ? path.resolve(process.cwd(), args.out)
     : path.join(OUT_DIR, `${slug}.${extension}`);
 
-  const fullSeconds = props.durationInFrames / 30;
-  const clipSeconds = args.duration
-    ? `${args.duration}s clip of `
-    : "";
+  await fs.promises.mkdir(path.dirname(outputPath), { recursive: true });
+
+  const fullSeconds = props.durationInFrames / FPS;
+  const clipNote = args.duration ? `${args.duration}s clip of ` : "";
   console.log(
-    `\n> ${slug} (${props.scenes.length} scenes, ${clipSeconds}${fullSeconds.toFixed(1)}s full)`,
+    `\n> ${slug} (${props.scenes.length} scenes, ${clipNote}${fullSeconds.toFixed(1)}s full)`,
   );
 
-  runRemotion({
-    args,
-    propsPath: target,
+  const cliArgs = [
+    args.still ? "still" : "render",
+    COMPOSITION_ID,
     outputPath,
-    still: args.still,
-    frame: args.frame,
+    `--props=${target}`,
+    args.still ? "--log=error" : "--log=info",
+  ];
+
+  if (args.still) cliArgs.push(`--frame=${args.frame}`);
+  if (args.concurrency) cliArgs.push(`--concurrency=${args.concurrency}`);
+
+  // Render only a slice of the reel (e.g. a short teaser clip).
+  if (args.duration) {
+    const start = Math.max(0, Math.round((args.from ?? 0) * FPS));
+    const end = start + Math.round(args.duration * FPS) - 1;
+    cliArgs.push(`--frames=${start}-${end}`);
+  }
+
+  await spawnRemotion({
+    cliArgs,
+    onLine: args.quiet ? undefined : (line) => console.log(line),
   });
 
   const size = fs.statSync(outputPath).size;

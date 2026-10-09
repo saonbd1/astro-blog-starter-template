@@ -10,8 +10,6 @@
     "Developer Tools"
   ],
   "url": "https://www.techtips.fun/blog/10-linux-terminal-commands-i-use-every/",
-  "theme": "github-dark",
-  "durationInFrames": 710,
   "scenes": [
     {
       "type": "title",
@@ -178,6 +176,8 @@
       "durationInFrames": 105
     }
   ],
+  "theme": "github-dark",
+  "durationInFrames": 710,
   "captions": [
     {
       "text": " I’ve",
