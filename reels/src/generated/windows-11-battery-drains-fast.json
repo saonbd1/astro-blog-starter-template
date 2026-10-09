@@ -1,0 +1,1239 @@
+{
+  "slug": "windows-11-battery-drains-fast",
+  "title": "7 Ways to Fix a Fast-Draining Windows 11 Battery",
+  "description": "Windows 11 battery drains fast? Find the apps that use the most power and stop them. Run 7 fixes, from battery saver to a battery report.",
+  "category": "PC Troubleshooting",
+  "tags": [
+    "Windows",
+    "PC Maintenance",
+    "Troubleshooting",
+    "Beginner Guide"
+  ],
+  "url": "https://www.techtips.fun/blog/windows-11-battery-drains-fast/",
+  "theme": "github-dark",
+  "durationInFrames": 930,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "PC Troubleshooting",
+      "title": "7 Ways to Fix a Fast-Draining Windows 11 Battery",
+      "subtitle": "Windows 11 battery drains fast? Find the apps that use the most power and stop them.",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Before You Start",
+      "body": "Connect the charger before you start the fixes. Make sure that the charger works. The battery icon must show a charge.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Fix 1: Lower the Brightness and Turn On Battery Saver",
+      "body": "The screen uses the most power on a laptop. Battery saver reduces the power use of every app. Open Settings. Select System > Power & battery.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Fix 2: Find the Apps That Use the Most Power",
+      "body": "Windows shows the power use for every app. One app can drain the battery by itself. Open Settings. Select System > Power & battery.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Fix 3: Shorten the Screen and Sleep Times",
+      "body": "Windows keeps the screen on for the time that you set. The screen uses power the whole time. Open Settings. Select System > Power & battery.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Fix 4: Disable the Startup Apps",
+      "body": "Startup apps start with Windows. These apps use the battery before you open them. Right-click the Start button. Select Task Manager.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Fix 5: Turn Off the Radio Connections and Syncing",
+      "body": "The Wi-Fi and the Bluetooth connections use power in the background. Sync services such as OneDrive also use the battery.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Windows",
+      "startMs": 0,
+      "endMs": 275
+    },
+    {
+      "text": " 11",
+      "startMs": 275,
+      "endMs": 413
+    },
+    {
+      "text": " battery",
+      "startMs": 413,
+      "endMs": 688
+    },
+    {
+      "text": " drains",
+      "startMs": 688,
+      "endMs": 936,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fast?",
+      "startMs": 936,
+      "endMs": 1156
+    },
+    {
+      "text": " Find",
+      "startMs": 1156,
+      "endMs": 1349
+    },
+    {
+      "text": " the",
+      "startMs": 1349,
+      "endMs": 1514
+    },
+    {
+      "text": " apps",
+      "startMs": 1514,
+      "endMs": 1706,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " that",
+      "startMs": 1706,
+      "endMs": 1899
+    },
+    {
+      "text": " use",
+      "startMs": 1899,
+      "endMs": 2064
+    },
+    {
+      "text": " the",
+      "startMs": 2064,
+      "endMs": 2229
+    },
+    {
+      "text": " most",
+      "startMs": 2229,
+      "endMs": 2422,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " power",
+      "startMs": 2422,
+      "endMs": 2642
+    },
+    {
+      "text": " and",
+      "startMs": 2642,
+      "endMs": 2807
+    },
+    {
+      "text": " stop",
+      "startMs": 2807,
+      "endMs": 3000
+    },
+    {
+      "text": " them.",
+      "startMs": 3000,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Before",
+      "startMs": 3500,
+      "endMs": 3679
+    },
+    {
+      "text": " You",
+      "startMs": 3679,
+      "endMs": 3798
+    },
+    {
+      "text": " Start.",
+      "startMs": 3798,
+      "endMs": 3977
+    },
+    {
+      "text": " Connect",
+      "startMs": 3977,
+      "endMs": 4176,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 4176,
+      "endMs": 4296
+    },
+    {
+      "text": " charger",
+      "startMs": 4296,
+      "endMs": 4495
+    },
+    {
+      "text": " before",
+      "startMs": 4495,
+      "endMs": 4674
+    },
+    {
+      "text": " you",
+      "startMs": 4674,
+      "endMs": 4793,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " start",
+      "startMs": 4793,
+      "endMs": 4952
+    },
+    {
+      "text": " the",
+      "startMs": 4952,
+      "endMs": 5071
+    },
+    {
+      "text": " fixes.",
+      "startMs": 5071,
+      "endMs": 5250
+    },
+    {
+      "text": " Make",
+      "startMs": 5250,
+      "endMs": 5390,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " sure",
+      "startMs": 5390,
+      "endMs": 5529
+    },
+    {
+      "text": " that",
+      "startMs": 5529,
+      "endMs": 5668
+    },
+    {
+      "text": " the",
+      "startMs": 5668,
+      "endMs": 5788
+    },
+    {
+      "text": " charger",
+      "startMs": 5788,
+      "endMs": 5986,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " works.",
+      "startMs": 5986,
+      "endMs": 6166
+    },
+    {
+      "text": " The",
+      "startMs": 6166,
+      "endMs": 6285
+    },
+    {
+      "text": " battery",
+      "startMs": 6285,
+      "endMs": 6484
+    },
+    {
+      "text": " icon",
+      "startMs": 6484,
+      "endMs": 6623,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " must",
+      "startMs": 6623,
+      "endMs": 6762
+    },
+    {
+      "text": " show",
+      "startMs": 6762,
+      "endMs": 6902
+    },
+    {
+      "text": " a",
+      "startMs": 6902,
+      "endMs": 6981
+    },
+    {
+      "text": " charge.",
+      "startMs": 6981,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Fix",
+      "startMs": 7500,
+      "endMs": 7582
+    },
+    {
+      "text": " 1:",
+      "startMs": 7582,
+      "endMs": 7650
+    },
+    {
+      "text": " Lower",
+      "startMs": 7650,
+      "endMs": 7760
+    },
+    {
+      "text": " the",
+      "startMs": 7760,
+      "endMs": 7842,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Brightness",
+      "startMs": 7842,
+      "endMs": 8020
+    },
+    {
+      "text": " and",
+      "startMs": 8020,
+      "endMs": 8102
+    },
+    {
+      "text": " Turn",
+      "startMs": 8102,
+      "endMs": 8198
+    },
+    {
+      "text": " On",
+      "startMs": 8198,
+      "endMs": 8266,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Battery",
+      "startMs": 8266,
+      "endMs": 8403
+    },
+    {
+      "text": " Saver.",
+      "startMs": 8403,
+      "endMs": 8526
+    },
+    {
+      "text": " The",
+      "startMs": 8526,
+      "endMs": 8608
+    },
+    {
+      "text": " screen",
+      "startMs": 8608,
+      "endMs": 8731,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " uses",
+      "startMs": 8731,
+      "endMs": 8827
+    },
+    {
+      "text": " the",
+      "startMs": 8827,
+      "endMs": 8909
+    },
+    {
+      "text": " most",
+      "startMs": 8909,
+      "endMs": 9005
+    },
+    {
+      "text": " power",
+      "startMs": 9005,
+      "endMs": 9114,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 9114,
+      "endMs": 9183
+    },
+    {
+      "text": " a",
+      "startMs": 9183,
+      "endMs": 9237
+    },
+    {
+      "text": " laptop.",
+      "startMs": 9237,
+      "endMs": 9374
+    },
+    {
+      "text": " Battery",
+      "startMs": 9374,
+      "endMs": 9511,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " saver",
+      "startMs": 9511,
+      "endMs": 9620
+    },
+    {
+      "text": " reduces",
+      "startMs": 9620,
+      "endMs": 9757
+    },
+    {
+      "text": " the",
+      "startMs": 9757,
+      "endMs": 9839
+    },
+    {
+      "text": " power",
+      "startMs": 9839,
+      "endMs": 9949,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " use",
+      "startMs": 9949,
+      "endMs": 10031
+    },
+    {
+      "text": " of",
+      "startMs": 10031,
+      "endMs": 10099
+    },
+    {
+      "text": " every",
+      "startMs": 10099,
+      "endMs": 10209
+    },
+    {
+      "text": " app.",
+      "startMs": 10209,
+      "endMs": 10304,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Open",
+      "startMs": 10304,
+      "endMs": 10400
+    },
+    {
+      "text": " Settings.",
+      "startMs": 10400,
+      "endMs": 10564
+    },
+    {
+      "text": " Select",
+      "startMs": 10564,
+      "endMs": 10688
+    },
+    {
+      "text": " System",
+      "startMs": 10688,
+      "endMs": 10811,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " >",
+      "startMs": 10811,
+      "endMs": 10865
+    },
+    {
+      "text": " Power",
+      "startMs": 10865,
+      "endMs": 10975
+    },
+    {
+      "text": " &",
+      "startMs": 10975,
+      "endMs": 11030
+    },
+    {
+      "text": " battery.",
+      "startMs": 11030,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Fix",
+      "startMs": 11500,
+      "endMs": 11590
+    },
+    {
+      "text": " 2:",
+      "startMs": 11590,
+      "endMs": 11665
+    },
+    {
+      "text": " Find",
+      "startMs": 11665,
+      "endMs": 11769
+    },
+    {
+      "text": " the",
+      "startMs": 11769,
+      "endMs": 11859,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Apps",
+      "startMs": 11859,
+      "endMs": 11964
+    },
+    {
+      "text": " That",
+      "startMs": 11964,
+      "endMs": 12068
+    },
+    {
+      "text": " Use",
+      "startMs": 12068,
+      "endMs": 12158
+    },
+    {
+      "text": " the",
+      "startMs": 12158,
+      "endMs": 12248,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Most",
+      "startMs": 12248,
+      "endMs": 12353
+    },
+    {
+      "text": " Power.",
+      "startMs": 12353,
+      "endMs": 12487
+    },
+    {
+      "text": " Windows",
+      "startMs": 12487,
+      "endMs": 12637
+    },
+    {
+      "text": " shows",
+      "startMs": 12637,
+      "endMs": 12757,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 12757,
+      "endMs": 12846
+    },
+    {
+      "text": " power",
+      "startMs": 12846,
+      "endMs": 12966
+    },
+    {
+      "text": " use",
+      "startMs": 12966,
+      "endMs": 13056
+    },
+    {
+      "text": " for",
+      "startMs": 13056,
+      "endMs": 13146,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " every",
+      "startMs": 13146,
+      "endMs": 13265
+    },
+    {
+      "text": " app.",
+      "startMs": 13265,
+      "endMs": 13370
+    },
+    {
+      "text": " One",
+      "startMs": 13370,
+      "endMs": 13460
+    },
+    {
+      "text": " app",
+      "startMs": 13460,
+      "endMs": 13549,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " can",
+      "startMs": 13549,
+      "endMs": 13639
+    },
+    {
+      "text": " drain",
+      "startMs": 13639,
+      "endMs": 13759
+    },
+    {
+      "text": " the",
+      "startMs": 13759,
+      "endMs": 13849
+    },
+    {
+      "text": " battery",
+      "startMs": 13849,
+      "endMs": 13998,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " by",
+      "startMs": 13998,
+      "endMs": 14073
+    },
+    {
+      "text": " itself.",
+      "startMs": 14073,
+      "endMs": 14223
+    },
+    {
+      "text": " Open",
+      "startMs": 14223,
+      "endMs": 14327
+    },
+    {
+      "text": " Settings.",
+      "startMs": 14327,
+      "endMs": 14507,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Select",
+      "startMs": 14507,
+      "endMs": 14641
+    },
+    {
+      "text": " System",
+      "startMs": 14641,
+      "endMs": 14776
+    },
+    {
+      "text": " >",
+      "startMs": 14776,
+      "endMs": 14836
+    },
+    {
+      "text": " Power",
+      "startMs": 14836,
+      "endMs": 14956,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " &",
+      "startMs": 14956,
+      "endMs": 15015
+    },
+    {
+      "text": " battery.",
+      "startMs": 15015,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Fix",
+      "startMs": 15500,
+      "endMs": 15588
+    },
+    {
+      "text": " 3:",
+      "startMs": 15588,
+      "endMs": 15661
+    },
+    {
+      "text": " Shorten",
+      "startMs": 15661,
+      "endMs": 15807
+    },
+    {
+      "text": " the",
+      "startMs": 15807,
+      "endMs": 15894,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Screen",
+      "startMs": 15894,
+      "endMs": 16026
+    },
+    {
+      "text": " and",
+      "startMs": 16026,
+      "endMs": 16113
+    },
+    {
+      "text": " Sleep",
+      "startMs": 16113,
+      "endMs": 16230
+    },
+    {
+      "text": " Times.",
+      "startMs": 16230,
+      "endMs": 16362,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Windows",
+      "startMs": 16362,
+      "endMs": 16508
+    },
+    {
+      "text": " keeps",
+      "startMs": 16508,
+      "endMs": 16624
+    },
+    {
+      "text": " the",
+      "startMs": 16624,
+      "endMs": 16712
+    },
+    {
+      "text": " screen",
+      "startMs": 16712,
+      "endMs": 16843,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 16843,
+      "endMs": 16917
+    },
+    {
+      "text": " for",
+      "startMs": 16917,
+      "endMs": 17004
+    },
+    {
+      "text": " the",
+      "startMs": 17004,
+      "endMs": 17092
+    },
+    {
+      "text": " time",
+      "startMs": 17092,
+      "endMs": 17194,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " that",
+      "startMs": 17194,
+      "endMs": 17296
+    },
+    {
+      "text": " you",
+      "startMs": 17296,
+      "endMs": 17384
+    },
+    {
+      "text": " set.",
+      "startMs": 17384,
+      "endMs": 17486
+    },
+    {
+      "text": " The",
+      "startMs": 17486,
+      "endMs": 17574,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " screen",
+      "startMs": 17574,
+      "endMs": 17705
+    },
+    {
+      "text": " uses",
+      "startMs": 17705,
+      "endMs": 17807
+    },
+    {
+      "text": " power",
+      "startMs": 17807,
+      "endMs": 17924
+    },
+    {
+      "text": " the",
+      "startMs": 17924,
+      "endMs": 18012,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " whole",
+      "startMs": 18012,
+      "endMs": 18129
+    },
+    {
+      "text": " time.",
+      "startMs": 18129,
+      "endMs": 18245
+    },
+    {
+      "text": " Open",
+      "startMs": 18245,
+      "endMs": 18348
+    },
+    {
+      "text": " Settings.",
+      "startMs": 18348,
+      "endMs": 18523,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Select",
+      "startMs": 18523,
+      "endMs": 18654
+    },
+    {
+      "text": " System",
+      "startMs": 18654,
+      "endMs": 18786
+    },
+    {
+      "text": " >",
+      "startMs": 18786,
+      "endMs": 18844
+    },
+    {
+      "text": " Power",
+      "startMs": 18844,
+      "endMs": 18961,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " &",
+      "startMs": 18961,
+      "endMs": 19019
+    },
+    {
+      "text": " battery.",
+      "startMs": 19019,
+      "endMs": 19180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Fix",
+      "startMs": 19500,
+      "endMs": 19600
+    },
+    {
+      "text": " 4:",
+      "startMs": 19600,
+      "endMs": 19684
+    },
+    {
+      "text": " Disable",
+      "startMs": 19684,
+      "endMs": 19851
+    },
+    {
+      "text": " the",
+      "startMs": 19851,
+      "endMs": 19952,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Startup",
+      "startMs": 19952,
+      "endMs": 20119
+    },
+    {
+      "text": " Apps.",
+      "startMs": 20119,
+      "endMs": 20253
+    },
+    {
+      "text": " Startup",
+      "startMs": 20253,
+      "endMs": 20420
+    },
+    {
+      "text": " apps",
+      "startMs": 20420,
+      "endMs": 20537,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " start",
+      "startMs": 20537,
+      "endMs": 20671
+    },
+    {
+      "text": " with",
+      "startMs": 20671,
+      "endMs": 20788
+    },
+    {
+      "text": " Windows.",
+      "startMs": 20788,
+      "endMs": 20972
+    },
+    {
+      "text": " These",
+      "startMs": 20972,
+      "endMs": 21106,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " apps",
+      "startMs": 21106,
+      "endMs": 21223
+    },
+    {
+      "text": " use",
+      "startMs": 21223,
+      "endMs": 21323
+    },
+    {
+      "text": " the",
+      "startMs": 21323,
+      "endMs": 21424
+    },
+    {
+      "text": " battery",
+      "startMs": 21424,
+      "endMs": 21591,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " before",
+      "startMs": 21591,
+      "endMs": 21741
+    },
+    {
+      "text": " you",
+      "startMs": 21741,
+      "endMs": 21842
+    },
+    {
+      "text": " open",
+      "startMs": 21842,
+      "endMs": 21959
+    },
+    {
+      "text": " them.",
+      "startMs": 21959,
+      "endMs": 22093,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Right-click",
+      "startMs": 22093,
+      "endMs": 22327
+    },
+    {
+      "text": " the",
+      "startMs": 22327,
+      "endMs": 22427
+    },
+    {
+      "text": " Start",
+      "startMs": 22427,
+      "endMs": 22561
+    },
+    {
+      "text": " button.",
+      "startMs": 22561,
+      "endMs": 22728,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Select",
+      "startMs": 22728,
+      "endMs": 22879
+    },
+    {
+      "text": " Task",
+      "startMs": 22879,
+      "endMs": 22996
+    },
+    {
+      "text": " Manager.",
+      "startMs": 22996,
+      "endMs": 23180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Fix",
+      "startMs": 23500,
+      "endMs": 23596
+    },
+    {
+      "text": " 5:",
+      "startMs": 23596,
+      "endMs": 23675
+    },
+    {
+      "text": " Turn",
+      "startMs": 23675,
+      "endMs": 23787
+    },
+    {
+      "text": " Off",
+      "startMs": 23787,
+      "endMs": 23882,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 23882,
+      "endMs": 23978
+    },
+    {
+      "text": " Radio",
+      "startMs": 23978,
+      "endMs": 24105
+    },
+    {
+      "text": " Connections",
+      "startMs": 24105,
+      "endMs": 24328
+    },
+    {
+      "text": " and",
+      "startMs": 24328,
+      "endMs": 24424,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Syncing.",
+      "startMs": 24424,
+      "endMs": 24599
+    },
+    {
+      "text": " The",
+      "startMs": 24599,
+      "endMs": 24695
+    },
+    {
+      "text": " Wi-Fi",
+      "startMs": 24695,
+      "endMs": 24822
+    },
+    {
+      "text": " and",
+      "startMs": 24822,
+      "endMs": 24918,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 24918,
+      "endMs": 25013
+    },
+    {
+      "text": " Bluetooth",
+      "startMs": 25013,
+      "endMs": 25205
+    },
+    {
+      "text": " connections",
+      "startMs": 25205,
+      "endMs": 25428
+    },
+    {
+      "text": " use",
+      "startMs": 25428,
+      "endMs": 25523,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " power",
+      "startMs": 25523,
+      "endMs": 25651
+    },
+    {
+      "text": " in",
+      "startMs": 25651,
+      "endMs": 25730
+    },
+    {
+      "text": " the",
+      "startMs": 25730,
+      "endMs": 25826
+    },
+    {
+      "text": " background.",
+      "startMs": 25826,
+      "endMs": 26049,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Sync",
+      "startMs": 26049,
+      "endMs": 26160
+    },
+    {
+      "text": " services",
+      "startMs": 26160,
+      "endMs": 26336
+    },
+    {
+      "text": " such",
+      "startMs": 26336,
+      "endMs": 26447
+    },
+    {
+      "text": " as",
+      "startMs": 26447,
+      "endMs": 26527,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " OneDrive",
+      "startMs": 26527,
+      "endMs": 26702
+    },
+    {
+      "text": " also",
+      "startMs": 26702,
+      "endMs": 26814
+    },
+    {
+      "text": " use",
+      "startMs": 26814,
+      "endMs": 26909
+    },
+    {
+      "text": " the",
+      "startMs": 26909,
+      "endMs": 27005,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " battery.",
+      "startMs": 27005,
+      "endMs": 27180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 27500,
+      "endMs": 27785
+    },
+    {
+      "text": " the",
+      "startMs": 27785,
+      "endMs": 28030
+    },
+    {
+      "text": " full",
+      "startMs": 28030,
+      "endMs": 28315
+    },
+    {
+      "text": " article.",
+      "startMs": 28315,
+      "endMs": 28764,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 28764,
+      "endMs": 29008
+    },
+    {
+      "text": " posts",
+      "startMs": 29008,
+      "endMs": 29334
+    },
+    {
+      "text": " every",
+      "startMs": 29334,
+      "endMs": 29660
+    },
+    {
+      "text": " week",
+      "startMs": 29660,
+      "endMs": 29946,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 29946,
+      "endMs": 30149
+    },
+    {
+      "text": " the",
+      "startMs": 30149,
+      "endMs": 30394
+    },
+    {
+      "text": " blog.",
+      "startMs": 30394,
+      "endMs": 30720,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

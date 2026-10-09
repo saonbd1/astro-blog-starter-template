@@ -1,0 +1,430 @@
+{
+  "slug": "setting-up-privacy-first-home-network",
+  "title": "Setting up a privacy-first home network with Pi-hole + WireGuard",
+  "description": "My home network used to be a factory-default router with no thought given to privacy. Now every device on it has DNS-level ad blocking, and I can tunn...",
+  "category": "Networking & Privacy",
+  "tags": [
+    "Home Network",
+    "Privacy",
+    "Networking",
+    "Self-Hosting"
+  ],
+  "url": "https://www.techtips.fun/blog/setting-up-privacy-first-home-network/",
+  "theme": "github-dark",
+  "durationInFrames": 400,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Networking & Privacy",
+      "title": "Setting up a privacy-first home network with Pi-hole + WireGuard",
+      "subtitle": "My home network used to be a factory-default router with no thought given to privacy.",
+      "durationInFrames": 105
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Part 1: Pi-hole on a Raspberry Pi",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "curl -sSL https://install.pi-hole.net | bash",
+          "code": "curl -sSL https://install.pi-hole.net | bash",
+          "tokens": [
+            [
+              "curl -sSL https://install.pi-hole.net | bash",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Part 2: WireGuard VPN",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "# Generate keys\nwg genkey | tee private.key | wg pubkey > public.key\n\n# wg0.conf example\n[Interface]\nAddress = 10.0.0.1/24\nListenPort = 51820\nPrivateKey = <your-private-key>",
+          "code": "# Generate keys\nwg genkey | tee private.key | wg pubkey > public.key\n\n# wg0.conf example\n[Interface]\nAddress = 10.0.0.1/24\nListenPort = 51820\nPrivateKey = <your-private-key>",
+          "tokens": [
+            [
+              "# Generate keys",
+              null
+            ],
+            "\n",
+            [
+              "wg genkey | tee private.key | wg pubkey > public.key",
+              null
+            ],
+            "\n\n",
+            [
+              "# wg0.conf example",
+              null
+            ],
+            "\n",
+            [
+              "[Interface]",
+              null
+            ],
+            "\n",
+            [
+              "Address = 10.0.0.1/24",
+              null
+            ],
+            "\n",
+            [
+              "ListenPort = 51820",
+              null
+            ],
+            "\n",
+            [
+              "PrivateKey = <your-private-key>",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " My",
+      "startMs": 0,
+      "endMs": 139
+    },
+    {
+      "text": " home",
+      "startMs": 139,
+      "endMs": 333
+    },
+    {
+      "text": " network",
+      "startMs": 333,
+      "endMs": 611
+    },
+    {
+      "text": " used",
+      "startMs": 611,
+      "endMs": 805,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 805,
+      "endMs": 944
+    },
+    {
+      "text": " be",
+      "startMs": 944,
+      "endMs": 1083
+    },
+    {
+      "text": " a",
+      "startMs": 1083,
+      "endMs": 1194
+    },
+    {
+      "text": " factory-default",
+      "startMs": 1194,
+      "endMs": 1693,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " router",
+      "startMs": 1693,
+      "endMs": 1943
+    },
+    {
+      "text": " with",
+      "startMs": 1943,
+      "endMs": 2137
+    },
+    {
+      "text": " no",
+      "startMs": 2137,
+      "endMs": 2276
+    },
+    {
+      "text": " thought",
+      "startMs": 2276,
+      "endMs": 2554,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " given",
+      "startMs": 2554,
+      "endMs": 2776
+    },
+    {
+      "text": " to",
+      "startMs": 2776,
+      "endMs": 2915
+    },
+    {
+      "text": " privacy.",
+      "startMs": 2915,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Part",
+      "startMs": 3500,
+      "endMs": 3737
+    },
+    {
+      "text": " 1:",
+      "startMs": 3737,
+      "endMs": 3907
+    },
+    {
+      "text": " Pi-hole",
+      "startMs": 3907,
+      "endMs": 4245
+    },
+    {
+      "text": " on",
+      "startMs": 4245,
+      "endMs": 4415,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 4415,
+      "endMs": 4550
+    },
+    {
+      "text": " Raspberry",
+      "startMs": 4550,
+      "endMs": 4957
+    },
+    {
+      "text": " Pi.",
+      "startMs": 4957,
+      "endMs": 5160
+    },
+    {
+      "text": " Let",
+      "startMs": 5160,
+      "endMs": 5363,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 5363,
+      "endMs": 5533
+    },
+    {
+      "text": " look",
+      "startMs": 5533,
+      "endMs": 5770
+    },
+    {
+      "text": " at",
+      "startMs": 5770,
+      "endMs": 5939
+    },
+    {
+      "text": " the",
+      "startMs": 5939,
+      "endMs": 6142,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 6142,
+      "endMs": 6413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Part",
+      "startMs": 6667,
+      "endMs": 6967
+    },
+    {
+      "text": " 2:",
+      "startMs": 6967,
+      "endMs": 7181
+    },
+    {
+      "text": " WireGuard",
+      "startMs": 7181,
+      "endMs": 7695
+    },
+    {
+      "text": " VPN.",
+      "startMs": 7695,
+      "endMs": 7995,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 7995,
+      "endMs": 8252
+    },
+    {
+      "text": " us",
+      "startMs": 8252,
+      "endMs": 8466
+    },
+    {
+      "text": " look",
+      "startMs": 8466,
+      "endMs": 8766
+    },
+    {
+      "text": " at",
+      "startMs": 8766,
+      "endMs": 8980,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 8980,
+      "endMs": 9237
+    },
+    {
+      "text": " code.",
+      "startMs": 9237,
+      "endMs": 9580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 9833,
+      "endMs": 10119
+    },
+    {
+      "text": " the",
+      "startMs": 10119,
+      "endMs": 10363
+    },
+    {
+      "text": " full",
+      "startMs": 10363,
+      "endMs": 10649
+    },
+    {
+      "text": " article.",
+      "startMs": 10649,
+      "endMs": 11097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 11097,
+      "endMs": 11341
+    },
+    {
+      "text": " posts",
+      "startMs": 11341,
+      "endMs": 11668
+    },
+    {
+      "text": " every",
+      "startMs": 11668,
+      "endMs": 11994
+    },
+    {
+      "text": " week",
+      "startMs": 11994,
+      "endMs": 12279,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 12279,
+      "endMs": 12483
+    },
+    {
+      "text": " the",
+      "startMs": 12483,
+      "endMs": 12727
+    },
+    {
+      "text": " blog.",
+      "startMs": 12727,
+      "endMs": 13053,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

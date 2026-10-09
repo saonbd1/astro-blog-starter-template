@@ -1,0 +1,635 @@
+{
+  "slug": "my-dev-environment-in-2026-what-changed",
+  "title": "My dev environment in 2026 — what changed, what stayed",
+  "description": "I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch? What snuck in and became irreplaceable?",
+  "category": "Developer Productivity",
+  "tags": [
+    "Developer Tools",
+    "Productivity",
+    "Workstation",
+    "Software Development"
+  ],
+  "url": "https://www.techtips.fun/blog/my-dev-environment-in-2026-what-changed/",
+  "theme": "github-dark",
+  "durationInFrames": 570,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Developer Productivity",
+      "title": "My dev environment in 2026 — what changed, what stayed",
+      "subtitle": "I do this annual audit of my dev setup. What tools did I keep? What did I finally ditch?",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Developer Productivity",
+      "heading": "What stayed",
+      "body": "Neovim — still my primary editor. LazyVim makes config maintenance bearable. Tmux — session management. I live in it.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Developer Productivity",
+      "heading": "What’s new",
+      "body": "Zellij — I’m testing it as a tmux replacement. The UI is friendlier. Ghostty — fastest terminal I’ve used. GPU-rendered, minimal.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Developer Productivity",
+      "heading": "What I dropped",
+      "body": "VS Code is gone from my daily rotation. I used it for 4 years, but Neovim + Cursor cover everything it did, better.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " I",
+      "startMs": 0,
+      "endMs": 101
+    },
+    {
+      "text": " do",
+      "startMs": 101,
+      "endMs": 228
+    },
+    {
+      "text": " this",
+      "startMs": 228,
+      "endMs": 406
+    },
+    {
+      "text": " annual",
+      "startMs": 406,
+      "endMs": 634,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " audit",
+      "startMs": 634,
+      "endMs": 837
+    },
+    {
+      "text": " of",
+      "startMs": 837,
+      "endMs": 963
+    },
+    {
+      "text": " my",
+      "startMs": 963,
+      "endMs": 1090
+    },
+    {
+      "text": " dev",
+      "startMs": 1090,
+      "endMs": 1242,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " setup.",
+      "startMs": 1242,
+      "endMs": 1471
+    },
+    {
+      "text": " What",
+      "startMs": 1471,
+      "endMs": 1648
+    },
+    {
+      "text": " tools",
+      "startMs": 1648,
+      "endMs": 1851
+    },
+    {
+      "text": " did",
+      "startMs": 1851,
+      "endMs": 2003,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " I",
+      "startMs": 2003,
+      "endMs": 2104
+    },
+    {
+      "text": " keep?",
+      "startMs": 2104,
+      "endMs": 2307
+    },
+    {
+      "text": " What",
+      "startMs": 2307,
+      "endMs": 2485
+    },
+    {
+      "text": " did",
+      "startMs": 2485,
+      "endMs": 2637,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " I",
+      "startMs": 2637,
+      "endMs": 2738
+    },
+    {
+      "text": " finally",
+      "startMs": 2738,
+      "endMs": 2992
+    },
+    {
+      "text": " ditch?",
+      "startMs": 2992,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3649
+    },
+    {
+      "text": " stayed.",
+      "startMs": 3649,
+      "endMs": 3862
+    },
+    {
+      "text": " Neovim",
+      "startMs": 3862,
+      "endMs": 4053
+    },
+    {
+      "text": " —",
+      "startMs": 4053,
+      "endMs": 4138,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " still",
+      "startMs": 4138,
+      "endMs": 4308
+    },
+    {
+      "text": " my",
+      "startMs": 4308,
+      "endMs": 4415
+    },
+    {
+      "text": " primary",
+      "startMs": 4415,
+      "endMs": 4627
+    },
+    {
+      "text": " editor.",
+      "startMs": 4627,
+      "endMs": 4840,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " LazyVim",
+      "startMs": 4840,
+      "endMs": 5053
+    },
+    {
+      "text": " makes",
+      "startMs": 5053,
+      "endMs": 5223
+    },
+    {
+      "text": " config",
+      "startMs": 5223,
+      "endMs": 5414
+    },
+    {
+      "text": " maintenance",
+      "startMs": 5414,
+      "endMs": 5712,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " bearable.",
+      "startMs": 5712,
+      "endMs": 5968
+    },
+    {
+      "text": " Tmux",
+      "startMs": 5968,
+      "endMs": 6116
+    },
+    {
+      "text": " —",
+      "startMs": 6116,
+      "endMs": 6202
+    },
+    {
+      "text": " session",
+      "startMs": 6202,
+      "endMs": 6414,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " management.",
+      "startMs": 6414,
+      "endMs": 6712
+    },
+    {
+      "text": " I",
+      "startMs": 6712,
+      "endMs": 6797
+    },
+    {
+      "text": " live",
+      "startMs": 6797,
+      "endMs": 6946
+    },
+    {
+      "text": " in",
+      "startMs": 6946,
+      "endMs": 7052,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " it.",
+      "startMs": 7052,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What’s",
+      "startMs": 7500,
+      "endMs": 7676
+    },
+    {
+      "text": " new.",
+      "startMs": 7676,
+      "endMs": 7813
+    },
+    {
+      "text": " Zellij",
+      "startMs": 7813,
+      "endMs": 7989
+    },
+    {
+      "text": " —",
+      "startMs": 7989,
+      "endMs": 8068,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " I’m",
+      "startMs": 8068,
+      "endMs": 8185
+    },
+    {
+      "text": " testing",
+      "startMs": 8185,
+      "endMs": 8381
+    },
+    {
+      "text": " it",
+      "startMs": 8381,
+      "endMs": 8479
+    },
+    {
+      "text": " as",
+      "startMs": 8479,
+      "endMs": 8577,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 8577,
+      "endMs": 8655
+    },
+    {
+      "text": " tmux",
+      "startMs": 8655,
+      "endMs": 8792
+    },
+    {
+      "text": " replacement.",
+      "startMs": 8792,
+      "endMs": 9086
+    },
+    {
+      "text": " The",
+      "startMs": 9086,
+      "endMs": 9203,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " UI",
+      "startMs": 9203,
+      "endMs": 9301
+    },
+    {
+      "text": " is",
+      "startMs": 9301,
+      "endMs": 9399
+    },
+    {
+      "text": " friendlier.",
+      "startMs": 9399,
+      "endMs": 9673
+    },
+    {
+      "text": " Ghostty",
+      "startMs": 9673,
+      "endMs": 9869,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " —",
+      "startMs": 9869,
+      "endMs": 9947
+    },
+    {
+      "text": " fastest",
+      "startMs": 9947,
+      "endMs": 10143
+    },
+    {
+      "text": " terminal",
+      "startMs": 10143,
+      "endMs": 10358
+    },
+    {
+      "text": " I’ve",
+      "startMs": 10358,
+      "endMs": 10495,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " used.",
+      "startMs": 10495,
+      "endMs": 10651
+    },
+    {
+      "text": " GPU-rendered,",
+      "startMs": 10651,
+      "endMs": 10965
+    },
+    {
+      "text": " minimal.",
+      "startMs": 10965,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 11500,
+      "endMs": 11640
+    },
+    {
+      "text": " I",
+      "startMs": 11640,
+      "endMs": 11720
+    },
+    {
+      "text": " dropped.",
+      "startMs": 11720,
+      "endMs": 11940
+    },
+    {
+      "text": " VS",
+      "startMs": 11940,
+      "endMs": 12040,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Code",
+      "startMs": 12040,
+      "endMs": 12180
+    },
+    {
+      "text": " is",
+      "startMs": 12180,
+      "endMs": 12280
+    },
+    {
+      "text": " gone",
+      "startMs": 12280,
+      "endMs": 12420
+    },
+    {
+      "text": " from",
+      "startMs": 12420,
+      "endMs": 12560,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " my",
+      "startMs": 12560,
+      "endMs": 12660
+    },
+    {
+      "text": " daily",
+      "startMs": 12660,
+      "endMs": 12820
+    },
+    {
+      "text": " rotation.",
+      "startMs": 12820,
+      "endMs": 13060
+    },
+    {
+      "text": " I",
+      "startMs": 13060,
+      "endMs": 13140,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " used",
+      "startMs": 13140,
+      "endMs": 13280
+    },
+    {
+      "text": " it",
+      "startMs": 13280,
+      "endMs": 13380
+    },
+    {
+      "text": " for",
+      "startMs": 13380,
+      "endMs": 13500
+    },
+    {
+      "text": " 4",
+      "startMs": 13500,
+      "endMs": 13580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " years,",
+      "startMs": 13580,
+      "endMs": 13760
+    },
+    {
+      "text": " but",
+      "startMs": 13760,
+      "endMs": 13880
+    },
+    {
+      "text": " Neovim",
+      "startMs": 13880,
+      "endMs": 14060
+    },
+    {
+      "text": " +",
+      "startMs": 14060,
+      "endMs": 14140,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Cursor",
+      "startMs": 14140,
+      "endMs": 14320
+    },
+    {
+      "text": " cover",
+      "startMs": 14320,
+      "endMs": 14480
+    },
+    {
+      "text": " everything",
+      "startMs": 14480,
+      "endMs": 14740
+    },
+    {
+      "text": " it",
+      "startMs": 14740,
+      "endMs": 14840,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " did,",
+      "startMs": 14840,
+      "endMs": 14980
+    },
+    {
+      "text": " better.",
+      "startMs": 14980,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 15500,
+      "endMs": 15785
+    },
+    {
+      "text": " the",
+      "startMs": 15785,
+      "endMs": 16030
+    },
+    {
+      "text": " full",
+      "startMs": 16030,
+      "endMs": 16315
+    },
+    {
+      "text": " article.",
+      "startMs": 16315,
+      "endMs": 16764,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 16764,
+      "endMs": 17008
+    },
+    {
+      "text": " posts",
+      "startMs": 17008,
+      "endMs": 17334
+    },
+    {
+      "text": " every",
+      "startMs": 17334,
+      "endMs": 17660
+    },
+    {
+      "text": " week",
+      "startMs": 17660,
+      "endMs": 17946,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 17946,
+      "endMs": 18149
+    },
+    {
+      "text": " the",
+      "startMs": 18149,
+      "endMs": 18394
+    },
+    {
+      "text": " blog.",
+      "startMs": 18394,
+      "endMs": 18720,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

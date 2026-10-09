@@ -6,6 +6,7 @@ export const captionSchema = z.object({
   text: z.string(),
   startMs: z.number(),
   endMs: z.number(),
+  pageBreakAfter: z.boolean().optional(),
 });
 
 /**

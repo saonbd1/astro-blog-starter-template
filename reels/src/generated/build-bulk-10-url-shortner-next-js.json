@@ -1,0 +1,929 @@
+{
+  "slug": "build-bulk-10-url-shortner-next-js",
+  "title": "Build a Bulk 10 URL Shortener Platform Using Next.JS",
+  "description": " Follow Easy Steps on Next.js for URL redirect route; Learn more about URL shortener API validation; dynamic short URL route.",
+  "category": "Web Development",
+  "tags": [
+    "Next JS",
+    "Tools",
+    "Frontend"
+  ],
+  "url": "https://www.techtips.fun/blog/build-bulk-10-url-shortner-next-js/",
+  "theme": "github-dark",
+  "durationInFrames": 830,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "Build a Bulk 10 URL Shortener Platform Using Next.JS",
+      "subtitle": "Follow Easy Steps on Next.js for URL redirect route; Learn more about URL shortener API…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Introduction",
+      "body": "A URL shortener accepts a long URL and returns a shorter URL. The short URL must still point to the original destination.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "What the project builds",
+      "body": "The user submits a URL such as www-ton/asd. The browser sends the URL to POST /api/shorten.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 1: Validate the destination URL",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "function normalizeUrl(value: unknown  ) {\n  if (typeof value !== 'string') throw new Error('Each item must be a URL.')\n\n  const trimmed = value.trim()\n  const destination = new URL(trimmed)\n\n  if (!['http:', 'https:'].includes(destination.protocol  )) {\n    throw new Error('Only http:// and https:// URLs are supported.'  )\n  }",
+          "code": "function normalizeUrl(value: unknown  ) {\n  if (typeof value !== 'string') throw new Error('Each item must be a URL.')\n\n  const trimmed = value.trim()\n  const destination = new URL(trimmed)\n\n  if (!['http:', 'https:'].includes(destination.protocol  )) {\n    throw new Error('Only http:// and https:// URLs are supported.'  )\n  }",
+          "tokens": [
+            [
+              "function normalizeUrl(value: unknown  ) {",
+              null
+            ],
+            "\n  ",
+            [
+              "if (typeof value !== 'string') throw new Error('Each item must be a URL.')",
+              null
+            ],
+            "\n\n  ",
+            [
+              "const trimmed = value.trim()",
+              null
+            ],
+            "\n  ",
+            [
+              "const destination = new URL(trimmed)",
+              null
+            ],
+            "\n\n  ",
+            [
+              "if (!['http:', 'https:'].includes(destination.protocol  )) {",
+              null
+            ],
+            "\n    ",
+            [
+              "throw new Error('Only http:// and https:// URLs are supported.'  )",
+              null
+            ],
+            "\n  ",
+            [
+              "}",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 2: Generate and store a short code",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "let code = ''\ndo {\n  code = Math.random().toString(36).slice(2, 8)\n} while (links.some((link) => link.code === code))",
+          "code": "let code = ''\ndo {\n  code = Math.random().toString(36).slice(2, 8)\n} while (links.some((link) => link.code === code))",
+          "tokens": [
+            [
+              "let code = ''",
+              null
+            ],
+            "\n",
+            [
+              "do {",
+              null
+            ],
+            "\n  ",
+            [
+              "code = Math.random().toString(36).slice(2, 8)",
+              null
+            ],
+            "\n",
+            [
+              "} while (links.some((link) => link.code === code))",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 3: Deliver the short URL",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "const origin = request.headers.get('origin') ?? new URL(request.url).origin\nreturn NextResponse.json({\n  code: link.code,\n  shortUrl: `${origin}/${link.code}`,\n  destination: link.destination,\n})",
+          "code": "const origin = request.headers.get('origin') ?? new URL(request.url).origin\nreturn NextResponse.json({\n  code: link.code,\n  shortUrl: `${origin}/${link.code}`,\n  destination: link.destination,\n})",
+          "tokens": [
+            [
+              "const origin = request.headers.get('origin') ?? new URL(request.url).origin",
+              null
+            ],
+            "\n",
+            [
+              "return NextResponse.json({",
+              null
+            ],
+            "\n  ",
+            [
+              "code: link.code,",
+              null
+            ],
+            "\n  ",
+            [
+              "shortUrl: `${origin}/${link.code}`,",
+              null
+            ],
+            "\n  ",
+            [
+              "destination: link.destination,",
+              null
+            ],
+            "\n",
+            [
+              "})",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 4: Resolve the dynamic route",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "export async function GET(_request: Request, context: Context) {\n  const { code } = await context.params\n  const link = await getLink(code)\n\n  if (!link) return new NextResponse('Short link not found', { status: 404 })\n\n  return NextResponse.redirect(link.destination, 307)\n}",
+          "code": "export async function GET(_request: Request, context: Context) {\n  const { code } = await context.params\n  const link = await getLink(code)\n\n  if (!link) return new NextResponse('Short link not found', { status: 404 })\n\n  return NextResponse.redirect(link.destination, 307)\n}",
+          "tokens": [
+            [
+              "export async function GET(_request: Request, context: Context) {",
+              null
+            ],
+            "\n  ",
+            [
+              "const { code } = await context.params",
+              null
+            ],
+            "\n  ",
+            [
+              "const link = await getLink(code)",
+              null
+            ],
+            "\n\n  ",
+            [
+              "if (!link) return new NextResponse('Short link not found', { status: 404 })",
+              null
+            ],
+            "\n\n  ",
+            [
+              "return NextResponse.redirect(link.destination, 307)",
+              null
+            ],
+            "\n",
+            [
+              "}",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Follow",
+      "startMs": 0,
+      "endMs": 246
+    },
+    {
+      "text": " Easy",
+      "startMs": 246,
+      "endMs": 437
+    },
+    {
+      "text": " Steps",
+      "startMs": 437,
+      "endMs": 655
+    },
+    {
+      "text": " on",
+      "startMs": 655,
+      "endMs": 791,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Next.js",
+      "startMs": 791,
+      "endMs": 1064
+    },
+    {
+      "text": " for",
+      "startMs": 1064,
+      "endMs": 1228
+    },
+    {
+      "text": " URL",
+      "startMs": 1228,
+      "endMs": 1392
+    },
+    {
+      "text": " redirect",
+      "startMs": 1392,
+      "endMs": 1692,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " route;",
+      "startMs": 1692,
+      "endMs": 1937
+    },
+    {
+      "text": " Learn",
+      "startMs": 1937,
+      "endMs": 2156
+    },
+    {
+      "text": " more",
+      "startMs": 2156,
+      "endMs": 2347
+    },
+    {
+      "text": " about",
+      "startMs": 2347,
+      "endMs": 2565,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URL",
+      "startMs": 2565,
+      "endMs": 2729
+    },
+    {
+      "text": " shortener",
+      "startMs": 2729,
+      "endMs": 3056
+    },
+    {
+      "text": " API",
+      "startMs": 3056,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Introduction.",
+      "startMs": 3500,
+      "endMs": 3824
+    },
+    {
+      "text": " A",
+      "startMs": 3824,
+      "endMs": 3904
+    },
+    {
+      "text": " URL",
+      "startMs": 3904,
+      "endMs": 4026
+    },
+    {
+      "text": " shortener",
+      "startMs": 4026,
+      "endMs": 4268,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " accepts",
+      "startMs": 4268,
+      "endMs": 4471
+    },
+    {
+      "text": " a",
+      "startMs": 4471,
+      "endMs": 4551
+    },
+    {
+      "text": " long",
+      "startMs": 4551,
+      "endMs": 4693
+    },
+    {
+      "text": " URL",
+      "startMs": 4693,
+      "endMs": 4814,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 4814,
+      "endMs": 4936
+    },
+    {
+      "text": " returns",
+      "startMs": 4936,
+      "endMs": 5138
+    },
+    {
+      "text": " a",
+      "startMs": 5138,
+      "endMs": 5219
+    },
+    {
+      "text": " shorter",
+      "startMs": 5219,
+      "endMs": 5421,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URL.",
+      "startMs": 5421,
+      "endMs": 5562
+    },
+    {
+      "text": " The",
+      "startMs": 5562,
+      "endMs": 5684
+    },
+    {
+      "text": " short",
+      "startMs": 5684,
+      "endMs": 5845
+    },
+    {
+      "text": " URL",
+      "startMs": 5845,
+      "endMs": 5967,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " must",
+      "startMs": 5967,
+      "endMs": 6108
+    },
+    {
+      "text": " still",
+      "startMs": 6108,
+      "endMs": 6270
+    },
+    {
+      "text": " point",
+      "startMs": 6270,
+      "endMs": 6432
+    },
+    {
+      "text": " to",
+      "startMs": 6432,
+      "endMs": 6533,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 6533,
+      "endMs": 6654
+    },
+    {
+      "text": " original",
+      "startMs": 6654,
+      "endMs": 6877
+    },
+    {
+      "text": " destination.",
+      "startMs": 6877,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 7500,
+      "endMs": 7664
+    },
+    {
+      "text": " the",
+      "startMs": 7664,
+      "endMs": 7805
+    },
+    {
+      "text": " project",
+      "startMs": 7805,
+      "endMs": 8039
+    },
+    {
+      "text": " builds.",
+      "startMs": 8039,
+      "endMs": 8274,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 8274,
+      "endMs": 8414
+    },
+    {
+      "text": " user",
+      "startMs": 8414,
+      "endMs": 8578
+    },
+    {
+      "text": " submits",
+      "startMs": 8578,
+      "endMs": 8813
+    },
+    {
+      "text": " a",
+      "startMs": 8813,
+      "endMs": 8906,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URL",
+      "startMs": 8906,
+      "endMs": 9047
+    },
+    {
+      "text": " such",
+      "startMs": 9047,
+      "endMs": 9211
+    },
+    {
+      "text": " as",
+      "startMs": 9211,
+      "endMs": 9328
+    },
+    {
+      "text": " www-ton/asd.",
+      "startMs": 9328,
+      "endMs": 9680,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 9680,
+      "endMs": 9821
+    },
+    {
+      "text": " browser",
+      "startMs": 9821,
+      "endMs": 10055
+    },
+    {
+      "text": " sends",
+      "startMs": 10055,
+      "endMs": 10242
+    },
+    {
+      "text": " the",
+      "startMs": 10242,
+      "endMs": 10383,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URL",
+      "startMs": 10383,
+      "endMs": 10524
+    },
+    {
+      "text": " to",
+      "startMs": 10524,
+      "endMs": 10641
+    },
+    {
+      "text": " POST",
+      "startMs": 10641,
+      "endMs": 10805
+    },
+    {
+      "text": " /api/shorten.",
+      "startMs": 10805,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 11500,
+      "endMs": 11734
+    },
+    {
+      "text": " 1:",
+      "startMs": 11734,
+      "endMs": 11902
+    },
+    {
+      "text": " Validate",
+      "startMs": 11902,
+      "endMs": 12270
+    },
+    {
+      "text": " the",
+      "startMs": 12270,
+      "endMs": 12471,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " destination",
+      "startMs": 12471,
+      "endMs": 12940
+    },
+    {
+      "text": " URL.",
+      "startMs": 12940,
+      "endMs": 13174
+    },
+    {
+      "text": " Let",
+      "startMs": 13174,
+      "endMs": 13375
+    },
+    {
+      "text": " us",
+      "startMs": 13375,
+      "endMs": 13543,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 13543,
+      "endMs": 13777
+    },
+    {
+      "text": " at",
+      "startMs": 13777,
+      "endMs": 13945
+    },
+    {
+      "text": " the",
+      "startMs": 13945,
+      "endMs": 14145
+    },
+    {
+      "text": " code.",
+      "startMs": 14145,
+      "endMs": 14413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 14667,
+      "endMs": 14884
+    },
+    {
+      "text": " 2:",
+      "startMs": 14884,
+      "endMs": 15039
+    },
+    {
+      "text": " Generate",
+      "startMs": 15039,
+      "endMs": 15380
+    },
+    {
+      "text": " and",
+      "startMs": 15380,
+      "endMs": 15565,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " store",
+      "startMs": 15565,
+      "endMs": 15813
+    },
+    {
+      "text": " a",
+      "startMs": 15813,
+      "endMs": 15937
+    },
+    {
+      "text": " short",
+      "startMs": 15937,
+      "endMs": 16185
+    },
+    {
+      "text": " code.",
+      "startMs": 16185,
+      "endMs": 16433,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 16433,
+      "endMs": 16619
+    },
+    {
+      "text": " us",
+      "startMs": 16619,
+      "endMs": 16774
+    },
+    {
+      "text": " look",
+      "startMs": 16774,
+      "endMs": 16991
+    },
+    {
+      "text": " at",
+      "startMs": 16991,
+      "endMs": 17146,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 17146,
+      "endMs": 17332
+    },
+    {
+      "text": " code.",
+      "startMs": 17332,
+      "endMs": 17580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 17833,
+      "endMs": 18088
+    },
+    {
+      "text": " 3:",
+      "startMs": 18088,
+      "endMs": 18270
+    },
+    {
+      "text": " Deliver",
+      "startMs": 18270,
+      "endMs": 18635
+    },
+    {
+      "text": " the",
+      "startMs": 18635,
+      "endMs": 18853,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " short",
+      "startMs": 18853,
+      "endMs": 19144
+    },
+    {
+      "text": " URL.",
+      "startMs": 19144,
+      "endMs": 19399
+    },
+    {
+      "text": " Let",
+      "startMs": 19399,
+      "endMs": 19618
+    },
+    {
+      "text": " us",
+      "startMs": 19618,
+      "endMs": 19800,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 19800,
+      "endMs": 20055
+    },
+    {
+      "text": " at",
+      "startMs": 20055,
+      "endMs": 20237
+    },
+    {
+      "text": " the",
+      "startMs": 20237,
+      "endMs": 20455
+    },
+    {
+      "text": " code.",
+      "startMs": 20455,
+      "endMs": 20747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 21000,
+      "endMs": 21243
+    },
+    {
+      "text": " 4:",
+      "startMs": 21243,
+      "endMs": 21416
+    },
+    {
+      "text": " Resolve",
+      "startMs": 21416,
+      "endMs": 21763
+    },
+    {
+      "text": " the",
+      "startMs": 21763,
+      "endMs": 21971,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " dynamic",
+      "startMs": 21971,
+      "endMs": 22318
+    },
+    {
+      "text": " route.",
+      "startMs": 22318,
+      "endMs": 22630
+    },
+    {
+      "text": " Let",
+      "startMs": 22630,
+      "endMs": 22838
+    },
+    {
+      "text": " us",
+      "startMs": 22838,
+      "endMs": 23012,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 23012,
+      "endMs": 23254
+    },
+    {
+      "text": " at",
+      "startMs": 23254,
+      "endMs": 23428
+    },
+    {
+      "text": " the",
+      "startMs": 23428,
+      "endMs": 23636
+    },
+    {
+      "text": " code.",
+      "startMs": 23636,
+      "endMs": 23913,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 24167,
+      "endMs": 24452
+    },
+    {
+      "text": " the",
+      "startMs": 24452,
+      "endMs": 24697
+    },
+    {
+      "text": " full",
+      "startMs": 24697,
+      "endMs": 24982
+    },
+    {
+      "text": " article.",
+      "startMs": 24982,
+      "endMs": 25430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 25430,
+      "endMs": 25675
+    },
+    {
+      "text": " posts",
+      "startMs": 25675,
+      "endMs": 26001
+    },
+    {
+      "text": " every",
+      "startMs": 26001,
+      "endMs": 26327
+    },
+    {
+      "text": " week",
+      "startMs": 26327,
+      "endMs": 26612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 26612,
+      "endMs": 26816
+    },
+    {
+      "text": " the",
+      "startMs": 26816,
+      "endMs": 27061
+    },
+    {
+      "text": " blog.",
+      "startMs": 27061,
+      "endMs": 27387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

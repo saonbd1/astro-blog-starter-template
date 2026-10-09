@@ -1,0 +1,733 @@
+{
+  "slug": "self-hosting-your-first-web-app-no",
+  "title": "Self-hosting your first web app — the no-nonsense guide",
+  "description": "I spent way too long being intimidated by self-hosting. It seemed like something only sysadmin wizards did. Then I actually tried it — and it took on",
+  "category": "Self-Hosting",
+  "tags": [
+    "Self-Hosting",
+    "Web Apps",
+    "Deployment",
+    "Beginner Guide"
+  ],
+  "url": "https://www.techtips.fun/blog/self-hosting-your-first-web-app-no/",
+  "theme": "github-dark",
+  "durationInFrames": 640,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Self-Hosting",
+      "title": "Self-hosting your first web app — the no-nonsense guide",
+      "subtitle": "I spent way too long being intimidated by self-hosting. It seemed like something only…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Self-Hosting",
+      "heading": "What you need",
+      "body": "A cheap VPS (I use Hetzner — €4/month for a 2-core, 4GB RAM instance) A domain name (~$10/year) Basic comfort with the terminal",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Self-Hosting",
+      "heading": "Step 1 — Point your domain",
+      "body": "Add an A record in your DNS provider pointing to your VPS IP. Propagation usually takes under 5 minutes with Cloudflare.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 2 — Install Nginx and Certbot",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "sudo apt update && sudo apt install nginx certbot python3-certbot-nginx -y\nsudo certbot --nginx -d yourdomain.com",
+          "code": "sudo apt update && sudo apt install nginx certbot python3-certbot-nginx -y\nsudo certbot --nginx -d yourdomain.com",
+          "tokens": [
+            [
+              "sudo apt update && sudo apt install nginx certbot python3-certbot-nginx -y",
+              null
+            ],
+            "\n",
+            [
+              "sudo certbot --nginx -d yourdomain.com",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 3 — Deploy your app",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "# Nginx config snippet\nlocation / {\n    proxy_pass http://localhost:3000;\n    proxy_http_version 1.1;\n    proxy_set_header Upgrade $http_upgrade;\n    proxy_set_header Host $host;\n}",
+          "code": "# Nginx config snippet\nlocation / {\n    proxy_pass http://localhost:3000;\n    proxy_http_version 1.1;\n    proxy_set_header Upgrade $http_upgrade;\n    proxy_set_header Host $host;\n}",
+          "tokens": [
+            [
+              "# Nginx config snippet",
+              null
+            ],
+            "\n",
+            [
+              "location / {",
+              null
+            ],
+            "\n    ",
+            [
+              "proxy_pass http://localhost:3000;",
+              null
+            ],
+            "\n    ",
+            [
+              "proxy_http_version 1.1;",
+              null
+            ],
+            "\n    ",
+            [
+              "proxy_set_header Upgrade $http_upgrade;",
+              null
+            ],
+            "\n    ",
+            [
+              "proxy_set_header Host $host;",
+              null
+            ],
+            "\n",
+            [
+              "}",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " I",
+      "startMs": 0,
+      "endMs": 113
+    },
+    {
+      "text": " spent",
+      "startMs": 113,
+      "endMs": 339
+    },
+    {
+      "text": " way",
+      "startMs": 339,
+      "endMs": 508
+    },
+    {
+      "text": " too",
+      "startMs": 508,
+      "endMs": 678,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " long",
+      "startMs": 678,
+      "endMs": 876
+    },
+    {
+      "text": " being",
+      "startMs": 876,
+      "endMs": 1102
+    },
+    {
+      "text": " intimidated",
+      "startMs": 1102,
+      "endMs": 1497
+    },
+    {
+      "text": " by",
+      "startMs": 1497,
+      "endMs": 1638,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " self-hosting.",
+      "startMs": 1638,
+      "endMs": 2090
+    },
+    {
+      "text": " It",
+      "startMs": 2090,
+      "endMs": 2231
+    },
+    {
+      "text": " seemed",
+      "startMs": 2231,
+      "endMs": 2486
+    },
+    {
+      "text": " like",
+      "startMs": 2486,
+      "endMs": 2683,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " something",
+      "startMs": 2683,
+      "endMs": 3022
+    },
+    {
+      "text": " only",
+      "startMs": 3022,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3632
+    },
+    {
+      "text": " you",
+      "startMs": 3632,
+      "endMs": 3745
+    },
+    {
+      "text": " need.",
+      "startMs": 3745,
+      "endMs": 3896
+    },
+    {
+      "text": " A",
+      "startMs": 3896,
+      "endMs": 3972,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " cheap",
+      "startMs": 3972,
+      "endMs": 4123
+    },
+    {
+      "text": " VPS",
+      "startMs": 4123,
+      "endMs": 4236
+    },
+    {
+      "text": " (I",
+      "startMs": 4236,
+      "endMs": 4330
+    },
+    {
+      "text": " use",
+      "startMs": 4330,
+      "endMs": 4444,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Hetzner",
+      "startMs": 4444,
+      "endMs": 4632
+    },
+    {
+      "text": " —",
+      "startMs": 4632,
+      "endMs": 4708
+    },
+    {
+      "text": " €4/month",
+      "startMs": 4708,
+      "endMs": 4915
+    },
+    {
+      "text": " for",
+      "startMs": 4915,
+      "endMs": 5029,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 5029,
+      "endMs": 5104
+    },
+    {
+      "text": " 2-core,",
+      "startMs": 5104,
+      "endMs": 5293
+    },
+    {
+      "text": " 4GB",
+      "startMs": 5293,
+      "endMs": 5406
+    },
+    {
+      "text": " RAM",
+      "startMs": 5406,
+      "endMs": 5519,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " instance)",
+      "startMs": 5519,
+      "endMs": 5746
+    },
+    {
+      "text": " A",
+      "startMs": 5746,
+      "endMs": 5821
+    },
+    {
+      "text": " domain",
+      "startMs": 5821,
+      "endMs": 5991
+    },
+    {
+      "text": " name",
+      "startMs": 5991,
+      "endMs": 6123,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " (~$10/year)",
+      "startMs": 6123,
+      "endMs": 6387
+    },
+    {
+      "text": " Basic",
+      "startMs": 6387,
+      "endMs": 6538
+    },
+    {
+      "text": " comfort",
+      "startMs": 6538,
+      "endMs": 6727
+    },
+    {
+      "text": " with",
+      "startMs": 6727,
+      "endMs": 6859,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 6859,
+      "endMs": 6972
+    },
+    {
+      "text": " terminal",
+      "startMs": 6972,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 7500,
+      "endMs": 7627
+    },
+    {
+      "text": " 1",
+      "startMs": 7627,
+      "endMs": 7699
+    },
+    {
+      "text": " —",
+      "startMs": 7699,
+      "endMs": 7772
+    },
+    {
+      "text": " Point",
+      "startMs": 7772,
+      "endMs": 7917,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 7917,
+      "endMs": 8044
+    },
+    {
+      "text": " domain.",
+      "startMs": 8044,
+      "endMs": 8225
+    },
+    {
+      "text": " Add",
+      "startMs": 8225,
+      "endMs": 8334
+    },
+    {
+      "text": " an",
+      "startMs": 8334,
+      "endMs": 8425,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " A",
+      "startMs": 8425,
+      "endMs": 8497
+    },
+    {
+      "text": " record",
+      "startMs": 8497,
+      "endMs": 8660
+    },
+    {
+      "text": " in",
+      "startMs": 8660,
+      "endMs": 8751
+    },
+    {
+      "text": " your",
+      "startMs": 8751,
+      "endMs": 8878,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " DNS",
+      "startMs": 8878,
+      "endMs": 8987
+    },
+    {
+      "text": " provider",
+      "startMs": 8987,
+      "endMs": 9186
+    },
+    {
+      "text": " pointing",
+      "startMs": 9186,
+      "endMs": 9385
+    },
+    {
+      "text": " to",
+      "startMs": 9385,
+      "endMs": 9476,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 9476,
+      "endMs": 9603
+    },
+    {
+      "text": " VPS",
+      "startMs": 9603,
+      "endMs": 9712
+    },
+    {
+      "text": " IP.",
+      "startMs": 9712,
+      "endMs": 9820
+    },
+    {
+      "text": " Propagation",
+      "startMs": 9820,
+      "endMs": 10074,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " usually",
+      "startMs": 10074,
+      "endMs": 10255
+    },
+    {
+      "text": " takes",
+      "startMs": 10255,
+      "endMs": 10400
+    },
+    {
+      "text": " under",
+      "startMs": 10400,
+      "endMs": 10546
+    },
+    {
+      "text": " 5",
+      "startMs": 10546,
+      "endMs": 10618,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " minutes",
+      "startMs": 10618,
+      "endMs": 10799
+    },
+    {
+      "text": " with",
+      "startMs": 10799,
+      "endMs": 10926
+    },
+    {
+      "text": " Cloudflare.",
+      "startMs": 10926,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 11500,
+      "endMs": 11734
+    },
+    {
+      "text": " 2",
+      "startMs": 11734,
+      "endMs": 11868
+    },
+    {
+      "text": " —",
+      "startMs": 11868,
+      "endMs": 12002
+    },
+    {
+      "text": " Install",
+      "startMs": 12002,
+      "endMs": 12337,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Nginx",
+      "startMs": 12337,
+      "endMs": 12605
+    },
+    {
+      "text": " and",
+      "startMs": 12605,
+      "endMs": 12806
+    },
+    {
+      "text": " Certbot.",
+      "startMs": 12806,
+      "endMs": 13174
+    },
+    {
+      "text": " Let",
+      "startMs": 13174,
+      "endMs": 13375,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 13375,
+      "endMs": 13543
+    },
+    {
+      "text": " look",
+      "startMs": 13543,
+      "endMs": 13777
+    },
+    {
+      "text": " at",
+      "startMs": 13777,
+      "endMs": 13945
+    },
+    {
+      "text": " the",
+      "startMs": 13945,
+      "endMs": 14145,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 14145,
+      "endMs": 14413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 14667,
+      "endMs": 14939
+    },
+    {
+      "text": " 3",
+      "startMs": 14939,
+      "endMs": 15094
+    },
+    {
+      "text": " —",
+      "startMs": 15094,
+      "endMs": 15249
+    },
+    {
+      "text": " Deploy",
+      "startMs": 15249,
+      "endMs": 15599,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 15599,
+      "endMs": 15871
+    },
+    {
+      "text": " app.",
+      "startMs": 15871,
+      "endMs": 16143
+    },
+    {
+      "text": " Let",
+      "startMs": 16143,
+      "endMs": 16376
+    },
+    {
+      "text": " us",
+      "startMs": 16376,
+      "endMs": 16570,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 16570,
+      "endMs": 16842
+    },
+    {
+      "text": " at",
+      "startMs": 16842,
+      "endMs": 17036
+    },
+    {
+      "text": " the",
+      "startMs": 17036,
+      "endMs": 17269
+    },
+    {
+      "text": " code.",
+      "startMs": 17269,
+      "endMs": 17580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 17833,
+      "endMs": 18119
+    },
+    {
+      "text": " the",
+      "startMs": 18119,
+      "endMs": 18363
+    },
+    {
+      "text": " full",
+      "startMs": 18363,
+      "endMs": 18649
+    },
+    {
+      "text": " article.",
+      "startMs": 18649,
+      "endMs": 19097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 19097,
+      "endMs": 19341
+    },
+    {
+      "text": " posts",
+      "startMs": 19341,
+      "endMs": 19668
+    },
+    {
+      "text": " every",
+      "startMs": 19668,
+      "endMs": 19994
+    },
+    {
+      "text": " week",
+      "startMs": 19994,
+      "endMs": 20279,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 20279,
+      "endMs": 20483
+    },
+    {
+      "text": " the",
+      "startMs": 20483,
+      "endMs": 20727
+    },
+    {
+      "text": " blog.",
+      "startMs": 20727,
+      "endMs": 21053,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

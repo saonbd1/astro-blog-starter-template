@@ -11,6 +11,7 @@ import {
 import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { Easing, interpolate, useCurrentFrame, useDelayRender } from "remotion";
 import { codeFontFamily, codeFontSize, codeTabSize } from "../fonts";
+import { useThemeColors } from "../theme";
 import { tokenTransitions } from "./annotations/InlineToken";
 import { applyStyle } from "./apply-style";
 
@@ -35,6 +36,7 @@ export const CodeTransition: React.FC<{
   fontFamily = codeFontFamily,
 }) => {
   const frame = useCurrentFrame();
+  const themeColors = useThemeColors();
 
   const ref = React.useRef<HTMLPreElement>(null);
   const [oldSnapshot, setOldSnapshot] =
@@ -99,8 +101,12 @@ export const CodeTransition: React.FC<{
       margin: 0,
       whiteSpace: "pre-wrap",
       wordBreak: "break-word",
+      // `codehike`'s <Pre /> does not apply `code.style`, so the base text
+      // colour has to be set here or the code inherits the document colour.
+      color: themeColors.editor.foreground,
+      background: "transparent",
     };
-  }, [fontSize, fontFamily]);
+  }, [fontSize, fontFamily, themeColors]);
 
   return <Pre ref={ref} code={code} handlers={handlers} style={style} />;
 };

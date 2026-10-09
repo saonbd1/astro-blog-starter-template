@@ -2,15 +2,15 @@
 import { Config } from "@remotion/cli/config";
 import { createRequire } from "node:module";
 
-// Resolve `@code-hike/lighter`'s ESM entry from THIS project (not the cwd),
-// so `remotion studio` / `remotion render` behave the same regardless of where
-// they are invoked from.
-const projectRequire = createRequire(import.meta.url);
+// Remotion compiles this file to CommonJS, so `import.meta` is not available.
+// Resolve `@code-hike/lighter`'s ESM entry from the project root instead - the
+// Remotion CLI is always invoked with the reels/ folder as the cwd (see
+// scripts/render-reel.mjs).
+const projectRequire = createRequire(`${process.cwd()}/package.json`);
 
 Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
-Config.setConcurrency(null);
 
 Config.overrideRspackConfig((config) => {
   return {

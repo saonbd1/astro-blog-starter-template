@@ -1,0 +1,173 @@
+# TechTips.fun — Article → Reel generator
+
+Turns a Markdown article from `../src/content/blog` into a **vertical 1080x1920
+reel** (MP4) built with [Remotion](https://www.remotion.dev/):
+
+- **Animated code** via [Code Hike](https://codehike.org/) — snippets fade/morph in
+  with real token transitions, syntax-highlighted from the article's fenced blocks.
+- **TikTok-style captions** — 3-4 words at a time, with the current word highlighted
+  in brand lime.
+- **Branded scenes** — title hook → key points → code → outro CTA, styled with the
+  same palette as the site's OG cards.
+
+Everything is driven by the article's own Markdown, so there is no second source of
+truth: edit the post, re-render, done.
+
+## Requirements
+
+- **Node.js 18+** (this repo targets 22+). Uses `fs.statfsSync`, so Node < 18.15 won't work.
+- Network access on first run (Google Fonts + Remotion's Chrome Headless Shell download).
+
+```bash
+cd reels
+npm install
+```
+
+## Quick start
+
+```bash
+npm run props -- --list                       # every article slug
+npm run props -- --latest                     # build props for the newest post
+npm run reel  -- --latest                     # render out/<slug>.mp4
+npm run reel  -- --slug 10-linux-terminal-commands-i-use-every
+npm run reel:all                              # render every article
+npm run still -- --slug <slug> --frame 210    # a single PNG poster
+npm run dev                                   # Remotion Studio (live preview)
+```
+
+`npm run reel` always rebuilds the props from Markdown first, so one command is
+enough. Output lands in `out/`.
+
+### Options
+
+| Flag | Applies to | Meaning |
+| --- | --- | --- |
+| `--slug <slug>` | props, reel | Which article |
+| `--latest` | props, reel | Newest by `pubDate` |
+| `--all` | props, reel | Every article |
+| `--list` | props | Print slugs |
+| `--theme <name>` | props, reel | Code Hike theme (default `github-dark`) |
+| `--still` | reel | Render a PNG instead of MP4 |
+| `--frame <n>` | reel | Frame for `--still` |
+| `--out <path>` | reel | Explicit output path |
+| `--concurrency <n>` | reel | Parallel render tabs |
+
+## How it works
+
+```
+src/content/blog/<slug>.md
+        |
+        |  scripts/build-reel-props.mjs   (Node)
+        |    - parse frontmatter + ## sections + fenced code
+        |    - plan scenes and their durations
+        |    - highlight code with Code Hike (@code-hike/lighter)
+        |    - synthesise a word-level caption track
+        v
+src/generated/<slug>.json  (fully-baked props)  ->  also written to latest.json
+        |
+        |  npx remotion render Reel out/<slug>.mp4 --props=...
+        v
+out/<slug>.mp4   (1080x1920, 30fps, H.264)
+```
+
+Highlighting happens in **Node, at build time**, so the composition is a pure
+function of its props - no filesystem or network reads while rendering, and the
+same props file always produces the same video.
+
+### File map
+
+| Path | Role |
+| --- | --- |
+| `scripts/build-reel-props.mjs` | Article → props (parsing, scenes, captions, highlighting) |
+| `scripts/render-reel.mjs` | Build props + call the Remotion CLI |
+| `scripts/glyph-audit.mjs` | Warns about glyphs that can crash the renderer |
+| `src/Root.tsx` | Registers the `Reel` composition |
+| `src/Reel.tsx` | Scene timeline, background, top bar, captions, progress bar |
+| `src/scenes/*` | Title / point / code / outro scenes |
+| `src/code/*` | Code Hike token-transition animation |
+| `src/captions/CaptionOverlay.tsx` | TikTok-style pagination + word highlight |
+| `src/schema.ts` | Props contract (zod, also powers the Studio props editor) |
+| `src/brand.ts` | Brand tokens, reel size, safe area |
+
+## Customising
+
+- **Brand / sizes** — `src/brand.ts` (`BRAND`, `REEL`, `SAFE_AREA`).
+- **Pacing** — the `*_FRAMES` constants at the top of `build-reel-props.mjs`
+  (`TITLE_FRAMES`, `POINT_FRAMES`, `CODE_STEP_FRAMES`, `OUTRO_FRAMES`), plus
+  `MAX_SECTIONS` / `MAX_TOTAL_FRAMES` to cap reel length.
+- **Caption cadence** — `COMBINE_TOKENS_WITHIN_MS` in `src/captions/CaptionOverlay.tsx`
+  (lower = fewer words on screen at once).
+- **Code look** — `src/fonts.ts` (`codeFontSize`, `codeTabSize`) and the theme
+  passed to the builder. The font size auto-shrinks to fit the longest line.
+- **Scene selection** — `buildScenes()` decides which sections become code scenes
+  vs. text scenes. Sections with fenced code become code scenes.
+
+Sections whose code fence has no language are highlighted as plain text; snippets
+are capped at `MAX_CODE_LINES` lines each.
+
+## Adding a voiceover (optional)
+
+Captions are currently *synthesised* from the on-screen script with even timings,
+which is why the reel works without audio. To drive them from real speech instead:
+
+1. Generate a voiceover and drop it in `public/` as `<slug>.mp3`.
+2. Transcribe it with `@remotion/install-whisper-cpp` + `@remotion/captions`
+   (see the official [`--tiktok` template](https://www.remotion.dev/templates/tiktok))
+   into `public/<slug>.json`.
+3. Swap the `captions` array in `build-reel-props.mjs` for that transcription and
+   add the audio with `<Audio src={staticFile(...)} />` in `src/Reel.tsx`.
+
+The `CaptionPage` component already consumes word-level `fromMs`/`toMs` timings,
+so nothing else has to change.
+
+## Rendering in bulk / CI
+
+`npm run reel:all` renders every article sequentially. For serious volume, render
+on [Remotion Lambda](https://www.remotion.dev/docs/lambda) or your own workers -
+the props files are the only input you need to ship.
+
+### Running headless on Linux
+
+Rendering needs Chromium plus its system libraries. Two environment notes worth
+knowing, both discovered the hard way while building this:
+
+1. **Missing shared libraries.** Chrome Headless Shell needs `libnss3` / `libnspr4`.
+   On a normal box install `libnss3 libnspr4` (or run Remotion's `apt-get` block
+   from the docs). Without root you can fetch the `.deb`s, extract them and point
+   `LD_LIBRARY_PATH` at them:
+
+   ```bash
+   mkdir -p /tmp/chromedeps && cd /tmp/chromedeps
+   curl -sO https://deb.debian.org/debian/pool/main/n/nss/libnss3_3.87.1-1+deb12u2_amd64.deb
+   curl -sO https://deb.debian.org/debian/pool/main/n/nspr/libnspr4_4.35-1_amd64.deb
+   for d in *.deb; do dpkg-deb -x "$d" ./root; done
+   export LD_LIBRARY_PATH="$PWD/root/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
+   ```
+
+2. **Tiny `/dev/shm`.** Remotion keeps an ~8 MB shared-memory pool per concurrent
+   tab. Containers often mount only 64 MB of `/dev/shm`, so Chrome dies mid-render
+   with `Target closed`. `scripts/render-reel.mjs` detects this and sets
+   `REMOTION_SHARED_MEMORY_BACKEND=file` automatically (you can set it yourself, or
+   pass `--concurrency 4`).
+
+## Pitfalls
+
+- **Avoid glyphs outside the loaded font subset.** We only load the `latin`
+  Google Fonts subset. `\u2192` (`→`) is *not* in it, and Chromium's font fallback
+  hard-crashed the renderer here (`Target closed`) until the arrow was replaced with
+  inline SVG. `scripts/glyph-audit.mjs` now warns on every build; prefer ASCII or SVG
+  for symbols.
+- **`remotion.config.ts` is compiled to CommonJS** — `import.meta` is not available
+  there. Resolve modules via `createRequire(process.cwd() + "/package.json")`.
+- **`codehike`'s `<Pre />` does not apply `code.style`.** Pass the text colour
+  explicitly (see `src/code/CodeTransition.tsx`) or the code renders in the default
+  (black-on-dark) colour.
+- **`createTikTokStyleCaptions` only breaks pages when a token starts with a
+  space.** The builder prefixes every word with one, Whisper-style, and sets
+  `pageBreakAfter` on the last word of each scene.
+
+## Licensing
+
+Remotion is free for individuals and companies of up to 3 people; larger
+organisations need a [Company License](https://www.remotion.dev/pricing). Check
+that before shipping this in a company.

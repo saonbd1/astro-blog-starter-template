@@ -6,6 +6,25 @@ import { uiFontFamily } from "../fonts";
 import { OutroScene as OutroSceneData } from "../schema";
 import { headlineFontSize, wrapText } from "../utils";
 
+/**
+ * NOTE: the call-to-action arrow is an inline SVG on purpose.
+ * A literal "\u2192" character is not part of the "latin" Google Fonts subset we
+ * load, so Chromium falls back to a system font - and in a container without
+ * fonts installed that fallback kills the renderer process ("Target closed").
+ * Drawing it avoids the font dependency entirely.
+ */
+const Arrow: React.FC = () => (
+  <svg width={40} height={40} viewBox="0 0 24 24" fill="none" aria-hidden>
+    <path
+      d="M4 12h15M13 6l6 6-6 6"
+      stroke={BRAND.limeInk}
+      strokeWidth={2.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export const OutroScene: React.FC<{ readonly scene: OutroSceneData }> = ({
   scene,
 }) => {
@@ -60,7 +79,7 @@ export const OutroScene: React.FC<{ readonly scene: OutroSceneData }> = ({
             marginTop: 56,
             display: "inline-flex",
             alignItems: "center",
-            gap: 18,
+            gap: 20,
             backgroundColor: BRAND.lime,
             color: BRAND.limeInk,
             borderRadius: 999,
@@ -70,7 +89,7 @@ export const OutroScene: React.FC<{ readonly scene: OutroSceneData }> = ({
           }}
         >
           <span>{scene.url}</span>
-          <span style={{ fontSize: 42 }}>→</span>
+          <Arrow />
         </div>
       </Enter>
     </AbsoluteFill>

@@ -1,0 +1,987 @@
+{
+  "slug": "css-grid-vs-flexbox-when-to-actually",
+  "title": "CSS Grid vs Flexbox when to actually use each one",
+  "description": "This debate has been running since Grid shipped. Most explanations are either too vague (“Grid is 2D, Flexbox is 1D”) or too prescriptive. Here’s the",
+  "category": "Web Development",
+  "tags": [
+    "CSS",
+    "Frontend",
+    "Web Design",
+    "Layouts"
+  ],
+  "url": "https://www.techtips.fun/blog/css-grid-vs-flexbox-when-to-actually/",
+  "theme": "github-dark",
+  "durationInFrames": 855,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "CSS Grid vs Flexbox when to actually use each one",
+      "subtitle": "This debate has been running since Grid shipped. Most explanations are either too vague…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "The one rule that decides everything",
+      "body": "Does the layout drive the content, or does the content drive the layout? If you have a defined grid and you’re placing items into it — use CSS Grid.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Grid examples",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "/* Classic 3-column layout */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 24px;\n}\n\n/* Magazine layout */\n.magazine {",
+          "code": "/* Classic 3-column layout */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 24px;\n}\n\n/* Magazine layout */\n.magazine {",
+          "tokens": [
+            [
+              "/* Classic 3-column layout */",
+              null
+            ],
+            "\n",
+            [
+              ".grid {",
+              null
+            ],
+            "\n  ",
+            [
+              "display: grid;",
+              null
+            ],
+            "\n  ",
+            [
+              "grid-template-columns: repeat(3, 1fr);",
+              null
+            ],
+            "\n  ",
+            [
+              "gap: 24px;",
+              null
+            ],
+            "\n",
+            [
+              "}",
+              null
+            ],
+            "\n\n",
+            [
+              "/* Magazine layout */",
+              null
+            ],
+            "\n",
+            [
+              ".magazine {",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Flexbox examples",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "/* Nav bar items */\n.nav {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n\n/* Card that stretches button to bottom */\n.card {",
+          "code": "/* Nav bar items */\n.nav {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n\n/* Card that stretches button to bottom */\n.card {",
+          "tokens": [
+            [
+              "/* Nav bar items */",
+              null
+            ],
+            "\n",
+            [
+              ".nav {",
+              null
+            ],
+            "\n  ",
+            [
+              "display: flex;",
+              null
+            ],
+            "\n  ",
+            [
+              "align-items: center;",
+              null
+            ],
+            "\n  ",
+            [
+              "gap: 16px;",
+              null
+            ],
+            "\n",
+            [
+              "}",
+              null
+            ],
+            "\n\n",
+            [
+              "/* Card that stretches button to bottom */",
+              null
+            ],
+            "\n",
+            [
+              ".card {",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Bonus Tips Markup Guide",
+      "body": "The following HTML <h1>—<h6> elements represent six levels of section headings. <h1> is the highest section level while <h6> is the lowest.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Paragraph",
+      "body": "Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Syntax",
+      "steps": [
+        {
+          "lang": "markdown",
+          "meta": "markdown",
+          "value": "![Alt text](./full/or/relative/path/of/image)",
+          "code": "![Alt text](./full/or/relative/path/of/image)",
+          "tokens": [
+            [
+              "![",
+              "#C9D1D9"
+            ],
+            [
+              "Alt text",
+              "#A5D6FF",
+              {
+                "textDecoration": "underline"
+              }
+            ],
+            [
+              "](",
+              "#C9D1D9"
+            ],
+            [
+              "./full/or/relative/path/of/image",
+              "#C9D1D9",
+              {
+                "textDecoration": "underline"
+              }
+            ],
+            [
+              ")",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " This",
+      "startMs": 0,
+      "endMs": 194
+    },
+    {
+      "text": " debate",
+      "startMs": 194,
+      "endMs": 444
+    },
+    {
+      "text": " has",
+      "startMs": 444,
+      "endMs": 611
+    },
+    {
+      "text": " been",
+      "startMs": 611,
+      "endMs": 805,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " running",
+      "startMs": 805,
+      "endMs": 1083
+    },
+    {
+      "text": " since",
+      "startMs": 1083,
+      "endMs": 1305
+    },
+    {
+      "text": " Grid",
+      "startMs": 1305,
+      "endMs": 1499
+    },
+    {
+      "text": " shipped.",
+      "startMs": 1499,
+      "endMs": 1804,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Most",
+      "startMs": 1804,
+      "endMs": 1999
+    },
+    {
+      "text": " explanations",
+      "startMs": 1999,
+      "endMs": 2415
+    },
+    {
+      "text": " are",
+      "startMs": 2415,
+      "endMs": 2582
+    },
+    {
+      "text": " either",
+      "startMs": 2582,
+      "endMs": 2831,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " too",
+      "startMs": 2831,
+      "endMs": 2998
+    },
+    {
+      "text": " vague",
+      "startMs": 2998,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 3500,
+      "endMs": 3586
+    },
+    {
+      "text": " one",
+      "startMs": 3586,
+      "endMs": 3672
+    },
+    {
+      "text": " rule",
+      "startMs": 3672,
+      "endMs": 3772
+    },
+    {
+      "text": " that",
+      "startMs": 3772,
+      "endMs": 3872,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " decides",
+      "startMs": 3872,
+      "endMs": 4015
+    },
+    {
+      "text": " everything.",
+      "startMs": 4015,
+      "endMs": 4216
+    },
+    {
+      "text": " Does",
+      "startMs": 4216,
+      "endMs": 4316
+    },
+    {
+      "text": " the",
+      "startMs": 4316,
+      "endMs": 4402,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " layout",
+      "startMs": 4402,
+      "endMs": 4531
+    },
+    {
+      "text": " drive",
+      "startMs": 4531,
+      "endMs": 4646
+    },
+    {
+      "text": " the",
+      "startMs": 4646,
+      "endMs": 4731
+    },
+    {
+      "text": " content,",
+      "startMs": 4731,
+      "endMs": 4889,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " or",
+      "startMs": 4889,
+      "endMs": 4961
+    },
+    {
+      "text": " does",
+      "startMs": 4961,
+      "endMs": 5061
+    },
+    {
+      "text": " the",
+      "startMs": 5061,
+      "endMs": 5147
+    },
+    {
+      "text": " content",
+      "startMs": 5147,
+      "endMs": 5290,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " drive",
+      "startMs": 5290,
+      "endMs": 5404
+    },
+    {
+      "text": " the",
+      "startMs": 5404,
+      "endMs": 5490
+    },
+    {
+      "text": " layout?",
+      "startMs": 5490,
+      "endMs": 5634
+    },
+    {
+      "text": " If",
+      "startMs": 5634,
+      "endMs": 5705,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " you",
+      "startMs": 5705,
+      "endMs": 5791
+    },
+    {
+      "text": " have",
+      "startMs": 5791,
+      "endMs": 5891
+    },
+    {
+      "text": " a",
+      "startMs": 5891,
+      "endMs": 5949
+    },
+    {
+      "text": " defined",
+      "startMs": 5949,
+      "endMs": 6092,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " grid",
+      "startMs": 6092,
+      "endMs": 6192
+    },
+    {
+      "text": " and",
+      "startMs": 6192,
+      "endMs": 6278
+    },
+    {
+      "text": " you’re",
+      "startMs": 6278,
+      "endMs": 6407
+    },
+    {
+      "text": " placing",
+      "startMs": 6407,
+      "endMs": 6550,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " items",
+      "startMs": 6550,
+      "endMs": 6665
+    },
+    {
+      "text": " into",
+      "startMs": 6665,
+      "endMs": 6765
+    },
+    {
+      "text": " it",
+      "startMs": 6765,
+      "endMs": 6836
+    },
+    {
+      "text": " —",
+      "startMs": 6836,
+      "endMs": 6894,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " use",
+      "startMs": 6894,
+      "endMs": 6980
+    },
+    {
+      "text": " CSS",
+      "startMs": 6980,
+      "endMs": 7065
+    },
+    {
+      "text": " Grid.",
+      "startMs": 7065,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Grid",
+      "startMs": 7500,
+      "endMs": 7864
+    },
+    {
+      "text": " examples.",
+      "startMs": 7864,
+      "endMs": 8488
+    },
+    {
+      "text": " Let",
+      "startMs": 8488,
+      "endMs": 8801
+    },
+    {
+      "text": " us",
+      "startMs": 8801,
+      "endMs": 9061,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 9061,
+      "endMs": 9425
+    },
+    {
+      "text": " at",
+      "startMs": 9425,
+      "endMs": 9685
+    },
+    {
+      "text": " the",
+      "startMs": 9685,
+      "endMs": 9997
+    },
+    {
+      "text": " code.",
+      "startMs": 9997,
+      "endMs": 10413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Flexbox",
+      "startMs": 10667,
+      "endMs": 11160
+    },
+    {
+      "text": " examples.",
+      "startMs": 11160,
+      "endMs": 11753
+    },
+    {
+      "text": " Let",
+      "startMs": 11753,
+      "endMs": 12049
+    },
+    {
+      "text": " us",
+      "startMs": 12049,
+      "endMs": 12296,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 12296,
+      "endMs": 12642
+    },
+    {
+      "text": " at",
+      "startMs": 12642,
+      "endMs": 12889
+    },
+    {
+      "text": " the",
+      "startMs": 12889,
+      "endMs": 13185
+    },
+    {
+      "text": " code.",
+      "startMs": 13185,
+      "endMs": 13580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Bonus",
+      "startMs": 13833,
+      "endMs": 13969
+    },
+    {
+      "text": " Tips",
+      "startMs": 13969,
+      "endMs": 14088
+    },
+    {
+      "text": " Markup",
+      "startMs": 14088,
+      "endMs": 14240
+    },
+    {
+      "text": " Guide.",
+      "startMs": 14240,
+      "endMs": 14393,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 14393,
+      "endMs": 14495
+    },
+    {
+      "text": " following",
+      "startMs": 14495,
+      "endMs": 14698
+    },
+    {
+      "text": " HTML",
+      "startMs": 14698,
+      "endMs": 14817
+    },
+    {
+      "text": " <h1>—<h6>",
+      "startMs": 14817,
+      "endMs": 15020,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " elements",
+      "startMs": 15020,
+      "endMs": 15207
+    },
+    {
+      "text": " represent",
+      "startMs": 15207,
+      "endMs": 15410
+    },
+    {
+      "text": " six",
+      "startMs": 15410,
+      "endMs": 15512
+    },
+    {
+      "text": " levels",
+      "startMs": 15512,
+      "endMs": 15665,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " of",
+      "startMs": 15665,
+      "endMs": 15750
+    },
+    {
+      "text": " section",
+      "startMs": 15750,
+      "endMs": 15919
+    },
+    {
+      "text": " headings.",
+      "startMs": 15919,
+      "endMs": 16123
+    },
+    {
+      "text": " <h1>",
+      "startMs": 16123,
+      "endMs": 16241,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 16241,
+      "endMs": 16326
+    },
+    {
+      "text": " the",
+      "startMs": 16326,
+      "endMs": 16428
+    },
+    {
+      "text": " highest",
+      "startMs": 16428,
+      "endMs": 16598
+    },
+    {
+      "text": " section",
+      "startMs": 16598,
+      "endMs": 16767,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " level",
+      "startMs": 16767,
+      "endMs": 16903
+    },
+    {
+      "text": " while",
+      "startMs": 16903,
+      "endMs": 17038
+    },
+    {
+      "text": " <h6>",
+      "startMs": 17038,
+      "endMs": 17157
+    },
+    {
+      "text": " is",
+      "startMs": 17157,
+      "endMs": 17242,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 17242,
+      "endMs": 17344
+    },
+    {
+      "text": " lowest.",
+      "startMs": 17344,
+      "endMs": 17513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Paragraph.",
+      "startMs": 17833,
+      "endMs": 18061
+    },
+    {
+      "text": " Xerum,",
+      "startMs": 18061,
+      "endMs": 18219
+    },
+    {
+      "text": " quo",
+      "startMs": 18219,
+      "endMs": 18324
+    },
+    {
+      "text": " qui",
+      "startMs": 18324,
+      "endMs": 18429,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " aut",
+      "startMs": 18429,
+      "endMs": 18534
+    },
+    {
+      "text": " unt",
+      "startMs": 18534,
+      "endMs": 18639
+    },
+    {
+      "text": " expliquam",
+      "startMs": 18639,
+      "endMs": 18850
+    },
+    {
+      "text": " qui",
+      "startMs": 18850,
+      "endMs": 18955,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " dolut",
+      "startMs": 18955,
+      "endMs": 19095
+    },
+    {
+      "text": " labo.",
+      "startMs": 19095,
+      "endMs": 19235
+    },
+    {
+      "text": " Aque",
+      "startMs": 19235,
+      "endMs": 19358
+    },
+    {
+      "text": " venitatiusda",
+      "startMs": 19358,
+      "endMs": 19621,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " cum,",
+      "startMs": 19621,
+      "endMs": 19743
+    },
+    {
+      "text": " voluptionse",
+      "startMs": 19743,
+      "endMs": 19989
+    },
+    {
+      "text": " latur",
+      "startMs": 19989,
+      "endMs": 20129
+    },
+    {
+      "text": " sitiae",
+      "startMs": 20129,
+      "endMs": 20287,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " dolessi",
+      "startMs": 20287,
+      "endMs": 20462
+    },
+    {
+      "text": " aut",
+      "startMs": 20462,
+      "endMs": 20567
+    },
+    {
+      "text": " parist",
+      "startMs": 20567,
+      "endMs": 20725
+    },
+    {
+      "text": " aut",
+      "startMs": 20725,
+      "endMs": 20830,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " dollo",
+      "startMs": 20830,
+      "endMs": 20970
+    },
+    {
+      "text": " enim",
+      "startMs": 20970,
+      "endMs": 21093
+    },
+    {
+      "text": " qui",
+      "startMs": 21093,
+      "endMs": 21198
+    },
+    {
+      "text": " voluptate",
+      "startMs": 21198,
+      "endMs": 21408,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " ma…",
+      "startMs": 21408,
+      "endMs": 21513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Syntax.",
+      "startMs": 21833,
+      "endMs": 22453
+    },
+    {
+      "text": " Let",
+      "startMs": 22453,
+      "endMs": 22825
+    },
+    {
+      "text": " us",
+      "startMs": 22825,
+      "endMs": 23135
+    },
+    {
+      "text": " look",
+      "startMs": 23135,
+      "endMs": 23569,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 23569,
+      "endMs": 23879
+    },
+    {
+      "text": " the",
+      "startMs": 23879,
+      "endMs": 24251
+    },
+    {
+      "text": " code.",
+      "startMs": 24251,
+      "endMs": 24747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 25000,
+      "endMs": 25285
+    },
+    {
+      "text": " the",
+      "startMs": 25285,
+      "endMs": 25530
+    },
+    {
+      "text": " full",
+      "startMs": 25530,
+      "endMs": 25815
+    },
+    {
+      "text": " article.",
+      "startMs": 25815,
+      "endMs": 26264,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 26264,
+      "endMs": 26508
+    },
+    {
+      "text": " posts",
+      "startMs": 26508,
+      "endMs": 26834
+    },
+    {
+      "text": " every",
+      "startMs": 26834,
+      "endMs": 27160
+    },
+    {
+      "text": " week",
+      "startMs": 27160,
+      "endMs": 27446,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 27446,
+      "endMs": 27649
+    },
+    {
+      "text": " the",
+      "startMs": 27649,
+      "endMs": 27894
+    },
+    {
+      "text": " blog.",
+      "startMs": 27894,
+      "endMs": 28220,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

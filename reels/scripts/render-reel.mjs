@@ -49,6 +49,28 @@ const remotionBin = () => {
   return fs.existsSync(local) ? local : "npx";
 };
 
+/**
+ * Remotion keeps one ~8 MB shared-memory pool per concurrent tab. Containers
+ * frequently mount a tiny /dev/shm (64 MB), which makes Chrome crash mid-render
+ * with "target closed". When that is the case, fall back to Remotion's
+ * file-backed pools in /tmp instead.
+ */
+const resolveShmBackend = () => {
+  if (process.env.REMOTION_SHARED_MEMORY_BACKEND) {
+    return process.env.REMOTION_SHARED_MEMORY_BACKEND;
+  }
+  try {
+    const stats = fs.statfsSync("/dev/shm");
+    const bytes = Number(stats.bsize) * Number(stats.blocks);
+    if (bytes > 0 && bytes < 512 * 1024 * 1024) {
+      return "file";
+    }
+  } catch {
+    /* /dev/shm may not exist (macOS/Windows) - leave the default alone */
+  }
+  return undefined;
+};
+
 const runRemotion = ({ args, propsPath, outputPath, still, frame }) => {
   const bin = remotionBin();
   const command = still ? "still" : "render";
@@ -64,10 +86,15 @@ const runRemotion = ({ args, propsPath, outputPath, still, frame }) => {
   if (args.concurrency) cliArgs.push(`--concurrency=${args.concurrency}`);
   if (args.theme) cliArgs.push(`--props=${propsPath}`);
 
+  const shmBackend = resolveShmBackend();
+
   const result = spawnSync(bin, cliArgs, {
     cwd: ROOT,
     stdio: "inherit",
-    env: process.env,
+    env: {
+      ...process.env,
+      ...(shmBackend ? { REMOTION_SHARED_MEMORY_BACKEND: shmBackend } : {}),
+    },
   });
 
   if (result.status !== 0) {

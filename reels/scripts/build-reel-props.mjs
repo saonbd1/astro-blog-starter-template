@@ -21,6 +21,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { getThemeColors } from "@code-hike/lighter";
 import { highlight } from "codehike/code";
+import { warnAboutGlyphs } from "./glyph-audit.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REELS_ROOT = path.resolve(HERE, "..");
@@ -38,6 +39,7 @@ const MAX_SECTIONS = 6;
 const MAX_TOTAL_FRAMES = 1740;
 const MAX_CODE_BLOCKS_PER_SECTION = 2;
 const MAX_CODE_LINES = 9;
+const MAX_WORDS_PER_CAPTION_PAGE = 4;
 
 const DEFAULT_THEME = "github-dark";
 
@@ -171,7 +173,9 @@ const trimCode = (code, maxLines = MAX_CODE_LINES) => {
 const narrationFor = (scene) => {
   switch (scene.type) {
     case "title":
-      return `${scene.title}. ${scene.subtitle}`;
+      // The headline is already huge on screen - caption the subtitle instead of
+      // repeating it.
+      return scene.subtitle.replace(/\u2026$/, "");
     case "point":
       return `${scene.heading}. ${scene.body}`;
     case "code":
@@ -207,10 +211,17 @@ const buildCaptions = (scenes) => {
     let cursor = cursorMs;
     words.forEach((word, index) => {
       const share = (weights[index] / totalWeight) * usable;
+      const isLastWordOfScene = index === words.length - 1;
+      const pageIsFull = (index + 1) % MAX_WORDS_PER_CAPTION_PAGE === 0;
       captions.push({
-        text: word,
+        // Whisper-style leading space: createTikTokStyleCaptions only starts a
+        // new caption page when the incoming token begins with a space.
+        text: ` ${word}`,
         startMs: Math.round(cursor),
         endMs: Math.round(cursor + share),
+        // Force a page flush every few words (so text-heavy scenes don't produce
+        // one giant line) and never let a page bleed into the next scene.
+        ...(isLastWordOfScene || pageIsFull ? { pageBreakAfter: true } : {}),
       });
       cursor += share;
     });
@@ -264,7 +275,7 @@ const buildScenes = (frontmatter, sections) => {
       continue;
     }
 
-    const prose = firstSentenceOf(section.prose.join(" "));
+    const prose = firstSentenceOf(section.prose.join(" "), 150);
     if (prose.length < 40) continue;
 
     scenes.push({
@@ -391,6 +402,7 @@ const writeProps = async (props) => {
 export const buildForSlug = async (slug, theme = DEFAULT_THEME) => {
   const { frontmatter, body } = await readArticle(slug);
   const props = await buildReelProps({ slug, frontmatter, body, theme });
+  warnAboutGlyphs(props);
   const target = await writeProps(props);
   return { props, target };
 };
@@ -424,6 +436,9 @@ const main = async () => {
         `${slug}: ${props.scenes.length} scenes, ${seconds}s -> ${path.relative(process.cwd(), target)}`,
       );
     }
+    // Leave latest.json pointing at the newest article, not whichever slug
+    // happened to sort last.
+    await buildForSlug(await newestSlug(), args.theme);
     return;
   }
 

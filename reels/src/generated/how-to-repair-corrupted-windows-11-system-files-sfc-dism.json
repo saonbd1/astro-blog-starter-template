@@ -1,0 +1,910 @@
+{
+  "slug": "how-to-repair-corrupted-windows-11-system-files-sfc-dism",
+  "title": "How to Repair Corrupted Windows 11 System Files with SFC and DISM",
+  "description": "Learn how to run SFC and DISM in Windows 11, why DISM RestoreHealth should come first, and what to do when SFC cannot fix corrupted files.",
+  "category": "PC Troubleshooting",
+  "tags": [
+    "Windows",
+    "PC Maintenance",
+    "Troubleshooting",
+    "Command Line",
+    "Beginner Guide"
+  ],
+  "url": "https://www.techtips.fun/blog/how-to-repair-corrupted-windows-11-system-files-sfc-dism/",
+  "theme": "github-dark",
+  "durationInFrames": 950,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "PC Troubleshooting",
+      "title": "How to Repair Corrupted Windows 11 System Files with SFC and DISM",
+      "subtitle": "Learn how to run SFC and DISM in Windows 11, why DISM RestoreHealth should come first,…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Quick answer: the correct SFC and DISM Windows 11 commands",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+          "code": "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+          "tokens": [
+            [
+              "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "sfc /scannow",
+          "code": "sfc /scannow",
+          "tokens": [
+            [
+              "sfc /scannow",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "What are DISM and SFC?",
+      "body": "Although both tools repair Windows, they work at different levels. DISM repairs the Windows image and component store.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Before you run the repair commands",
+      "body": "Save your open work and connect the computer to reliable power. The scans can take time, and the apparent progress may pause for several minutes.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Open an elevated Command Prompt",
+      "body": "Select the Search button on the Windows 11 taskbar and type Command Prompt.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Run DISM RestoreHealth",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+          "code": "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+          "tokens": [
+            [
+              "DISM.exe /Online /Cleanup-Image /RestoreHealth",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Run SFC /SCANNOW",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "sfc /scannow",
+          "code": "sfc /scannow",
+          "tokens": [
+            [
+              "sfc /scannow",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Learn",
+      "startMs": 0,
+      "endMs": 216
+    },
+    {
+      "text": " how",
+      "startMs": 216,
+      "endMs": 379
+    },
+    {
+      "text": " to",
+      "startMs": 379,
+      "endMs": 514
+    },
+    {
+      "text": " run",
+      "startMs": 514,
+      "endMs": 676,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " SFC",
+      "startMs": 676,
+      "endMs": 839
+    },
+    {
+      "text": " and",
+      "startMs": 839,
+      "endMs": 1001
+    },
+    {
+      "text": " DISM",
+      "startMs": 1001,
+      "endMs": 1191
+    },
+    {
+      "text": " in",
+      "startMs": 1191,
+      "endMs": 1326,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Windows",
+      "startMs": 1326,
+      "endMs": 1596
+    },
+    {
+      "text": " 11,",
+      "startMs": 1596,
+      "endMs": 1759
+    },
+    {
+      "text": " why",
+      "startMs": 1759,
+      "endMs": 1921
+    },
+    {
+      "text": " DISM",
+      "startMs": 1921,
+      "endMs": 2111,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " RestoreHealth",
+      "startMs": 2111,
+      "endMs": 2544
+    },
+    {
+      "text": " should",
+      "startMs": 2544,
+      "endMs": 2787
+    },
+    {
+      "text": " come",
+      "startMs": 2787,
+      "endMs": 2976
+    },
+    {
+      "text": " first,",
+      "startMs": 2976,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Quick",
+      "startMs": 3500,
+      "endMs": 3898
+    },
+    {
+      "text": " answer:",
+      "startMs": 3898,
+      "endMs": 4396
+    },
+    {
+      "text": " the",
+      "startMs": 4396,
+      "endMs": 4695
+    },
+    {
+      "text": " correct",
+      "startMs": 4695,
+      "endMs": 5193,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " SFC",
+      "startMs": 5193,
+      "endMs": 5492
+    },
+    {
+      "text": " and",
+      "startMs": 5492,
+      "endMs": 5791
+    },
+    {
+      "text": " DISM",
+      "startMs": 5791,
+      "endMs": 6139
+    },
+    {
+      "text": " Windows",
+      "startMs": 6139,
+      "endMs": 6637,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 11",
+      "startMs": 6637,
+      "endMs": 6886
+    },
+    {
+      "text": " commands.",
+      "startMs": 6886,
+      "endMs": 7484
+    },
+    {
+      "text": " Let",
+      "startMs": 7484,
+      "endMs": 7783
+    },
+    {
+      "text": " us",
+      "startMs": 7783,
+      "endMs": 8032,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 8032,
+      "endMs": 8380
+    },
+    {
+      "text": " at",
+      "startMs": 8380,
+      "endMs": 8629
+    },
+    {
+      "text": " the",
+      "startMs": 8629,
+      "endMs": 8928
+    },
+    {
+      "text": " code.",
+      "startMs": 8928,
+      "endMs": 9327,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 9833,
+      "endMs": 9970
+    },
+    {
+      "text": " are",
+      "startMs": 9970,
+      "endMs": 10086
+    },
+    {
+      "text": " DISM",
+      "startMs": 10086,
+      "endMs": 10223
+    },
+    {
+      "text": " and",
+      "startMs": 10223,
+      "endMs": 10340,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " SFC?.",
+      "startMs": 10340,
+      "endMs": 10495
+    },
+    {
+      "text": " Although",
+      "startMs": 10495,
+      "endMs": 10710
+    },
+    {
+      "text": " both",
+      "startMs": 10710,
+      "endMs": 10846
+    },
+    {
+      "text": " tools",
+      "startMs": 10846,
+      "endMs": 11002,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " repair",
+      "startMs": 11002,
+      "endMs": 11177
+    },
+    {
+      "text": " Windows,",
+      "startMs": 11177,
+      "endMs": 11391
+    },
+    {
+      "text": " they",
+      "startMs": 11391,
+      "endMs": 11527
+    },
+    {
+      "text": " work",
+      "startMs": 11527,
+      "endMs": 11664,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 11664,
+      "endMs": 11761
+    },
+    {
+      "text": " different",
+      "startMs": 11761,
+      "endMs": 11995
+    },
+    {
+      "text": " levels.",
+      "startMs": 11995,
+      "endMs": 12189
+    },
+    {
+      "text": " DISM",
+      "startMs": 12189,
+      "endMs": 12326,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " repairs",
+      "startMs": 12326,
+      "endMs": 12520
+    },
+    {
+      "text": " the",
+      "startMs": 12520,
+      "endMs": 12637
+    },
+    {
+      "text": " Windows",
+      "startMs": 12637,
+      "endMs": 12832
+    },
+    {
+      "text": " image",
+      "startMs": 12832,
+      "endMs": 12988,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 12988,
+      "endMs": 13104
+    },
+    {
+      "text": " component",
+      "startMs": 13104,
+      "endMs": 13338
+    },
+    {
+      "text": " store.",
+      "startMs": 13338,
+      "endMs": 13513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Before",
+      "startMs": 13833,
+      "endMs": 13969
+    },
+    {
+      "text": " you",
+      "startMs": 13969,
+      "endMs": 14060
+    },
+    {
+      "text": " run",
+      "startMs": 14060,
+      "endMs": 14150
+    },
+    {
+      "text": " the",
+      "startMs": 14150,
+      "endMs": 14241,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " repair",
+      "startMs": 14241,
+      "endMs": 14376
+    },
+    {
+      "text": " commands.",
+      "startMs": 14376,
+      "endMs": 14557
+    },
+    {
+      "text": " Save",
+      "startMs": 14557,
+      "endMs": 14663
+    },
+    {
+      "text": " your",
+      "startMs": 14663,
+      "endMs": 14768,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " open",
+      "startMs": 14768,
+      "endMs": 14874
+    },
+    {
+      "text": " work",
+      "startMs": 14874,
+      "endMs": 14980
+    },
+    {
+      "text": " and",
+      "startMs": 14980,
+      "endMs": 15070
+    },
+    {
+      "text": " connect",
+      "startMs": 15070,
+      "endMs": 15221,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 15221,
+      "endMs": 15311
+    },
+    {
+      "text": " computer",
+      "startMs": 15311,
+      "endMs": 15477
+    },
+    {
+      "text": " to",
+      "startMs": 15477,
+      "endMs": 15553
+    },
+    {
+      "text": " reliable",
+      "startMs": 15553,
+      "endMs": 15719,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " power.",
+      "startMs": 15719,
+      "endMs": 15854
+    },
+    {
+      "text": " The",
+      "startMs": 15854,
+      "endMs": 15945
+    },
+    {
+      "text": " scans",
+      "startMs": 15945,
+      "endMs": 16065
+    },
+    {
+      "text": " can",
+      "startMs": 16065,
+      "endMs": 16156,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " take",
+      "startMs": 16156,
+      "endMs": 16262
+    },
+    {
+      "text": " time,",
+      "startMs": 16262,
+      "endMs": 16382
+    },
+    {
+      "text": " and",
+      "startMs": 16382,
+      "endMs": 16473
+    },
+    {
+      "text": " the",
+      "startMs": 16473,
+      "endMs": 16563,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " apparent",
+      "startMs": 16563,
+      "endMs": 16729
+    },
+    {
+      "text": " progress",
+      "startMs": 16729,
+      "endMs": 16895
+    },
+    {
+      "text": " may",
+      "startMs": 16895,
+      "endMs": 16985
+    },
+    {
+      "text": " pause",
+      "startMs": 16985,
+      "endMs": 17106,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 17106,
+      "endMs": 17197
+    },
+    {
+      "text": " several",
+      "startMs": 17197,
+      "endMs": 17347
+    },
+    {
+      "text": " minutes.",
+      "startMs": 17347,
+      "endMs": 17513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Open",
+      "startMs": 17833,
+      "endMs": 18011
+    },
+    {
+      "text": " an",
+      "startMs": 18011,
+      "endMs": 18138
+    },
+    {
+      "text": " elevated",
+      "startMs": 18138,
+      "endMs": 18417
+    },
+    {
+      "text": " Command",
+      "startMs": 18417,
+      "endMs": 18671,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Prompt.",
+      "startMs": 18671,
+      "endMs": 18925
+    },
+    {
+      "text": " Select",
+      "startMs": 18925,
+      "endMs": 19153
+    },
+    {
+      "text": " the",
+      "startMs": 19153,
+      "endMs": 19305
+    },
+    {
+      "text": " Search",
+      "startMs": 19305,
+      "endMs": 19534,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " button",
+      "startMs": 19534,
+      "endMs": 19762
+    },
+    {
+      "text": " on",
+      "startMs": 19762,
+      "endMs": 19889
+    },
+    {
+      "text": " the",
+      "startMs": 19889,
+      "endMs": 20041
+    },
+    {
+      "text": " Windows",
+      "startMs": 20041,
+      "endMs": 20295,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 11",
+      "startMs": 20295,
+      "endMs": 20422
+    },
+    {
+      "text": " taskbar",
+      "startMs": 20422,
+      "endMs": 20676
+    },
+    {
+      "text": " and",
+      "startMs": 20676,
+      "endMs": 20828
+    },
+    {
+      "text": " type",
+      "startMs": 20828,
+      "endMs": 21006,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Command",
+      "startMs": 21006,
+      "endMs": 21260
+    },
+    {
+      "text": " Prompt.",
+      "startMs": 21260,
+      "endMs": 21513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Run",
+      "startMs": 21833,
+      "endMs": 22094
+    },
+    {
+      "text": " DISM",
+      "startMs": 22094,
+      "endMs": 22399
+    },
+    {
+      "text": " RestoreHealth.",
+      "startMs": 22399,
+      "endMs": 23138
+    },
+    {
+      "text": " Let",
+      "startMs": 23138,
+      "endMs": 23399,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 23399,
+      "endMs": 23616
+    },
+    {
+      "text": " look",
+      "startMs": 23616,
+      "endMs": 23920
+    },
+    {
+      "text": " at",
+      "startMs": 23920,
+      "endMs": 24138
+    },
+    {
+      "text": " the",
+      "startMs": 24138,
+      "endMs": 24399,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 24399,
+      "endMs": 24747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Run",
+      "startMs": 25000,
+      "endMs": 25287
+    },
+    {
+      "text": " SFC",
+      "startMs": 25287,
+      "endMs": 25573
+    },
+    {
+      "text": " /SCANNOW.",
+      "startMs": 25573,
+      "endMs": 26146
+    },
+    {
+      "text": " Let",
+      "startMs": 26146,
+      "endMs": 26433,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 26433,
+      "endMs": 26672
+    },
+    {
+      "text": " look",
+      "startMs": 26672,
+      "endMs": 27006
+    },
+    {
+      "text": " at",
+      "startMs": 27006,
+      "endMs": 27245
+    },
+    {
+      "text": " the",
+      "startMs": 27245,
+      "endMs": 27531,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 27531,
+      "endMs": 27913,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 28167,
+      "endMs": 28452
+    },
+    {
+      "text": " the",
+      "startMs": 28452,
+      "endMs": 28697
+    },
+    {
+      "text": " full",
+      "startMs": 28697,
+      "endMs": 28982
+    },
+    {
+      "text": " article.",
+      "startMs": 28982,
+      "endMs": 29430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 29430,
+      "endMs": 29675
+    },
+    {
+      "text": " posts",
+      "startMs": 29675,
+      "endMs": 30001
+    },
+    {
+      "text": " every",
+      "startMs": 30001,
+      "endMs": 30327
+    },
+    {
+      "text": " week",
+      "startMs": 30327,
+      "endMs": 30612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 30612,
+      "endMs": 30816
+    },
+    {
+      "text": " the",
+      "startMs": 30816,
+      "endMs": 31061
+    },
+    {
+      "text": " blog.",
+      "startMs": 31061,
+      "endMs": 31387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

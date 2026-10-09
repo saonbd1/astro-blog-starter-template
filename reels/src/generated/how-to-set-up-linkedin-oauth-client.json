@@ -1,0 +1,1055 @@
+{
+  "slug": "how-to-set-up-linkedin-oauth-client",
+  "title": "How to Set Up a LinkedIn OAuth Client for Posting",
+  "description": "I set up a LinkedIn OAuth client to post articles automatically. Here is the app, the scopes, the token, and the 422 trap I hit.",
+  "category": "Web Development",
+  "tags": [
+    "LinkedIn",
+    "OAuth",
+    "API",
+    "Developer Guide"
+  ],
+  "url": "https://www.techtips.fun/blog/how-to-set-up-linkedin-oauth-client/",
+  "theme": "github-dark",
+  "durationInFrames": 905,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "How to Set Up a LinkedIn OAuth Client for Posting",
+      "subtitle": "I set up a LinkedIn OAuth client to post articles automatically. Here is the app, the…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Before you begin",
+      "body": "A LinkedIn account (a personal account; Company Page admin access helps if you create the app under an organization).",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Step 1: Create a LinkedIn developer app",
+      "body": "Open the LinkedIn Developer Portal. Select Create App. Fill in the app name, description, and your application's logo.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Step 2: Add the products",
+      "body": "On the app's Products page, request: Sign In with LinkedIn — provides the OpenID Connect identity, including the sub claim you need to build the…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Step 3: Configure the auth settings",
+      "body": "Open the Auth page for your app. Add your redirect URL to the allowed redirect URLs list (for example http://localhost). Save the changes.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 4: Choose the scopes",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "openid profile w_member_social",
+          "code": "openid profile w_member_social",
+          "tokens": [
+            [
+              "openid profile w_member_social",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Step 5: Run the OAuth flow once",
+      "body": "Build the authorization URL with your client ID, redirect URI, state, and the scopes above. Sign in and consent on LinkedIn.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " I",
+      "startMs": 0,
+      "endMs": 109
+    },
+    {
+      "text": " set",
+      "startMs": 109,
+      "endMs": 273
+    },
+    {
+      "text": " up",
+      "startMs": 273,
+      "endMs": 409
+    },
+    {
+      "text": " a",
+      "startMs": 409,
+      "endMs": 518,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 518,
+      "endMs": 819
+    },
+    {
+      "text": " OAuth",
+      "startMs": 819,
+      "endMs": 1037
+    },
+    {
+      "text": " client",
+      "startMs": 1037,
+      "endMs": 1283
+    },
+    {
+      "text": " to",
+      "startMs": 1283,
+      "endMs": 1419,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " post",
+      "startMs": 1419,
+      "endMs": 1610
+    },
+    {
+      "text": " articles",
+      "startMs": 1610,
+      "endMs": 1910
+    },
+    {
+      "text": " automatically.",
+      "startMs": 1910,
+      "endMs": 2374
+    },
+    {
+      "text": " Here",
+      "startMs": 2374,
+      "endMs": 2565,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 2565,
+      "endMs": 2702
+    },
+    {
+      "text": " the",
+      "startMs": 2702,
+      "endMs": 2865
+    },
+    {
+      "text": " app,",
+      "startMs": 2865,
+      "endMs": 3056
+    },
+    {
+      "text": " the",
+      "startMs": 3056,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Before",
+      "startMs": 3500,
+      "endMs": 3684
+    },
+    {
+      "text": " you",
+      "startMs": 3684,
+      "endMs": 3807
+    },
+    {
+      "text": " begin.",
+      "startMs": 3807,
+      "endMs": 3991
+    },
+    {
+      "text": " A",
+      "startMs": 3991,
+      "endMs": 4072,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 4072,
+      "endMs": 4297
+    },
+    {
+      "text": " account",
+      "startMs": 4297,
+      "endMs": 4502
+    },
+    {
+      "text": " (a",
+      "startMs": 4502,
+      "endMs": 4604
+    },
+    {
+      "text": " personal",
+      "startMs": 4604,
+      "endMs": 4829,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " account;",
+      "startMs": 4829,
+      "endMs": 5054
+    },
+    {
+      "text": " Company",
+      "startMs": 5054,
+      "endMs": 5258
+    },
+    {
+      "text": " Page",
+      "startMs": 5258,
+      "endMs": 5401
+    },
+    {
+      "text": " admin",
+      "startMs": 5401,
+      "endMs": 5565,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " access",
+      "startMs": 5565,
+      "endMs": 5749
+    },
+    {
+      "text": " helps",
+      "startMs": 5749,
+      "endMs": 5912
+    },
+    {
+      "text": " if",
+      "startMs": 5912,
+      "endMs": 6015
+    },
+    {
+      "text": " you",
+      "startMs": 6015,
+      "endMs": 6137,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " create",
+      "startMs": 6137,
+      "endMs": 6321
+    },
+    {
+      "text": " the",
+      "startMs": 6321,
+      "endMs": 6444
+    },
+    {
+      "text": " app",
+      "startMs": 6444,
+      "endMs": 6567
+    },
+    {
+      "text": " under",
+      "startMs": 6567,
+      "endMs": 6730,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " an",
+      "startMs": 6730,
+      "endMs": 6832
+    },
+    {
+      "text": " organization).",
+      "startMs": 6832,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 7500,
+      "endMs": 7623
+    },
+    {
+      "text": " 1:",
+      "startMs": 7623,
+      "endMs": 7710
+    },
+    {
+      "text": " Create",
+      "startMs": 7710,
+      "endMs": 7868
+    },
+    {
+      "text": " a",
+      "startMs": 7868,
+      "endMs": 7938,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 7938,
+      "endMs": 8131
+    },
+    {
+      "text": " developer",
+      "startMs": 8131,
+      "endMs": 8341
+    },
+    {
+      "text": " app.",
+      "startMs": 8341,
+      "endMs": 8464
+    },
+    {
+      "text": " Open",
+      "startMs": 8464,
+      "endMs": 8586,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 8586,
+      "endMs": 8692
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 8692,
+      "endMs": 8884
+    },
+    {
+      "text": " Developer",
+      "startMs": 8884,
+      "endMs": 9095
+    },
+    {
+      "text": " Portal.",
+      "startMs": 9095,
+      "endMs": 9270,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Select",
+      "startMs": 9270,
+      "endMs": 9428
+    },
+    {
+      "text": " Create",
+      "startMs": 9428,
+      "endMs": 9585
+    },
+    {
+      "text": " App.",
+      "startMs": 9585,
+      "endMs": 9708
+    },
+    {
+      "text": " Fill",
+      "startMs": 9708,
+      "endMs": 9831,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " in",
+      "startMs": 9831,
+      "endMs": 9918
+    },
+    {
+      "text": " the",
+      "startMs": 9918,
+      "endMs": 10023
+    },
+    {
+      "text": " app",
+      "startMs": 10023,
+      "endMs": 10129
+    },
+    {
+      "text": " name,",
+      "startMs": 10129,
+      "endMs": 10269,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " description,",
+      "startMs": 10269,
+      "endMs": 10532
+    },
+    {
+      "text": " and",
+      "startMs": 10532,
+      "endMs": 10637
+    },
+    {
+      "text": " your",
+      "startMs": 10637,
+      "endMs": 10759
+    },
+    {
+      "text": " application's",
+      "startMs": 10759,
+      "endMs": 11040,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " logo.",
+      "startMs": 11040,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 11500,
+      "endMs": 11611
+    },
+    {
+      "text": " 2:",
+      "startMs": 11611,
+      "endMs": 11690
+    },
+    {
+      "text": " Add",
+      "startMs": 11690,
+      "endMs": 11786
+    },
+    {
+      "text": " the",
+      "startMs": 11786,
+      "endMs": 11881,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " products.",
+      "startMs": 11881,
+      "endMs": 12071
+    },
+    {
+      "text": " On",
+      "startMs": 12071,
+      "endMs": 12150
+    },
+    {
+      "text": " the",
+      "startMs": 12150,
+      "endMs": 12246
+    },
+    {
+      "text": " app's",
+      "startMs": 12246,
+      "endMs": 12372,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Products",
+      "startMs": 12372,
+      "endMs": 12547
+    },
+    {
+      "text": " page,",
+      "startMs": 12547,
+      "endMs": 12674
+    },
+    {
+      "text": " request:",
+      "startMs": 12674,
+      "endMs": 12848
+    },
+    {
+      "text": " Sign",
+      "startMs": 12848,
+      "endMs": 12959,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " In",
+      "startMs": 12959,
+      "endMs": 13039
+    },
+    {
+      "text": " with",
+      "startMs": 13039,
+      "endMs": 13150
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 13150,
+      "endMs": 13324
+    },
+    {
+      "text": " —",
+      "startMs": 13324,
+      "endMs": 13388,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " provides",
+      "startMs": 13388,
+      "endMs": 13562
+    },
+    {
+      "text": " the",
+      "startMs": 13562,
+      "endMs": 13657
+    },
+    {
+      "text": " OpenID",
+      "startMs": 13657,
+      "endMs": 13800
+    },
+    {
+      "text": " Connect",
+      "startMs": 13800,
+      "endMs": 13959,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " identity,",
+      "startMs": 13959,
+      "endMs": 14149
+    },
+    {
+      "text": " including",
+      "startMs": 14149,
+      "endMs": 14339
+    },
+    {
+      "text": " the",
+      "startMs": 14339,
+      "endMs": 14434
+    },
+    {
+      "text": " sub",
+      "startMs": 14434,
+      "endMs": 14530,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " claim",
+      "startMs": 14530,
+      "endMs": 14657
+    },
+    {
+      "text": " you",
+      "startMs": 14657,
+      "endMs": 14752
+    },
+    {
+      "text": " need",
+      "startMs": 14752,
+      "endMs": 14863
+    },
+    {
+      "text": " to",
+      "startMs": 14863,
+      "endMs": 14942,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " build",
+      "startMs": 14942,
+      "endMs": 15069
+    },
+    {
+      "text": " the…",
+      "startMs": 15069,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 15500,
+      "endMs": 15610
+    },
+    {
+      "text": " 3:",
+      "startMs": 15610,
+      "endMs": 15689
+    },
+    {
+      "text": " Configure",
+      "startMs": 15689,
+      "endMs": 15877
+    },
+    {
+      "text": " the",
+      "startMs": 15877,
+      "endMs": 15972,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " auth",
+      "startMs": 15972,
+      "endMs": 16082
+    },
+    {
+      "text": " settings.",
+      "startMs": 16082,
+      "endMs": 16271
+    },
+    {
+      "text": " Open",
+      "startMs": 16271,
+      "endMs": 16381
+    },
+    {
+      "text": " the",
+      "startMs": 16381,
+      "endMs": 16475,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Auth",
+      "startMs": 16475,
+      "endMs": 16585
+    },
+    {
+      "text": " page",
+      "startMs": 16585,
+      "endMs": 16695
+    },
+    {
+      "text": " for",
+      "startMs": 16695,
+      "endMs": 16790
+    },
+    {
+      "text": " your",
+      "startMs": 16790,
+      "endMs": 16900,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " app.",
+      "startMs": 16900,
+      "endMs": 17010
+    },
+    {
+      "text": " Add",
+      "startMs": 17010,
+      "endMs": 17104
+    },
+    {
+      "text": " your",
+      "startMs": 17104,
+      "endMs": 17214
+    },
+    {
+      "text": " redirect",
+      "startMs": 17214,
+      "endMs": 17387,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URL",
+      "startMs": 17387,
+      "endMs": 17482
+    },
+    {
+      "text": " to",
+      "startMs": 17482,
+      "endMs": 17560
+    },
+    {
+      "text": " the",
+      "startMs": 17560,
+      "endMs": 17655
+    },
+    {
+      "text": " allowed",
+      "startMs": 17655,
+      "endMs": 17812,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " redirect",
+      "startMs": 17812,
+      "endMs": 17985
+    },
+    {
+      "text": " URLs",
+      "startMs": 17985,
+      "endMs": 18095
+    },
+    {
+      "text": " list",
+      "startMs": 18095,
+      "endMs": 18205
+    },
+    {
+      "text": " (for",
+      "startMs": 18205,
+      "endMs": 18315,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " example",
+      "startMs": 18315,
+      "endMs": 18472
+    },
+    {
+      "text": " http://localhost).",
+      "startMs": 18472,
+      "endMs": 18803
+    },
+    {
+      "text": " Save",
+      "startMs": 18803,
+      "endMs": 18913
+    },
+    {
+      "text": " the",
+      "startMs": 18913,
+      "endMs": 19007,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " changes.",
+      "startMs": 19007,
+      "endMs": 19180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 19500,
+      "endMs": 19776
+    },
+    {
+      "text": " 4:",
+      "startMs": 19776,
+      "endMs": 19972
+    },
+    {
+      "text": " Choose",
+      "startMs": 19972,
+      "endMs": 20327
+    },
+    {
+      "text": " the",
+      "startMs": 20327,
+      "endMs": 20563,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " scopes.",
+      "startMs": 20563,
+      "endMs": 20957
+    },
+    {
+      "text": " Let",
+      "startMs": 20957,
+      "endMs": 21193
+    },
+    {
+      "text": " us",
+      "startMs": 21193,
+      "endMs": 21390
+    },
+    {
+      "text": " look",
+      "startMs": 21390,
+      "endMs": 21665,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 21665,
+      "endMs": 21862
+    },
+    {
+      "text": " the",
+      "startMs": 21862,
+      "endMs": 22098
+    },
+    {
+      "text": " code.",
+      "startMs": 22098,
+      "endMs": 22413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 22667,
+      "endMs": 22787
+    },
+    {
+      "text": " 5:",
+      "startMs": 22787,
+      "endMs": 22873
+    },
+    {
+      "text": " Run",
+      "startMs": 22873,
+      "endMs": 22976
+    },
+    {
+      "text": " the",
+      "startMs": 22976,
+      "endMs": 23079,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " OAuth",
+      "startMs": 23079,
+      "endMs": 23217
+    },
+    {
+      "text": " flow",
+      "startMs": 23217,
+      "endMs": 23337
+    },
+    {
+      "text": " once.",
+      "startMs": 23337,
+      "endMs": 23475
+    },
+    {
+      "text": " Build",
+      "startMs": 23475,
+      "endMs": 23612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 23612,
+      "endMs": 23716
+    },
+    {
+      "text": " authorization",
+      "startMs": 23716,
+      "endMs": 23991
+    },
+    {
+      "text": " URL",
+      "startMs": 23991,
+      "endMs": 24094
+    },
+    {
+      "text": " with",
+      "startMs": 24094,
+      "endMs": 24214,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 24214,
+      "endMs": 24335
+    },
+    {
+      "text": " client",
+      "startMs": 24335,
+      "endMs": 24489
+    },
+    {
+      "text": " ID,",
+      "startMs": 24489,
+      "endMs": 24593
+    },
+    {
+      "text": " redirect",
+      "startMs": 24593,
+      "endMs": 24782,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " URI,",
+      "startMs": 24782,
+      "endMs": 24902
+    },
+    {
+      "text": " state,",
+      "startMs": 24902,
+      "endMs": 25057
+    },
+    {
+      "text": " and",
+      "startMs": 25057,
+      "endMs": 25160
+    },
+    {
+      "text": " the",
+      "startMs": 25160,
+      "endMs": 25263,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " scopes",
+      "startMs": 25263,
+      "endMs": 25418
+    },
+    {
+      "text": " above.",
+      "startMs": 25418,
+      "endMs": 25573
+    },
+    {
+      "text": " Sign",
+      "startMs": 25573,
+      "endMs": 25693
+    },
+    {
+      "text": " in",
+      "startMs": 25693,
+      "endMs": 25779,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 25779,
+      "endMs": 25882
+    },
+    {
+      "text": " consent",
+      "startMs": 25882,
+      "endMs": 26054
+    },
+    {
+      "text": " on",
+      "startMs": 26054,
+      "endMs": 26140
+    },
+    {
+      "text": " LinkedIn.",
+      "startMs": 26140,
+      "endMs": 26347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 26667,
+      "endMs": 26952
+    },
+    {
+      "text": " the",
+      "startMs": 26952,
+      "endMs": 27197
+    },
+    {
+      "text": " full",
+      "startMs": 27197,
+      "endMs": 27482
+    },
+    {
+      "text": " article.",
+      "startMs": 27482,
+      "endMs": 27930,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 27930,
+      "endMs": 28175
+    },
+    {
+      "text": " posts",
+      "startMs": 28175,
+      "endMs": 28501
+    },
+    {
+      "text": " every",
+      "startMs": 28501,
+      "endMs": 28827
+    },
+    {
+      "text": " week",
+      "startMs": 28827,
+      "endMs": 29112,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 29112,
+      "endMs": 29316
+    },
+    {
+      "text": " the",
+      "startMs": 29316,
+      "endMs": 29561
+    },
+    {
+      "text": " blog.",
+      "startMs": 29561,
+      "endMs": 29887,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

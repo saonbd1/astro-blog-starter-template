@@ -1,0 +1,927 @@
+{
+  "slug": "top-free-ai-models-you-can-use-right",
+  "title": "Top free AI models you can use right now in 2026",
+  "description": "You no longer need a $200/month API subscription to access state-of-the-art language models. In 2026, the best free and open-source AI models rival",
+  "category": "AI Tools",
+  "tags": [
+    "AI",
+    "Open Source",
+    "Free Tools",
+    "Local AI"
+  ],
+  "url": "https://www.techtips.fun/blog/top-free-ai-models-you-can-use-right/",
+  "theme": "github-dark",
+  "durationInFrames": 880,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "AI Tools",
+      "title": "Top free AI models you can use right now in 2026",
+      "subtitle": "You no longer need a $200/month API subscription to access state-of-the-art language…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Meta's premium open model, the Llama 4",
+      "body": "The most popular open-source LLM in the world is Meta's Llama 4 family. An entire codebase or a full-length novel can potentially be fed into the…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "DeepSeek-R1, the master in reasoning",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "# Run DeepSeek-R1 distilled model locally with Ollama\nollama run deepseek-r1:8b",
+          "code": "# Run DeepSeek-R1 distilled model locally with Ollama\nollama run deepseek-r1:8b",
+          "tokens": [
+            [
+              "# Run DeepSeek-R1 distilled model locally with Ollama",
+              null
+            ],
+            "\n",
+            [
+              "ollama run deepseek-r1:8b",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Qwen 3.5: A surprising competitor",
+      "body": "Qwen has quietly become one of the best open model families. Despite its large size, the Qwen 3.5 122B's Mixture-of-Experts architecture enables fast…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Google's Gemma 4",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "# Run Gemma 4 locally\nollama run gemma4:e4b",
+          "code": "# Run Gemma 4 locally\nollama run gemma4:e4b",
+          "tokens": [
+            [
+              "# Run Gemma 4 locally",
+              null
+            ],
+            "\n",
+            [
+              "ollama run gemma4:e4b",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Mistral Large 2 — Europe’s contender",
+      "body": "Europe's competitor, Mistral Large 2. From the beginning, Mistral has been outperforming its competitors.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Phi-4 — Microsoft’s small-but-mighty model",
+      "body": "Microsoft's tiny but powerful Phi-4 model. Size isn't everything, as Microsoft's Phi-4 demonstrates.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " You",
+      "startMs": 0,
+      "endMs": 177
+    },
+    {
+      "text": " no",
+      "startMs": 177,
+      "endMs": 325
+    },
+    {
+      "text": " longer",
+      "startMs": 325,
+      "endMs": 591
+    },
+    {
+      "text": " need",
+      "startMs": 591,
+      "endMs": 798,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 798,
+      "endMs": 916
+    },
+    {
+      "text": " $200/month",
+      "startMs": 916,
+      "endMs": 1300
+    },
+    {
+      "text": " API",
+      "startMs": 1300,
+      "endMs": 1477
+    },
+    {
+      "text": " subscription",
+      "startMs": 1477,
+      "endMs": 1920,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 1920,
+      "endMs": 2068
+    },
+    {
+      "text": " access",
+      "startMs": 2068,
+      "endMs": 2334
+    },
+    {
+      "text": " state-of-the-art",
+      "startMs": 2334,
+      "endMs": 2895
+    },
+    {
+      "text": " language",
+      "startMs": 2895,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Meta's",
+      "startMs": 3500,
+      "endMs": 3631
+    },
+    {
+      "text": " premium",
+      "startMs": 3631,
+      "endMs": 3776
+    },
+    {
+      "text": " open",
+      "startMs": 3776,
+      "endMs": 3878
+    },
+    {
+      "text": " model,",
+      "startMs": 3878,
+      "endMs": 4009,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 4009,
+      "endMs": 4096
+    },
+    {
+      "text": " Llama",
+      "startMs": 4096,
+      "endMs": 4213
+    },
+    {
+      "text": " 4.",
+      "startMs": 4213,
+      "endMs": 4285
+    },
+    {
+      "text": " The",
+      "startMs": 4285,
+      "endMs": 4373,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " most",
+      "startMs": 4373,
+      "endMs": 4475
+    },
+    {
+      "text": " popular",
+      "startMs": 4475,
+      "endMs": 4620
+    },
+    {
+      "text": " open-source",
+      "startMs": 4620,
+      "endMs": 4824
+    },
+    {
+      "text": " LLM",
+      "startMs": 4824,
+      "endMs": 4911,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " in",
+      "startMs": 4911,
+      "endMs": 4984
+    },
+    {
+      "text": " the",
+      "startMs": 4984,
+      "endMs": 5071
+    },
+    {
+      "text": " world",
+      "startMs": 5071,
+      "endMs": 5187
+    },
+    {
+      "text": " is",
+      "startMs": 5187,
+      "endMs": 5260,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Meta's",
+      "startMs": 5260,
+      "endMs": 5391
+    },
+    {
+      "text": " Llama",
+      "startMs": 5391,
+      "endMs": 5507
+    },
+    {
+      "text": " 4",
+      "startMs": 5507,
+      "endMs": 5565
+    },
+    {
+      "text": " family.",
+      "startMs": 5565,
+      "endMs": 5711,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " An",
+      "startMs": 5711,
+      "endMs": 5784
+    },
+    {
+      "text": " entire",
+      "startMs": 5784,
+      "endMs": 5915
+    },
+    {
+      "text": " codebase",
+      "startMs": 5915,
+      "endMs": 6075
+    },
+    {
+      "text": " or",
+      "startMs": 6075,
+      "endMs": 6147,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 6147,
+      "endMs": 6205
+    },
+    {
+      "text": " full-length",
+      "startMs": 6205,
+      "endMs": 6409
+    },
+    {
+      "text": " novel",
+      "startMs": 6409,
+      "endMs": 6525
+    },
+    {
+      "text": " can",
+      "startMs": 6525,
+      "endMs": 6613,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " potentially",
+      "startMs": 6613,
+      "endMs": 6816
+    },
+    {
+      "text": " be",
+      "startMs": 6816,
+      "endMs": 6889
+    },
+    {
+      "text": " fed",
+      "startMs": 6889,
+      "endMs": 6976
+    },
+    {
+      "text": " into",
+      "startMs": 6976,
+      "endMs": 7078,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the…",
+      "startMs": 7078,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " DeepSeek-R1,",
+      "startMs": 7500,
+      "endMs": 8014
+    },
+    {
+      "text": " the",
+      "startMs": 8014,
+      "endMs": 8220
+    },
+    {
+      "text": " master",
+      "startMs": 8220,
+      "endMs": 8528
+    },
+    {
+      "text": " in",
+      "startMs": 8528,
+      "endMs": 8700,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " reasoning.",
+      "startMs": 8700,
+      "endMs": 9145
+    },
+    {
+      "text": " Let",
+      "startMs": 9145,
+      "endMs": 9351
+    },
+    {
+      "text": " us",
+      "startMs": 9351,
+      "endMs": 9522
+    },
+    {
+      "text": " look",
+      "startMs": 9522,
+      "endMs": 9762,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 9762,
+      "endMs": 9933
+    },
+    {
+      "text": " the",
+      "startMs": 9933,
+      "endMs": 10139
+    },
+    {
+      "text": " code.",
+      "startMs": 10139,
+      "endMs": 10413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Qwen",
+      "startMs": 10667,
+      "endMs": 10773
+    },
+    {
+      "text": " 3.5:",
+      "startMs": 10773,
+      "endMs": 10880
+    },
+    {
+      "text": " A",
+      "startMs": 10880,
+      "endMs": 10940
+    },
+    {
+      "text": " surprising",
+      "startMs": 10940,
+      "endMs": 11138,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " competitor.",
+      "startMs": 11138,
+      "endMs": 11351
+    },
+    {
+      "text": " Qwen",
+      "startMs": 11351,
+      "endMs": 11457
+    },
+    {
+      "text": " has",
+      "startMs": 11457,
+      "endMs": 11549
+    },
+    {
+      "text": " quietly",
+      "startMs": 11549,
+      "endMs": 11701,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " become",
+      "startMs": 11701,
+      "endMs": 11838
+    },
+    {
+      "text": " one",
+      "startMs": 11838,
+      "endMs": 11929
+    },
+    {
+      "text": " of",
+      "startMs": 11929,
+      "endMs": 12005
+    },
+    {
+      "text": " the",
+      "startMs": 12005,
+      "endMs": 12096,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " best",
+      "startMs": 12096,
+      "endMs": 12203
+    },
+    {
+      "text": " open",
+      "startMs": 12203,
+      "endMs": 12309
+    },
+    {
+      "text": " model",
+      "startMs": 12309,
+      "endMs": 12431
+    },
+    {
+      "text": " families.",
+      "startMs": 12431,
+      "endMs": 12613,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Despite",
+      "startMs": 12613,
+      "endMs": 12765
+    },
+    {
+      "text": " its",
+      "startMs": 12765,
+      "endMs": 12856
+    },
+    {
+      "text": " large",
+      "startMs": 12856,
+      "endMs": 12978
+    },
+    {
+      "text": " size,",
+      "startMs": 12978,
+      "endMs": 13100,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 13100,
+      "endMs": 13191
+    },
+    {
+      "text": " Qwen",
+      "startMs": 13191,
+      "endMs": 13297
+    },
+    {
+      "text": " 3.5",
+      "startMs": 13297,
+      "endMs": 13389
+    },
+    {
+      "text": " 122B's",
+      "startMs": 13389,
+      "endMs": 13526,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Mixture-of-Experts",
+      "startMs": 13526,
+      "endMs": 13845
+    },
+    {
+      "text": " architecture",
+      "startMs": 13845,
+      "endMs": 14073
+    },
+    {
+      "text": " enables",
+      "startMs": 14073,
+      "endMs": 14225
+    },
+    {
+      "text": " fast…",
+      "startMs": 14225,
+      "endMs": 14347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Google's",
+      "startMs": 14667,
+      "endMs": 15192
+    },
+    {
+      "text": " Gemma",
+      "startMs": 15192,
+      "endMs": 15574
+    },
+    {
+      "text": " 4.",
+      "startMs": 15574,
+      "endMs": 15813
+    },
+    {
+      "text": " Let",
+      "startMs": 15813,
+      "endMs": 16099,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 16099,
+      "endMs": 16338
+    },
+    {
+      "text": " look",
+      "startMs": 16338,
+      "endMs": 16673
+    },
+    {
+      "text": " at",
+      "startMs": 16673,
+      "endMs": 16911
+    },
+    {
+      "text": " the",
+      "startMs": 16911,
+      "endMs": 17198,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 17198,
+      "endMs": 17580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Mistral",
+      "startMs": 17833,
+      "endMs": 18033
+    },
+    {
+      "text": " Large",
+      "startMs": 18033,
+      "endMs": 18193
+    },
+    {
+      "text": " 2",
+      "startMs": 18193,
+      "endMs": 18273
+    },
+    {
+      "text": " —",
+      "startMs": 18273,
+      "endMs": 18353,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Europe’s",
+      "startMs": 18353,
+      "endMs": 18573
+    },
+    {
+      "text": " contender.",
+      "startMs": 18573,
+      "endMs": 18833
+    },
+    {
+      "text": " Europe's",
+      "startMs": 18833,
+      "endMs": 19053
+    },
+    {
+      "text": " competitor,",
+      "startMs": 19053,
+      "endMs": 19333,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Mistral",
+      "startMs": 19333,
+      "endMs": 19533
+    },
+    {
+      "text": " Large",
+      "startMs": 19533,
+      "endMs": 19693
+    },
+    {
+      "text": " 2.",
+      "startMs": 19693,
+      "endMs": 19793
+    },
+    {
+      "text": " From",
+      "startMs": 19793,
+      "endMs": 19933,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 19933,
+      "endMs": 20053
+    },
+    {
+      "text": " beginning,",
+      "startMs": 20053,
+      "endMs": 20313
+    },
+    {
+      "text": " Mistral",
+      "startMs": 20313,
+      "endMs": 20513
+    },
+    {
+      "text": " has",
+      "startMs": 20513,
+      "endMs": 20633,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " been",
+      "startMs": 20633,
+      "endMs": 20773
+    },
+    {
+      "text": " outperforming",
+      "startMs": 20773,
+      "endMs": 21093
+    },
+    {
+      "text": " its",
+      "startMs": 21093,
+      "endMs": 21213
+    },
+    {
+      "text": " competitors.",
+      "startMs": 21213,
+      "endMs": 21513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Phi-4",
+      "startMs": 21833,
+      "endMs": 21996
+    },
+    {
+      "text": " —",
+      "startMs": 21996,
+      "endMs": 22077
+    },
+    {
+      "text": " Microsoft’s",
+      "startMs": 22077,
+      "endMs": 22362
+    },
+    {
+      "text": " small-but-mighty",
+      "startMs": 22362,
+      "endMs": 22748,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " model.",
+      "startMs": 22748,
+      "endMs": 22931
+    },
+    {
+      "text": " Microsoft's",
+      "startMs": 22931,
+      "endMs": 23216
+    },
+    {
+      "text": " tiny",
+      "startMs": 23216,
+      "endMs": 23358
+    },
+    {
+      "text": " but",
+      "startMs": 23358,
+      "endMs": 23480,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " powerful",
+      "startMs": 23480,
+      "endMs": 23704
+    },
+    {
+      "text": " Phi-4",
+      "startMs": 23704,
+      "endMs": 23866
+    },
+    {
+      "text": " model.",
+      "startMs": 23866,
+      "endMs": 24049
+    },
+    {
+      "text": " Size",
+      "startMs": 24049,
+      "endMs": 24192,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " isn't",
+      "startMs": 24192,
+      "endMs": 24354
+    },
+    {
+      "text": " everything,",
+      "startMs": 24354,
+      "endMs": 24639
+    },
+    {
+      "text": " as",
+      "startMs": 24639,
+      "endMs": 24741
+    },
+    {
+      "text": " Microsoft's",
+      "startMs": 24741,
+      "endMs": 25025,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Phi-4",
+      "startMs": 25025,
+      "endMs": 25188
+    },
+    {
+      "text": " demonstrates.",
+      "startMs": 25188,
+      "endMs": 25513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 25833,
+      "endMs": 26119
+    },
+    {
+      "text": " the",
+      "startMs": 26119,
+      "endMs": 26363
+    },
+    {
+      "text": " full",
+      "startMs": 26363,
+      "endMs": 26649
+    },
+    {
+      "text": " article.",
+      "startMs": 26649,
+      "endMs": 27097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 27097,
+      "endMs": 27341
+    },
+    {
+      "text": " posts",
+      "startMs": 27341,
+      "endMs": 27668
+    },
+    {
+      "text": " every",
+      "startMs": 27668,
+      "endMs": 27994
+    },
+    {
+      "text": " week",
+      "startMs": 27994,
+      "endMs": 28279,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 28279,
+      "endMs": 28483
+    },
+    {
+      "text": " the",
+      "startMs": 28483,
+      "endMs": 28727
+    },
+    {
+      "text": " blog.",
+      "startMs": 28727,
+      "endMs": 29053,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

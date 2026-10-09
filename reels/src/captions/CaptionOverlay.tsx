@@ -9,8 +9,8 @@ import React, { useMemo } from "react";
 import {
   AbsoluteFill,
   interpolate,
-  spring,
   Sequence,
+  spring,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -18,9 +18,10 @@ import { BRAND } from "../brand";
 import { uiFontFamily } from "../fonts";
 import { ReelCaption } from "../schema";
 
-// How long a group of words stays on screen before switching to the next group.
-// ~1200-1500ms gives the classic "a few words at a time" TikTok feel.
-const SWITCH_CAPTIONS_EVERY_MS = 1400;
+// A caption page is flushed once it has been on screen this long. Together with
+// the leading space on every word (see scripts/build-reel-props.mjs) this yields
+// the classic "3-4 words at a time" TikTok cadence.
+const COMBINE_TOKENS_WITHIN_MS = 1100;
 
 const DESIRED_FONT_SIZE = 96;
 const CAPTION_BOTTOM_PADDING = 300;
@@ -69,7 +70,7 @@ export const CaptionPage: React.FC<{ readonly page: TikTokPage }> = ({
           fontFamily: uiFontFamily,
           fontWeight: 900,
           textTransform: "uppercase",
-          lineHeight: 1.1,
+          lineHeight: 1.12,
           color: BRAND.white,
           WebkitTextStroke: "16px rgba(0,0,0,0.88)",
           paintOrder: "stroke",
@@ -119,10 +120,11 @@ export const CaptionOverlay: React.FC<{
       endMs: caption.endMs,
       timestampMs: null,
       confidence: null,
+      ...(caption.pageBreakAfter ? { pageBreakAfter: true } : {}),
     }));
 
     return createTikTokStyleCaptions({
-      combineTokensWithinMilliseconds: SWITCH_CAPTIONS_EVERY_MS,
+      combineTokensWithinMilliseconds: COMBINE_TOKENS_WITHIN_MS,
       captions: normalized,
     });
   }, [captions]);
@@ -130,20 +132,18 @@ export const CaptionOverlay: React.FC<{
   return (
     <>
       {pages.map((page, index) => {
-        const nextPage = pages[index + 1] ?? null;
         const startFrame = Math.floor((page.startMs / 1000) * fps);
-        const endFrame = Math.min(
-          nextPage ? (nextPage.startMs / 1000) * fps : Infinity,
-          startFrame + (SWITCH_CAPTIONS_EVERY_MS / 1000) * fps,
+        const durationInFrames = Math.max(
+          1,
+          Math.round((page.durationMs / 1000) * fps),
         );
-        const durationInFrames = Math.floor(endFrame) - startFrame;
-
-        if (durationInFrames <= 0) {
-          return null;
-        }
 
         return (
-          <Sequence key={index} from={startFrame} durationInFrames={durationInFrames}>
+          <Sequence
+            key={index}
+            from={startFrame}
+            durationInFrames={durationInFrames}
+          >
             <CaptionPage page={page} />
           </Sequence>
         );

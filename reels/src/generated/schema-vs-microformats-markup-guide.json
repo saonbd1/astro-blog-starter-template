@@ -1,0 +1,1350 @@
+{
+  "slug": "schema-vs-microformats-markup-guide",
+  "title": "Schema Markup vs. Microformats: Differences, Benefits, and Which to Use",
+  "description": "Learn how Schema.org markup and microformats differ, how JSON-LD and HTML classes work, and which approach is best for SEO, rich results, and IndieWeb projects.",
+  "category": "Web Development",
+  "tags": [
+    "SEO",
+    "Structured Data",
+    "Schema.org",
+    "Microformats",
+    "Web Development"
+  ],
+  "url": "https://www.techtips.fun/blog/schema-vs-microformats-markup-guide/",
+  "theme": "github-dark",
+  "durationInFrames": 1070,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "Schema Markup vs. Microformats: Differences, Benefits, and Which to Use",
+      "subtitle": "Learn how Schema.org markup and microformats differ, how JSON-LD and HTML classes work,…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Quick answer: Schema.org or microformats?",
+      "body": "Choose Schema.org with JSON-LD when your priority is search-engine understanding, supported Google Search features, and a structured format that is…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "What is Schema.org markup?",
+      "body": "Schema.org is a shared vocabulary for describing things on the web. It defines types such as Article, Person, Product, Organization, and Event,…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Schema.org with JSON-LD",
+      "steps": [
+        {
+          "lang": "html",
+          "meta": "html",
+          "value": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BlogPosting\",\n  \"headline\": \"How to Bake Bread\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Alice\"\n  },",
+          "code": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BlogPosting\",\n  \"headline\": \"How to Bake Bread\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Alice\"\n  },",
+          "tokens": [
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "script",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "type",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"application/ld+json\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "\"@context\": \"https://schema.org\",",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "\"@type\": \"BlogPosting\",",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "\"headline\": \"How to Bake Bread\",",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "\"author\": {",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "\"@type\": \"Person\",",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "\"name\": \"Alice\"",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "},",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "html",
+          "meta": "html",
+          "value": "<article itemscope itemtype=\"https://schema.org/Article\">\n  <h1 itemprop=\"headline\">How to Bake Bread</h1>\n  <p>By <span itemprop=\"author\">Alice</span></p>\n</article>",
+          "code": "<article itemscope itemtype=\"https://schema.org/Article\">\n  <h1 itemprop=\"headline\">How to Bake Bread</h1>\n  <p>By <span itemprop=\"author\">Alice</span></p>\n</article>",
+          "tokens": [
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "article",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "itemscope itemtype",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"https://schema.org/Article\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "h1",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "itemprop",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"headline\"",
+              "#A5D6FF"
+            ],
+            [
+              ">How to Bake Bread</",
+              "#C9D1D9"
+            ],
+            [
+              "h1",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "p",
+              "#7EE787"
+            ],
+            [
+              ">By <",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "itemprop",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"author\"",
+              "#A5D6FF"
+            ],
+            [
+              ">Alice</",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            [
+              "></",
+              "#C9D1D9"
+            ],
+            [
+              "p",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "article",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "What are microformats?",
+      "body": "Microformats are small, established conventions for marking up common content patterns with normal HTML.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Microformats example",
+      "steps": [
+        {
+          "lang": "html",
+          "meta": "html",
+          "value": "<a class=\"h-card\" href=\"https://example.com/alice\">\n  <span class=\"p-name\">Alice</span>\n</a>",
+          "code": "<a class=\"h-card\" href=\"https://example.com/alice\">\n  <span class=\"p-name\">Alice</span>\n</a>",
+          "tokens": [
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"h-card\"",
+              "#A5D6FF"
+            ],
+            " ",
+            [
+              "href",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"https://example.com/alice\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"p-name\"",
+              "#A5D6FF"
+            ],
+            [
+              ">Alice</",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "html",
+          "meta": "html",
+          "value": "<article class=\"h-entry\">\n  <h1 class=\"p-name\">How to Bake Bread</h1>\n  <a class=\"u-url\" href=\"https://example.com/bread-guide\">\n    Permalink\n  </a>\n  <time class=\"dt-published\" datetime=\"2026-08-23\">\n    August 23, 2026\n  </time>\n  <div class=\"e-content\">",
+          "code": "<article class=\"h-entry\">\n  <h1 class=\"p-name\">How to Bake Bread</h1>\n  <a class=\"u-url\" href=\"https://example.com/bread-guide\">\n    Permalink\n  </a>\n  <time class=\"dt-published\" datetime=\"2026-08-23\">\n    August 23, 2026\n  </time>\n  <div class=\"e-content\">",
+          "tokens": [
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "article",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"h-entry\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "h1",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"p-name\"",
+              "#A5D6FF"
+            ],
+            [
+              ">How to Bake Bread</",
+              "#C9D1D9"
+            ],
+            [
+              "h1",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"u-url\"",
+              "#A5D6FF"
+            ],
+            " ",
+            [
+              "href",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"https://example.com/bread-guide\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "Permalink",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "time",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"dt-published\"",
+              "#A5D6FF"
+            ],
+            " ",
+            [
+              "datetime",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"2026-08-23\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "August 23, 2026",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "time",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "div",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"e-content\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Vocabulary and encoding are different concepts",
+      "body": "Schema.org provides a large vocabulary. JSON-LD, Microdata, and RDFa are ways to encode that vocabulary.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Learn",
+      "startMs": 0,
+      "endMs": 226
+    },
+    {
+      "text": " how",
+      "startMs": 226,
+      "endMs": 395
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 395,
+      "endMs": 763
+    },
+    {
+      "text": " markup",
+      "startMs": 763,
+      "endMs": 1017,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 1017,
+      "endMs": 1186
+    },
+    {
+      "text": " microformats",
+      "startMs": 1186,
+      "endMs": 1610
+    },
+    {
+      "text": " differ,",
+      "startMs": 1610,
+      "endMs": 1892
+    },
+    {
+      "text": " how",
+      "startMs": 1892,
+      "endMs": 2062,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " JSON-LD",
+      "startMs": 2062,
+      "endMs": 2344
+    },
+    {
+      "text": " and",
+      "startMs": 2344,
+      "endMs": 2514
+    },
+    {
+      "text": " HTML",
+      "startMs": 2514,
+      "endMs": 2712
+    },
+    {
+      "text": " classes",
+      "startMs": 2712,
+      "endMs": 2994,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " work,",
+      "startMs": 2994,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Quick",
+      "startMs": 3500,
+      "endMs": 3622
+    },
+    {
+      "text": " answer:",
+      "startMs": 3622,
+      "endMs": 3774
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 3774,
+      "endMs": 3971
+    },
+    {
+      "text": " or",
+      "startMs": 3971,
+      "endMs": 4047,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " microformats?.",
+      "startMs": 4047,
+      "endMs": 4306
+    },
+    {
+      "text": " Choose",
+      "startMs": 4306,
+      "endMs": 4443
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 4443,
+      "endMs": 4640
+    },
+    {
+      "text": " with",
+      "startMs": 4640,
+      "endMs": 4747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " JSON-LD",
+      "startMs": 4747,
+      "endMs": 4899
+    },
+    {
+      "text": " when",
+      "startMs": 4899,
+      "endMs": 5005
+    },
+    {
+      "text": " your",
+      "startMs": 5005,
+      "endMs": 5112
+    },
+    {
+      "text": " priority",
+      "startMs": 5112,
+      "endMs": 5279,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 5279,
+      "endMs": 5355
+    },
+    {
+      "text": " search-engine",
+      "startMs": 5355,
+      "endMs": 5599
+    },
+    {
+      "text": " understanding,",
+      "startMs": 5599,
+      "endMs": 5857
+    },
+    {
+      "text": " supported",
+      "startMs": 5857,
+      "endMs": 6040,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Google",
+      "startMs": 6040,
+      "endMs": 6176
+    },
+    {
+      "text": " Search",
+      "startMs": 6176,
+      "endMs": 6313
+    },
+    {
+      "text": " features,",
+      "startMs": 6313,
+      "endMs": 6496
+    },
+    {
+      "text": " and",
+      "startMs": 6496,
+      "endMs": 6587,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 6587,
+      "endMs": 6648
+    },
+    {
+      "text": " structured",
+      "startMs": 6648,
+      "endMs": 6845
+    },
+    {
+      "text": " format",
+      "startMs": 6845,
+      "endMs": 6982
+    },
+    {
+      "text": " that",
+      "startMs": 6982,
+      "endMs": 7089,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is…",
+      "startMs": 7089,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 7500,
+      "endMs": 7614
+    },
+    {
+      "text": " is",
+      "startMs": 7614,
+      "endMs": 7696
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 7696,
+      "endMs": 7909
+    },
+    {
+      "text": " markup?.",
+      "startMs": 7909,
+      "endMs": 8089,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 8089,
+      "endMs": 8301
+    },
+    {
+      "text": " is",
+      "startMs": 8301,
+      "endMs": 8383
+    },
+    {
+      "text": " a",
+      "startMs": 8383,
+      "endMs": 8449
+    },
+    {
+      "text": " shared",
+      "startMs": 8449,
+      "endMs": 8596,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " vocabulary",
+      "startMs": 8596,
+      "endMs": 8808
+    },
+    {
+      "text": " for",
+      "startMs": 8808,
+      "endMs": 8907
+    },
+    {
+      "text": " describing",
+      "startMs": 8907,
+      "endMs": 9119
+    },
+    {
+      "text": " things",
+      "startMs": 9119,
+      "endMs": 9266,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 9266,
+      "endMs": 9348
+    },
+    {
+      "text": " the",
+      "startMs": 9348,
+      "endMs": 9446
+    },
+    {
+      "text": " web.",
+      "startMs": 9446,
+      "endMs": 9561
+    },
+    {
+      "text": " It",
+      "startMs": 9561,
+      "endMs": 9643,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " defines",
+      "startMs": 9643,
+      "endMs": 9806
+    },
+    {
+      "text": " types",
+      "startMs": 9806,
+      "endMs": 9937
+    },
+    {
+      "text": " such",
+      "startMs": 9937,
+      "endMs": 10051
+    },
+    {
+      "text": " as",
+      "startMs": 10051,
+      "endMs": 10133,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Article,",
+      "startMs": 10133,
+      "endMs": 10313
+    },
+    {
+      "text": " Person,",
+      "startMs": 10313,
+      "endMs": 10477
+    },
+    {
+      "text": " Product,",
+      "startMs": 10477,
+      "endMs": 10657
+    },
+    {
+      "text": " Organization,",
+      "startMs": 10657,
+      "endMs": 10918,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 10918,
+      "endMs": 11016
+    },
+    {
+      "text": " Event,…",
+      "startMs": 11016,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 11500,
+      "endMs": 12614
+    },
+    {
+      "text": " with",
+      "startMs": 12614,
+      "endMs": 13214
+    },
+    {
+      "text": " JSON-LD.",
+      "startMs": 13214,
+      "endMs": 14156
+    },
+    {
+      "text": " Let",
+      "startMs": 14156,
+      "endMs": 14670,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 14670,
+      "endMs": 15099
+    },
+    {
+      "text": " look",
+      "startMs": 15099,
+      "endMs": 15699
+    },
+    {
+      "text": " at",
+      "startMs": 15699,
+      "endMs": 16127
+    },
+    {
+      "text": " the",
+      "startMs": 16127,
+      "endMs": 16641,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 16641,
+      "endMs": 17327,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 17833,
+      "endMs": 17991
+    },
+    {
+      "text": " are",
+      "startMs": 17991,
+      "endMs": 18127
+    },
+    {
+      "text": " microformats?.",
+      "startMs": 18127,
+      "endMs": 18511
+    },
+    {
+      "text": " Microformats",
+      "startMs": 18511,
+      "endMs": 18849,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " are",
+      "startMs": 18849,
+      "endMs": 18985
+    },
+    {
+      "text": " small,",
+      "startMs": 18985,
+      "endMs": 19188
+    },
+    {
+      "text": " established",
+      "startMs": 19188,
+      "endMs": 19504
+    },
+    {
+      "text": " conventions",
+      "startMs": 19504,
+      "endMs": 19820,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 19820,
+      "endMs": 19956
+    },
+    {
+      "text": " marking",
+      "startMs": 19956,
+      "endMs": 20181
+    },
+    {
+      "text": " up",
+      "startMs": 20181,
+      "endMs": 20294
+    },
+    {
+      "text": " common",
+      "startMs": 20294,
+      "endMs": 20497,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " content",
+      "startMs": 20497,
+      "endMs": 20723
+    },
+    {
+      "text": " patterns",
+      "startMs": 20723,
+      "endMs": 20971
+    },
+    {
+      "text": " with",
+      "startMs": 20971,
+      "endMs": 21130
+    },
+    {
+      "text": " normal",
+      "startMs": 21130,
+      "endMs": 21333,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " HTML.",
+      "startMs": 21333,
+      "endMs": 21513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Microformats",
+      "startMs": 21833,
+      "endMs": 23221
+    },
+    {
+      "text": " example.",
+      "startMs": 23221,
+      "endMs": 24238
+    },
+    {
+      "text": " Let",
+      "startMs": 24238,
+      "endMs": 24793
+    },
+    {
+      "text": " us",
+      "startMs": 24793,
+      "endMs": 25255,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 25255,
+      "endMs": 25903
+    },
+    {
+      "text": " at",
+      "startMs": 25903,
+      "endMs": 26365
+    },
+    {
+      "text": " the",
+      "startMs": 26365,
+      "endMs": 26920
+    },
+    {
+      "text": " code.",
+      "startMs": 26920,
+      "endMs": 27660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Vocabulary",
+      "startMs": 28167,
+      "endMs": 28412
+    },
+    {
+      "text": " and",
+      "startMs": 28412,
+      "endMs": 28525
+    },
+    {
+      "text": " encoding",
+      "startMs": 28525,
+      "endMs": 28733
+    },
+    {
+      "text": " are",
+      "startMs": 28733,
+      "endMs": 28846,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " different",
+      "startMs": 28846,
+      "endMs": 29073
+    },
+    {
+      "text": " concepts.",
+      "startMs": 29073,
+      "endMs": 29299
+    },
+    {
+      "text": " Schema.org",
+      "startMs": 29299,
+      "endMs": 29544
+    },
+    {
+      "text": " provides",
+      "startMs": 29544,
+      "endMs": 29752,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 29752,
+      "endMs": 29827
+    },
+    {
+      "text": " large",
+      "startMs": 29827,
+      "endMs": 29978
+    },
+    {
+      "text": " vocabulary.",
+      "startMs": 29978,
+      "endMs": 30243
+    },
+    {
+      "text": " JSON-LD,",
+      "startMs": 30243,
+      "endMs": 30450,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Microdata,",
+      "startMs": 30450,
+      "endMs": 30695
+    },
+    {
+      "text": " and",
+      "startMs": 30695,
+      "endMs": 30809
+    },
+    {
+      "text": " RDFa",
+      "startMs": 30809,
+      "endMs": 30941
+    },
+    {
+      "text": " are",
+      "startMs": 30941,
+      "endMs": 31054,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " ways",
+      "startMs": 31054,
+      "endMs": 31186
+    },
+    {
+      "text": " to",
+      "startMs": 31186,
+      "endMs": 31281
+    },
+    {
+      "text": " encode",
+      "startMs": 31281,
+      "endMs": 31450
+    },
+    {
+      "text": " that",
+      "startMs": 31450,
+      "endMs": 31582,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " vocabulary.",
+      "startMs": 31582,
+      "endMs": 31847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 32167,
+      "endMs": 32452
+    },
+    {
+      "text": " the",
+      "startMs": 32452,
+      "endMs": 32697
+    },
+    {
+      "text": " full",
+      "startMs": 32697,
+      "endMs": 32982
+    },
+    {
+      "text": " article.",
+      "startMs": 32982,
+      "endMs": 33430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 33430,
+      "endMs": 33675
+    },
+    {
+      "text": " posts",
+      "startMs": 33675,
+      "endMs": 34001
+    },
+    {
+      "text": " every",
+      "startMs": 34001,
+      "endMs": 34327
+    },
+    {
+      "text": " week",
+      "startMs": 34327,
+      "endMs": 34612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 34612,
+      "endMs": 34816
+    },
+    {
+      "text": " the",
+      "startMs": 34816,
+      "endMs": 35061
+    },
+    {
+      "text": " blog.",
+      "startMs": 35061,
+      "endMs": 35387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}
