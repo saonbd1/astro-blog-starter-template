@@ -6,3 +6,6 @@ out/
 
 # Generated props are committed on purpose so `npm run dev` works offline,
 # but the per-article JSON can be large; keep them in git for reproducibility.
+
+# Locally extracted Chrome system libraries (see README > Running headless on Linux)
+.chromedeps/

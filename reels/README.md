@@ -38,6 +38,14 @@ npm run dev                                   # Remotion Studio (live preview)
 `npm run reel` always rebuilds the props from Markdown first, so one command is
 enough. Output lands in `out/`.
 
+To render just a few seconds (handy for a teaser or a quick preview):
+
+```bash
+npm run reel -- --slug <slug> --from 0 --duration 8 --out demos/teaser.mp4
+```
+
+`demos/8s-demo-linux-terminal.mp4` is an 8-second example produced that way.
+
 ### Options
 
 | Flag | Applies to | Meaning |
@@ -50,6 +58,8 @@ enough. Output lands in `out/`.
 | `--still` | reel | Render a PNG instead of MP4 |
 | `--frame <n>` | reel | Frame for `--still` |
 | `--out <path>` | reel | Explicit output path |
+| `--from <sec>` | reel | Start the clip at this offset |
+| `--duration <sec>` | reel | Render only this many seconds (e.g. a teaser) |
 | `--concurrency <n>` | reel | Parallel render tabs |
 
 ## How it works

@@ -35,6 +35,8 @@ const parseArgs = (argv) => {
     else if (arg === "--theme") args.theme = argv[++index];
     else if (arg === "--out") args.out = argv[++index];
     else if (arg === "--frame") args.frame = Number(argv[++index]);
+    else if (arg === "--from") args.from = Number(argv[++index]);
+    else if (arg === "--duration") args.duration = Number(argv[++index]);
     else if (arg === "--concurrency") args.concurrency = argv[++index];
     else if (arg === "--latest") args.latest = true;
     else if (arg === "--all") args.all = true;
@@ -83,6 +85,14 @@ const runRemotion = ({ args, propsPath, outputPath, still, frame }) => {
   ];
 
   if (still) cliArgs.push(`--frame=${frame}`);
+
+  // Render only a slice of the reel (e.g. a short teaser clip).
+  const FPS = 30;
+  if (args.duration) {
+    const start = Math.max(0, Math.round((args.from ?? 0) * FPS));
+    const end = start + Math.round(args.duration * FPS) - 1;
+    cliArgs.push(`--frames=${start}-${end}`);
+  }
   if (args.concurrency) cliArgs.push(`--concurrency=${args.concurrency}`);
   if (args.theme) cliArgs.push(`--props=${propsPath}`);
 
@@ -111,8 +121,13 @@ const renderSlug = async (slug, args) => {
     ? path.resolve(process.cwd(), args.out)
     : path.join(OUT_DIR, `${slug}.${extension}`);
 
-  const seconds = (props.durationInFrames / 30).toFixed(1);
-  console.log(`\n> ${slug} (${props.scenes.length} scenes, ${seconds}s)`);
+  const fullSeconds = props.durationInFrames / 30;
+  const clipSeconds = args.duration
+    ? `${args.duration}s clip of `
+    : "";
+  console.log(
+    `\n> ${slug} (${props.scenes.length} scenes, ${clipSeconds}${fullSeconds.toFixed(1)}s full)`,
+  );
 
   runRemotion({
     args,
