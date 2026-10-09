@@ -11,8 +11,6 @@
     "Comparison"
   ],
   "url": "https://www.techtips.fun/blog/netlify-vs-vercel-what-my-emails-revealed-after-using-both/",
-  "theme": "github-dark",
-  "durationInFrames": 930,
   "scenes": [
     {
       "type": "title",
@@ -71,6 +69,8 @@
       "durationInFrames": 105
     }
   ],
+  "theme": "github-dark",
+  "durationInFrames": 930,
   "captions": [
     {
       "text": " I",

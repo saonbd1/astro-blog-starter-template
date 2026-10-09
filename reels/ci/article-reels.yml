@@ -1,0 +1,188 @@
+name: Generate article reels
+
+# Renders a vertical 1080x1920 reel for every article that does not have one
+# yet, and commits it to article-reels/.
+#
+# WHY THREE TRIGGERS
+# ------------------
+# Posts in this repo are published by "Schedule post publishing", which pushes
+# its commit with the automatic GITHUB_TOKEN - and GITHUB_TOKEN pushes do NOT
+# trigger other workflows (that is why the LinkedIn teaser is posted inside that
+# workflow; see the PITFALLS section of TODO.md). A plain `push` trigger would
+# therefore silently miss every scheduled publish, so we also listen for the
+# scheduler workflow completing.
+#
+# WHICH ARTICLES GET A REEL
+# -------------------------
+# Not a commit diff: we simply render every post in src/content/blog that has no
+# file in article-reels/ yet, newest first. That is idempotent, self-heals if a
+# render failed, and covers manual pushes and backfills with the same code.
+# Automatic runs are capped (MAX below) so a big backfill cannot run for hours -
+# trigger it manually with a higher `max` to catch up.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/**'
+  workflow_run:
+    workflows: ["Schedule post publishing"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Only render this one slug
+        required: false
+      max:
+        description: Maximum number of reels to render in this run
+        required: false
+        default: "5"
+      force:
+        description: Re-render even if a reel already exists
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: article-reels
+  cancel-in-progress: false
+
+jobs:
+  reels:
+    # Never run if the triggering scheduler run failed.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    # Generous: a manual backfill can legitimately render dozens of reels.
+    timeout-minutes: 120
+    env:
+      # Manual runs pick their own limit; automatic runs stay small (the plan
+      # step falls back to 3 when this is empty).
+      MAX_REELS: ${{ github.event.inputs.max }}
+      OUTPUT_DIR: article-reels
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: reels/package-lock.json
+
+      - name: Cache Remotion browser download
+        uses: actions/cache@v4
+        with:
+          path: reels/node_modules/.remotion
+          key: remotion-browser-${{ runner.os }}-${{ hashFiles('reels/package-lock.json') }}
+          restore-keys: |
+            remotion-browser-${{ runner.os }}-
+
+      - name: Install dependencies
+        working-directory: reels
+        run: npm ci
+
+      - name: Ensure Chrome Headless Shell
+        working-directory: reels
+        run: npx remotion browser ensure
+
+      - name: Work out which articles need a reel
+        id: plan
+        working-directory: reels
+        env:
+          SLUG: ${{ github.event.inputs.slug }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ -n "${SLUG:-}" ]; then
+            args+=(--slug "$SLUG")
+          else
+            args+=(--limit "${MAX_REELS:-3}")
+          fi
+          if [ "${FORCE:-false}" = "true" ]; then
+            args+=(--force)
+          fi
+
+          node scripts/list-missing-reels.mjs "${args[@]}" > "$RUNNER_TEMP/slugs.txt"
+          count=$(grep -c . "$RUNNER_TEMP/slugs.txt" || true)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### Article reels: $count to render"
+            echo
+            sed 's/^/- /' "$RUNNER_TEMP/slugs.txt"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$count" = "0" ]; then
+            echo "Every article already has a reel."
+          fi
+
+      - name: Render reels
+        id: render
+        if: steps.plan.outputs.count != '0'
+        working-directory: reels
+        run: |
+          # no `set -e`: one bad article must not abandon the others.
+          set -uo pipefail
+          failed=0
+          rendered=0
+
+          while IFS= read -r slug; do
+            [ -n "$slug" ] || continue
+            echo "::group::Reel: $slug"
+            if node scripts/render-reel.mjs \
+                 --slug "$slug" \
+                 --out "$GITHUB_WORKSPACE/$OUTPUT_DIR/$slug.mp4"; then
+              rendered=$((rendered + 1))
+              echo "rendered $slug"
+            else
+              failed=$((failed + 1))
+              echo "::warning title=Reel render failed::$slug"
+            fi
+            echo "::endgroup::"
+          done < "$RUNNER_TEMP/slugs.txt"
+
+          echo "rendered=$rendered" >> "$GITHUB_OUTPUT"
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Reels rendered: $rendered (failed: $failed)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload reels as build artifacts
+        if: steps.plan.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-reels
+          path: article-reels/*.mp4
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # Pushed as a separate commit from the scheduler's publish commit, with
+      # GITHUB_TOKEN - so it deliberately does not re-trigger any workflow.
+      - name: Commit the reels
+        if: steps.plan.outputs.count != '0'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$OUTPUT_DIR"
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+            exit 0
+          fi
+
+          list=$(git diff --cached --name-only -- "$OUTPUT_DIR" | sed -E 's#.*/##; s/\.mp4$//' | paste -sd, -)
+          git commit -m "Add article reel(s): $list"
+          git push origin HEAD:main
+          echo "Committed: $list"
