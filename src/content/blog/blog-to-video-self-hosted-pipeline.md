@@ -13,7 +13,7 @@ Search "blog to video" and you get the same twenty products. Vidup, Revid, Fliki
 
 That is a fine trade for a marketer. It is a bad trade if you write a technical blog, because the thing that makes your posts worth reading is the thing those tools cannot render: **code**. Stock footage with an AI voiceover does not explain a `docker run` flag.
 
-So I built the other version. My articles already live as Markdown in a git repo, which means a video can be *derived* from them the same way the HTML is. This post is the full pipeline, start to finish, with the numbers and the failures included, because the failures are the part nobody writes down.
+So I built the self-hosted version instead. My articles already live as Markdown in a git repo, which means a video can be *derived* from them the same way the HTML is. This post is the full pipeline, start to finish, with the numbers and the failures included, because the failures are the part nobody writes down.
 
 ## What you end up with
 
@@ -44,7 +44,7 @@ The stack is smaller than it sounds:
 | `@remotion/captions` | Groups a word-level transcript into TikTok-style pages |
 | GitHub Actions | Runs the render on publish |
 
-There is no SaaS, no queue service and no database. The expensive part, rendering, is 25-40 seconds of CPU per reel.
+There is no SaaS, no queue service and no database: it is self-hosted end to end. The only moving parts are a Node script and a headless Chromium, and the expensive one - rendering - costs 25-40 seconds of CPU per reel.
 
 ## Prerequisites
 
@@ -380,6 +380,13 @@ At roughly 2 MB per reel you are adding a couple of megabytes per post to the re
 
 ## FAQ
 
+**Why not just pay for a blog-to-video tool?**
+
+Honestly, if your posts are listicles with no code in them, you probably should. Those tools are faster, need no
+maintenance, and will source stock imagery you do not have. Self-hosting wins in three narrower cases: your posts
+contain code, your brand is defined in code, or you object to uploading drafts to a third party. Those are also
+exactly the cases where a generic tool falls over.
+
 **Do I need a voiceover?** No. The captions are synthesised from the on-screen script, which is why the pipeline works with no audio at all. If you *do* want narration, transcribe it with Whisper, feed the word-level result in as the caption track, and add an `<Audio>` tag.
 
 **Does it work for non-technical posts?** Yes, and better than you would expect, because point scenes and captions do not care what the subject is. You just lose the code scenes, which is the one thing this approach does better than a generic tool.
@@ -390,7 +397,7 @@ At roughly 2 MB per reel you are adding a couple of megabytes per post to the re
 
 **Do I have to run it in CI?** No. `--latest` on a cron or a git hook does the same job. CI is attractive because the runner already has a clean Linux box with fonts and libraries, which - as the section above shows - is not a given in a container.
 
-## Worth it?
+## Should you self-host your own blog-to-video pipeline?
 
 A generic blog-to-video tool will produce something passable in a minute. This pipeline produces something *better* for a technical post, because it can show your actual code, in your actual brand colours, with captions that read like the article. It also costs nothing per video and never sees a rate limit.
 
