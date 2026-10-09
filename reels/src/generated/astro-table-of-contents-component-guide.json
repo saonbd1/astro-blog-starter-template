@@ -1,0 +1,1420 @@
+{
+  "slug": "astro-table-of-contents-component-guide",
+  "title": "How to Add an Accessible Table of Contents to an Astro Blog",
+  "description": "Build a reusable Astro table of contents component that creates stable heading links, works on mobile, and stays accessible without an extra package.",
+  "category": "Web Development",
+  "tags": [
+    "Astro",
+    "Blog",
+    "Accessibility",
+    "Frontend"
+  ],
+  "url": "https://www.techtips.fun/blog/astro-table-of-contents-component-guide/",
+  "theme": "github-dark",
+  "durationInFrames": 830,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "How to Add an Accessible Table of Contents to an Astro Blog",
+      "subtitle": "Build a reusable Astro table of contents component that creates stable heading links,…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "What you will build",
+      "body": "The finished component will do four things: Read h2 and h3 elements inside the article content.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Start with a shared article layout",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\ntype Props = {\n  showToc?: boolean;\n};\n\nconst { showToc = false } = Astro.props;\n---\n\n{showToc ? (",
+          "code": "---\ntype Props = {\n  showToc?: boolean;\n};\n\nconst { showToc = false } = Astro.props;\n---\n\n{showToc ? (",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "type",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Props",
+              "#FFA657"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "showToc",
+              "#FFA657"
+            ],
+            [
+              "?:",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "boolean",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "};",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "showToc",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "false",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Astro.props;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n\n",
+            [
+              "{",
+              "#FF7B72"
+            ],
+            [
+              "showToc",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "?",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "(",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Add a stable heading-ID generator",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "{showToc && (\n  <script>\n    const toc = document.querySelector<HTMLElement>('[data-toc]');\n    const content = document.querySelector<HTMLElement>('[data-post-content]');\n    const list = document.querySelector<HTMLOListElement>('[data-toc-list]');\n\n    if (toc && content && list) {\n      const headings = Array.from(\n        content.querySelectorAll<HTMLHeadingElement>('h2, h3'),",
+          "code": "{showToc && (\n  <script>\n    const toc = document.querySelector<HTMLElement>('[data-toc]');\n    const content = document.querySelector<HTMLElement>('[data-post-content]');\n    const list = document.querySelector<HTMLOListElement>('[data-toc-list]');\n\n    if (toc && content && list) {\n      const headings = Array.from(\n        content.querySelectorAll<HTMLHeadingElement>('h2, h3'),",
+          "tokens": [
+            [
+              "{",
+              "#FF7B72"
+            ],
+            [
+              "showToc",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "&&",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "(",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "script",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "const toc = document.querySelector<",
+              "#C9D1D9"
+            ],
+            [
+              "HTMLElement",
+              "#7EE787"
+            ],
+            [
+              ">('[data-toc]');",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "const content = document.querySelector<",
+              "#C9D1D9"
+            ],
+            [
+              "HTMLElement",
+              "#7EE787"
+            ],
+            [
+              ">('[data-post-content]');",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "const list = document.querySelector<",
+              "#C9D1D9"
+            ],
+            [
+              "HTMLOListElement",
+              "#7EE787"
+            ],
+            [
+              ">('[data-toc-list]');",
+              "#C9D1D9"
+            ],
+            "\n\n    ",
+            [
+              "if (toc && content && list)",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "{",
+              "#FF7B72"
+            ],
+            "\n      ",
+            [
+              "const headings",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Array.",
+              "#C9D1D9"
+            ],
+            [
+              "from",
+              "#D2A8FF"
+            ],
+            [
+              "(",
+              "#C9D1D9"
+            ],
+            "\n        ",
+            [
+              "content.",
+              "#C9D1D9"
+            ],
+            [
+              "querySelectorAll",
+              "#D2A8FF"
+            ],
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "HTMLHeadingElement",
+              "#FFA657"
+            ],
+            [
+              ">(",
+              "#C9D1D9"
+            ],
+            [
+              "'h2, h3'",
+              "#A5D6FF"
+            ],
+            [
+              "),",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Style the Astro table of contents for desktop and mobile",
+      "steps": [
+        {
+          "lang": "css",
+          "meta": "css",
+          "value": ".post-layout {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr);\n  gap: 1.5rem;\n  width: 100%;\n}\n\n.toc {\n  width: 100%;",
+          "code": ".post-layout {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr);\n  gap: 1.5rem;\n  width: 100%;\n}\n\n.toc {\n  width: 100%;",
+          "tokens": [
+            [
+              ".post-layout",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "display",
+              "#79C0FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "grid",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "grid-template-columns",
+              "#79C0FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "minmax",
+              "#79C0FF"
+            ],
+            [
+              "(",
+              "#C9D1D9"
+            ],
+            [
+              "0",
+              "#79C0FF"
+            ],
+            [
+              ",",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "1",
+              "#79C0FF"
+            ],
+            [
+              "fr",
+              "#FF7B72"
+            ],
+            [
+              ");",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "gap",
+              "#79C0FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "1.5",
+              "#79C0FF"
+            ],
+            [
+              "rem",
+              "#FF7B72"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "width",
+              "#79C0FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "100",
+              "#79C0FF"
+            ],
+            [
+              "%",
+              "#FF7B72"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              ".toc",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "width",
+              "#79C0FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "100",
+              "#79C0FF"
+            ],
+            [
+              "%",
+              "#FF7B72"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Enable the component from your blog route",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\nimport { getCollection, render } from 'astro:content';\nimport BlogPost from '../../layouts/BlogPost.astro';\n\nconst { post } = Astro.props;\nconst { Content } = await render(post);\n---\n\n<BlogPost {...post.data} showToc>",
+          "code": "---\nimport { getCollection, render } from 'astro:content';\nimport BlogPost from '../../layouts/BlogPost.astro';\n\nconst { post } = Astro.props;\nconst { Content } = await render(post);\n---\n\n<BlogPost {...post.data} showToc>",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ getCollection, render }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'astro:content'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "BlogPost",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../../layouts/BlogPost.astro'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "post",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Astro.props;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "Content",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "= await",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "render",
+              "#D2A8FF"
+            ],
+            [
+              "(post);",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n\n",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "BlogPost",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            [
+              "...",
+              "#FF7B72"
+            ],
+            [
+              "post.data}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "showToc",
+              "#79C0FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Test your table of contents before publishing",
+      "body": "Test at least one short post and one long post. A short post confirms that the component disappears cleanly when there are no h2 or h3 elements.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Build",
+      "startMs": 0,
+      "endMs": 230
+    },
+    {
+      "text": " a",
+      "startMs": 230,
+      "endMs": 345
+    },
+    {
+      "text": " reusable",
+      "startMs": 345,
+      "endMs": 661
+    },
+    {
+      "text": " Astro",
+      "startMs": 661,
+      "endMs": 891,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " table",
+      "startMs": 891,
+      "endMs": 1121
+    },
+    {
+      "text": " of",
+      "startMs": 1121,
+      "endMs": 1265
+    },
+    {
+      "text": " contents",
+      "startMs": 1265,
+      "endMs": 1581
+    },
+    {
+      "text": " component",
+      "startMs": 1581,
+      "endMs": 1926,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " that",
+      "startMs": 1926,
+      "endMs": 2128
+    },
+    {
+      "text": " creates",
+      "startMs": 2128,
+      "endMs": 2415
+    },
+    {
+      "text": " stable",
+      "startMs": 2415,
+      "endMs": 2674
+    },
+    {
+      "text": " heading",
+      "startMs": 2674,
+      "endMs": 2961,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " links,",
+      "startMs": 2961,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3664
+    },
+    {
+      "text": " you",
+      "startMs": 3664,
+      "endMs": 3805
+    },
+    {
+      "text": " will",
+      "startMs": 3805,
+      "endMs": 3969
+    },
+    {
+      "text": " build.",
+      "startMs": 3969,
+      "endMs": 4180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 4180,
+      "endMs": 4320
+    },
+    {
+      "text": " finished",
+      "startMs": 4320,
+      "endMs": 4578
+    },
+    {
+      "text": " component",
+      "startMs": 4578,
+      "endMs": 4859
+    },
+    {
+      "text": " will",
+      "startMs": 4859,
+      "endMs": 5024,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " do",
+      "startMs": 5024,
+      "endMs": 5141
+    },
+    {
+      "text": " four",
+      "startMs": 5141,
+      "endMs": 5305
+    },
+    {
+      "text": " things:",
+      "startMs": 5305,
+      "endMs": 5539
+    },
+    {
+      "text": " Read",
+      "startMs": 5539,
+      "endMs": 5703,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " h2",
+      "startMs": 5703,
+      "endMs": 5821
+    },
+    {
+      "text": " and",
+      "startMs": 5821,
+      "endMs": 5961
+    },
+    {
+      "text": " h3",
+      "startMs": 5961,
+      "endMs": 6078
+    },
+    {
+      "text": " elements",
+      "startMs": 6078,
+      "endMs": 6336,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " inside",
+      "startMs": 6336,
+      "endMs": 6547
+    },
+    {
+      "text": " the",
+      "startMs": 6547,
+      "endMs": 6688
+    },
+    {
+      "text": " article",
+      "startMs": 6688,
+      "endMs": 6922
+    },
+    {
+      "text": " content.",
+      "startMs": 6922,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Start",
+      "startMs": 7500,
+      "endMs": 7774
+    },
+    {
+      "text": " with",
+      "startMs": 7774,
+      "endMs": 8014
+    },
+    {
+      "text": " a",
+      "startMs": 8014,
+      "endMs": 8151
+    },
+    {
+      "text": " shared",
+      "startMs": 8151,
+      "endMs": 8460,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " article",
+      "startMs": 8460,
+      "endMs": 8802
+    },
+    {
+      "text": " layout.",
+      "startMs": 8802,
+      "endMs": 9145
+    },
+    {
+      "text": " Let",
+      "startMs": 9145,
+      "endMs": 9351
+    },
+    {
+      "text": " us",
+      "startMs": 9351,
+      "endMs": 9522,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 9522,
+      "endMs": 9762
+    },
+    {
+      "text": " at",
+      "startMs": 9762,
+      "endMs": 9933
+    },
+    {
+      "text": " the",
+      "startMs": 9933,
+      "endMs": 10139
+    },
+    {
+      "text": " code.",
+      "startMs": 10139,
+      "endMs": 10413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Add",
+      "startMs": 10667,
+      "endMs": 10880
+    },
+    {
+      "text": " a",
+      "startMs": 10880,
+      "endMs": 11022
+    },
+    {
+      "text": " stable",
+      "startMs": 11022,
+      "endMs": 11342
+    },
+    {
+      "text": " heading-ID",
+      "startMs": 11342,
+      "endMs": 11804,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " generator.",
+      "startMs": 11804,
+      "endMs": 12265
+    },
+    {
+      "text": " Let",
+      "startMs": 12265,
+      "endMs": 12479
+    },
+    {
+      "text": " us",
+      "startMs": 12479,
+      "endMs": 12656
+    },
+    {
+      "text": " look",
+      "startMs": 12656,
+      "endMs": 12905,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 12905,
+      "endMs": 13083
+    },
+    {
+      "text": " the",
+      "startMs": 13083,
+      "endMs": 13296
+    },
+    {
+      "text": " code.",
+      "startMs": 13296,
+      "endMs": 13580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Style",
+      "startMs": 13833,
+      "endMs": 14036
+    },
+    {
+      "text": " the",
+      "startMs": 14036,
+      "endMs": 14188
+    },
+    {
+      "text": " Astro",
+      "startMs": 14188,
+      "endMs": 14391
+    },
+    {
+      "text": " table",
+      "startMs": 14391,
+      "endMs": 14593,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " of",
+      "startMs": 14593,
+      "endMs": 14720
+    },
+    {
+      "text": " contents",
+      "startMs": 14720,
+      "endMs": 14999
+    },
+    {
+      "text": " for",
+      "startMs": 14999,
+      "endMs": 15151
+    },
+    {
+      "text": " desktop",
+      "startMs": 15151,
+      "endMs": 15404,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 15404,
+      "endMs": 15556
+    },
+    {
+      "text": " mobile.",
+      "startMs": 15556,
+      "endMs": 15809
+    },
+    {
+      "text": " Let",
+      "startMs": 15809,
+      "endMs": 15961
+    },
+    {
+      "text": " us",
+      "startMs": 15961,
+      "endMs": 16088,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 16088,
+      "endMs": 16265
+    },
+    {
+      "text": " at",
+      "startMs": 16265,
+      "endMs": 16392
+    },
+    {
+      "text": " the",
+      "startMs": 16392,
+      "endMs": 16544
+    },
+    {
+      "text": " code.",
+      "startMs": 16544,
+      "endMs": 16747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Enable",
+      "startMs": 17000,
+      "endMs": 17279
+    },
+    {
+      "text": " the",
+      "startMs": 17279,
+      "endMs": 17465
+    },
+    {
+      "text": " component",
+      "startMs": 17465,
+      "endMs": 17837
+    },
+    {
+      "text": " from",
+      "startMs": 17837,
+      "endMs": 18054,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 18054,
+      "endMs": 18271
+    },
+    {
+      "text": " blog",
+      "startMs": 18271,
+      "endMs": 18488
+    },
+    {
+      "text": " route.",
+      "startMs": 18488,
+      "endMs": 18767
+    },
+    {
+      "text": " Let",
+      "startMs": 18767,
+      "endMs": 18953,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 18953,
+      "endMs": 19108
+    },
+    {
+      "text": " look",
+      "startMs": 19108,
+      "endMs": 19324
+    },
+    {
+      "text": " at",
+      "startMs": 19324,
+      "endMs": 19479
+    },
+    {
+      "text": " the",
+      "startMs": 19479,
+      "endMs": 19665,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 19665,
+      "endMs": 19913,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Test",
+      "startMs": 20167,
+      "endMs": 20266
+    },
+    {
+      "text": " your",
+      "startMs": 20266,
+      "endMs": 20365
+    },
+    {
+      "text": " table",
+      "startMs": 20365,
+      "endMs": 20478
+    },
+    {
+      "text": " of",
+      "startMs": 20478,
+      "endMs": 20549,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " contents",
+      "startMs": 20549,
+      "endMs": 20705
+    },
+    {
+      "text": " before",
+      "startMs": 20705,
+      "endMs": 20832
+    },
+    {
+      "text": " publishing.",
+      "startMs": 20832,
+      "endMs": 21030
+    },
+    {
+      "text": " Test",
+      "startMs": 21030,
+      "endMs": 21129,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 21129,
+      "endMs": 21200
+    },
+    {
+      "text": " least",
+      "startMs": 21200,
+      "endMs": 21313
+    },
+    {
+      "text": " one",
+      "startMs": 21313,
+      "endMs": 21398
+    },
+    {
+      "text": " short",
+      "startMs": 21398,
+      "endMs": 21511,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " post",
+      "startMs": 21511,
+      "endMs": 21610
+    },
+    {
+      "text": " and",
+      "startMs": 21610,
+      "endMs": 21695
+    },
+    {
+      "text": " one",
+      "startMs": 21695,
+      "endMs": 21780
+    },
+    {
+      "text": " long",
+      "startMs": 21780,
+      "endMs": 21879,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " post.",
+      "startMs": 21879,
+      "endMs": 21993
+    },
+    {
+      "text": " A",
+      "startMs": 21993,
+      "endMs": 22049
+    },
+    {
+      "text": " short",
+      "startMs": 22049,
+      "endMs": 22162
+    },
+    {
+      "text": " post",
+      "startMs": 22162,
+      "endMs": 22261,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " confirms",
+      "startMs": 22261,
+      "endMs": 22417
+    },
+    {
+      "text": " that",
+      "startMs": 22417,
+      "endMs": 22516
+    },
+    {
+      "text": " the",
+      "startMs": 22516,
+      "endMs": 22601
+    },
+    {
+      "text": " component",
+      "startMs": 22601,
+      "endMs": 22771,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " disappears",
+      "startMs": 22771,
+      "endMs": 22955
+    },
+    {
+      "text": " cleanly",
+      "startMs": 22955,
+      "endMs": 23097
+    },
+    {
+      "text": " when",
+      "startMs": 23097,
+      "endMs": 23196
+    },
+    {
+      "text": " there",
+      "startMs": 23196,
+      "endMs": 23309,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " are",
+      "startMs": 23309,
+      "endMs": 23394
+    },
+    {
+      "text": " no",
+      "startMs": 23394,
+      "endMs": 23465
+    },
+    {
+      "text": " h2",
+      "startMs": 23465,
+      "endMs": 23535
+    },
+    {
+      "text": " or",
+      "startMs": 23535,
+      "endMs": 23606,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " h3",
+      "startMs": 23606,
+      "endMs": 23677
+    },
+    {
+      "text": " elements.",
+      "startMs": 23677,
+      "endMs": 23847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 24167,
+      "endMs": 24452
+    },
+    {
+      "text": " the",
+      "startMs": 24452,
+      "endMs": 24697
+    },
+    {
+      "text": " full",
+      "startMs": 24697,
+      "endMs": 24982
+    },
+    {
+      "text": " article.",
+      "startMs": 24982,
+      "endMs": 25430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 25430,
+      "endMs": 25675
+    },
+    {
+      "text": " posts",
+      "startMs": 25675,
+      "endMs": 26001
+    },
+    {
+      "text": " every",
+      "startMs": 26001,
+      "endMs": 26327
+    },
+    {
+      "text": " week",
+      "startMs": 26327,
+      "endMs": 26612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 26612,
+      "endMs": 26816
+    },
+    {
+      "text": " the",
+      "startMs": 26816,
+      "endMs": 27061
+    },
+    {
+      "text": " blog.",
+      "startMs": 27061,
+      "endMs": 27387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

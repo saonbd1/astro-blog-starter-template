@@ -1,0 +1,906 @@
+{
+  "slug": "Simple-Ghostty-terminal-configuration-guide",
+  "title": "Ghostty Terminal Configuration Guide",
+  "description": "A practical guide to configuring Ghostty for a cleaner, faster, and more comfortable terminal workflow.",
+  "category": "Linux & Terminal",
+  "tags": [
+    "Ghostty",
+    "Terminal",
+    "Configuration",
+    "Developer Tools"
+  ],
+  "url": "https://www.techtips.fun/blog/Simple-Ghostty-terminal-configuration-guide/",
+  "theme": "github-dark",
+  "durationInFrames": 950,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Linux & Terminal",
+      "title": "Ghostty Terminal Configuration Guide",
+      "subtitle": "A practical guide to configuring Ghostty for a cleaner, faster, and more comfortable…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Linux & Terminal",
+      "heading": "Why developers choose Ghostty",
+      "body": "Many terminal apps follow older patterns. Ghostty takes a different path. It is designed to be fast, minimal, and easy to customize.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Linux & Terminal",
+      "heading": "Getting started",
+      "body": "The first step is to install Ghostty and open it. After installation, create or edit your configuration file.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Choosing a font",
+      "steps": [
+        {
+          "lang": "toml",
+          "meta": "toml",
+          "value": "font-family = \"JetBrainsMono Nerd Font\"\nfont-size = 15",
+          "code": "font-family = \"JetBrainsMono Nerd Font\"\nfont-size = 15",
+          "tokens": [
+            [
+              "font-family =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"JetBrainsMono Nerd Font\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "font-size =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "15",
+              "#79C0FF"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Setting a theme",
+      "steps": [
+        {
+          "lang": "toml",
+          "meta": "toml",
+          "value": "background = \"#0f172a\"\nforeground = \"#e2e8f0\"\ncursor = \"#f8fafc\"\nselection-background = \"#334155\"\nselection-foreground = \"#f8fafc\"",
+          "code": "background = \"#0f172a\"\nforeground = \"#e2e8f0\"\ncursor = \"#f8fafc\"\nselection-background = \"#334155\"\nselection-foreground = \"#f8fafc\"",
+          "tokens": [
+            [
+              "background =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"#0f172a\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "foreground =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"#e2e8f0\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "cursor =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"#f8fafc\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "selection-background =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"#334155\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "selection-foreground =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"#f8fafc\"",
+              "#A5D6FF"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Customizing the cursor and window",
+      "steps": [
+        {
+          "lang": "toml",
+          "meta": "toml",
+          "value": "cursor-style = \"block\"\ncursor-beam-thickness = 1.5",
+          "code": "cursor-style = \"block\"\ncursor-beam-thickness = 1.5",
+          "tokens": [
+            [
+              "cursor-style =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"block\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "cursor-beam-thickness =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "1.5",
+              "#79C0FF"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "toml",
+          "meta": "toml",
+          "value": "scrollback-lines = 50000",
+          "code": "scrollback-lines = 50000",
+          "tokens": [
+            [
+              "scrollback-lines =",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "50000",
+              "#79C0FF"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "Linux & Terminal",
+      "heading": "Improving readability",
+      "body": "Good terminal readability is not only about theme. You should also control text rendering and spacing.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " A",
+      "startMs": 0,
+      "endMs": 116
+    },
+    {
+      "text": " practical",
+      "startMs": 116,
+      "endMs": 464
+    },
+    {
+      "text": " guide",
+      "startMs": 464,
+      "endMs": 696
+    },
+    {
+      "text": " to",
+      "startMs": 696,
+      "endMs": 841,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " configuring",
+      "startMs": 841,
+      "endMs": 1247
+    },
+    {
+      "text": " Ghostty",
+      "startMs": 1247,
+      "endMs": 1537
+    },
+    {
+      "text": " for",
+      "startMs": 1537,
+      "endMs": 1712
+    },
+    {
+      "text": " a",
+      "startMs": 1712,
+      "endMs": 1828,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " cleaner,",
+      "startMs": 1828,
+      "endMs": 2147
+    },
+    {
+      "text": " faster,",
+      "startMs": 2147,
+      "endMs": 2437
+    },
+    {
+      "text": " and",
+      "startMs": 2437,
+      "endMs": 2611
+    },
+    {
+      "text": " more",
+      "startMs": 2611,
+      "endMs": 2814,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " comfortable",
+      "startMs": 2814,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Why",
+      "startMs": 3500,
+      "endMs": 3602
+    },
+    {
+      "text": " developers",
+      "startMs": 3602,
+      "endMs": 3824
+    },
+    {
+      "text": " choose",
+      "startMs": 3824,
+      "endMs": 3977
+    },
+    {
+      "text": " Ghostty.",
+      "startMs": 3977,
+      "endMs": 4164,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Many",
+      "startMs": 4164,
+      "endMs": 4284
+    },
+    {
+      "text": " terminal",
+      "startMs": 4284,
+      "endMs": 4471
+    },
+    {
+      "text": " apps",
+      "startMs": 4471,
+      "endMs": 4590
+    },
+    {
+      "text": " follow",
+      "startMs": 4590,
+      "endMs": 4744,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " older",
+      "startMs": 4744,
+      "endMs": 4880
+    },
+    {
+      "text": " patterns.",
+      "startMs": 4880,
+      "endMs": 5084
+    },
+    {
+      "text": " Ghostty",
+      "startMs": 5084,
+      "endMs": 5255
+    },
+    {
+      "text": " takes",
+      "startMs": 5255,
+      "endMs": 5391,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 5391,
+      "endMs": 5459
+    },
+    {
+      "text": " different",
+      "startMs": 5459,
+      "endMs": 5664
+    },
+    {
+      "text": " path.",
+      "startMs": 5664,
+      "endMs": 5800
+    },
+    {
+      "text": " It",
+      "startMs": 5800,
+      "endMs": 5885,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 5885,
+      "endMs": 5970
+    },
+    {
+      "text": " designed",
+      "startMs": 5970,
+      "endMs": 6158
+    },
+    {
+      "text": " to",
+      "startMs": 6158,
+      "endMs": 6243
+    },
+    {
+      "text": " be",
+      "startMs": 6243,
+      "endMs": 6328,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fast,",
+      "startMs": 6328,
+      "endMs": 6464
+    },
+    {
+      "text": " minimal,",
+      "startMs": 6464,
+      "endMs": 6652
+    },
+    {
+      "text": " and",
+      "startMs": 6652,
+      "endMs": 6754
+    },
+    {
+      "text": " easy",
+      "startMs": 6754,
+      "endMs": 6873,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 6873,
+      "endMs": 6959
+    },
+    {
+      "text": " customize.",
+      "startMs": 6959,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Getting",
+      "startMs": 7500,
+      "endMs": 7720
+    },
+    {
+      "text": " started.",
+      "startMs": 7720,
+      "endMs": 7963
+    },
+    {
+      "text": " The",
+      "startMs": 7963,
+      "endMs": 8095
+    },
+    {
+      "text": " first",
+      "startMs": 8095,
+      "endMs": 8271,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " step",
+      "startMs": 8271,
+      "endMs": 8426
+    },
+    {
+      "text": " is",
+      "startMs": 8426,
+      "endMs": 8536
+    },
+    {
+      "text": " to",
+      "startMs": 8536,
+      "endMs": 8646
+    },
+    {
+      "text": " install",
+      "startMs": 8646,
+      "endMs": 8866,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Ghostty",
+      "startMs": 8866,
+      "endMs": 9087
+    },
+    {
+      "text": " and",
+      "startMs": 9087,
+      "endMs": 9219
+    },
+    {
+      "text": " open",
+      "startMs": 9219,
+      "endMs": 9373
+    },
+    {
+      "text": " it.",
+      "startMs": 9373,
+      "endMs": 9505,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " After",
+      "startMs": 9505,
+      "endMs": 9682
+    },
+    {
+      "text": " installation,",
+      "startMs": 9682,
+      "endMs": 10034
+    },
+    {
+      "text": " create",
+      "startMs": 10034,
+      "endMs": 10232
+    },
+    {
+      "text": " or",
+      "startMs": 10232,
+      "endMs": 10343,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " edit",
+      "startMs": 10343,
+      "endMs": 10497
+    },
+    {
+      "text": " your",
+      "startMs": 10497,
+      "endMs": 10651
+    },
+    {
+      "text": " configuration",
+      "startMs": 10651,
+      "endMs": 11004
+    },
+    {
+      "text": " file.",
+      "startMs": 11004,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Choosing",
+      "startMs": 11500,
+      "endMs": 12034
+    },
+    {
+      "text": " a",
+      "startMs": 12034,
+      "endMs": 12228
+    },
+    {
+      "text": " font.",
+      "startMs": 12228,
+      "endMs": 12617
+    },
+    {
+      "text": " Let",
+      "startMs": 12617,
+      "endMs": 12908,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 12908,
+      "endMs": 13151
+    },
+    {
+      "text": " look",
+      "startMs": 13151,
+      "endMs": 13491
+    },
+    {
+      "text": " at",
+      "startMs": 13491,
+      "endMs": 13734
+    },
+    {
+      "text": " the",
+      "startMs": 13734,
+      "endMs": 14025,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 14025,
+      "endMs": 14413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Setting",
+      "startMs": 14667,
+      "endMs": 15152
+    },
+    {
+      "text": " a",
+      "startMs": 15152,
+      "endMs": 15346
+    },
+    {
+      "text": " theme.",
+      "startMs": 15346,
+      "endMs": 15783
+    },
+    {
+      "text": " Let",
+      "startMs": 15783,
+      "endMs": 16075,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 16075,
+      "endMs": 16318
+    },
+    {
+      "text": " look",
+      "startMs": 16318,
+      "endMs": 16657
+    },
+    {
+      "text": " at",
+      "startMs": 16657,
+      "endMs": 16900
+    },
+    {
+      "text": " the",
+      "startMs": 16900,
+      "endMs": 17192,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 17192,
+      "endMs": 17580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Customizing",
+      "startMs": 17833,
+      "endMs": 18828
+    },
+    {
+      "text": " the",
+      "startMs": 18828,
+      "endMs": 19254
+    },
+    {
+      "text": " cursor",
+      "startMs": 19254,
+      "endMs": 19894
+    },
+    {
+      "text": " and",
+      "startMs": 19894,
+      "endMs": 20320,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " window.",
+      "startMs": 20320,
+      "endMs": 21031
+    },
+    {
+      "text": " Let",
+      "startMs": 21031,
+      "endMs": 21457
+    },
+    {
+      "text": " us",
+      "startMs": 21457,
+      "endMs": 21813
+    },
+    {
+      "text": " look",
+      "startMs": 21813,
+      "endMs": 22310,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 22310,
+      "endMs": 22665
+    },
+    {
+      "text": " the",
+      "startMs": 22665,
+      "endMs": 23092
+    },
+    {
+      "text": " code.",
+      "startMs": 23092,
+      "endMs": 23660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Improving",
+      "startMs": 24167,
+      "endMs": 24439
+    },
+    {
+      "text": " readability.",
+      "startMs": 24439,
+      "endMs": 24780
+    },
+    {
+      "text": " Good",
+      "startMs": 24780,
+      "endMs": 24939
+    },
+    {
+      "text": " terminal",
+      "startMs": 24939,
+      "endMs": 25189,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " readability",
+      "startMs": 25189,
+      "endMs": 25507
+    },
+    {
+      "text": " is",
+      "startMs": 25507,
+      "endMs": 25620
+    },
+    {
+      "text": " not",
+      "startMs": 25620,
+      "endMs": 25757
+    },
+    {
+      "text": " only",
+      "startMs": 25757,
+      "endMs": 25916,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " about",
+      "startMs": 25916,
+      "endMs": 26098
+    },
+    {
+      "text": " theme.",
+      "startMs": 26098,
+      "endMs": 26302
+    },
+    {
+      "text": " You",
+      "startMs": 26302,
+      "endMs": 26438
+    },
+    {
+      "text": " should",
+      "startMs": 26438,
+      "endMs": 26643,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " also",
+      "startMs": 26643,
+      "endMs": 26802
+    },
+    {
+      "text": " control",
+      "startMs": 26802,
+      "endMs": 27029
+    },
+    {
+      "text": " text",
+      "startMs": 27029,
+      "endMs": 27188
+    },
+    {
+      "text": " rendering",
+      "startMs": 27188,
+      "endMs": 27460,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 27460,
+      "endMs": 27597
+    },
+    {
+      "text": " spacing.",
+      "startMs": 27597,
+      "endMs": 27847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 28167,
+      "endMs": 28452
+    },
+    {
+      "text": " the",
+      "startMs": 28452,
+      "endMs": 28697
+    },
+    {
+      "text": " full",
+      "startMs": 28697,
+      "endMs": 28982
+    },
+    {
+      "text": " article.",
+      "startMs": 28982,
+      "endMs": 29430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 29430,
+      "endMs": 29675
+    },
+    {
+      "text": " posts",
+      "startMs": 29675,
+      "endMs": 30001
+    },
+    {
+      "text": " every",
+      "startMs": 30001,
+      "endMs": 30327
+    },
+    {
+      "text": " week",
+      "startMs": 30327,
+      "endMs": 30612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 30612,
+      "endMs": 30816
+    },
+    {
+      "text": " the",
+      "startMs": 30816,
+      "endMs": 31061
+    },
+    {
+      "text": " blog.",
+      "startMs": 31061,
+      "endMs": 31387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

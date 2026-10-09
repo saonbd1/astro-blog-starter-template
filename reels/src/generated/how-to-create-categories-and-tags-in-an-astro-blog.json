@@ -1,0 +1,1067 @@
+{
+  "slug": "how-to-create-categories-and-tags-in-an-astro-blog",
+  "title": "How to Create Categories and Tags in an Astro Blog",
+  "description": "Create clear categories and useful tags in an Astro blog, generate archive pages at build time, and choose the right navigation option for readers.",
+  "category": "Web Development",
+  "tags": [
+    "Astro",
+    "Blog",
+    "Content Collections",
+    "SEO",
+    "Frontend"
+  ],
+  "url": "https://www.techtips.fun/blog/how-to-create-categories-and-tags-in-an-astro-blog/",
+  "theme": "github-dark",
+  "durationInFrames": 900,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "How to Create Categories and Tags in an Astro Blog",
+      "subtitle": "Create clear categories and useful tags in an Astro blog, generate archive pages at build…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Choose the option that fits your blog",
+      "body": "You can start small and add discovery features only when readers need them. The table below shows the three practical options this guide covers.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Add categories and tags to your content schema",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "import { glob } from 'astro/loaders';\nimport { defineCollection } from 'astro:content';\nimport { z } from 'astro/zod';\n\nconst blog = defineCollection({\n  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),\n  schema: z.object({\n    title: z.string(),\n    description: z.string(),",
+          "code": "import { glob } from 'astro/loaders';\nimport { defineCollection } from 'astro:content';\nimport { z } from 'astro/zod';\n\nconst blog = defineCollection({\n  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),\n  schema: z.object({\n    title: z.string(),\n    description: z.string(),",
+          "tokens": [
+            [
+              "import { glob } from 'astro/loaders';",
+              null
+            ],
+            "\n",
+            [
+              "import { defineCollection } from 'astro:content';",
+              null
+            ],
+            "\n",
+            [
+              "import { z } from 'astro/zod';",
+              null
+            ],
+            "\n\n",
+            [
+              "const blog = defineCollection({",
+              null
+            ],
+            "\n  ",
+            [
+              "loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),",
+              null
+            ],
+            "\n  ",
+            [
+              "schema: z.object({",
+              null
+            ],
+            "\n    ",
+            [
+              "title: z.string(),",
+              null
+            ],
+            "\n    ",
+            [
+              "description: z.string(),",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Add taxonomy to each Markdown post",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "---\ntitle: \"Build a Fast Astro Blog\"\ndescription: \"A practical guide to organizing and publishing an Astro blog.\"\npubDate: \"2026-08-14\"\nheroImage: \"/blog/astro-blog-cover.webp\"\ncategory: \"Web Development\"\ntags: [\"Astro\", \"Static Site\", \"Performance\"]\n---",
+          "code": "---\ntitle: \"Build a Fast Astro Blog\"\ndescription: \"A practical guide to organizing and publishing an Astro blog.\"\npubDate: \"2026-08-14\"\nheroImage: \"/blog/astro-blog-cover.webp\"\ncategory: \"Web Development\"\ntags: [\"Astro\", \"Static Site\", \"Performance\"]\n---",
+          "tokens": [
+            [
+              "---",
+              null
+            ],
+            "\n",
+            [
+              "title: \"Build a Fast Astro Blog\"",
+              null
+            ],
+            "\n",
+            [
+              "description: \"A practical guide to organizing and publishing an Astro blog.\"",
+              null
+            ],
+            "\n",
+            [
+              "pubDate: \"2026-08-14\"",
+              null
+            ],
+            "\n",
+            [
+              "heroImage: \"/blog/astro-blog-cover.webp\"",
+              null
+            ],
+            "\n",
+            [
+              "category: \"Web Development\"",
+              null
+            ],
+            "\n",
+            [
+              "tags: [\"Astro\", \"Static Site\", \"Performance\"]",
+              null
+            ],
+            "\n",
+            [
+              "---",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Option 1: Display labels on the post only",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "<p>Category: {post.data.category}</p>\n\n<ul aria-label=\"Post tags\">\n  {post.data.tags.map((tag) => <li>#{tag}</li>)}\n</ul>",
+          "code": "<p>Category: {post.data.category}</p>\n\n<ul aria-label=\"Post tags\">\n  {post.data.tags.map((tag) => <li>#{tag}</li>)}\n</ul>",
+          "tokens": [
+            [
+              "<p>Category: {post.data.category}</p>",
+              null
+            ],
+            "\n\n",
+            [
+              "<ul aria-label=\"Post tags\">",
+              null
+            ],
+            "\n  ",
+            [
+              "{post.data.tags.map((tag) => <li>#{tag}</li>)}",
+              null
+            ],
+            "\n",
+            [
+              "</ul>",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Option 2: Generate category and tag archive pages",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "---\nimport { getCollection } from 'astro:content';\nimport { toTaxonomySlug } from '../../utils/taxonomy';\n\nexport async function getStaticPaths() {\n  const posts = await getCollection('blog');\n  const categories = [...new Set(posts.map((post) => post.data.category))];\n\n  return categories.map((category) => ({",
+          "code": "---\nimport { getCollection } from 'astro:content';\nimport { toTaxonomySlug } from '../../utils/taxonomy';\n\nexport async function getStaticPaths() {\n  const posts = await getCollection('blog');\n  const categories = [...new Set(posts.map((post) => post.data.category))];\n\n  return categories.map((category) => ({",
+          "tokens": [
+            [
+              "---",
+              null
+            ],
+            "\n",
+            [
+              "import { getCollection } from 'astro:content';",
+              null
+            ],
+            "\n",
+            [
+              "import { toTaxonomySlug } from '../../utils/taxonomy';",
+              null
+            ],
+            "\n\n",
+            [
+              "export async function getStaticPaths() {",
+              null
+            ],
+            "\n  ",
+            [
+              "const posts = await getCollection('blog');",
+              null
+            ],
+            "\n  ",
+            [
+              "const categories = [...new Set(posts.map((post) => post.data.category))];",
+              null
+            ],
+            "\n\n  ",
+            [
+              "return categories.map((category) => ({",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "---\nimport { getCollection } from 'astro:content';\nimport { toTaxonomySlug } from '../../utils/taxonomy';\n\nexport async function getStaticPaths() {\n  const posts = await getCollection('blog');\n  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];\n\n  return tags.map((tag) => ({",
+          "code": "---\nimport { getCollection } from 'astro:content';\nimport { toTaxonomySlug } from '../../utils/taxonomy';\n\nexport async function getStaticPaths() {\n  const posts = await getCollection('blog');\n  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];\n\n  return tags.map((tag) => ({",
+          "tokens": [
+            [
+              "---",
+              null
+            ],
+            "\n",
+            [
+              "import { getCollection } from 'astro:content';",
+              null
+            ],
+            "\n",
+            [
+              "import { toTaxonomySlug } from '../../utils/taxonomy';",
+              null
+            ],
+            "\n\n",
+            [
+              "export async function getStaticPaths() {",
+              null
+            ],
+            "\n  ",
+            [
+              "const posts = await getCollection('blog');",
+              null
+            ],
+            "\n  ",
+            [
+              "const tags = [...new Set(posts.flatMap((post) => post.data.tags))];",
+              null
+            ],
+            "\n\n  ",
+            [
+              "return tags.map((tag) => ({",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Create URL-safe taxonomy slugs",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "export function toTaxonomySlug(value: string): string {\n  return value\n    .trim()\n    .toLowerCase()\n    .replace(/&/g, 'and')\n    .replace(/[^a-z0-9]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n}",
+          "code": "export function toTaxonomySlug(value: string): string {\n  return value\n    .trim()\n    .toLowerCase()\n    .replace(/&/g, 'and')\n    .replace(/[^a-z0-9]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n}",
+          "tokens": [
+            [
+              "export function toTaxonomySlug(value: string): string {",
+              null
+            ],
+            "\n  ",
+            [
+              "return value",
+              null
+            ],
+            "\n    ",
+            [
+              ".trim()",
+              null
+            ],
+            "\n    ",
+            [
+              ".toLowerCase()",
+              null
+            ],
+            "\n    ",
+            [
+              ".replace(/&/g, 'and')",
+              null
+            ],
+            "\n    ",
+            [
+              ".replace(/[^a-z0-9]+/g, '-')",
+              null
+            ],
+            "\n    ",
+            [
+              ".replace(/^-+|-+$/g, '');",
+              null
+            ],
+            "\n",
+            [
+              "}",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Create",
+      "startMs": 0,
+      "endMs": 242
+    },
+    {
+      "text": " clear",
+      "startMs": 242,
+      "endMs": 456
+    },
+    {
+      "text": " categories",
+      "startMs": 456,
+      "endMs": 805
+    },
+    {
+      "text": " and",
+      "startMs": 805,
+      "endMs": 966,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " useful",
+      "startMs": 966,
+      "endMs": 1208
+    },
+    {
+      "text": " tags",
+      "startMs": 1208,
+      "endMs": 1395
+    },
+    {
+      "text": " in",
+      "startMs": 1395,
+      "endMs": 1530
+    },
+    {
+      "text": " an",
+      "startMs": 1530,
+      "endMs": 1664,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Astro",
+      "startMs": 1664,
+      "endMs": 1878
+    },
+    {
+      "text": " blog,",
+      "startMs": 1878,
+      "endMs": 2093
+    },
+    {
+      "text": " generate",
+      "startMs": 2093,
+      "endMs": 2388
+    },
+    {
+      "text": " archive",
+      "startMs": 2388,
+      "endMs": 2657,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " pages",
+      "startMs": 2657,
+      "endMs": 2871
+    },
+    {
+      "text": " at",
+      "startMs": 2871,
+      "endMs": 3005
+    },
+    {
+      "text": " build",
+      "startMs": 3005,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Choose",
+      "startMs": 3500,
+      "endMs": 3635
+    },
+    {
+      "text": " the",
+      "startMs": 3635,
+      "endMs": 3724
+    },
+    {
+      "text": " option",
+      "startMs": 3724,
+      "endMs": 3859
+    },
+    {
+      "text": " that",
+      "startMs": 3859,
+      "endMs": 3964,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fits",
+      "startMs": 3964,
+      "endMs": 4068
+    },
+    {
+      "text": " your",
+      "startMs": 4068,
+      "endMs": 4173
+    },
+    {
+      "text": " blog.",
+      "startMs": 4173,
+      "endMs": 4293
+    },
+    {
+      "text": " You",
+      "startMs": 4293,
+      "endMs": 4383,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " can",
+      "startMs": 4383,
+      "endMs": 4472
+    },
+    {
+      "text": " start",
+      "startMs": 4472,
+      "endMs": 4592
+    },
+    {
+      "text": " small",
+      "startMs": 4592,
+      "endMs": 4712
+    },
+    {
+      "text": " and",
+      "startMs": 4712,
+      "endMs": 4801,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " add",
+      "startMs": 4801,
+      "endMs": 4891
+    },
+    {
+      "text": " discovery",
+      "startMs": 4891,
+      "endMs": 5071
+    },
+    {
+      "text": " features",
+      "startMs": 5071,
+      "endMs": 5235
+    },
+    {
+      "text": " only",
+      "startMs": 5235,
+      "endMs": 5340,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " when",
+      "startMs": 5340,
+      "endMs": 5445
+    },
+    {
+      "text": " readers",
+      "startMs": 5445,
+      "endMs": 5594
+    },
+    {
+      "text": " need",
+      "startMs": 5594,
+      "endMs": 5699
+    },
+    {
+      "text": " them.",
+      "startMs": 5699,
+      "endMs": 5819,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 5819,
+      "endMs": 5908
+    },
+    {
+      "text": " table",
+      "startMs": 5908,
+      "endMs": 6028
+    },
+    {
+      "text": " below",
+      "startMs": 6028,
+      "endMs": 6148
+    },
+    {
+      "text": " shows",
+      "startMs": 6148,
+      "endMs": 6267,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 6267,
+      "endMs": 6357
+    },
+    {
+      "text": " three",
+      "startMs": 6357,
+      "endMs": 6477
+    },
+    {
+      "text": " practical",
+      "startMs": 6477,
+      "endMs": 6656
+    },
+    {
+      "text": " options",
+      "startMs": 6656,
+      "endMs": 6806,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " this",
+      "startMs": 6806,
+      "endMs": 6911
+    },
+    {
+      "text": " guide",
+      "startMs": 6911,
+      "endMs": 7030
+    },
+    {
+      "text": " covers.",
+      "startMs": 7030,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Add",
+      "startMs": 7500,
+      "endMs": 7673
+    },
+    {
+      "text": " categories",
+      "startMs": 7673,
+      "endMs": 8048
+    },
+    {
+      "text": " and",
+      "startMs": 8048,
+      "endMs": 8221
+    },
+    {
+      "text": " tags",
+      "startMs": 8221,
+      "endMs": 8423,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 8423,
+      "endMs": 8567
+    },
+    {
+      "text": " your",
+      "startMs": 8567,
+      "endMs": 8769
+    },
+    {
+      "text": " content",
+      "startMs": 8769,
+      "endMs": 9058
+    },
+    {
+      "text": " schema.",
+      "startMs": 9058,
+      "endMs": 9346,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 9346,
+      "endMs": 9519
+    },
+    {
+      "text": " us",
+      "startMs": 9519,
+      "endMs": 9663
+    },
+    {
+      "text": " look",
+      "startMs": 9663,
+      "endMs": 9865
+    },
+    {
+      "text": " at",
+      "startMs": 9865,
+      "endMs": 10010,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 10010,
+      "endMs": 10183
+    },
+    {
+      "text": " code.",
+      "startMs": 10183,
+      "endMs": 10413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Add",
+      "startMs": 10667,
+      "endMs": 10872
+    },
+    {
+      "text": " taxonomy",
+      "startMs": 10872,
+      "endMs": 11249
+    },
+    {
+      "text": " to",
+      "startMs": 11249,
+      "endMs": 11421
+    },
+    {
+      "text": " each",
+      "startMs": 11421,
+      "endMs": 11661,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Markdown",
+      "startMs": 11661,
+      "endMs": 12038
+    },
+    {
+      "text": " post.",
+      "startMs": 12038,
+      "endMs": 12312
+    },
+    {
+      "text": " Let",
+      "startMs": 12312,
+      "endMs": 12517
+    },
+    {
+      "text": " us",
+      "startMs": 12517,
+      "endMs": 12689,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 12689,
+      "endMs": 12929
+    },
+    {
+      "text": " at",
+      "startMs": 12929,
+      "endMs": 13100
+    },
+    {
+      "text": " the",
+      "startMs": 13100,
+      "endMs": 13306
+    },
+    {
+      "text": " code.",
+      "startMs": 13306,
+      "endMs": 13580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Option",
+      "startMs": 13833,
+      "endMs": 14106
+    },
+    {
+      "text": " 1:",
+      "startMs": 14106,
+      "endMs": 14258
+    },
+    {
+      "text": " Display",
+      "startMs": 14258,
+      "endMs": 14562
+    },
+    {
+      "text": " labels",
+      "startMs": 14562,
+      "endMs": 14835,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 14835,
+      "endMs": 14987
+    },
+    {
+      "text": " the",
+      "startMs": 14987,
+      "endMs": 15169
+    },
+    {
+      "text": " post",
+      "startMs": 15169,
+      "endMs": 15381
+    },
+    {
+      "text": " only.",
+      "startMs": 15381,
+      "endMs": 15624,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 15624,
+      "endMs": 15806
+    },
+    {
+      "text": " us",
+      "startMs": 15806,
+      "endMs": 15958
+    },
+    {
+      "text": " look",
+      "startMs": 15958,
+      "endMs": 16170
+    },
+    {
+      "text": " at",
+      "startMs": 16170,
+      "endMs": 16322,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 16322,
+      "endMs": 16504
+    },
+    {
+      "text": " code.",
+      "startMs": 16504,
+      "endMs": 16747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Option",
+      "startMs": 17000,
+      "endMs": 17504
+    },
+    {
+      "text": " 2:",
+      "startMs": 17504,
+      "endMs": 17784
+    },
+    {
+      "text": " Generate",
+      "startMs": 17784,
+      "endMs": 18401
+    },
+    {
+      "text": " category",
+      "startMs": 18401,
+      "endMs": 19017,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 19017,
+      "endMs": 19353
+    },
+    {
+      "text": " tag",
+      "startMs": 19353,
+      "endMs": 19689
+    },
+    {
+      "text": " archive",
+      "startMs": 19689,
+      "endMs": 20249
+    },
+    {
+      "text": " pages.",
+      "startMs": 20249,
+      "endMs": 20754,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 20754,
+      "endMs": 21090
+    },
+    {
+      "text": " us",
+      "startMs": 21090,
+      "endMs": 21370
+    },
+    {
+      "text": " look",
+      "startMs": 21370,
+      "endMs": 21762
+    },
+    {
+      "text": " at",
+      "startMs": 21762,
+      "endMs": 22042,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 22042,
+      "endMs": 22378
+    },
+    {
+      "text": " code.",
+      "startMs": 22378,
+      "endMs": 22827,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Create",
+      "startMs": 23333,
+      "endMs": 23674
+    },
+    {
+      "text": " URL-safe",
+      "startMs": 23674,
+      "endMs": 24090
+    },
+    {
+      "text": " taxonomy",
+      "startMs": 24090,
+      "endMs": 24506
+    },
+    {
+      "text": " slugs.",
+      "startMs": 24506,
+      "endMs": 24847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 24847,
+      "endMs": 25074
+    },
+    {
+      "text": " us",
+      "startMs": 25074,
+      "endMs": 25263
+    },
+    {
+      "text": " look",
+      "startMs": 25263,
+      "endMs": 25528
+    },
+    {
+      "text": " at",
+      "startMs": 25528,
+      "endMs": 25717,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 25717,
+      "endMs": 25944
+    },
+    {
+      "text": " code.",
+      "startMs": 25944,
+      "endMs": 26247,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 26500,
+      "endMs": 26785
+    },
+    {
+      "text": " the",
+      "startMs": 26785,
+      "endMs": 27030
+    },
+    {
+      "text": " full",
+      "startMs": 27030,
+      "endMs": 27315
+    },
+    {
+      "text": " article.",
+      "startMs": 27315,
+      "endMs": 27764,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 27764,
+      "endMs": 28008
+    },
+    {
+      "text": " posts",
+      "startMs": 28008,
+      "endMs": 28334
+    },
+    {
+      "text": " every",
+      "startMs": 28334,
+      "endMs": 28660
+    },
+    {
+      "text": " week",
+      "startMs": 28660,
+      "endMs": 28946,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 28946,
+      "endMs": 29149
+    },
+    {
+      "text": " the",
+      "startMs": 29149,
+      "endMs": 29394
+    },
+    {
+      "text": " blog.",
+      "startMs": 29394,
+      "endMs": 29720,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

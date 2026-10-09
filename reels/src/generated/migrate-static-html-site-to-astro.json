@@ -1,0 +1,1443 @@
+{
+  "slug": "migrate-static-html-site-to-astro",
+  "title": "How to Migrate a Static HTML Site to Astro Using Content Collections",
+  "description": "A step-by-step walkthrough of migrating a 35-page static HTML site to Astro content collections, layouts, and dynamic routes — including the verification checks run before cutover.",
+  "category": "Web Development",
+  "tags": [
+    "Astro",
+    "Static Site",
+    "Content Collections",
+    "Migration"
+  ],
+  "url": "https://www.techtips.fun/blog/migrate-static-html-site-to-astro/",
+  "theme": "github-dark",
+  "durationInFrames": 950,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "How to Migrate a Static HTML Site to Astro Using Content Collections",
+      "subtitle": "A step-by-step walkthrough of migrating a 35-page static HTML site to Astro content…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "What we migrated",
+      "body": "The site (Couple in Bond) shipped as plain files: two hand-maintained index pages, 17 poll detail pages, and 16 companion articles.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Before you start",
+      "body": "This guide assumes a static site (no framework), a build step you control, and content that repeats a page template.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 1: Lock in the existing URL shape",
+      "steps": [
+        {
+          "lang": "javascript",
+          "meta": "js",
+          "value": "// astro.config.mjs\nexport default defineConfig({\n  site: 'https://couplein.bond',\n  build: {\n    format: 'file', // emits /polls/weekly-ritual.html, not /polls/weekly-ritual/\n  },\n});",
+          "code": "// astro.config.mjs\nexport default defineConfig({\n  site: 'https://couplein.bond',\n  build: {\n    format: 'file', // emits /polls/weekly-ritual.html, not /polls/weekly-ritual/\n  },\n});",
+          "tokens": [
+            [
+              "// astro.config.mjs",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "export default",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "defineConfig",
+              "#D2A8FF"
+            ],
+            [
+              "({",
+              "#FFA657"
+            ],
+            "\n  ",
+            [
+              "site:",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'https://couplein.bond'",
+              "#A5D6FF"
+            ],
+            [
+              ",",
+              "#FFA657"
+            ],
+            "\n  ",
+            [
+              "build: {",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "format:",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'file'",
+              "#A5D6FF"
+            ],
+            [
+              ",",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "// emits /polls/weekly-ritual.html, not /polls/weekly-ritual/",
+              "#8B949E"
+            ],
+            "\n  ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            [
+              ",",
+              "#FFA657"
+            ],
+            "\n",
+            [
+              "})",
+              "#FFA657"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 2: Move page content into collections",
+      "steps": [
+        {
+          "lang": "typescript",
+          "meta": "ts",
+          "value": "import { defineCollection, z } from 'astro:content';\nimport { glob } from 'astro/loaders';\n\nconst polls = defineCollection({\n  loader: glob({ pattern: '**/*.md', base: './src/content/polls' }),\n  schema: z.object({\n    question: z.string(),\n    pageTitle: z.string(),\n    description: z.string(),",
+          "code": "import { defineCollection, z } from 'astro:content';\nimport { glob } from 'astro/loaders';\n\nconst polls = defineCollection({\n  loader: glob({ pattern: '**/*.md', base: './src/content/polls' }),\n  schema: z.object({\n    question: z.string(),\n    pageTitle: z.string(),\n    description: z.string(),",
+          "tokens": [
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ defineCollection, z }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'astro:content'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ glob }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'astro/loaders'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "polls",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "defineCollection",
+              "#D2A8FF"
+            ],
+            [
+              "({",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "loader:",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "glob",
+              "#D2A8FF"
+            ],
+            [
+              "({ pattern:",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'**/*.md'",
+              "#A5D6FF"
+            ],
+            [
+              ", base:",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'./src/content/polls'",
+              "#A5D6FF"
+            ],
+            " ",
+            [
+              "}),",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "schema: z.",
+              "#C9D1D9"
+            ],
+            [
+              "object",
+              "#D2A8FF"
+            ],
+            [
+              "({",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "question: z.",
+              "#C9D1D9"
+            ],
+            [
+              "string",
+              "#D2A8FF"
+            ],
+            [
+              "(),",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "pageTitle: z.",
+              "#C9D1D9"
+            ],
+            [
+              "string",
+              "#D2A8FF"
+            ],
+            [
+              "(),",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "description: z.",
+              "#C9D1D9"
+            ],
+            [
+              "string",
+              "#D2A8FF"
+            ],
+            [
+              "(),",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "yaml",
+          "meta": "yaml",
+          "value": "---\nquestion: \"What should a couple make time for this week?\"\npageTitle: \"What should a couple make time for this week?\"\ndescription: \"A weekly relationship poll about simple rituals that help couples slow down, reconnect, and enjoy time together.\"\nintro: \"A good weekly ritual is realistic enough to repeat and meaningful enough to look forward to.\"\ntopic: \"Connection\"\nslug: weekly-ritual\nlistOrder: 3\nogImage: \"https://couplein.bond/assets/polls/weekly-ritual-share.jpg\"",
+          "code": "---\nquestion: \"What should a couple make time for this week?\"\npageTitle: \"What should a couple make time for this week?\"\ndescription: \"A weekly relationship poll about simple rituals that help couples slow down, reconnect, and enjoy time together.\"\nintro: \"A good weekly ritual is realistic enough to repeat and meaningful enough to look forward to.\"\ntopic: \"Connection\"\nslug: weekly-ritual\nlistOrder: 3\nogImage: \"https://couplein.bond/assets/polls/weekly-ritual-share.jpg\"",
+          "tokens": [
+            [
+              "---",
+              "#79C0FF"
+            ],
+            "\n",
+            [
+              "question",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"What should a couple make time for this week?\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "pageTitle",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"What should a couple make time for this week?\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "description",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"A weekly relationship poll about simple rituals that help couples slow down, reconnect, and enjoy time together.\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "intro",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"A good weekly ritual is realistic enough to repeat and meaningful enough to look forward to.\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "topic",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"Connection\"",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "slug",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "weekly-ritual",
+              "#A5D6FF"
+            ],
+            "\n",
+            [
+              "listOrder",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "3",
+              "#79C0FF"
+            ],
+            "\n",
+            [
+              "ogImage",
+              "#7EE787"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "\"https://couplein.bond/assets/polls/weekly-ritual-share.jpg\"",
+              "#A5D6FF"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Give every collection a schema that fails the build",
+      "body": "The zod schema is not decoration. On the old site, a missing meta description silently shipped an empty tag.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Step 3: Move shared chrome into layouts",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\nconst { poll } = Astro.props;\nconst d = poll.data;\nconst url = `${SITE}/polls/${poll.id}.html`;\n\nconst graphLd = {\n  '@context': 'https://schema.org',\n  '@graph': [\n    { '@type': 'WebPage', url, name: d.question, description: d.description },",
+          "code": "---\nconst { poll } = Astro.props;\nconst d = poll.data;\nconst url = `${SITE}/polls/${poll.id}.html`;\n\nconst graphLd = {\n  '@context': 'https://schema.org',\n  '@graph': [\n    { '@type': 'WebPage', url, name: d.question, description: d.description },",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "poll",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Astro.props;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "d",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "poll.data;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "url",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "`${",
+              "#A5D6FF"
+            ],
+            [
+              "SITE",
+              "#79C0FF"
+            ],
+            [
+              "}/polls/${",
+              "#A5D6FF"
+            ],
+            [
+              "poll",
+              "#C9D1D9"
+            ],
+            [
+              ".",
+              "#A5D6FF"
+            ],
+            [
+              "id",
+              "#C9D1D9"
+            ],
+            [
+              "}.html`",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "graphLd",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "'@context'",
+              "#A5D6FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'https://schema.org'",
+              "#A5D6FF"
+            ],
+            [
+              ",",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "'@graph'",
+              "#A5D6FF"
+            ],
+            [
+              ": [",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'@type'",
+              "#A5D6FF"
+            ],
+            [
+              ":",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "'WebPage'",
+              "#A5D6FF"
+            ],
+            [
+              ", url, name: d.question, description: d.description },",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " A",
+      "startMs": 0,
+      "endMs": 117
+    },
+    {
+      "text": " step-by-step",
+      "startMs": 117,
+      "endMs": 556
+    },
+    {
+      "text": " walkthrough",
+      "startMs": 556,
+      "endMs": 966
+    },
+    {
+      "text": " of",
+      "startMs": 966,
+      "endMs": 1112,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " migrating",
+      "startMs": 1112,
+      "endMs": 1464
+    },
+    {
+      "text": " a",
+      "startMs": 1464,
+      "endMs": 1581
+    },
+    {
+      "text": " 35-page",
+      "startMs": 1581,
+      "endMs": 1873
+    },
+    {
+      "text": " static",
+      "startMs": 1873,
+      "endMs": 2137,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " HTML",
+      "startMs": 2137,
+      "endMs": 2342
+    },
+    {
+      "text": " site",
+      "startMs": 2342,
+      "endMs": 2547
+    },
+    {
+      "text": " to",
+      "startMs": 2547,
+      "endMs": 2693
+    },
+    {
+      "text": " Astro",
+      "startMs": 2693,
+      "endMs": 2927,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " content",
+      "startMs": 2927,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3630
+    },
+    {
+      "text": " we",
+      "startMs": 3630,
+      "endMs": 3723
+    },
+    {
+      "text": " migrated.",
+      "startMs": 3723,
+      "endMs": 3946
+    },
+    {
+      "text": " The",
+      "startMs": 3946,
+      "endMs": 4058,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " site",
+      "startMs": 4058,
+      "endMs": 4188
+    },
+    {
+      "text": " (Couple",
+      "startMs": 4188,
+      "endMs": 4374
+    },
+    {
+      "text": " in",
+      "startMs": 4374,
+      "endMs": 4466
+    },
+    {
+      "text": " Bond)",
+      "startMs": 4466,
+      "endMs": 4615,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " shipped",
+      "startMs": 4615,
+      "endMs": 4801
+    },
+    {
+      "text": " as",
+      "startMs": 4801,
+      "endMs": 4894
+    },
+    {
+      "text": " plain",
+      "startMs": 4894,
+      "endMs": 5043
+    },
+    {
+      "text": " files:",
+      "startMs": 5043,
+      "endMs": 5210,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " two",
+      "startMs": 5210,
+      "endMs": 5321
+    },
+    {
+      "text": " hand-maintained",
+      "startMs": 5321,
+      "endMs": 5656
+    },
+    {
+      "text": " index",
+      "startMs": 5656,
+      "endMs": 5805
+    },
+    {
+      "text": " pages,",
+      "startMs": 5805,
+      "endMs": 5972,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 17",
+      "startMs": 5972,
+      "endMs": 6065
+    },
+    {
+      "text": " poll",
+      "startMs": 6065,
+      "endMs": 6195
+    },
+    {
+      "text": " detail",
+      "startMs": 6195,
+      "endMs": 6362
+    },
+    {
+      "text": " pages,",
+      "startMs": 6362,
+      "endMs": 6529,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 6529,
+      "endMs": 6641
+    },
+    {
+      "text": " 16",
+      "startMs": 6641,
+      "endMs": 6734
+    },
+    {
+      "text": " companion",
+      "startMs": 6734,
+      "endMs": 6957
+    },
+    {
+      "text": " articles.",
+      "startMs": 6957,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Before",
+      "startMs": 7500,
+      "endMs": 7683
+    },
+    {
+      "text": " you",
+      "startMs": 7683,
+      "endMs": 7805
+    },
+    {
+      "text": " start.",
+      "startMs": 7805,
+      "endMs": 7988
+    },
+    {
+      "text": " This",
+      "startMs": 7988,
+      "endMs": 8130,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " guide",
+      "startMs": 8130,
+      "endMs": 8293
+    },
+    {
+      "text": " assumes",
+      "startMs": 8293,
+      "endMs": 8496
+    },
+    {
+      "text": " a",
+      "startMs": 8496,
+      "endMs": 8578
+    },
+    {
+      "text": " static",
+      "startMs": 8578,
+      "endMs": 8761,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " site",
+      "startMs": 8761,
+      "endMs": 8903
+    },
+    {
+      "text": " (no",
+      "startMs": 8903,
+      "endMs": 9025
+    },
+    {
+      "text": " framework),",
+      "startMs": 9025,
+      "endMs": 9310
+    },
+    {
+      "text": " a",
+      "startMs": 9310,
+      "endMs": 9391,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " build",
+      "startMs": 9391,
+      "endMs": 9553
+    },
+    {
+      "text": " step",
+      "startMs": 9553,
+      "endMs": 9696
+    },
+    {
+      "text": " you",
+      "startMs": 9696,
+      "endMs": 9818
+    },
+    {
+      "text": " control,",
+      "startMs": 9818,
+      "endMs": 10041,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 10041,
+      "endMs": 10163
+    },
+    {
+      "text": " content",
+      "startMs": 10163,
+      "endMs": 10367
+    },
+    {
+      "text": " that",
+      "startMs": 10367,
+      "endMs": 10509
+    },
+    {
+      "text": " repeats",
+      "startMs": 10509,
+      "endMs": 10712,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 10712,
+      "endMs": 10794
+    },
+    {
+      "text": " page",
+      "startMs": 10794,
+      "endMs": 10936
+    },
+    {
+      "text": " template.",
+      "startMs": 10936,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 11500,
+      "endMs": 11719
+    },
+    {
+      "text": " 1:",
+      "startMs": 11719,
+      "endMs": 11876
+    },
+    {
+      "text": " Lock",
+      "startMs": 11876,
+      "endMs": 12095
+    },
+    {
+      "text": " in",
+      "startMs": 12095,
+      "endMs": 12252,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 12252,
+      "endMs": 12440
+    },
+    {
+      "text": " existing",
+      "startMs": 12440,
+      "endMs": 12784
+    },
+    {
+      "text": " URL",
+      "startMs": 12784,
+      "endMs": 12972
+    },
+    {
+      "text": " shape.",
+      "startMs": 12972,
+      "endMs": 13254,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 13254,
+      "endMs": 13442
+    },
+    {
+      "text": " us",
+      "startMs": 13442,
+      "endMs": 13599
+    },
+    {
+      "text": " look",
+      "startMs": 13599,
+      "endMs": 13818
+    },
+    {
+      "text": " at",
+      "startMs": 13818,
+      "endMs": 13975,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 13975,
+      "endMs": 14163
+    },
+    {
+      "text": " code.",
+      "startMs": 14163,
+      "endMs": 14413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 14667,
+      "endMs": 15096
+    },
+    {
+      "text": " 2:",
+      "startMs": 15096,
+      "endMs": 15403
+    },
+    {
+      "text": " Move",
+      "startMs": 15403,
+      "endMs": 15832
+    },
+    {
+      "text": " page",
+      "startMs": 15832,
+      "endMs": 16261,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " content",
+      "startMs": 16261,
+      "endMs": 16875
+    },
+    {
+      "text": " into",
+      "startMs": 16875,
+      "endMs": 17304
+    },
+    {
+      "text": " collections.",
+      "startMs": 17304,
+      "endMs": 18224
+    },
+    {
+      "text": " Let",
+      "startMs": 18224,
+      "endMs": 18592,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 18592,
+      "endMs": 18899
+    },
+    {
+      "text": " look",
+      "startMs": 18899,
+      "endMs": 19328
+    },
+    {
+      "text": " at",
+      "startMs": 19328,
+      "endMs": 19635
+    },
+    {
+      "text": " the",
+      "startMs": 19635,
+      "endMs": 20003,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 20003,
+      "endMs": 20493,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Give",
+      "startMs": 21000,
+      "endMs": 21118
+    },
+    {
+      "text": " every",
+      "startMs": 21118,
+      "endMs": 21253
+    },
+    {
+      "text": " collection",
+      "startMs": 21253,
+      "endMs": 21473
+    },
+    {
+      "text": " a",
+      "startMs": 21473,
+      "endMs": 21540,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " schema",
+      "startMs": 21540,
+      "endMs": 21692
+    },
+    {
+      "text": " that",
+      "startMs": 21692,
+      "endMs": 21810
+    },
+    {
+      "text": " fails",
+      "startMs": 21810,
+      "endMs": 21945
+    },
+    {
+      "text": " the",
+      "startMs": 21945,
+      "endMs": 22047,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " build.",
+      "startMs": 22047,
+      "endMs": 22199
+    },
+    {
+      "text": " The",
+      "startMs": 22199,
+      "endMs": 22300
+    },
+    {
+      "text": " zod",
+      "startMs": 22300,
+      "endMs": 22401
+    },
+    {
+      "text": " schema",
+      "startMs": 22401,
+      "endMs": 22553,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 22553,
+      "endMs": 22637
+    },
+    {
+      "text": " not",
+      "startMs": 22637,
+      "endMs": 22739
+    },
+    {
+      "text": " decoration.",
+      "startMs": 22739,
+      "endMs": 22975
+    },
+    {
+      "text": " On",
+      "startMs": 22975,
+      "endMs": 23059,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 23059,
+      "endMs": 23161
+    },
+    {
+      "text": " old",
+      "startMs": 23161,
+      "endMs": 23262
+    },
+    {
+      "text": " site,",
+      "startMs": 23262,
+      "endMs": 23397
+    },
+    {
+      "text": " a",
+      "startMs": 23397,
+      "endMs": 23465,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " missing",
+      "startMs": 23465,
+      "endMs": 23633
+    },
+    {
+      "text": " meta",
+      "startMs": 23633,
+      "endMs": 23752
+    },
+    {
+      "text": " description",
+      "startMs": 23752,
+      "endMs": 23988
+    },
+    {
+      "text": " silently",
+      "startMs": 23988,
+      "endMs": 24174,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " shipped",
+      "startMs": 24174,
+      "endMs": 24342
+    },
+    {
+      "text": " an",
+      "startMs": 24342,
+      "endMs": 24427
+    },
+    {
+      "text": " empty",
+      "startMs": 24427,
+      "endMs": 24562
+    },
+    {
+      "text": " tag.",
+      "startMs": 24562,
+      "endMs": 24680,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 25000,
+      "endMs": 25222
+    },
+    {
+      "text": " 3:",
+      "startMs": 25222,
+      "endMs": 25380
+    },
+    {
+      "text": " Move",
+      "startMs": 25380,
+      "endMs": 25602
+    },
+    {
+      "text": " shared",
+      "startMs": 25602,
+      "endMs": 25887,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " chrome",
+      "startMs": 25887,
+      "endMs": 26172
+    },
+    {
+      "text": " into",
+      "startMs": 26172,
+      "endMs": 26393
+    },
+    {
+      "text": " layouts.",
+      "startMs": 26393,
+      "endMs": 26742
+    },
+    {
+      "text": " Let",
+      "startMs": 26742,
+      "endMs": 26932,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 26932,
+      "endMs": 27090
+    },
+    {
+      "text": " look",
+      "startMs": 27090,
+      "endMs": 27312
+    },
+    {
+      "text": " at",
+      "startMs": 27312,
+      "endMs": 27470
+    },
+    {
+      "text": " the",
+      "startMs": 27470,
+      "endMs": 27660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 27660,
+      "endMs": 27913,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 28167,
+      "endMs": 28452
+    },
+    {
+      "text": " the",
+      "startMs": 28452,
+      "endMs": 28697
+    },
+    {
+      "text": " full",
+      "startMs": 28697,
+      "endMs": 28982
+    },
+    {
+      "text": " article.",
+      "startMs": 28982,
+      "endMs": 29430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 29430,
+      "endMs": 29675
+    },
+    {
+      "text": " posts",
+      "startMs": 29675,
+      "endMs": 30001
+    },
+    {
+      "text": " every",
+      "startMs": 30001,
+      "endMs": 30327
+    },
+    {
+      "text": " week",
+      "startMs": 30327,
+      "endMs": 30612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 30612,
+      "endMs": 30816
+    },
+    {
+      "text": " the",
+      "startMs": 30816,
+      "endMs": 31061
+    },
+    {
+      "text": " blog.",
+      "startMs": 31061,
+      "endMs": 31387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Remotion local cache (bundle, chrome headless shell, ...)
+.remotion/
+
+# Rendered reels
+out/
+
+# Generated props are committed on purpose so `npm run dev` works offline,
+# but the per-article JSON can be large; keep them in git for reproducibility.
+
+# Locally extracted Chrome system libraries (see README > Running headless on Linux)
+.chromedeps/
+
+# Reel Studio render scratch space
+server/work/

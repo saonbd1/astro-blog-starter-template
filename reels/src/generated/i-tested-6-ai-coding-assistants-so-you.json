@@ -1,0 +1,683 @@
+{
+  "slug": "i-tested-6-ai-coding-assistants-so-you",
+  "title": "I tested 6 AI coding assistants so you don’t have to",
+  "description": "I spent two weeks throwing real tasks at six different AI coding assistants. Not toy examples — actual refactors, bug fixes, and new feature work. He",
+  "category": "AI Tools",
+  "tags": [
+    "AI",
+    "Coding Assistants",
+    "Developer Tools",
+    "Productivity"
+  ],
+  "url": "https://www.techtips.fun/blog/i-tested-6-ai-coding-assistants-so-you/",
+  "theme": "github-dark",
+  "durationInFrames": 570,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "AI Tools",
+      "title": "I tested 6 AI coding assistants so you don’t have to",
+      "subtitle": "I spent two weeks throwing real tasks at six different AI coding assistants.",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "The contenders",
+      "body": "GitHub Copilot — the OG, deeply integrated into VS Code Cursor — VS Code fork with AI at the core Supermaven — insanely fast completions Codeium —…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Winner for daily use: Cursor",
+      "body": "It’s not even close for complex tasks. The ability to open a codebase and ask “what does this function do?” or “refactor this to use async/await…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Best free option: Codeium",
+      "body": "If you don’t want to pay, Codeium is the answer. The completions are fast, context-aware, and available in basically every editor.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " I",
+      "startMs": 0,
+      "endMs": 125
+    },
+    {
+      "text": " spent",
+      "startMs": 125,
+      "endMs": 375
+    },
+    {
+      "text": " two",
+      "startMs": 375,
+      "endMs": 563
+    },
+    {
+      "text": " weeks",
+      "startMs": 563,
+      "endMs": 813,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " throwing",
+      "startMs": 813,
+      "endMs": 1157
+    },
+    {
+      "text": " real",
+      "startMs": 1157,
+      "endMs": 1376
+    },
+    {
+      "text": " tasks",
+      "startMs": 1376,
+      "endMs": 1626
+    },
+    {
+      "text": " at",
+      "startMs": 1626,
+      "endMs": 1782,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " six",
+      "startMs": 1782,
+      "endMs": 1970
+    },
+    {
+      "text": " different",
+      "startMs": 1970,
+      "endMs": 2345
+    },
+    {
+      "text": " AI",
+      "startMs": 2345,
+      "endMs": 2501
+    },
+    {
+      "text": " coding",
+      "startMs": 2501,
+      "endMs": 2782,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " assistants.",
+      "startMs": 2782,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 3500,
+      "endMs": 3599
+    },
+    {
+      "text": " contenders.",
+      "startMs": 3599,
+      "endMs": 3832
+    },
+    {
+      "text": " GitHub",
+      "startMs": 3832,
+      "endMs": 3981
+    },
+    {
+      "text": " Copilot",
+      "startMs": 3981,
+      "endMs": 4146,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " —",
+      "startMs": 4146,
+      "endMs": 4213
+    },
+    {
+      "text": " the",
+      "startMs": 4213,
+      "endMs": 4312
+    },
+    {
+      "text": " OG,",
+      "startMs": 4312,
+      "endMs": 4412
+    },
+    {
+      "text": " deeply",
+      "startMs": 4412,
+      "endMs": 4561,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " integrated",
+      "startMs": 4561,
+      "endMs": 4776
+    },
+    {
+      "text": " into",
+      "startMs": 4776,
+      "endMs": 4892
+    },
+    {
+      "text": " VS",
+      "startMs": 4892,
+      "endMs": 4975
+    },
+    {
+      "text": " Code",
+      "startMs": 4975,
+      "endMs": 5091,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Cursor",
+      "startMs": 5091,
+      "endMs": 5241
+    },
+    {
+      "text": " —",
+      "startMs": 5241,
+      "endMs": 5307
+    },
+    {
+      "text": " VS",
+      "startMs": 5307,
+      "endMs": 5390
+    },
+    {
+      "text": " Code",
+      "startMs": 5390,
+      "endMs": 5506,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fork",
+      "startMs": 5506,
+      "endMs": 5622
+    },
+    {
+      "text": " with",
+      "startMs": 5622,
+      "endMs": 5738
+    },
+    {
+      "text": " AI",
+      "startMs": 5738,
+      "endMs": 5821
+    },
+    {
+      "text": " at",
+      "startMs": 5821,
+      "endMs": 5904,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 5904,
+      "endMs": 6003
+    },
+    {
+      "text": " core",
+      "startMs": 6003,
+      "endMs": 6119
+    },
+    {
+      "text": " Supermaven",
+      "startMs": 6119,
+      "endMs": 6335
+    },
+    {
+      "text": " —",
+      "startMs": 6335,
+      "endMs": 6401,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " insanely",
+      "startMs": 6401,
+      "endMs": 6583
+    },
+    {
+      "text": " fast",
+      "startMs": 6583,
+      "endMs": 6699
+    },
+    {
+      "text": " completions",
+      "startMs": 6699,
+      "endMs": 6931
+    },
+    {
+      "text": " Codeium",
+      "startMs": 6931,
+      "endMs": 7097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " —…",
+      "startMs": 7097,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Winner",
+      "startMs": 7500,
+      "endMs": 7639
+    },
+    {
+      "text": " for",
+      "startMs": 7639,
+      "endMs": 7732
+    },
+    {
+      "text": " daily",
+      "startMs": 7732,
+      "endMs": 7856
+    },
+    {
+      "text": " use:",
+      "startMs": 7856,
+      "endMs": 7964,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Cursor.",
+      "startMs": 7964,
+      "endMs": 8118
+    },
+    {
+      "text": " It’s",
+      "startMs": 8118,
+      "endMs": 8227
+    },
+    {
+      "text": " not",
+      "startMs": 8227,
+      "endMs": 8319
+    },
+    {
+      "text": " even",
+      "startMs": 8319,
+      "endMs": 8428,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " close",
+      "startMs": 8428,
+      "endMs": 8551
+    },
+    {
+      "text": " for",
+      "startMs": 8551,
+      "endMs": 8644
+    },
+    {
+      "text": " complex",
+      "startMs": 8644,
+      "endMs": 8799
+    },
+    {
+      "text": " tasks.",
+      "startMs": 8799,
+      "endMs": 8938,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 8938,
+      "endMs": 9031
+    },
+    {
+      "text": " ability",
+      "startMs": 9031,
+      "endMs": 9185
+    },
+    {
+      "text": " to",
+      "startMs": 9185,
+      "endMs": 9263
+    },
+    {
+      "text": " open",
+      "startMs": 9263,
+      "endMs": 9371,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 9371,
+      "endMs": 9433
+    },
+    {
+      "text": " codebase",
+      "startMs": 9433,
+      "endMs": 9603
+    },
+    {
+      "text": " and",
+      "startMs": 9603,
+      "endMs": 9696
+    },
+    {
+      "text": " ask",
+      "startMs": 9696,
+      "endMs": 9788,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " “what",
+      "startMs": 9788,
+      "endMs": 9912
+    },
+    {
+      "text": " does",
+      "startMs": 9912,
+      "endMs": 10020
+    },
+    {
+      "text": " this",
+      "startMs": 10020,
+      "endMs": 10129
+    },
+    {
+      "text": " function",
+      "startMs": 10129,
+      "endMs": 10299,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " do?”",
+      "startMs": 10299,
+      "endMs": 10407
+    },
+    {
+      "text": " or",
+      "startMs": 10407,
+      "endMs": 10484
+    },
+    {
+      "text": " “refactor",
+      "startMs": 10484,
+      "endMs": 10670
+    },
+    {
+      "text": " this",
+      "startMs": 10670,
+      "endMs": 10778,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 10778,
+      "endMs": 10855
+    },
+    {
+      "text": " use",
+      "startMs": 10855,
+      "endMs": 10948
+    },
+    {
+      "text": " async/await…",
+      "startMs": 10948,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Best",
+      "startMs": 11500,
+      "endMs": 11624
+    },
+    {
+      "text": " free",
+      "startMs": 11624,
+      "endMs": 11748
+    },
+    {
+      "text": " option:",
+      "startMs": 11748,
+      "endMs": 11925
+    },
+    {
+      "text": " Codeium.",
+      "startMs": 11925,
+      "endMs": 12119,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " If",
+      "startMs": 12119,
+      "endMs": 12208
+    },
+    {
+      "text": " you",
+      "startMs": 12208,
+      "endMs": 12314
+    },
+    {
+      "text": " don’t",
+      "startMs": 12314,
+      "endMs": 12455
+    },
+    {
+      "text": " want",
+      "startMs": 12455,
+      "endMs": 12579,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " to",
+      "startMs": 12579,
+      "endMs": 12668
+    },
+    {
+      "text": " pay,",
+      "startMs": 12668,
+      "endMs": 12792
+    },
+    {
+      "text": " Codeium",
+      "startMs": 12792,
+      "endMs": 12968
+    },
+    {
+      "text": " is",
+      "startMs": 12968,
+      "endMs": 13057,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 13057,
+      "endMs": 13163
+    },
+    {
+      "text": " answer.",
+      "startMs": 13163,
+      "endMs": 13340
+    },
+    {
+      "text": " The",
+      "startMs": 13340,
+      "endMs": 13446
+    },
+    {
+      "text": " completions",
+      "startMs": 13446,
+      "endMs": 13694,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " are",
+      "startMs": 13694,
+      "endMs": 13800
+    },
+    {
+      "text": " fast,",
+      "startMs": 13800,
+      "endMs": 13942
+    },
+    {
+      "text": " context-aware,",
+      "startMs": 13942,
+      "endMs": 14242
+    },
+    {
+      "text": " and",
+      "startMs": 14242,
+      "endMs": 14348,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " available",
+      "startMs": 14348,
+      "endMs": 14561
+    },
+    {
+      "text": " in",
+      "startMs": 14561,
+      "endMs": 14649
+    },
+    {
+      "text": " basically",
+      "startMs": 14649,
+      "endMs": 14862
+    },
+    {
+      "text": " every",
+      "startMs": 14862,
+      "endMs": 15003,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " editor.",
+      "startMs": 15003,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 15500,
+      "endMs": 15785
+    },
+    {
+      "text": " the",
+      "startMs": 15785,
+      "endMs": 16030
+    },
+    {
+      "text": " full",
+      "startMs": 16030,
+      "endMs": 16315
+    },
+    {
+      "text": " article.",
+      "startMs": 16315,
+      "endMs": 16764,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 16764,
+      "endMs": 17008
+    },
+    {
+      "text": " posts",
+      "startMs": 17008,
+      "endMs": 17334
+    },
+    {
+      "text": " every",
+      "startMs": 17334,
+      "endMs": 17660
+    },
+    {
+      "text": " week",
+      "startMs": 17660,
+      "endMs": 17946,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 17946,
+      "endMs": 18149
+    },
+    {
+      "text": " the",
+      "startMs": 18149,
+      "endMs": 18394
+    },
+    {
+      "text": " blog.",
+      "startMs": 18394,
+      "endMs": 18720,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

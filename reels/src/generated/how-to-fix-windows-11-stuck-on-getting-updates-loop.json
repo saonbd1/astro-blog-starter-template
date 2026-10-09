@@ -1,0 +1,1104 @@
+{
+  "slug": "how-to-fix-windows-11-stuck-on-getting-updates-loop",
+  "title": "Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps",
+  "description": "Windows 11 stuck on the Getting updates loop? Run 5 fixes in order, from a simple restart to a full update cache reset. Most take under 30 minutes.",
+  "category": "PC Troubleshooting",
+  "tags": [
+    "Windows",
+    "PC Maintenance",
+    "Troubleshooting",
+    "Beginner Guide"
+  ],
+  "url": "https://www.techtips.fun/blog/how-to-fix-windows-11-stuck-on-getting-updates-loop/",
+  "theme": "github-dark",
+  "durationInFrames": 1000,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "PC Troubleshooting",
+      "title": "Fix Windows 11 Stuck on Getting Updates Loop in 5 Steps",
+      "subtitle": "Windows 11 stuck on the Getting updates loop? Run 5 fixes in order, from a simple restart…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Before You Start",
+      "body": "Make sure that the computer has at least 10 GB of free disk space. Make sure that the computer has a stable network connection. Save your open work.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Method 1: Wait, Then Restart",
+      "body": "One update can need up to two hours on a slow network. If the message \"Getting updates\" does not change after 30 minutes, restart the computer.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Method 2: Run the Windows Update Troubleshooter",
+      "body": "Windows Update includes a troubleshooter for common problems. Select Start > Settings > System > Troubleshoot > Other troubleshooters.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Method 3: Reset the Update Cache",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "net stop wuauserv\nnet stop bits\nnet stop cryptsvc",
+          "code": "net stop wuauserv\nnet stop bits\nnet stop cryptsvc",
+          "tokens": [
+            [
+              "net stop wuauserv",
+              null
+            ],
+            "\n",
+            [
+              "net stop bits",
+              null
+            ],
+            "\n",
+            [
+              "net stop cryptsvc",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "ren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old\nren C:\\Windows\\System32\\catroot2 catroot2.old",
+          "code": "ren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old\nren C:\\Windows\\System32\\catroot2 catroot2.old",
+          "tokens": [
+            [
+              "ren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old",
+              null
+            ],
+            "\n",
+            [
+              "ren C:\\Windows\\System32\\catroot2 catroot2.old",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Method 4: Repair System Files",
+      "body": "A damaged system file can block Windows Update. Windows includes two repair tools: DISM and System File Checker.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "PC Troubleshooting",
+      "heading": "Method 5: Date, Time, and Network",
+      "body": "Windows Update needs a correct system date and time. A VPN or proxy can also block the connection.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Windows",
+      "startMs": 0,
+      "endMs": 260
+    },
+    {
+      "text": " 11",
+      "startMs": 260,
+      "endMs": 390
+    },
+    {
+      "text": " stuck",
+      "startMs": 390,
+      "endMs": 597
+    },
+    {
+      "text": " on",
+      "startMs": 597,
+      "endMs": 727,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 727,
+      "endMs": 883
+    },
+    {
+      "text": " Getting",
+      "startMs": 883,
+      "endMs": 1143
+    },
+    {
+      "text": " updates",
+      "startMs": 1143,
+      "endMs": 1402
+    },
+    {
+      "text": " loop?",
+      "startMs": 1402,
+      "endMs": 1610,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Run",
+      "startMs": 1610,
+      "endMs": 1766
+    },
+    {
+      "text": " 5",
+      "startMs": 1766,
+      "endMs": 1870
+    },
+    {
+      "text": " fixes",
+      "startMs": 1870,
+      "endMs": 2077
+    },
+    {
+      "text": " in",
+      "startMs": 2077,
+      "endMs": 2207,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " order,",
+      "startMs": 2207,
+      "endMs": 2441
+    },
+    {
+      "text": " from",
+      "startMs": 2441,
+      "endMs": 2623
+    },
+    {
+      "text": " a",
+      "startMs": 2623,
+      "endMs": 2727
+    },
+    {
+      "text": " simple",
+      "startMs": 2727,
+      "endMs": 2960,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " restart",
+      "startMs": 2960,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Before",
+      "startMs": 3500,
+      "endMs": 3645
+    },
+    {
+      "text": " You",
+      "startMs": 3645,
+      "endMs": 3741
+    },
+    {
+      "text": " Start.",
+      "startMs": 3741,
+      "endMs": 3886
+    },
+    {
+      "text": " Make",
+      "startMs": 3886,
+      "endMs": 3998,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " sure",
+      "startMs": 3998,
+      "endMs": 4111
+    },
+    {
+      "text": " that",
+      "startMs": 4111,
+      "endMs": 4223
+    },
+    {
+      "text": " the",
+      "startMs": 4223,
+      "endMs": 4320
+    },
+    {
+      "text": " computer",
+      "startMs": 4320,
+      "endMs": 4496,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " has",
+      "startMs": 4496,
+      "endMs": 4593
+    },
+    {
+      "text": " at",
+      "startMs": 4593,
+      "endMs": 4673
+    },
+    {
+      "text": " least",
+      "startMs": 4673,
+      "endMs": 4802
+    },
+    {
+      "text": " 10",
+      "startMs": 4802,
+      "endMs": 4882,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " GB",
+      "startMs": 4882,
+      "endMs": 4962
+    },
+    {
+      "text": " of",
+      "startMs": 4962,
+      "endMs": 5043
+    },
+    {
+      "text": " free",
+      "startMs": 5043,
+      "endMs": 5155
+    },
+    {
+      "text": " disk",
+      "startMs": 5155,
+      "endMs": 5268,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " space.",
+      "startMs": 5268,
+      "endMs": 5412
+    },
+    {
+      "text": " Make",
+      "startMs": 5412,
+      "endMs": 5525
+    },
+    {
+      "text": " sure",
+      "startMs": 5525,
+      "endMs": 5637
+    },
+    {
+      "text": " that",
+      "startMs": 5637,
+      "endMs": 5750,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 5750,
+      "endMs": 5846
+    },
+    {
+      "text": " computer",
+      "startMs": 5846,
+      "endMs": 6023
+    },
+    {
+      "text": " has",
+      "startMs": 6023,
+      "endMs": 6119
+    },
+    {
+      "text": " a",
+      "startMs": 6119,
+      "endMs": 6184,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " stable",
+      "startMs": 6184,
+      "endMs": 6328
+    },
+    {
+      "text": " network",
+      "startMs": 6328,
+      "endMs": 6489
+    },
+    {
+      "text": " connection.",
+      "startMs": 6489,
+      "endMs": 6714
+    },
+    {
+      "text": " Save",
+      "startMs": 6714,
+      "endMs": 6826,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " your",
+      "startMs": 6826,
+      "endMs": 6939
+    },
+    {
+      "text": " open",
+      "startMs": 6939,
+      "endMs": 7051
+    },
+    {
+      "text": " work.",
+      "startMs": 7051,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Method",
+      "startMs": 7500,
+      "endMs": 7640
+    },
+    {
+      "text": " 1:",
+      "startMs": 7640,
+      "endMs": 7718
+    },
+    {
+      "text": " Wait,",
+      "startMs": 7718,
+      "endMs": 7843
+    },
+    {
+      "text": " Then",
+      "startMs": 7843,
+      "endMs": 7952,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Restart.",
+      "startMs": 7952,
+      "endMs": 8124
+    },
+    {
+      "text": " One",
+      "startMs": 8124,
+      "endMs": 8217
+    },
+    {
+      "text": " update",
+      "startMs": 8217,
+      "endMs": 8358
+    },
+    {
+      "text": " can",
+      "startMs": 8358,
+      "endMs": 8451,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " need",
+      "startMs": 8451,
+      "endMs": 8560
+    },
+    {
+      "text": " up",
+      "startMs": 8560,
+      "endMs": 8638
+    },
+    {
+      "text": " to",
+      "startMs": 8638,
+      "endMs": 8716
+    },
+    {
+      "text": " two",
+      "startMs": 8716,
+      "endMs": 8810,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " hours",
+      "startMs": 8810,
+      "endMs": 8935
+    },
+    {
+      "text": " on",
+      "startMs": 8935,
+      "endMs": 9013
+    },
+    {
+      "text": " a",
+      "startMs": 9013,
+      "endMs": 9075
+    },
+    {
+      "text": " slow",
+      "startMs": 9075,
+      "endMs": 9184,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " network.",
+      "startMs": 9184,
+      "endMs": 9356
+    },
+    {
+      "text": " If",
+      "startMs": 9356,
+      "endMs": 9434
+    },
+    {
+      "text": " the",
+      "startMs": 9434,
+      "endMs": 9527
+    },
+    {
+      "text": " message",
+      "startMs": 9527,
+      "endMs": 9683,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " \"Getting",
+      "startMs": 9683,
+      "endMs": 9855
+    },
+    {
+      "text": " updates\"",
+      "startMs": 9855,
+      "endMs": 10026
+    },
+    {
+      "text": " does",
+      "startMs": 10026,
+      "endMs": 10135
+    },
+    {
+      "text": " not",
+      "startMs": 10135,
+      "endMs": 10229,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " change",
+      "startMs": 10229,
+      "endMs": 10369
+    },
+    {
+      "text": " after",
+      "startMs": 10369,
+      "endMs": 10494
+    },
+    {
+      "text": " 30",
+      "startMs": 10494,
+      "endMs": 10572
+    },
+    {
+      "text": " minutes,",
+      "startMs": 10572,
+      "endMs": 10743,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " restart",
+      "startMs": 10743,
+      "endMs": 10899
+    },
+    {
+      "text": " the",
+      "startMs": 10899,
+      "endMs": 10993
+    },
+    {
+      "text": " computer.",
+      "startMs": 10993,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Method",
+      "startMs": 11500,
+      "endMs": 11640
+    },
+    {
+      "text": " 2:",
+      "startMs": 11640,
+      "endMs": 11718
+    },
+    {
+      "text": " Run",
+      "startMs": 11718,
+      "endMs": 11812
+    },
+    {
+      "text": " the",
+      "startMs": 11812,
+      "endMs": 11905,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Windows",
+      "startMs": 11905,
+      "endMs": 12061
+    },
+    {
+      "text": " Update",
+      "startMs": 12061,
+      "endMs": 12202
+    },
+    {
+      "text": " Troubleshooter.",
+      "startMs": 12202,
+      "endMs": 12482
+    },
+    {
+      "text": " Windows",
+      "startMs": 12482,
+      "endMs": 12638,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Update",
+      "startMs": 12638,
+      "endMs": 12779
+    },
+    {
+      "text": " includes",
+      "startMs": 12779,
+      "endMs": 12950
+    },
+    {
+      "text": " a",
+      "startMs": 12950,
+      "endMs": 13013
+    },
+    {
+      "text": " troubleshooter",
+      "startMs": 13013,
+      "endMs": 13278,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 13278,
+      "endMs": 13371
+    },
+    {
+      "text": " common",
+      "startMs": 13371,
+      "endMs": 13512
+    },
+    {
+      "text": " problems.",
+      "startMs": 13512,
+      "endMs": 13699
+    },
+    {
+      "text": " Select",
+      "startMs": 13699,
+      "endMs": 13839,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Start",
+      "startMs": 13839,
+      "endMs": 13964
+    },
+    {
+      "text": " >",
+      "startMs": 13964,
+      "endMs": 14026
+    },
+    {
+      "text": " Settings",
+      "startMs": 14026,
+      "endMs": 14198
+    },
+    {
+      "text": " >",
+      "startMs": 14198,
+      "endMs": 14260,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " System",
+      "startMs": 14260,
+      "endMs": 14400
+    },
+    {
+      "text": " >",
+      "startMs": 14400,
+      "endMs": 14463
+    },
+    {
+      "text": " Troubleshoot",
+      "startMs": 14463,
+      "endMs": 14697
+    },
+    {
+      "text": " >",
+      "startMs": 14697,
+      "endMs": 14759,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Other",
+      "startMs": 14759,
+      "endMs": 14884
+    },
+    {
+      "text": " troubleshooters.",
+      "startMs": 14884,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Method",
+      "startMs": 15500,
+      "endMs": 16132
+    },
+    {
+      "text": " 3:",
+      "startMs": 16132,
+      "endMs": 16483
+    },
+    {
+      "text": " Reset",
+      "startMs": 16483,
+      "endMs": 17044
+    },
+    {
+      "text": " the",
+      "startMs": 17044,
+      "endMs": 17466,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Update",
+      "startMs": 17466,
+      "endMs": 18097
+    },
+    {
+      "text": " Cache.",
+      "startMs": 18097,
+      "endMs": 18729
+    },
+    {
+      "text": " Let",
+      "startMs": 18729,
+      "endMs": 19150
+    },
+    {
+      "text": " us",
+      "startMs": 19150,
+      "endMs": 19501,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 19501,
+      "endMs": 19993
+    },
+    {
+      "text": " at",
+      "startMs": 19993,
+      "endMs": 20344
+    },
+    {
+      "text": " the",
+      "startMs": 20344,
+      "endMs": 20765
+    },
+    {
+      "text": " code.",
+      "startMs": 20765,
+      "endMs": 21327,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Method",
+      "startMs": 21833,
+      "endMs": 22008
+    },
+    {
+      "text": " 4:",
+      "startMs": 22008,
+      "endMs": 22104
+    },
+    {
+      "text": " Repair",
+      "startMs": 22104,
+      "endMs": 22279
+    },
+    {
+      "text": " System",
+      "startMs": 22279,
+      "endMs": 22453,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Files.",
+      "startMs": 22453,
+      "endMs": 22627
+    },
+    {
+      "text": " A",
+      "startMs": 22627,
+      "endMs": 22705
+    },
+    {
+      "text": " damaged",
+      "startMs": 22705,
+      "endMs": 22899
+    },
+    {
+      "text": " system",
+      "startMs": 22899,
+      "endMs": 23073,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " file",
+      "startMs": 23073,
+      "endMs": 23208
+    },
+    {
+      "text": " can",
+      "startMs": 23208,
+      "endMs": 23325
+    },
+    {
+      "text": " block",
+      "startMs": 23325,
+      "endMs": 23480
+    },
+    {
+      "text": " Windows",
+      "startMs": 23480,
+      "endMs": 23673,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Update.",
+      "startMs": 23673,
+      "endMs": 23867
+    },
+    {
+      "text": " Windows",
+      "startMs": 23867,
+      "endMs": 24061
+    },
+    {
+      "text": " includes",
+      "startMs": 24061,
+      "endMs": 24274
+    },
+    {
+      "text": " two",
+      "startMs": 24274,
+      "endMs": 24390,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " repair",
+      "startMs": 24390,
+      "endMs": 24564
+    },
+    {
+      "text": " tools:",
+      "startMs": 24564,
+      "endMs": 24739
+    },
+    {
+      "text": " DISM",
+      "startMs": 24739,
+      "endMs": 24874
+    },
+    {
+      "text": " and",
+      "startMs": 24874,
+      "endMs": 24990,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " System",
+      "startMs": 24990,
+      "endMs": 25165
+    },
+    {
+      "text": " File",
+      "startMs": 25165,
+      "endMs": 25300
+    },
+    {
+      "text": " Checker.",
+      "startMs": 25300,
+      "endMs": 25513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Method",
+      "startMs": 25833,
+      "endMs": 26015
+    },
+    {
+      "text": " 5:",
+      "startMs": 26015,
+      "endMs": 26116
+    },
+    {
+      "text": " Date,",
+      "startMs": 26116,
+      "endMs": 26278
+    },
+    {
+      "text": " Time,",
+      "startMs": 26278,
+      "endMs": 26440,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 26440,
+      "endMs": 26561
+    },
+    {
+      "text": " Network.",
+      "startMs": 26561,
+      "endMs": 26784
+    },
+    {
+      "text": " Windows",
+      "startMs": 26784,
+      "endMs": 26986
+    },
+    {
+      "text": " Update",
+      "startMs": 26986,
+      "endMs": 27168,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " needs",
+      "startMs": 27168,
+      "endMs": 27330
+    },
+    {
+      "text": " a",
+      "startMs": 27330,
+      "endMs": 27410
+    },
+    {
+      "text": " correct",
+      "startMs": 27410,
+      "endMs": 27613
+    },
+    {
+      "text": " system",
+      "startMs": 27613,
+      "endMs": 27795,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " date",
+      "startMs": 27795,
+      "endMs": 27936
+    },
+    {
+      "text": " and",
+      "startMs": 27936,
+      "endMs": 28058
+    },
+    {
+      "text": " time.",
+      "startMs": 28058,
+      "endMs": 28219
+    },
+    {
+      "text": " A",
+      "startMs": 28219,
+      "endMs": 28300,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " VPN",
+      "startMs": 28300,
+      "endMs": 28421
+    },
+    {
+      "text": " or",
+      "startMs": 28421,
+      "endMs": 28523
+    },
+    {
+      "text": " proxy",
+      "startMs": 28523,
+      "endMs": 28684
+    },
+    {
+      "text": " can",
+      "startMs": 28684,
+      "endMs": 28806,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " also",
+      "startMs": 28806,
+      "endMs": 28947
+    },
+    {
+      "text": " block",
+      "startMs": 28947,
+      "endMs": 29109
+    },
+    {
+      "text": " the",
+      "startMs": 29109,
+      "endMs": 29230
+    },
+    {
+      "text": " connection.",
+      "startMs": 29230,
+      "endMs": 29513,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 29833,
+      "endMs": 30119
+    },
+    {
+      "text": " the",
+      "startMs": 30119,
+      "endMs": 30363
+    },
+    {
+      "text": " full",
+      "startMs": 30363,
+      "endMs": 30649
+    },
+    {
+      "text": " article.",
+      "startMs": 30649,
+      "endMs": 31097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 31097,
+      "endMs": 31341
+    },
+    {
+      "text": " posts",
+      "startMs": 31341,
+      "endMs": 31668
+    },
+    {
+      "text": " every",
+      "startMs": 31668,
+      "endMs": 31994
+    },
+    {
+      "text": " week",
+      "startMs": 31994,
+      "endMs": 32279,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 32279,
+      "endMs": 32483
+    },
+    {
+      "text": " the",
+      "startMs": 32483,
+      "endMs": 32727
+    },
+    {
+      "text": " blog.",
+      "startMs": 32727,
+      "endMs": 33053,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

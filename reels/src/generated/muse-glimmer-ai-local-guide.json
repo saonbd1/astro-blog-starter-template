@@ -1,0 +1,1082 @@
+{
+  "slug": "muse-glimmer-ai-local-guide",
+  "title": "Facebook's Meta Reveals Muse Glimmer AI: What's it and How to Run It Locally",
+  "description": "Learn what Muse Glimmer AI is, what hardware it needs, how to run it locally, and where it fits among open-weight agent models.",
+  "category": "AI Tools",
+  "tags": [
+    "Local AI",
+    "AI Agents",
+    "Open Source"
+  ],
+  "url": "https://www.techtips.fun/blog/muse-glimmer-ai-local-guide/",
+  "theme": "github-dark",
+  "durationInFrames": 930,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "AI Tools",
+      "title": "Facebook's Meta Reveals Muse Glimmer AI: What's it and How to Run It Locally",
+      "subtitle": "Learn what Muse Glimmer AI is, what hardware it needs, how to run it locally, and where…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "What is Muse Glimmer AI?",
+      "body": "Muse Glimmer is a dense causal language model with a dedicated perception encoder.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Features of Muse Glimmer 30B in nutshell:",
+      "body": "This model size is about 29.6 billion parameters Model type is Dense causal transformer with a perception encoder Context size 131,072 tokens or…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "What can Muse Glimmer do?",
+      "body": "Muse Glimmer targets several tasks that need more than a single answer. It can write and debug code, call tools, inspect images, and continue a long…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "What hardware does Muse Glimmer need?",
+      "body": "Hardware depends on the model format. Full-precision BF16 weights need much more memory than a quantized build.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "How to run Muse Glimmer locally",
+      "body": "The simplest setup depends on your operating system and your goal. A desktop app is useful for a first test.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Option 1: Use a desktop app",
+      "body": "LM Studio and Unsloth provide desktop paths for local model use. Search for Muse Glimmer in the model section.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Learn",
+      "startMs": 0,
+      "endMs": 211
+    },
+    {
+      "text": " what",
+      "startMs": 211,
+      "endMs": 396
+    },
+    {
+      "text": " Muse",
+      "startMs": 396,
+      "endMs": 581
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 581,
+      "endMs": 845,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " AI",
+      "startMs": 845,
+      "endMs": 977
+    },
+    {
+      "text": " is,",
+      "startMs": 977,
+      "endMs": 1135
+    },
+    {
+      "text": " what",
+      "startMs": 1135,
+      "endMs": 1320
+    },
+    {
+      "text": " hardware",
+      "startMs": 1320,
+      "endMs": 1610,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " it",
+      "startMs": 1610,
+      "endMs": 1742
+    },
+    {
+      "text": " needs,",
+      "startMs": 1742,
+      "endMs": 1980
+    },
+    {
+      "text": " how",
+      "startMs": 1980,
+      "endMs": 2138
+    },
+    {
+      "text": " to",
+      "startMs": 2138,
+      "endMs": 2270,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " run",
+      "startMs": 2270,
+      "endMs": 2428
+    },
+    {
+      "text": " it",
+      "startMs": 2428,
+      "endMs": 2560
+    },
+    {
+      "text": " locally,",
+      "startMs": 2560,
+      "endMs": 2850
+    },
+    {
+      "text": " and",
+      "startMs": 2850,
+      "endMs": 3009,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " where",
+      "startMs": 3009,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3678
+    },
+    {
+      "text": " is",
+      "startMs": 3678,
+      "endMs": 3805
+    },
+    {
+      "text": " Muse",
+      "startMs": 3805,
+      "endMs": 3982
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 3982,
+      "endMs": 4236,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " AI?.",
+      "startMs": 4236,
+      "endMs": 4414
+    },
+    {
+      "text": " Muse",
+      "startMs": 4414,
+      "endMs": 4591
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 4591,
+      "endMs": 4845
+    },
+    {
+      "text": " is",
+      "startMs": 4845,
+      "endMs": 4972,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 4972,
+      "endMs": 5074
+    },
+    {
+      "text": " dense",
+      "startMs": 5074,
+      "endMs": 5277
+    },
+    {
+      "text": " causal",
+      "startMs": 5277,
+      "endMs": 5505
+    },
+    {
+      "text": " language",
+      "startMs": 5505,
+      "endMs": 5784,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " model",
+      "startMs": 5784,
+      "endMs": 5987
+    },
+    {
+      "text": " with",
+      "startMs": 5987,
+      "endMs": 6165
+    },
+    {
+      "text": " a",
+      "startMs": 6165,
+      "endMs": 6266
+    },
+    {
+      "text": " dedicated",
+      "startMs": 6266,
+      "endMs": 6571,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " perception",
+      "startMs": 6571,
+      "endMs": 6901
+    },
+    {
+      "text": " encoder.",
+      "startMs": 6901,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Features",
+      "startMs": 7500,
+      "endMs": 7663
+    },
+    {
+      "text": " of",
+      "startMs": 7663,
+      "endMs": 7736
+    },
+    {
+      "text": " Muse",
+      "startMs": 7736,
+      "endMs": 7840
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 7840,
+      "endMs": 7988,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 30B",
+      "startMs": 7988,
+      "endMs": 8076
+    },
+    {
+      "text": " in",
+      "startMs": 8076,
+      "endMs": 8150
+    },
+    {
+      "text": " nutshell:.",
+      "startMs": 8150,
+      "endMs": 8342
+    },
+    {
+      "text": " This",
+      "startMs": 8342,
+      "endMs": 8446,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " model",
+      "startMs": 8446,
+      "endMs": 8564
+    },
+    {
+      "text": " size",
+      "startMs": 8564,
+      "endMs": 8668
+    },
+    {
+      "text": " is",
+      "startMs": 8668,
+      "endMs": 8741
+    },
+    {
+      "text": " about",
+      "startMs": 8741,
+      "endMs": 8860,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 29.6",
+      "startMs": 8860,
+      "endMs": 8963
+    },
+    {
+      "text": " billion",
+      "startMs": 8963,
+      "endMs": 9111
+    },
+    {
+      "text": " parameters",
+      "startMs": 9111,
+      "endMs": 9303
+    },
+    {
+      "text": " Model",
+      "startMs": 9303,
+      "endMs": 9421,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " type",
+      "startMs": 9421,
+      "endMs": 9525
+    },
+    {
+      "text": " is",
+      "startMs": 9525,
+      "endMs": 9599
+    },
+    {
+      "text": " Dense",
+      "startMs": 9599,
+      "endMs": 9717
+    },
+    {
+      "text": " causal",
+      "startMs": 9717,
+      "endMs": 9850,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " transformer",
+      "startMs": 9850,
+      "endMs": 10057
+    },
+    {
+      "text": " with",
+      "startMs": 10057,
+      "endMs": 10160
+    },
+    {
+      "text": " a",
+      "startMs": 10160,
+      "endMs": 10219
+    },
+    {
+      "text": " perception",
+      "startMs": 10219,
+      "endMs": 10411,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " encoder",
+      "startMs": 10411,
+      "endMs": 10559
+    },
+    {
+      "text": " Context",
+      "startMs": 10559,
+      "endMs": 10707
+    },
+    {
+      "text": " size",
+      "startMs": 10707,
+      "endMs": 10811
+    },
+    {
+      "text": " 131,072",
+      "startMs": 10811,
+      "endMs": 10958,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " tokens",
+      "startMs": 10958,
+      "endMs": 11091
+    },
+    {
+      "text": " or…",
+      "startMs": 11091,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 11500,
+      "endMs": 11608
+    },
+    {
+      "text": " can",
+      "startMs": 11608,
+      "endMs": 11700
+    },
+    {
+      "text": " Muse",
+      "startMs": 11700,
+      "endMs": 11808
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 11808,
+      "endMs": 11962,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " do?.",
+      "startMs": 11962,
+      "endMs": 12070
+    },
+    {
+      "text": " Muse",
+      "startMs": 12070,
+      "endMs": 12177
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 12177,
+      "endMs": 12331
+    },
+    {
+      "text": " targets",
+      "startMs": 12331,
+      "endMs": 12485,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " several",
+      "startMs": 12485,
+      "endMs": 12639
+    },
+    {
+      "text": " tasks",
+      "startMs": 12639,
+      "endMs": 12763
+    },
+    {
+      "text": " that",
+      "startMs": 12763,
+      "endMs": 12870
+    },
+    {
+      "text": " need",
+      "startMs": 12870,
+      "endMs": 12978,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " more",
+      "startMs": 12978,
+      "endMs": 13086
+    },
+    {
+      "text": " than",
+      "startMs": 13086,
+      "endMs": 13194
+    },
+    {
+      "text": " a",
+      "startMs": 13194,
+      "endMs": 13255
+    },
+    {
+      "text": " single",
+      "startMs": 13255,
+      "endMs": 13394,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " answer.",
+      "startMs": 13394,
+      "endMs": 13548
+    },
+    {
+      "text": " It",
+      "startMs": 13548,
+      "endMs": 13625
+    },
+    {
+      "text": " can",
+      "startMs": 13625,
+      "endMs": 13717
+    },
+    {
+      "text": " write",
+      "startMs": 13717,
+      "endMs": 13840,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 13840,
+      "endMs": 13933
+    },
+    {
+      "text": " debug",
+      "startMs": 13933,
+      "endMs": 14056
+    },
+    {
+      "text": " code,",
+      "startMs": 14056,
+      "endMs": 14179
+    },
+    {
+      "text": " call",
+      "startMs": 14179,
+      "endMs": 14287,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " tools,",
+      "startMs": 14287,
+      "endMs": 14426
+    },
+    {
+      "text": " inspect",
+      "startMs": 14426,
+      "endMs": 14579
+    },
+    {
+      "text": " images,",
+      "startMs": 14579,
+      "endMs": 14733
+    },
+    {
+      "text": " and",
+      "startMs": 14733,
+      "endMs": 14826,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " continue",
+      "startMs": 14826,
+      "endMs": 14995
+    },
+    {
+      "text": " a",
+      "startMs": 14995,
+      "endMs": 15057
+    },
+    {
+      "text": " long…",
+      "startMs": 15057,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 15500,
+      "endMs": 15631
+    },
+    {
+      "text": " hardware",
+      "startMs": 15631,
+      "endMs": 15836
+    },
+    {
+      "text": " does",
+      "startMs": 15836,
+      "endMs": 15967
+    },
+    {
+      "text": " Muse",
+      "startMs": 15967,
+      "endMs": 16098,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 16098,
+      "endMs": 16285
+    },
+    {
+      "text": " need?.",
+      "startMs": 16285,
+      "endMs": 16453
+    },
+    {
+      "text": " Hardware",
+      "startMs": 16453,
+      "endMs": 16658
+    },
+    {
+      "text": " depends",
+      "startMs": 16658,
+      "endMs": 16845,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 16845,
+      "endMs": 16938
+    },
+    {
+      "text": " the",
+      "startMs": 16938,
+      "endMs": 17050
+    },
+    {
+      "text": " model",
+      "startMs": 17050,
+      "endMs": 17200
+    },
+    {
+      "text": " format.",
+      "startMs": 17200,
+      "endMs": 17387,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Full-precision",
+      "startMs": 17387,
+      "endMs": 17704
+    },
+    {
+      "text": " BF16",
+      "startMs": 17704,
+      "endMs": 17835
+    },
+    {
+      "text": " weights",
+      "startMs": 17835,
+      "endMs": 18022
+    },
+    {
+      "text": " need",
+      "startMs": 18022,
+      "endMs": 18153,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " much",
+      "startMs": 18153,
+      "endMs": 18283
+    },
+    {
+      "text": " more",
+      "startMs": 18283,
+      "endMs": 18414
+    },
+    {
+      "text": " memory",
+      "startMs": 18414,
+      "endMs": 18582
+    },
+    {
+      "text": " than",
+      "startMs": 18582,
+      "endMs": 18713,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 18713,
+      "endMs": 18788
+    },
+    {
+      "text": " quantized",
+      "startMs": 18788,
+      "endMs": 19012
+    },
+    {
+      "text": " build.",
+      "startMs": 19012,
+      "endMs": 19180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " How",
+      "startMs": 19500,
+      "endMs": 19614
+    },
+    {
+      "text": " to",
+      "startMs": 19614,
+      "endMs": 19709
+    },
+    {
+      "text": " run",
+      "startMs": 19709,
+      "endMs": 19822
+    },
+    {
+      "text": " Muse",
+      "startMs": 19822,
+      "endMs": 19955,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 19955,
+      "endMs": 20145
+    },
+    {
+      "text": " locally.",
+      "startMs": 20145,
+      "endMs": 20354
+    },
+    {
+      "text": " The",
+      "startMs": 20354,
+      "endMs": 20467
+    },
+    {
+      "text": " simplest",
+      "startMs": 20467,
+      "endMs": 20676,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " setup",
+      "startMs": 20676,
+      "endMs": 20828
+    },
+    {
+      "text": " depends",
+      "startMs": 20828,
+      "endMs": 21018
+    },
+    {
+      "text": " on",
+      "startMs": 21018,
+      "endMs": 21112
+    },
+    {
+      "text": " your",
+      "startMs": 21112,
+      "endMs": 21245,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " operating",
+      "startMs": 21245,
+      "endMs": 21473
+    },
+    {
+      "text": " system",
+      "startMs": 21473,
+      "endMs": 21644
+    },
+    {
+      "text": " and",
+      "startMs": 21644,
+      "endMs": 21757
+    },
+    {
+      "text": " your",
+      "startMs": 21757,
+      "endMs": 21890,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " goal.",
+      "startMs": 21890,
+      "endMs": 22042
+    },
+    {
+      "text": " A",
+      "startMs": 22042,
+      "endMs": 22118
+    },
+    {
+      "text": " desktop",
+      "startMs": 22118,
+      "endMs": 22307
+    },
+    {
+      "text": " app",
+      "startMs": 22307,
+      "endMs": 22421,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " is",
+      "startMs": 22421,
+      "endMs": 22516
+    },
+    {
+      "text": " useful",
+      "startMs": 22516,
+      "endMs": 22687
+    },
+    {
+      "text": " for",
+      "startMs": 22687,
+      "endMs": 22801
+    },
+    {
+      "text": " a",
+      "startMs": 22801,
+      "endMs": 22876,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " first",
+      "startMs": 22876,
+      "endMs": 23028
+    },
+    {
+      "text": " test.",
+      "startMs": 23028,
+      "endMs": 23180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Option",
+      "startMs": 23500,
+      "endMs": 23674
+    },
+    {
+      "text": " 1:",
+      "startMs": 23674,
+      "endMs": 23771
+    },
+    {
+      "text": " Use",
+      "startMs": 23771,
+      "endMs": 23887
+    },
+    {
+      "text": " a",
+      "startMs": 23887,
+      "endMs": 23965,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " desktop",
+      "startMs": 23965,
+      "endMs": 24159
+    },
+    {
+      "text": " app.",
+      "startMs": 24159,
+      "endMs": 24294
+    },
+    {
+      "text": " LM",
+      "startMs": 24294,
+      "endMs": 24391
+    },
+    {
+      "text": " Studio",
+      "startMs": 24391,
+      "endMs": 24565,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 24565,
+      "endMs": 24681
+    },
+    {
+      "text": " Unsloth",
+      "startMs": 24681,
+      "endMs": 24875
+    },
+    {
+      "text": " provide",
+      "startMs": 24875,
+      "endMs": 25069
+    },
+    {
+      "text": " desktop",
+      "startMs": 25069,
+      "endMs": 25263,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " paths",
+      "startMs": 25263,
+      "endMs": 25417
+    },
+    {
+      "text": " for",
+      "startMs": 25417,
+      "endMs": 25534
+    },
+    {
+      "text": " local",
+      "startMs": 25534,
+      "endMs": 25689
+    },
+    {
+      "text": " model",
+      "startMs": 25689,
+      "endMs": 25844,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " use.",
+      "startMs": 25844,
+      "endMs": 25979
+    },
+    {
+      "text": " Search",
+      "startMs": 25979,
+      "endMs": 26153
+    },
+    {
+      "text": " for",
+      "startMs": 26153,
+      "endMs": 26270
+    },
+    {
+      "text": " Muse",
+      "startMs": 26270,
+      "endMs": 26405,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Glimmer",
+      "startMs": 26405,
+      "endMs": 26599
+    },
+    {
+      "text": " in",
+      "startMs": 26599,
+      "endMs": 26696
+    },
+    {
+      "text": " the",
+      "startMs": 26696,
+      "endMs": 26812
+    },
+    {
+      "text": " model",
+      "startMs": 26812,
+      "endMs": 26967,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " section.",
+      "startMs": 26967,
+      "endMs": 27180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 27500,
+      "endMs": 27785
+    },
+    {
+      "text": " the",
+      "startMs": 27785,
+      "endMs": 28030
+    },
+    {
+      "text": " full",
+      "startMs": 28030,
+      "endMs": 28315
+    },
+    {
+      "text": " article.",
+      "startMs": 28315,
+      "endMs": 28764,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 28764,
+      "endMs": 29008
+    },
+    {
+      "text": " posts",
+      "startMs": 29008,
+      "endMs": 29334
+    },
+    {
+      "text": " every",
+      "startMs": 29334,
+      "endMs": 29660
+    },
+    {
+      "text": " week",
+      "startMs": 29660,
+      "endMs": 29946,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 29946,
+      "endMs": 30149
+    },
+    {
+      "text": " the",
+      "startMs": 30149,
+      "endMs": 30394
+    },
+    {
+      "text": " blog.",
+      "startMs": 30394,
+      "endMs": 30720,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

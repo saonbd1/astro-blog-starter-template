@@ -1,0 +1,1447 @@
+{
+  "slug": "create-astro-site-responsive-layout",
+  "title": "Create an Astro Site Layout Responsive & Mobile Friendly",
+  "description": "Build an Astro blog/site template fully responsive. Implement the header, footer and navigation components using shared layout system, see example.",
+  "category": "Web Development",
+  "tags": [
+    "Astro",
+    "Blog",
+    "Responsive",
+    "SEO"
+  ],
+  "url": "https://www.techtips.fun/blog/create-astro-site-responsive-layout/",
+  "theme": "github-dark",
+  "durationInFrames": 925,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Web Development",
+      "title": "Create an Astro Site Layout Responsive & Mobile Friendly",
+      "subtitle": "Build an Astro blog/site template fully responsive. Implement the header, footer and…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "How to Build a Responsive Astro Blog Header, Footer & Nav",
+      "body": "A website header identifies the site branding and a head menu helps readers move between pages.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Web Development",
+      "heading": "Plan the template layout design",
+      "body": "Plan the components before you start the work. Keep the site shell out of individual pages.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Create the shared layout Components",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\nimport BaseHead from '../components/BaseHead.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\n\ninterface Props {\n  title: string;\n  description: string;\n}",
+          "code": "---\nimport BaseHead from '../components/BaseHead.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\n\ninterface Props {\n  title: string;\n  description: string;\n}",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "BaseHead",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../components/BaseHead.astro'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Header",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../components/Header.astro'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Footer",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../components/Footer.astro'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "interface",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Props",
+              "#FFA657"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "title",
+              "#FFA657"
+            ],
+            [
+              ":",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "string",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "description",
+              "#FFA657"
+            ],
+            [
+              ":",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "string",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "}",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Build the header with semantic HTML",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\nimport HeaderLink from './HeaderLink.astro';\nimport { getCollection } from 'astro:content';\nimport { SITE_TITLE } from '../consts';\nimport { toTaxonomySlug } from '../utils/taxonomy';\n\nconst categories = [\n  ...new Set((await getCollection('blog')).map((post) => post.data.category)),\n].sort((a, b) => a.localeCompare(b));",
+          "code": "---\nimport HeaderLink from './HeaderLink.astro';\nimport { getCollection } from 'astro:content';\nimport { SITE_TITLE } from '../consts';\nimport { toTaxonomySlug } from '../utils/taxonomy';\n\nconst categories = [\n  ...new Set((await getCollection('blog')).map((post) => post.data.category)),\n].sort((a, b) => a.localeCompare(b));",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "HeaderLink",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'./HeaderLink.astro'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ getCollection }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'astro:content'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ SITE_TITLE }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../consts'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "import",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{ toTaxonomySlug }",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "from",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "'../utils/taxonomy'",
+              "#A5D6FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "categories",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "[",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "...new",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Set",
+              "#D2A8FF"
+            ],
+            [
+              "((",
+              "#C9D1D9"
+            ],
+            [
+              "await",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "getCollection",
+              "#D2A8FF"
+            ],
+            [
+              "(",
+              "#C9D1D9"
+            ],
+            [
+              "'blog'",
+              "#A5D6FF"
+            ],
+            [
+              ")).",
+              "#C9D1D9"
+            ],
+            [
+              "map",
+              "#D2A8FF"
+            ],
+            [
+              "((",
+              "#C9D1D9"
+            ],
+            [
+              "post",
+              "#FFA657"
+            ],
+            [
+              ")",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=>",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "post.data.category)),",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "].",
+              "#C9D1D9"
+            ],
+            [
+              "sort",
+              "#D2A8FF"
+            ],
+            [
+              "((",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#FFA657"
+            ],
+            [
+              ",",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "b",
+              "#FFA657"
+            ],
+            [
+              ")",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=>",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "a.",
+              "#C9D1D9"
+            ],
+            [
+              "localeCompare",
+              "#D2A8FF"
+            ],
+            [
+              "(b));",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Mark the active section",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "const isBlogActive =\n  Astro.url.pathname.startsWith('/blog') ||\n  Astro.url.pathname.startsWith('/categories');",
+          "code": "const isBlogActive =\n  Astro.url.pathname.startsWith('/blog') ||\n  Astro.url.pathname.startsWith('/categories');",
+          "tokens": [
+            [
+              "const isBlogActive =",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "Astro.url.pathname.startsWith('/blog') ||",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "Astro.url.pathname.startsWith('/categories');",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "---\ninterface Props {\n  href: string;\n  label?: string;\n}\n\nconst { href, label } = Astro.props;\nconst active = Astro.url.pathname === href;\n---",
+          "code": "---\ninterface Props {\n  href: string;\n  label?: string;\n}\n\nconst { href, label } = Astro.props;\nconst active = Astro.url.pathname === href;\n---",
+          "tokens": [
+            [
+              "---",
+              "#8B949E"
+            ],
+            "\n",
+            [
+              "interface",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Props",
+              "#FFA657"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "href",
+              "#FFA657"
+            ],
+            [
+              ":",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "string",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "label",
+              "#FFA657"
+            ],
+            [
+              "?:",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "string",
+              "#79C0FF"
+            ],
+            [
+              ";",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            "\n\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "{",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "href",
+              "#79C0FF"
+            ],
+            [
+              ",",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "label",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "}",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Astro.props;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "const",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "active",
+              "#79C0FF"
+            ],
+            " ",
+            [
+              "=",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "Astro.url.pathname",
+              "#C9D1D9"
+            ],
+            " ",
+            [
+              "===",
+              "#FF7B72"
+            ],
+            " ",
+            [
+              "href;",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "---",
+              "#8B949E"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "Keep navigation labels clear",
+      "steps": [
+        {
+          "lang": "astro",
+          "meta": "astro",
+          "value": "<a href=\"https://github.com/saonbd1/astro-blog-starter-template/\">\n  <span class=\"sr-only\">Go to the Techtips GitHub repository</span>\n  <svg aria-hidden=\"true\" viewBox=\"0 0 16 16\">\n    <!-- Icon path -->\n  </svg>\n</a>",
+          "code": "<a href=\"https://github.com/saonbd1/astro-blog-starter-template/\">\n  <span class=\"sr-only\">Go to the Techtips GitHub repository</span>\n  <svg aria-hidden=\"true\" viewBox=\"0 0 16 16\">\n    <!-- Icon path -->\n  </svg>\n</a>",
+          "tokens": [
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "href",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"https://github.com/saonbd1/astro-blog-starter-template/\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "class",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"sr-only\"",
+              "#A5D6FF"
+            ],
+            [
+              ">Go to the Techtips GitHub repository</",
+              "#C9D1D9"
+            ],
+            [
+              "span",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n  ",
+            [
+              "<",
+              "#C9D1D9"
+            ],
+            [
+              "svg",
+              "#7EE787"
+            ],
+            " ",
+            [
+              "aria-hidden",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"true\"",
+              "#A5D6FF"
+            ],
+            " ",
+            [
+              "viewBox",
+              "#79C0FF"
+            ],
+            [
+              "=",
+              "#C9D1D9"
+            ],
+            [
+              "\"0 0 16 16\"",
+              "#A5D6FF"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n    ",
+            [
+              "<!-- Icon path -->",
+              "#8B949E"
+            ],
+            "\n  ",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "svg",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ],
+            "\n",
+            [
+              "</",
+              "#C9D1D9"
+            ],
+            [
+              "a",
+              "#7EE787"
+            ],
+            [
+              ">",
+              "#C9D1D9"
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " Build",
+      "startMs": 0,
+      "endMs": 236
+    },
+    {
+      "text": " an",
+      "startMs": 236,
+      "endMs": 384
+    },
+    {
+      "text": " Astro",
+      "startMs": 384,
+      "endMs": 620
+    },
+    {
+      "text": " blog/site",
+      "startMs": 620,
+      "endMs": 975,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " template",
+      "startMs": 975,
+      "endMs": 1300
+    },
+    {
+      "text": " fully",
+      "startMs": 1300,
+      "endMs": 1536
+    },
+    {
+      "text": " responsive.",
+      "startMs": 1536,
+      "endMs": 1950
+    },
+    {
+      "text": " Implement",
+      "startMs": 1950,
+      "endMs": 2304,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 2304,
+      "endMs": 2481
+    },
+    {
+      "text": " header,",
+      "startMs": 2481,
+      "endMs": 2777
+    },
+    {
+      "text": " footer",
+      "startMs": 2777,
+      "endMs": 3043
+    },
+    {
+      "text": " and",
+      "startMs": 3043,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " How",
+      "startMs": 3500,
+      "endMs": 3606
+    },
+    {
+      "text": " to",
+      "startMs": 3606,
+      "endMs": 3694
+    },
+    {
+      "text": " Build",
+      "startMs": 3694,
+      "endMs": 3835
+    },
+    {
+      "text": " a",
+      "startMs": 3835,
+      "endMs": 3905,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Responsive",
+      "startMs": 3905,
+      "endMs": 4134
+    },
+    {
+      "text": " Astro",
+      "startMs": 4134,
+      "endMs": 4275
+    },
+    {
+      "text": " Blog",
+      "startMs": 4275,
+      "endMs": 4398
+    },
+    {
+      "text": " Header,",
+      "startMs": 4398,
+      "endMs": 4574,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Footer",
+      "startMs": 4574,
+      "endMs": 4733
+    },
+    {
+      "text": " &",
+      "startMs": 4733,
+      "endMs": 4803
+    },
+    {
+      "text": " Nav.",
+      "startMs": 4803,
+      "endMs": 4926
+    },
+    {
+      "text": " A",
+      "startMs": 4926,
+      "endMs": 4997,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " website",
+      "startMs": 4997,
+      "endMs": 5173
+    },
+    {
+      "text": " header",
+      "startMs": 5173,
+      "endMs": 5331
+    },
+    {
+      "text": " identifies",
+      "startMs": 5331,
+      "endMs": 5560
+    },
+    {
+      "text": " the",
+      "startMs": 5560,
+      "endMs": 5666,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " site",
+      "startMs": 5666,
+      "endMs": 5789
+    },
+    {
+      "text": " branding",
+      "startMs": 5789,
+      "endMs": 5983
+    },
+    {
+      "text": " and",
+      "startMs": 5983,
+      "endMs": 6088
+    },
+    {
+      "text": " a",
+      "startMs": 6088,
+      "endMs": 6159,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " head",
+      "startMs": 6159,
+      "endMs": 6282
+    },
+    {
+      "text": " menu",
+      "startMs": 6282,
+      "endMs": 6405
+    },
+    {
+      "text": " helps",
+      "startMs": 6405,
+      "endMs": 6546
+    },
+    {
+      "text": " readers",
+      "startMs": 6546,
+      "endMs": 6722,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " move",
+      "startMs": 6722,
+      "endMs": 6845
+    },
+    {
+      "text": " between",
+      "startMs": 6845,
+      "endMs": 7022
+    },
+    {
+      "text": " pages.",
+      "startMs": 7022,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Plan",
+      "startMs": 7500,
+      "endMs": 7654
+    },
+    {
+      "text": " the",
+      "startMs": 7654,
+      "endMs": 7786
+    },
+    {
+      "text": " template",
+      "startMs": 7786,
+      "endMs": 8029
+    },
+    {
+      "text": " layout",
+      "startMs": 8029,
+      "endMs": 8227,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " design.",
+      "startMs": 8227,
+      "endMs": 8448
+    },
+    {
+      "text": " Plan",
+      "startMs": 8448,
+      "endMs": 8602
+    },
+    {
+      "text": " the",
+      "startMs": 8602,
+      "endMs": 8734
+    },
+    {
+      "text": " components",
+      "startMs": 8734,
+      "endMs": 9020,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " before",
+      "startMs": 9020,
+      "endMs": 9219
+    },
+    {
+      "text": " you",
+      "startMs": 9219,
+      "endMs": 9351
+    },
+    {
+      "text": " start",
+      "startMs": 9351,
+      "endMs": 9527
+    },
+    {
+      "text": " the",
+      "startMs": 9527,
+      "endMs": 9660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " work.",
+      "startMs": 9660,
+      "endMs": 9836
+    },
+    {
+      "text": " Keep",
+      "startMs": 9836,
+      "endMs": 9990
+    },
+    {
+      "text": " the",
+      "startMs": 9990,
+      "endMs": 10122
+    },
+    {
+      "text": " site",
+      "startMs": 10122,
+      "endMs": 10277,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " shell",
+      "startMs": 10277,
+      "endMs": 10453
+    },
+    {
+      "text": " out",
+      "startMs": 10453,
+      "endMs": 10585
+    },
+    {
+      "text": " of",
+      "startMs": 10585,
+      "endMs": 10695
+    },
+    {
+      "text": " individual",
+      "startMs": 10695,
+      "endMs": 10982,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " pages.",
+      "startMs": 10982,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Create",
+      "startMs": 11500,
+      "endMs": 11812
+    },
+    {
+      "text": " the",
+      "startMs": 11812,
+      "endMs": 12020
+    },
+    {
+      "text": " shared",
+      "startMs": 12020,
+      "endMs": 12332
+    },
+    {
+      "text": " layout",
+      "startMs": 12332,
+      "endMs": 12645,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Components.",
+      "startMs": 12645,
+      "endMs": 13130
+    },
+    {
+      "text": " Let",
+      "startMs": 13130,
+      "endMs": 13338
+    },
+    {
+      "text": " us",
+      "startMs": 13338,
+      "endMs": 13512
+    },
+    {
+      "text": " look",
+      "startMs": 13512,
+      "endMs": 13754,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 13754,
+      "endMs": 13928
+    },
+    {
+      "text": " the",
+      "startMs": 13928,
+      "endMs": 14136
+    },
+    {
+      "text": " code.",
+      "startMs": 14136,
+      "endMs": 14413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Build",
+      "startMs": 14667,
+      "endMs": 14938
+    },
+    {
+      "text": " the",
+      "startMs": 14938,
+      "endMs": 15141
+    },
+    {
+      "text": " header",
+      "startMs": 15141,
+      "endMs": 15446
+    },
+    {
+      "text": " with",
+      "startMs": 15446,
+      "endMs": 15683,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " semantic",
+      "startMs": 15683,
+      "endMs": 16056
+    },
+    {
+      "text": " HTML.",
+      "startMs": 16056,
+      "endMs": 16327
+    },
+    {
+      "text": " Let",
+      "startMs": 16327,
+      "endMs": 16530
+    },
+    {
+      "text": " us",
+      "startMs": 16530,
+      "endMs": 16699,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 16699,
+      "endMs": 16936
+    },
+    {
+      "text": " at",
+      "startMs": 16936,
+      "endMs": 17106
+    },
+    {
+      "text": " the",
+      "startMs": 17106,
+      "endMs": 17309
+    },
+    {
+      "text": " code.",
+      "startMs": 17309,
+      "endMs": 17580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Mark",
+      "startMs": 17833,
+      "endMs": 18416
+    },
+    {
+      "text": " the",
+      "startMs": 18416,
+      "endMs": 18915
+    },
+    {
+      "text": " active",
+      "startMs": 18915,
+      "endMs": 19665
+    },
+    {
+      "text": " section.",
+      "startMs": 19665,
+      "endMs": 20580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 20580,
+      "endMs": 21080
+    },
+    {
+      "text": " us",
+      "startMs": 21080,
+      "endMs": 21496
+    },
+    {
+      "text": " look",
+      "startMs": 21496,
+      "endMs": 22078
+    },
+    {
+      "text": " at",
+      "startMs": 22078,
+      "endMs": 22495,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 22495,
+      "endMs": 22994
+    },
+    {
+      "text": " code.",
+      "startMs": 22994,
+      "endMs": 23660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Keep",
+      "startMs": 24167,
+      "endMs": 24439
+    },
+    {
+      "text": " navigation",
+      "startMs": 24439,
+      "endMs": 24944
+    },
+    {
+      "text": " labels",
+      "startMs": 24944,
+      "endMs": 25293
+    },
+    {
+      "text": " clear.",
+      "startMs": 25293,
+      "endMs": 25643,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 25643,
+      "endMs": 25876
+    },
+    {
+      "text": " us",
+      "startMs": 25876,
+      "endMs": 26070
+    },
+    {
+      "text": " look",
+      "startMs": 26070,
+      "endMs": 26342
+    },
+    {
+      "text": " at",
+      "startMs": 26342,
+      "endMs": 26536,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 26536,
+      "endMs": 26769
+    },
+    {
+      "text": " code.",
+      "startMs": 26769,
+      "endMs": 27080,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 27333,
+      "endMs": 27619
+    },
+    {
+      "text": " the",
+      "startMs": 27619,
+      "endMs": 27863
+    },
+    {
+      "text": " full",
+      "startMs": 27863,
+      "endMs": 28149
+    },
+    {
+      "text": " article.",
+      "startMs": 28149,
+      "endMs": 28597,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 28597,
+      "endMs": 28841
+    },
+    {
+      "text": " posts",
+      "startMs": 28841,
+      "endMs": 29168
+    },
+    {
+      "text": " every",
+      "startMs": 29168,
+      "endMs": 29494
+    },
+    {
+      "text": " week",
+      "startMs": 29494,
+      "endMs": 29779,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 29779,
+      "endMs": 29983
+    },
+    {
+      "text": " the",
+      "startMs": 29983,
+      "endMs": 30227
+    },
+    {
+      "text": " blog.",
+      "startMs": 30227,
+      "endMs": 30553,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

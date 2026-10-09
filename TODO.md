@@ -10,6 +10,9 @@
 - [ ] **Google locale hops are scanner artifacts.** `developers.google.com` 302-appends `?hl=<geo-locale>` (datacenter IP geolocated to India → `?hl=hi`) when the client sends no `Accept-Language` header. The checker now sends `Accept-Language: en-US,en;q=0.9` — if you strip that header, expect the phantom 302s to return.
 - [ ] **Google Console links are login-walled by design.** `console.cloud.google.com` 302s to the Google sign-in page, or 302-loops to itself when unauthenticated. Expected for signed-in readers — the checker reports these as `login_wall`, never `dead`/`broken`.
 - [ ] **Prefer final canonical URLs over redirectors.** Microsoft's `/en-us/help/12440` short link 301-hops twice before landing on `/en-us/windows/activation/activate-windows`; articles now link the destination directly (same for `linkedin.com/developers/` → `developer.linkedin.com/`). Fewer hops = fewer failure points.
+- [ ] **Reels: never put a `→` (U+2192) in a scene.** It is outside the loaded latin font subset, and Chromium's font fallback kills the renderer (`Protocol error ... Target closed`) in a fontless container. The outro arrow is inline SVG on purpose — keep it that way. `reels/scripts/glyph-audit.mjs` warns about any other risky glyph at build time.
+- [ ] **Reels: `/dev/shm` under ~512 MB breaks Chrome mid-render.** Remotion keeps ~8 MB per concurrent tab; `reels/scripts/render-reel.mjs` auto-switches to `REMOTION_SHARED_MEMORY_BACKEND=file`. Do not remove that fallback, and don't raise `--concurrency` blindly on small-shm hosts.
+- [ ] **Reels GUI: never put a dot-directory in a `res.sendFile` path.** Express's `send` 404s any path containing a `.dir` segment — `server/.work/` silently broke every download until it was renamed to `server/work/`. The handler also passes `dotfiles: "allow"` as a guard.
 
 ## Automate LinkedIn cross-posting (short version + link)
 - [x] Manually shared today's article teaser via the connected LinkedIn session (2026-10-04)
@@ -43,3 +46,11 @@
 
 ## Maintenance
 - [ ] Update skills later via `cd C:\Users\saonb\daily && git pull`, then re-copy the skill folders
+
+
+## Reels (Remotion) — article → vertical video
+- [x] `reels/` — standalone Remotion project that turns any `src/content/blog` article into a 1080x1920 reel: title hook → key points → Code Hike animated code → outro CTA, with TikTok-style word-by-word captions. Details + pitfalls in `reels/README.md`.
+- [x] `cd reels && npm run reel -- --latest` renders `reels/out/<slug>.mp4`; `npm run reel:all` renders every article; `npm run dev` opens Remotion Studio; `npm run still -- --slug <slug> --frame 210` renders a poster PNG.
+- [x] `npm run gui` — **Reel Studio**: paste Markdown (or load a post from the repo), pick a code theme + max length, and get an MP4. Renders are queued one at a time, show a live progress bar, play back in the page and offer a download; a faster "preview a frame" path renders a single PNG. Works with frontmatter-less Markdown (first `# H1` = title) and reports any glyphs it had to strip. `server/` + `server/public/`; API documented in `reels/README.md`.
+- [ ] Optional next: real voiceover, transcribed with Whisper, so the captions (and the reel length) come from audio instead of the synthesised timing track.
+- [ ] Optional next: render on Remotion Lambda instead of locally for volume.

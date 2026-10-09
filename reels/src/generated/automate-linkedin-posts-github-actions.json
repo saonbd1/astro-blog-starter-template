@@ -1,0 +1,964 @@
+{
+  "slug": "automate-linkedin-posts-github-actions",
+  "title": "Automate LinkedIn Posts from Your Blog with GitHub Actions",
+  "description": "I cross-post every blog article to LinkedIn automatically with GitHub Actions and the LinkedIn API. Here is the free setup, plus the 422 error that broke it.",
+  "category": "Automation",
+  "tags": [
+    "LinkedIn",
+    "GitHub Actions",
+    "Automation",
+    "API"
+  ],
+  "url": "https://www.techtips.fun/blog/automate-linkedin-posts-github-actions/",
+  "theme": "github-dark",
+  "durationInFrames": 905,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Automation",
+      "title": "Automate LinkedIn Posts from Your Blog with GitHub Actions",
+      "subtitle": "I cross-post every blog article to LinkedIn automatically with GitHub Actions and the…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "What the automation actually does",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "pending-posts/.order\n       |  (daily, 09:00 UTC)\nschedule-posts.yml  ->  move file to src/content/blog/, stamp pubDate, push\n       |  (on push)\nlinkedin-share.yml  ->  build teaser from frontmatter, post to LinkedIn\n       |\nLinkedIn post: title + excerpt + link, OG image as thumbnail",
+          "code": "pending-posts/.order\n       |  (daily, 09:00 UTC)\nschedule-posts.yml  ->  move file to src/content/blog/, stamp pubDate, push\n       |  (on push)\nlinkedin-share.yml  ->  build teaser from frontmatter, post to LinkedIn\n       |\nLinkedIn post: title + excerpt + link, OG image as thumbnail",
+          "tokens": [
+            [
+              "pending-posts/.order",
+              null
+            ],
+            "\n       ",
+            [
+              "|  (daily, 09:00 UTC)",
+              null
+            ],
+            "\n",
+            [
+              "schedule-posts.yml  ->  move file to src/content/blog/, stamp pubDate, push",
+              null
+            ],
+            "\n       ",
+            [
+              "|  (on push)",
+              null
+            ],
+            "\n",
+            [
+              "linkedin-share.yml  ->  build teaser from frontmatter, post to LinkedIn",
+              null
+            ],
+            "\n       ",
+            [
+              "|",
+              null
+            ],
+            "\n",
+            [
+              "LinkedIn post: title + excerpt + link, OG image as thumbnail",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "Automation",
+      "heading": "What it costs",
+      "body": "Nothing. The wmembersocial scope is free, and GitHub Actions minutes are free for public repos.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Automation",
+      "heading": "Setting up the LinkedIn side",
+      "body": "Create an app in the LinkedIn Developer Portal and enable the Sign In with LinkedIn product (see my LinkedIn OAuth client setup guide for the full…",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Automation",
+      "heading": "The 422 trap",
+      "body": "The modern posting endpoint, POST /v2/ugcPosts, rejected every request I sent from this app with a 422 error whenever I used a urn:li:person URN.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Automation",
+      "heading": "Why teasers from frontmatter, not AI",
+      "body": "\"Content repurposing AI\" tools promise to rewrite everything. My posts are technical.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "Automation",
+      "heading": "The thumbnail problem",
+      "body": "Each article has an OG card at /og/{slug}.png (1200×630), which the share script attaches as the thumbnail.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " I",
+      "startMs": 0,
+      "endMs": 115
+    },
+    {
+      "text": " cross-post",
+      "startMs": 115,
+      "endMs": 489
+    },
+    {
+      "text": " every",
+      "startMs": 489,
+      "endMs": 719
+    },
+    {
+      "text": " blog",
+      "startMs": 719,
+      "endMs": 920,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " article",
+      "startMs": 920,
+      "endMs": 1208
+    },
+    {
+      "text": " to",
+      "startMs": 1208,
+      "endMs": 1351
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 1351,
+      "endMs": 1668
+    },
+    {
+      "text": " automatically",
+      "startMs": 1668,
+      "endMs": 2128,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " with",
+      "startMs": 2128,
+      "endMs": 2329
+    },
+    {
+      "text": " GitHub",
+      "startMs": 2329,
+      "endMs": 2588
+    },
+    {
+      "text": " Actions",
+      "startMs": 2588,
+      "endMs": 2875
+    },
+    {
+      "text": " and",
+      "startMs": 2875,
+      "endMs": 3048,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 3048,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3749
+    },
+    {
+      "text": " the",
+      "startMs": 3749,
+      "endMs": 3962
+    },
+    {
+      "text": " automation",
+      "startMs": 3962,
+      "endMs": 4424
+    },
+    {
+      "text": " actually",
+      "startMs": 4424,
+      "endMs": 4815,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " does.",
+      "startMs": 4815,
+      "endMs": 5099
+    },
+    {
+      "text": " Let",
+      "startMs": 5099,
+      "endMs": 5312
+    },
+    {
+      "text": " us",
+      "startMs": 5312,
+      "endMs": 5490
+    },
+    {
+      "text": " look",
+      "startMs": 5490,
+      "endMs": 5738,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " at",
+      "startMs": 5738,
+      "endMs": 5916
+    },
+    {
+      "text": " the",
+      "startMs": 5916,
+      "endMs": 6129
+    },
+    {
+      "text": " code.",
+      "startMs": 6129,
+      "endMs": 6413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 6667,
+      "endMs": 6842
+    },
+    {
+      "text": " it",
+      "startMs": 6842,
+      "endMs": 6967
+    },
+    {
+      "text": " costs.",
+      "startMs": 6967,
+      "endMs": 7192
+    },
+    {
+      "text": " Nothing.",
+      "startMs": 7192,
+      "endMs": 7468,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 7468,
+      "endMs": 7618
+    },
+    {
+      "text": " wmembersocial",
+      "startMs": 7618,
+      "endMs": 8019
+    },
+    {
+      "text": " scope",
+      "startMs": 8019,
+      "endMs": 8219
+    },
+    {
+      "text": " is",
+      "startMs": 8219,
+      "endMs": 8344,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " free,",
+      "startMs": 8344,
+      "endMs": 8544
+    },
+    {
+      "text": " and",
+      "startMs": 8544,
+      "endMs": 8694
+    },
+    {
+      "text": " GitHub",
+      "startMs": 8694,
+      "endMs": 8920
+    },
+    {
+      "text": " Actions",
+      "startMs": 8920,
+      "endMs": 9170,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " minutes",
+      "startMs": 9170,
+      "endMs": 9420
+    },
+    {
+      "text": " are",
+      "startMs": 9420,
+      "endMs": 9571
+    },
+    {
+      "text": " free",
+      "startMs": 9571,
+      "endMs": 9746
+    },
+    {
+      "text": " for",
+      "startMs": 9746,
+      "endMs": 9896,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " public",
+      "startMs": 9896,
+      "endMs": 10121
+    },
+    {
+      "text": " repos.",
+      "startMs": 10121,
+      "endMs": 10347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Setting",
+      "startMs": 10667,
+      "endMs": 10820
+    },
+    {
+      "text": " up",
+      "startMs": 10820,
+      "endMs": 10897
+    },
+    {
+      "text": " the",
+      "startMs": 10897,
+      "endMs": 10989
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 10989,
+      "endMs": 11157,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " side.",
+      "startMs": 11157,
+      "endMs": 11280
+    },
+    {
+      "text": " Create",
+      "startMs": 11280,
+      "endMs": 11418
+    },
+    {
+      "text": " an",
+      "startMs": 11418,
+      "endMs": 11495
+    },
+    {
+      "text": " app",
+      "startMs": 11495,
+      "endMs": 11587,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " in",
+      "startMs": 11587,
+      "endMs": 11663
+    },
+    {
+      "text": " the",
+      "startMs": 11663,
+      "endMs": 11755
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 11755,
+      "endMs": 11924
+    },
+    {
+      "text": " Developer",
+      "startMs": 11924,
+      "endMs": 12108,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Portal",
+      "startMs": 12108,
+      "endMs": 12246
+    },
+    {
+      "text": " and",
+      "startMs": 12246,
+      "endMs": 12338
+    },
+    {
+      "text": " enable",
+      "startMs": 12338,
+      "endMs": 12476
+    },
+    {
+      "text": " the",
+      "startMs": 12476,
+      "endMs": 12568,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Sign",
+      "startMs": 12568,
+      "endMs": 12675
+    },
+    {
+      "text": " In",
+      "startMs": 12675,
+      "endMs": 12752
+    },
+    {
+      "text": " with",
+      "startMs": 12752,
+      "endMs": 12859
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 12859,
+      "endMs": 13028,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " product",
+      "startMs": 13028,
+      "endMs": 13181
+    },
+    {
+      "text": " (see",
+      "startMs": 13181,
+      "endMs": 13289
+    },
+    {
+      "text": " my",
+      "startMs": 13289,
+      "endMs": 13365
+    },
+    {
+      "text": " LinkedIn",
+      "startMs": 13365,
+      "endMs": 13534,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " OAuth",
+      "startMs": 13534,
+      "endMs": 13657
+    },
+    {
+      "text": " client",
+      "startMs": 13657,
+      "endMs": 13795
+    },
+    {
+      "text": " setup",
+      "startMs": 13795,
+      "endMs": 13917
+    },
+    {
+      "text": " guide",
+      "startMs": 13917,
+      "endMs": 14040,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 14040,
+      "endMs": 14132
+    },
+    {
+      "text": " the",
+      "startMs": 14132,
+      "endMs": 14224
+    },
+    {
+      "text": " full…",
+      "startMs": 14224,
+      "endMs": 14347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 14667,
+      "endMs": 14770
+    },
+    {
+      "text": " 422",
+      "startMs": 14770,
+      "endMs": 14873
+    },
+    {
+      "text": " trap.",
+      "startMs": 14873,
+      "endMs": 15011
+    },
+    {
+      "text": " The",
+      "startMs": 15011,
+      "endMs": 15114,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " modern",
+      "startMs": 15114,
+      "endMs": 15269
+    },
+    {
+      "text": " posting",
+      "startMs": 15269,
+      "endMs": 15440
+    },
+    {
+      "text": " endpoint,",
+      "startMs": 15440,
+      "endMs": 15647
+    },
+    {
+      "text": " POST",
+      "startMs": 15647,
+      "endMs": 15767,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " /v2/ugcPosts,",
+      "startMs": 15767,
+      "endMs": 16042
+    },
+    {
+      "text": " rejected",
+      "startMs": 16042,
+      "endMs": 16232
+    },
+    {
+      "text": " every",
+      "startMs": 16232,
+      "endMs": 16369
+    },
+    {
+      "text": " request",
+      "startMs": 16369,
+      "endMs": 16541,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " I",
+      "startMs": 16541,
+      "endMs": 16610
+    },
+    {
+      "text": " sent",
+      "startMs": 16610,
+      "endMs": 16730
+    },
+    {
+      "text": " from",
+      "startMs": 16730,
+      "endMs": 16851
+    },
+    {
+      "text": " this",
+      "startMs": 16851,
+      "endMs": 16971,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " app",
+      "startMs": 16971,
+      "endMs": 17074
+    },
+    {
+      "text": " with",
+      "startMs": 17074,
+      "endMs": 17195
+    },
+    {
+      "text": " a",
+      "startMs": 17195,
+      "endMs": 17263
+    },
+    {
+      "text": " 422",
+      "startMs": 17263,
+      "endMs": 17366,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " error",
+      "startMs": 17366,
+      "endMs": 17504
+    },
+    {
+      "text": " whenever",
+      "startMs": 17504,
+      "endMs": 17693
+    },
+    {
+      "text": " I",
+      "startMs": 17693,
+      "endMs": 17762
+    },
+    {
+      "text": " used",
+      "startMs": 17762,
+      "endMs": 17882,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 17882,
+      "endMs": 17951
+    },
+    {
+      "text": " urn:li:person",
+      "startMs": 17951,
+      "endMs": 18226
+    },
+    {
+      "text": " URN.",
+      "startMs": 18226,
+      "endMs": 18347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Why",
+      "startMs": 18667,
+      "endMs": 18805
+    },
+    {
+      "text": " teasers",
+      "startMs": 18805,
+      "endMs": 19035
+    },
+    {
+      "text": " from",
+      "startMs": 19035,
+      "endMs": 19196
+    },
+    {
+      "text": " frontmatter,",
+      "startMs": 19196,
+      "endMs": 19541,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " not",
+      "startMs": 19541,
+      "endMs": 19679
+    },
+    {
+      "text": " AI.",
+      "startMs": 19679,
+      "endMs": 19817
+    },
+    {
+      "text": " \"Content",
+      "startMs": 19817,
+      "endMs": 20070
+    },
+    {
+      "text": " repurposing",
+      "startMs": 20070,
+      "endMs": 20392,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " AI\"",
+      "startMs": 20392,
+      "endMs": 20530
+    },
+    {
+      "text": " tools",
+      "startMs": 20530,
+      "endMs": 20714
+    },
+    {
+      "text": " promise",
+      "startMs": 20714,
+      "endMs": 20944
+    },
+    {
+      "text": " to",
+      "startMs": 20944,
+      "endMs": 21059,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " rewrite",
+      "startMs": 21059,
+      "endMs": 21289
+    },
+    {
+      "text": " everything.",
+      "startMs": 21289,
+      "endMs": 21611
+    },
+    {
+      "text": " My",
+      "startMs": 21611,
+      "endMs": 21726
+    },
+    {
+      "text": " posts",
+      "startMs": 21726,
+      "endMs": 21910,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " are",
+      "startMs": 21910,
+      "endMs": 22048
+    },
+    {
+      "text": " technical.",
+      "startMs": 22048,
+      "endMs": 22347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " The",
+      "startMs": 22667,
+      "endMs": 22796
+    },
+    {
+      "text": " thumbnail",
+      "startMs": 22796,
+      "endMs": 23054
+    },
+    {
+      "text": " problem.",
+      "startMs": 23054,
+      "endMs": 23291
+    },
+    {
+      "text": " Each",
+      "startMs": 23291,
+      "endMs": 23441,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " article",
+      "startMs": 23441,
+      "endMs": 23657
+    },
+    {
+      "text": " has",
+      "startMs": 23657,
+      "endMs": 23786
+    },
+    {
+      "text": " an",
+      "startMs": 23786,
+      "endMs": 23893
+    },
+    {
+      "text": " OG",
+      "startMs": 23893,
+      "endMs": 24001,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " card",
+      "startMs": 24001,
+      "endMs": 24152
+    },
+    {
+      "text": " at",
+      "startMs": 24152,
+      "endMs": 24259
+    },
+    {
+      "text": " /og/{slug}.png",
+      "startMs": 24259,
+      "endMs": 24625
+    },
+    {
+      "text": " (1200×630),",
+      "startMs": 24625,
+      "endMs": 24926,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " which",
+      "startMs": 24926,
+      "endMs": 25098
+    },
+    {
+      "text": " the",
+      "startMs": 25098,
+      "endMs": 25228
+    },
+    {
+      "text": " share",
+      "startMs": 25228,
+      "endMs": 25400
+    },
+    {
+      "text": " script",
+      "startMs": 25400,
+      "endMs": 25593,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " attaches",
+      "startMs": 25593,
+      "endMs": 25830
+    },
+    {
+      "text": " as",
+      "startMs": 25830,
+      "endMs": 25938
+    },
+    {
+      "text": " the",
+      "startMs": 25938,
+      "endMs": 26067
+    },
+    {
+      "text": " thumbnail.",
+      "startMs": 26067,
+      "endMs": 26347,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 26667,
+      "endMs": 26952
+    },
+    {
+      "text": " the",
+      "startMs": 26952,
+      "endMs": 27197
+    },
+    {
+      "text": " full",
+      "startMs": 27197,
+      "endMs": 27482
+    },
+    {
+      "text": " article.",
+      "startMs": 27482,
+      "endMs": 27930,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 27930,
+      "endMs": 28175
+    },
+    {
+      "text": " posts",
+      "startMs": 28175,
+      "endMs": 28501
+    },
+    {
+      "text": " every",
+      "startMs": 28501,
+      "endMs": 28827
+    },
+    {
+      "text": " week",
+      "startMs": 28827,
+      "endMs": 29112,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 29112,
+      "endMs": 29316
+    },
+    {
+      "text": " the",
+      "startMs": 29316,
+      "endMs": 29561
+    },
+    {
+      "text": " blog.",
+      "startMs": 29561,
+      "endMs": 29887,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

@@ -1,0 +1,1016 @@
+{
+  "slug": "local-ollama-windows11-low-spec-setup",
+  "title": "How to Run Ollama Locally on a Low-Spec Windows 11 PC",
+  "description": "With a small model and a few tweaks, a 4 GB RAM laptop can serve text generation in under a second. This guide shows the minimum setup that works on weak hardware",
+  "category": "AI Tools",
+  "tags": [
+    "AI",
+    "Windows",
+    "Beginner Guide",
+    "Ollama",
+    "Gemma",
+    "Deepseek"
+  ],
+  "url": "https://www.techtips.fun/blog/local-ollama-windows11-low-spec-setup/",
+  "theme": "github-dark",
+  "durationInFrames": 950,
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "AI Tools",
+      "title": "How to Run Ollama Locally on a Low-Spec Windows 11 PC",
+      "subtitle": "With a small model and a few tweaks, a 4 GB RAM laptop can serve text generation in under…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "What You Need",
+      "body": "Windows 10 or 11, 64-bit Minimum 4 GB of RAM Recommended 8 GB About 5 GB of free disk space",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Step 1: Install Ollama",
+      "body": "Download the Windows installer from the Ollama website. Run the file. Accept the defaults.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "point",
+      "kicker": "AI Tools",
+      "heading": "Step 2: Pick a Small Model",
+      "body": "Large models need more RAM than a weak PC has. Pick a model that fits your memory.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "For 4 GB of free RAM, use the smallest tier like tinnyllama:",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "ollama pull tinyllama",
+          "code": "ollama pull tinyllama",
+          "tokens": [
+            [
+              "ollama pull tinyllama",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "For 6 to 8 GB of free RAM, use a balanced tier like phi3 mini",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "ollama pull phi3:mini",
+          "code": "ollama pull phi3:mini",
+          "tokens": [
+            [
+              "ollama pull phi3:mini",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "For 8 GB or more of free RAM, use a stronger tier from below:",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "ollama pull llama3.2:3b",
+          "code": "ollama pull llama3.2:3b",
+          "tokens": [
+            [
+              "ollama pull llama3.2:3b",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        },
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "ollama pull deepseek-r1:8b",
+          "code": "ollama pull deepseek-r1:8b",
+          "tokens": [
+            [
+              "ollama pull deepseek-r1:8b",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 190
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "captions": [
+    {
+      "text": " With",
+      "startMs": 0,
+      "endMs": 176
+    },
+    {
+      "text": " a",
+      "startMs": 176,
+      "endMs": 277
+    },
+    {
+      "text": " small",
+      "startMs": 277,
+      "endMs": 478
+    },
+    {
+      "text": " model",
+      "startMs": 478,
+      "endMs": 679,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " and",
+      "startMs": 679,
+      "endMs": 830
+    },
+    {
+      "text": " a",
+      "startMs": 830,
+      "endMs": 931
+    },
+    {
+      "text": " few",
+      "startMs": 931,
+      "endMs": 1082
+    },
+    {
+      "text": " tweaks,",
+      "startMs": 1082,
+      "endMs": 1333,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 1333,
+      "endMs": 1434
+    },
+    {
+      "text": " 4",
+      "startMs": 1434,
+      "endMs": 1535
+    },
+    {
+      "text": " GB",
+      "startMs": 1535,
+      "endMs": 1660
+    },
+    {
+      "text": " RAM",
+      "startMs": 1660,
+      "endMs": 1811,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " laptop",
+      "startMs": 1811,
+      "endMs": 2038
+    },
+    {
+      "text": " can",
+      "startMs": 2038,
+      "endMs": 2189
+    },
+    {
+      "text": " serve",
+      "startMs": 2189,
+      "endMs": 2390
+    },
+    {
+      "text": " text",
+      "startMs": 2390,
+      "endMs": 2566,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " generation",
+      "startMs": 2566,
+      "endMs": 2893
+    },
+    {
+      "text": " in",
+      "startMs": 2893,
+      "endMs": 3019
+    },
+    {
+      "text": " under",
+      "startMs": 3019,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " What",
+      "startMs": 3500,
+      "endMs": 3668
+    },
+    {
+      "text": " You",
+      "startMs": 3668,
+      "endMs": 3813
+    },
+    {
+      "text": " Need.",
+      "startMs": 3813,
+      "endMs": 4005
+    },
+    {
+      "text": " Windows",
+      "startMs": 4005,
+      "endMs": 4246,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " 10",
+      "startMs": 4246,
+      "endMs": 4366
+    },
+    {
+      "text": " or",
+      "startMs": 4366,
+      "endMs": 4486
+    },
+    {
+      "text": " 11,",
+      "startMs": 4486,
+      "endMs": 4630
+    },
+    {
+      "text": " 64-bit",
+      "startMs": 4630,
+      "endMs": 4847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Minimum",
+      "startMs": 4847,
+      "endMs": 5087
+    },
+    {
+      "text": " 4",
+      "startMs": 5087,
+      "endMs": 5184
+    },
+    {
+      "text": " GB",
+      "startMs": 5184,
+      "endMs": 5304
+    },
+    {
+      "text": " of",
+      "startMs": 5304,
+      "endMs": 5424,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " RAM",
+      "startMs": 5424,
+      "endMs": 5568
+    },
+    {
+      "text": " Recommended",
+      "startMs": 5568,
+      "endMs": 5905
+    },
+    {
+      "text": " 8",
+      "startMs": 5905,
+      "endMs": 6001
+    },
+    {
+      "text": " GB",
+      "startMs": 6001,
+      "endMs": 6122,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " About",
+      "startMs": 6122,
+      "endMs": 6314
+    },
+    {
+      "text": " 5",
+      "startMs": 6314,
+      "endMs": 6410
+    },
+    {
+      "text": " GB",
+      "startMs": 6410,
+      "endMs": 6531
+    },
+    {
+      "text": " of",
+      "startMs": 6531,
+      "endMs": 6651,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " free",
+      "startMs": 6651,
+      "endMs": 6819
+    },
+    {
+      "text": " disk",
+      "startMs": 6819,
+      "endMs": 6988
+    },
+    {
+      "text": " space",
+      "startMs": 6988,
+      "endMs": 7180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 7500,
+      "endMs": 7671
+    },
+    {
+      "text": " 1:",
+      "startMs": 7671,
+      "endMs": 7792
+    },
+    {
+      "text": " Install",
+      "startMs": 7792,
+      "endMs": 8036
+    },
+    {
+      "text": " Ollama.",
+      "startMs": 8036,
+      "endMs": 8280,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Download",
+      "startMs": 8280,
+      "endMs": 8548
+    },
+    {
+      "text": " the",
+      "startMs": 8548,
+      "endMs": 8694
+    },
+    {
+      "text": " Windows",
+      "startMs": 8694,
+      "endMs": 8938
+    },
+    {
+      "text": " installer",
+      "startMs": 8938,
+      "endMs": 9230,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " from",
+      "startMs": 9230,
+      "endMs": 9401
+    },
+    {
+      "text": " the",
+      "startMs": 9401,
+      "endMs": 9547
+    },
+    {
+      "text": " Ollama",
+      "startMs": 9547,
+      "endMs": 9766
+    },
+    {
+      "text": " website.",
+      "startMs": 9766,
+      "endMs": 10035,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Run",
+      "startMs": 10035,
+      "endMs": 10181
+    },
+    {
+      "text": " the",
+      "startMs": 10181,
+      "endMs": 10327
+    },
+    {
+      "text": " file.",
+      "startMs": 10327,
+      "endMs": 10522
+    },
+    {
+      "text": " Accept",
+      "startMs": 10522,
+      "endMs": 10741,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 10741,
+      "endMs": 10888
+    },
+    {
+      "text": " defaults.",
+      "startMs": 10888,
+      "endMs": 11180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Step",
+      "startMs": 11500,
+      "endMs": 11664
+    },
+    {
+      "text": " 2:",
+      "startMs": 11664,
+      "endMs": 11781
+    },
+    {
+      "text": " Pick",
+      "startMs": 11781,
+      "endMs": 11945
+    },
+    {
+      "text": " a",
+      "startMs": 11945,
+      "endMs": 12039,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Small",
+      "startMs": 12039,
+      "endMs": 12227
+    },
+    {
+      "text": " Model.",
+      "startMs": 12227,
+      "endMs": 12438
+    },
+    {
+      "text": " Large",
+      "startMs": 12438,
+      "endMs": 12625
+    },
+    {
+      "text": " models",
+      "startMs": 12625,
+      "endMs": 12836,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " need",
+      "startMs": 12836,
+      "endMs": 13000
+    },
+    {
+      "text": " more",
+      "startMs": 13000,
+      "endMs": 13164
+    },
+    {
+      "text": " RAM",
+      "startMs": 13164,
+      "endMs": 13305
+    },
+    {
+      "text": " than",
+      "startMs": 13305,
+      "endMs": 13469,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 13469,
+      "endMs": 13563
+    },
+    {
+      "text": " weak",
+      "startMs": 13563,
+      "endMs": 13727
+    },
+    {
+      "text": " PC",
+      "startMs": 13727,
+      "endMs": 13844
+    },
+    {
+      "text": " has.",
+      "startMs": 13844,
+      "endMs": 14008,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Pick",
+      "startMs": 14008,
+      "endMs": 14172
+    },
+    {
+      "text": " a",
+      "startMs": 14172,
+      "endMs": 14266
+    },
+    {
+      "text": " model",
+      "startMs": 14266,
+      "endMs": 14453
+    },
+    {
+      "text": " that",
+      "startMs": 14453,
+      "endMs": 14617,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fits",
+      "startMs": 14617,
+      "endMs": 14782
+    },
+    {
+      "text": " your",
+      "startMs": 14782,
+      "endMs": 14946
+    },
+    {
+      "text": " memory.",
+      "startMs": 14946,
+      "endMs": 15180,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " For",
+      "startMs": 15500,
+      "endMs": 15642
+    },
+    {
+      "text": " 4",
+      "startMs": 15642,
+      "endMs": 15737
+    },
+    {
+      "text": " GB",
+      "startMs": 15737,
+      "endMs": 15855
+    },
+    {
+      "text": " of",
+      "startMs": 15855,
+      "endMs": 15974,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " free",
+      "startMs": 15974,
+      "endMs": 16140
+    },
+    {
+      "text": " RAM,",
+      "startMs": 16140,
+      "endMs": 16305
+    },
+    {
+      "text": " use",
+      "startMs": 16305,
+      "endMs": 16447
+    },
+    {
+      "text": " the",
+      "startMs": 16447,
+      "endMs": 16590,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " smallest",
+      "startMs": 16590,
+      "endMs": 16850
+    },
+    {
+      "text": " tier",
+      "startMs": 16850,
+      "endMs": 17016
+    },
+    {
+      "text": " like",
+      "startMs": 17016,
+      "endMs": 17182
+    },
+    {
+      "text": " tinnyllama:.",
+      "startMs": 17182,
+      "endMs": 17537,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Let",
+      "startMs": 17537,
+      "endMs": 17679
+    },
+    {
+      "text": " us",
+      "startMs": 17679,
+      "endMs": 17798
+    },
+    {
+      "text": " look",
+      "startMs": 17798,
+      "endMs": 17963
+    },
+    {
+      "text": " at",
+      "startMs": 17963,
+      "endMs": 18082,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 18082,
+      "endMs": 18224
+    },
+    {
+      "text": " code.",
+      "startMs": 18224,
+      "endMs": 18413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " For",
+      "startMs": 18667,
+      "endMs": 18801
+    },
+    {
+      "text": " 6",
+      "startMs": 18801,
+      "endMs": 18891
+    },
+    {
+      "text": " to",
+      "startMs": 18891,
+      "endMs": 19003
+    },
+    {
+      "text": " 8",
+      "startMs": 19003,
+      "endMs": 19092,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " GB",
+      "startMs": 19092,
+      "endMs": 19205
+    },
+    {
+      "text": " of",
+      "startMs": 19205,
+      "endMs": 19317
+    },
+    {
+      "text": " free",
+      "startMs": 19317,
+      "endMs": 19473
+    },
+    {
+      "text": " RAM,",
+      "startMs": 19473,
+      "endMs": 19630,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " use",
+      "startMs": 19630,
+      "endMs": 19765
+    },
+    {
+      "text": " a",
+      "startMs": 19765,
+      "endMs": 19854
+    },
+    {
+      "text": " balanced",
+      "startMs": 19854,
+      "endMs": 20101
+    },
+    {
+      "text": " tier",
+      "startMs": 20101,
+      "endMs": 20258,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " like",
+      "startMs": 20258,
+      "endMs": 20415
+    },
+    {
+      "text": " phi3",
+      "startMs": 20415,
+      "endMs": 20572
+    },
+    {
+      "text": " mini.",
+      "startMs": 20572,
+      "endMs": 20751
+    },
+    {
+      "text": " Let",
+      "startMs": 20751,
+      "endMs": 20885,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 20885,
+      "endMs": 20997
+    },
+    {
+      "text": " look",
+      "startMs": 20997,
+      "endMs": 21154
+    },
+    {
+      "text": " at",
+      "startMs": 21154,
+      "endMs": 21266
+    },
+    {
+      "text": " the",
+      "startMs": 21266,
+      "endMs": 21401,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 21401,
+      "endMs": 21580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " For",
+      "startMs": 21833,
+      "endMs": 22106
+    },
+    {
+      "text": " 8",
+      "startMs": 22106,
+      "endMs": 22289
+    },
+    {
+      "text": " GB",
+      "startMs": 22289,
+      "endMs": 22516
+    },
+    {
+      "text": " or",
+      "startMs": 22516,
+      "endMs": 22744,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " more",
+      "startMs": 22744,
+      "endMs": 23062
+    },
+    {
+      "text": " of",
+      "startMs": 23062,
+      "endMs": 23290
+    },
+    {
+      "text": " free",
+      "startMs": 23290,
+      "endMs": 23609
+    },
+    {
+      "text": " RAM,",
+      "startMs": 23609,
+      "endMs": 23927,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " use",
+      "startMs": 23927,
+      "endMs": 24200
+    },
+    {
+      "text": " a",
+      "startMs": 24200,
+      "endMs": 24383
+    },
+    {
+      "text": " stronger",
+      "startMs": 24383,
+      "endMs": 24883
+    },
+    {
+      "text": " tier",
+      "startMs": 24883,
+      "endMs": 25202,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " from",
+      "startMs": 25202,
+      "endMs": 25521
+    },
+    {
+      "text": " below:.",
+      "startMs": 25521,
+      "endMs": 25976
+    },
+    {
+      "text": " Let",
+      "startMs": 25976,
+      "endMs": 26249
+    },
+    {
+      "text": " us",
+      "startMs": 26249,
+      "endMs": 26476,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 26476,
+      "endMs": 26795
+    },
+    {
+      "text": " at",
+      "startMs": 26795,
+      "endMs": 27023
+    },
+    {
+      "text": " the",
+      "startMs": 27023,
+      "endMs": 27296
+    },
+    {
+      "text": " code.",
+      "startMs": 27296,
+      "endMs": 27660,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 28167,
+      "endMs": 28452
+    },
+    {
+      "text": " the",
+      "startMs": 28452,
+      "endMs": 28697
+    },
+    {
+      "text": " full",
+      "startMs": 28697,
+      "endMs": 28982
+    },
+    {
+      "text": " article.",
+      "startMs": 28982,
+      "endMs": 29430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 29430,
+      "endMs": 29675
+    },
+    {
+      "text": " posts",
+      "startMs": 29675,
+      "endMs": 30001
+    },
+    {
+      "text": " every",
+      "startMs": 30001,
+      "endMs": 30327
+    },
+    {
+      "text": " week",
+      "startMs": 30327,
+      "endMs": 30612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 30612,
+      "endMs": 30816
+    },
+    {
+      "text": " the",
+      "startMs": 30816,
+      "endMs": 31061
+    },
+    {
+      "text": " blog.",
+      "startMs": 31061,
+      "endMs": 31387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

@@ -1,0 +1,801 @@
+{
+  "slug": "10-linux-terminal-commands-i-use-every",
+  "title": "10 Linux terminal commands I use every single day",
+  "description": "I’ve been using Linux as my daily driver for over five years. In that time, I’ve collected dozens of commands — but the ones below are the ones that",
+  "category": "Linux & Terminal",
+  "tags": [
+    "Linux",
+    "Terminal",
+    "Command Line",
+    "Developer Tools"
+  ],
+  "url": "https://www.techtips.fun/blog/10-linux-terminal-commands-i-use-every/",
+  "scenes": [
+    {
+      "type": "title",
+      "kicker": "Linux & Terminal",
+      "title": "10 Linux terminal commands I use every single day",
+      "subtitle": "I’ve been using Linux as my daily driver for over five years. In that time, I’ve…",
+      "durationInFrames": 105
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "tldr — man pages for humans",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "$ tldr tar\n# Extract a tar archive:\ntar xf archive.tar.gz\n\n# Create a tar archive:\ntar czf output.tar.gz directory/",
+          "code": "$ tldr tar\n# Extract a tar archive:\ntar xf archive.tar.gz\n\n# Create a tar archive:\ntar czf output.tar.gz directory/",
+          "tokens": [
+            [
+              "$ tldr tar",
+              null
+            ],
+            "\n",
+            [
+              "# Extract a tar archive:",
+              null
+            ],
+            "\n",
+            [
+              "tar xf archive.tar.gz",
+              null
+            ],
+            "\n\n",
+            [
+              "# Create a tar archive:",
+              null
+            ],
+            "\n",
+            [
+              "tar czf output.tar.gz directory/",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "fzf — fuzzy finder that changes everything",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "# Search command history interactively\n$ history | fzf\n\n# Open any file quickly\n$ find . -type f | fzf | xargs nvim",
+          "code": "# Search command history interactively\n$ history | fzf\n\n# Open any file quickly\n$ find . -type f | fzf | xargs nvim",
+          "tokens": [
+            [
+              "# Search command history interactively",
+              null
+            ],
+            "\n",
+            [
+              "$ history | fzf",
+              null
+            ],
+            "\n\n",
+            [
+              "# Open any file quickly",
+              null
+            ],
+            "\n",
+            [
+              "$ find . -type f | fzf | xargs nvim",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "rg (ripgrep) — search faster than grep",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "$ rg \"TODO\" --type py",
+          "code": "$ rg \"TODO\" --type py",
+          "tokens": [
+            [
+              "$ rg \"TODO\" --type py",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "code",
+      "kicker": "Code",
+      "heading": "watch — repeat a command automatically",
+      "steps": [
+        {
+          "lang": "text",
+          "meta": "",
+          "value": "$ watch -n 5 df -h",
+          "code": "$ watch -n 5 df -h",
+          "tokens": [
+            [
+              "$ watch -n 5 df -h",
+              null
+            ]
+          ],
+          "annotations": [],
+          "themeName": "github-dark",
+          "style": {
+            "color": "#c9d1d9",
+            "background": "#0d1117",
+            "colorScheme": "dark"
+          }
+        }
+      ],
+      "durationInFrames": 95
+    },
+    {
+      "type": "point",
+      "kicker": "Linux & Terminal",
+      "heading": "htop / btop — actually readable process viewer",
+      "body": "Plain top works, but btop is a visual upgrade that shows CPU, memory, and network in a clean TUI. Worth the install.",
+      "durationInFrames": 120
+    },
+    {
+      "type": "outro",
+      "heading": "Read the full article",
+      "body": "New posts every week on the blog.",
+      "url": "techtips.fun",
+      "durationInFrames": 105
+    }
+  ],
+  "theme": "github-dark",
+  "durationInFrames": 710,
+  "captions": [
+    {
+      "text": " I’ve",
+      "startMs": 0,
+      "endMs": 199
+    },
+    {
+      "text": " been",
+      "startMs": 199,
+      "endMs": 399
+    },
+    {
+      "text": " using",
+      "startMs": 399,
+      "endMs": 627
+    },
+    {
+      "text": " Linux",
+      "startMs": 627,
+      "endMs": 855,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " as",
+      "startMs": 855,
+      "endMs": 997
+    },
+    {
+      "text": " my",
+      "startMs": 997,
+      "endMs": 1140
+    },
+    {
+      "text": " daily",
+      "startMs": 1140,
+      "endMs": 1368
+    },
+    {
+      "text": " driver",
+      "startMs": 1368,
+      "endMs": 1624,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 1624,
+      "endMs": 1795
+    },
+    {
+      "text": " over",
+      "startMs": 1795,
+      "endMs": 1995
+    },
+    {
+      "text": " five",
+      "startMs": 1995,
+      "endMs": 2194
+    },
+    {
+      "text": " years.",
+      "startMs": 2194,
+      "endMs": 2451,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " In",
+      "startMs": 2451,
+      "endMs": 2593
+    },
+    {
+      "text": " that",
+      "startMs": 2593,
+      "endMs": 2793
+    },
+    {
+      "text": " time,",
+      "startMs": 2793,
+      "endMs": 3021
+    },
+    {
+      "text": " I’ve",
+      "startMs": 3021,
+      "endMs": 3220,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " tldr",
+      "startMs": 3500,
+      "endMs": 3761
+    },
+    {
+      "text": " —",
+      "startMs": 3761,
+      "endMs": 3911
+    },
+    {
+      "text": " man",
+      "startMs": 3911,
+      "endMs": 4135
+    },
+    {
+      "text": " pages",
+      "startMs": 4135,
+      "endMs": 4434,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " for",
+      "startMs": 4434,
+      "endMs": 4658
+    },
+    {
+      "text": " humans.",
+      "startMs": 4658,
+      "endMs": 5031
+    },
+    {
+      "text": " Let",
+      "startMs": 5031,
+      "endMs": 5255
+    },
+    {
+      "text": " us",
+      "startMs": 5255,
+      "endMs": 5442,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 5442,
+      "endMs": 5704
+    },
+    {
+      "text": " at",
+      "startMs": 5704,
+      "endMs": 5890
+    },
+    {
+      "text": " the",
+      "startMs": 5890,
+      "endMs": 6115
+    },
+    {
+      "text": " code.",
+      "startMs": 6115,
+      "endMs": 6413,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " fzf",
+      "startMs": 6667,
+      "endMs": 6851
+    },
+    {
+      "text": " —",
+      "startMs": 6851,
+      "endMs": 6973
+    },
+    {
+      "text": " fuzzy",
+      "startMs": 6973,
+      "endMs": 7219
+    },
+    {
+      "text": " finder",
+      "startMs": 7219,
+      "endMs": 7495,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " that",
+      "startMs": 7495,
+      "endMs": 7709
+    },
+    {
+      "text": " changes",
+      "startMs": 7709,
+      "endMs": 8016
+    },
+    {
+      "text": " everything.",
+      "startMs": 8016,
+      "endMs": 8445
+    },
+    {
+      "text": " Let",
+      "startMs": 8445,
+      "endMs": 8629,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 8629,
+      "endMs": 8783
+    },
+    {
+      "text": " look",
+      "startMs": 8783,
+      "endMs": 8997
+    },
+    {
+      "text": " at",
+      "startMs": 8997,
+      "endMs": 9151
+    },
+    {
+      "text": " the",
+      "startMs": 9151,
+      "endMs": 9335,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 9335,
+      "endMs": 9580,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " rg",
+      "startMs": 9833,
+      "endMs": 9993
+    },
+    {
+      "text": " (ripgrep)",
+      "startMs": 9993,
+      "endMs": 10378
+    },
+    {
+      "text": " —",
+      "startMs": 10378,
+      "endMs": 10506
+    },
+    {
+      "text": " search",
+      "startMs": 10506,
+      "endMs": 10794,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " faster",
+      "startMs": 10794,
+      "endMs": 11082
+    },
+    {
+      "text": " than",
+      "startMs": 11082,
+      "endMs": 11306
+    },
+    {
+      "text": " grep.",
+      "startMs": 11306,
+      "endMs": 11562
+    },
+    {
+      "text": " Let",
+      "startMs": 11562,
+      "endMs": 11754,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " us",
+      "startMs": 11754,
+      "endMs": 11914
+    },
+    {
+      "text": " look",
+      "startMs": 11914,
+      "endMs": 12138
+    },
+    {
+      "text": " at",
+      "startMs": 12138,
+      "endMs": 12298
+    },
+    {
+      "text": " the",
+      "startMs": 12298,
+      "endMs": 12491,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " code.",
+      "startMs": 12491,
+      "endMs": 12747,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " watch",
+      "startMs": 13000,
+      "endMs": 13262
+    },
+    {
+      "text": " —",
+      "startMs": 13262,
+      "endMs": 13393
+    },
+    {
+      "text": " repeat",
+      "startMs": 13393,
+      "endMs": 13687
+    },
+    {
+      "text": " a",
+      "startMs": 13687,
+      "endMs": 13818,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " command",
+      "startMs": 13818,
+      "endMs": 14146
+    },
+    {
+      "text": " automatically.",
+      "startMs": 14146,
+      "endMs": 14702
+    },
+    {
+      "text": " Let",
+      "startMs": 14702,
+      "endMs": 14899
+    },
+    {
+      "text": " us",
+      "startMs": 14899,
+      "endMs": 15062,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " look",
+      "startMs": 15062,
+      "endMs": 15291
+    },
+    {
+      "text": " at",
+      "startMs": 15291,
+      "endMs": 15455
+    },
+    {
+      "text": " the",
+      "startMs": 15455,
+      "endMs": 15651
+    },
+    {
+      "text": " code.",
+      "startMs": 15651,
+      "endMs": 15913,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " htop",
+      "startMs": 16167,
+      "endMs": 16281
+    },
+    {
+      "text": " /",
+      "startMs": 16281,
+      "endMs": 16347
+    },
+    {
+      "text": " btop",
+      "startMs": 16347,
+      "endMs": 16461
+    },
+    {
+      "text": " —",
+      "startMs": 16461,
+      "endMs": 16526,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " actually",
+      "startMs": 16526,
+      "endMs": 16706
+    },
+    {
+      "text": " readable",
+      "startMs": 16706,
+      "endMs": 16886
+    },
+    {
+      "text": " process",
+      "startMs": 16886,
+      "endMs": 17050
+    },
+    {
+      "text": " viewer.",
+      "startMs": 17050,
+      "endMs": 17213,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Plain",
+      "startMs": 17213,
+      "endMs": 17344
+    },
+    {
+      "text": " top",
+      "startMs": 17344,
+      "endMs": 17442
+    },
+    {
+      "text": " works,",
+      "startMs": 17442,
+      "endMs": 17590
+    },
+    {
+      "text": " but",
+      "startMs": 17590,
+      "endMs": 17688,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " btop",
+      "startMs": 17688,
+      "endMs": 17802
+    },
+    {
+      "text": " is",
+      "startMs": 17802,
+      "endMs": 17884
+    },
+    {
+      "text": " a",
+      "startMs": 17884,
+      "endMs": 17949
+    },
+    {
+      "text": " visual",
+      "startMs": 17949,
+      "endMs": 18097,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " upgrade",
+      "startMs": 18097,
+      "endMs": 18260
+    },
+    {
+      "text": " that",
+      "startMs": 18260,
+      "endMs": 18375
+    },
+    {
+      "text": " shows",
+      "startMs": 18375,
+      "endMs": 18506
+    },
+    {
+      "text": " CPU,",
+      "startMs": 18506,
+      "endMs": 18620,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " memory,",
+      "startMs": 18620,
+      "endMs": 18784
+    },
+    {
+      "text": " and",
+      "startMs": 18784,
+      "endMs": 18882
+    },
+    {
+      "text": " network",
+      "startMs": 18882,
+      "endMs": 19045
+    },
+    {
+      "text": " in",
+      "startMs": 19045,
+      "endMs": 19127,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " a",
+      "startMs": 19127,
+      "endMs": 19192
+    },
+    {
+      "text": " clean",
+      "startMs": 19192,
+      "endMs": 19323
+    },
+    {
+      "text": " TUI.",
+      "startMs": 19323,
+      "endMs": 19438
+    },
+    {
+      "text": " Worth",
+      "startMs": 19438,
+      "endMs": 19569,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " the",
+      "startMs": 19569,
+      "endMs": 19667
+    },
+    {
+      "text": " install.",
+      "startMs": 19667,
+      "endMs": 19847,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " Read",
+      "startMs": 20167,
+      "endMs": 20452
+    },
+    {
+      "text": " the",
+      "startMs": 20452,
+      "endMs": 20697
+    },
+    {
+      "text": " full",
+      "startMs": 20697,
+      "endMs": 20982
+    },
+    {
+      "text": " article.",
+      "startMs": 20982,
+      "endMs": 21430,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " New",
+      "startMs": 21430,
+      "endMs": 21675
+    },
+    {
+      "text": " posts",
+      "startMs": 21675,
+      "endMs": 22001
+    },
+    {
+      "text": " every",
+      "startMs": 22001,
+      "endMs": 22327
+    },
+    {
+      "text": " week",
+      "startMs": 22327,
+      "endMs": 22612,
+      "pageBreakAfter": true
+    },
+    {
+      "text": " on",
+      "startMs": 22612,
+      "endMs": 22816
+    },
+    {
+      "text": " the",
+      "startMs": 22816,
+      "endMs": 23061
+    },
+    {
+      "text": " blog.",
+      "startMs": 23061,
+      "endMs": 23387,
+      "pageBreakAfter": true
+    }
+  ],
+  "themeColors": {
+    "colorScheme": "dark",
+    "foreground": "#c9d1d9",
+    "background": "#0d1117",
+    "lighter": {
+      "inlineBackground": "#0d1117e6"
+    },
+    "editor": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "lineHighlightBackground": "#6e76811a",
+      "rangeHighlightBackground": "#ffffff0b",
+      "infoForeground": "#3794FF",
+      "selectionBackground": "#264F78"
+    },
+    "focusBorder": "#1f6feb",
+    "tab": {
+      "activeBackground": "#0d1117",
+      "activeForeground": "#c9d1d9",
+      "inactiveBackground": "#010409",
+      "inactiveForeground": "#8b949e",
+      "border": "#30363d",
+      "activeBorder": "#0d1117",
+      "activeBorderTop": "#f78166"
+    },
+    "editorGroup": {
+      "border": "#30363d"
+    },
+    "editorGroupHeader": {
+      "tabsBackground": "#010409"
+    },
+    "editorLineNumber": {
+      "foreground": "#6e7681"
+    },
+    "input": {
+      "background": "#0d1117",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "icon": {
+      "foreground": "#8b949e"
+    },
+    "sideBar": {
+      "background": "#010409",
+      "foreground": "#c9d1d9",
+      "border": "#30363d"
+    },
+    "list": {
+      "activeSelectionBackground": "#6e768166",
+      "activeSelectionForeground": "#c9d1d9",
+      "hoverBackground": "#6e76811a",
+      "hoverForeground": "#c9d1d9"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "techtips-reels",
+  "version": "1.0.0",
+  "description": "Turn TechTips.fun articles into vertical (1080x1920) reels with animated code (Code Hike) and TikTok-style word-by-word captions.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "tsc --noEmit",
+    "props": "node scripts/build-reel-props.mjs",
+    "reel": "node scripts/render-reel.mjs",
+    "reel:latest": "node scripts/render-reel.mjs --latest",
+    "reel:all": "node scripts/render-reel.mjs --all",
+    "still": "node scripts/render-reel.mjs --still",
+    "gui": "node server/index.mjs"
+  },
+  "dependencies": {
+    "@code-hike/lighter": "1.0.3",
+    "@remotion/animation-utils": "4.0.534",
+    "@remotion/captions": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/layout-utils": "4.0.534",
+    "@remotion/studio": "4.0.534",
+    "codehike": "1.1.0",
+    "express": "^5.3.0",
+    "polished": "4.3.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.534",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "typescript": "5.9.3"
+  }
+}
