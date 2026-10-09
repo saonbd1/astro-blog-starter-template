@@ -2,7 +2,7 @@
 
 ## ⚠️ PITFALLS — mistakes already paid for, DO NOT regress these
 - [ ] **No-slash `/blog/<slug>` links 307-redirect.** The Worker serves directory-style URLs; `/blog/x` answers with `307 → /blog/x/`. 21 such links across 5 published Windows 11 articles were fixed 2026-10-04. **Guard:** `schedule-posts.yml` runs a `sed` normaliser on every staged article at publish time — do NOT remove that step, and keep writing new cross-links WITH the trailing slash.
-- [ ] **`GITHUB_TOKEN` pushes do NOT trigger other workflows.** The scheduler's publish commit uses the automatic token, so `linkedin-share.yml` never fires on scheduled publishes (first run 2026-10-04 published the post with NO teaser). **Guard:** `schedule-posts.yml` posts the teaser itself in the "Share the new post to LinkedIn" step right after pushing — do NOT delete it expecting the push event to cover it. `linkedin-share.yml` stays for manual dispatch (`gh workflow run "Share new posts to LinkedIn" --repo saonbd1/astro-blog-starter-template --ref main -f slug=<slug>`) and ordinary (PAT/user) pushes.
+- [ ] **`GITHUB_TOKEN` pushes do NOT trigger other workflows.** The scheduler's publish commit uses the automatic token, so `linkedin-share.yml` never fires on scheduled publishes (first run 2026-10-04 published the post with NO teaser). **Guard:** `schedule-posts.yml` posts the teaser itself in the "Share the new post to LinkedIn" step right after pushing — do NOT delete it expecting the push event to cover it. `linkedin-share.yml` stays for manual dispatch (`gh workflow run "Share new posts to LinkedIn" --repo saonbd1/astro-blog-starter-template --ref main -f slug=<slug>`) and ordinary (PAT/user) pushes. **Same trap for reels:** `article-reels.yml` therefore triggers on both `push` **and** on the scheduler workflow completing (`workflow_run`).
 - [ ] **`/v2/ugcPosts` rejects person URNs on Company-Page apps (422).** Posting must go through the legacy `/v2/shares` endpoint with `owner: urn:li:person:{openid sub}` (sub resolved live from `/v2/userinfo`) and the `w_member_social` scope. Don't "upgrade" `scripts/share-to-linkedin.mjs` to ugcPosts without testing.
 - [ ] **GitHub Actions cron drifts.** The 09:00 UTC cron has been landing ~14:00–15:30 UTC in run history. GitHub scheduled triggers are not exact; if a precise publish time ever matters, don't rely on Actions cron — use a Cloudflare cron trigger or a PAT-based scheduler.
 - [ ] **Signed CDN URLs expire.** The manuscdn screenshots in the Netlify-vs-Vercel article expired 2026-12-01; they were localised to `public/article-media/` before expiry. Always download-and-rewrite signed screenshots at STAGING time, never at publish time.
@@ -52,5 +52,14 @@
 - [x] `reels/` — standalone Remotion project that turns any `src/content/blog` article into a 1080x1920 reel: title hook → key points → Code Hike animated code → outro CTA, with TikTok-style word-by-word captions. Details + pitfalls in `reels/README.md`.
 - [x] `cd reels && npm run reel -- --latest` renders `reels/out/<slug>.mp4`; `npm run reel:all` renders every article; `npm run dev` opens Remotion Studio; `npm run still -- --slug <slug> --frame 210` renders a poster PNG.
 - [x] `npm run gui` — **Reel Studio**: paste Markdown (or load a post from the repo), pick a code theme + max length, and get an MP4. Renders are queued one at a time, show a live progress bar, play back in the page and offer a download; a faster "preview a frame" path renders a single PNG. Works with frontmatter-less Markdown (first `# H1` = title) and reports any glyphs it had to strip. `server/` + `server/public/`; API documented in `reels/README.md`.
+- [x] `.github/workflows/article-reels.yml` — renders a reel for every post that does not
+      have one and commits it to `article-reels/<slug>.mp4` (plus a build artifact). Triggers:
+      `push` to `src/content/blog/**`, `workflow_run` on *Schedule post publishing*, and manual
+      dispatch (inputs `slug`, `max`, `force`). Selection is "posts without a reel, newest
+      first, capped per run" — idempotent and self-healing after a failed render. The Chrome
+      download is cached between runs.
+- [ ] One-off backfill: run **Generate article reels** manually with `max: 100` (or `npm run
+      reel:all` locally) to fill `article-reels/` for the posts that predate the workflow.
+
 - [ ] Optional next: real voiceover, transcribed with Whisper, so the captions (and the reel length) come from audio instead of the synthesised timing track.
 - [ ] Optional next: render on Remotion Lambda instead of locally for volume.
