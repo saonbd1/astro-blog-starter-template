@@ -1,0 +1,34 @@
+name: Post new article to Squad via Slack
+# Drop this file into your blog repo at .github/workflows/squad-rss-to-slack.yml
+# Required secret: SLACK_WEBHOOK_URL (Slack channel connected to your daily.dev Squad)
+# Triggers when a new post is added under src/content/blog/
+on:
+  push:
+    branches: [main]
+    paths: ['src/content/blog/**']
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - name: Find new posts
+        id: posts
+        run: |
+          FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'src/content/blog/**' || true)
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "$FILES"
+      - name: Post to Slack (â†’ daily.dev Squad)
+        if: steps.posts.outputs.files != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SITE: https://www.techtips.fun
+        run: |
+          for f in ${{ steps.posts.outputs.files }}; do
+            slug=$(basename "$f" | sed 's/\.[^.]*$//')
+            title=$(grep -m1 '^title:' "$f" | sed 's/^title:[ ]*//;s/^["'\'']//;s/["'\'']$//')
+            url="$SITE/blog/$slug/"
+            text="ðŸš€ New on Tech Tips in Fun: $title â€” $url"
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\"$text\"}" "$SLACK_WEBHOOK_URL"
+          done
