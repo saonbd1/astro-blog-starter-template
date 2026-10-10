@@ -1,7 +1,7 @@
 ---
 title: "Blog to video, self-hosted: render a reel for every post"
 description: "Every blog-to-video tool is a subscription. Here is the self-hosted alternative: Markdown becomes animated code and captions, rendered on publish."
-pubDate: "Oct 09 2026"
+pubDate: "Oct 10 2026"
 heroImage: "/blog-to-video-pipeline.png"
 category: "Automation"
 tags: ["Remotion", "Video Automation", "GitHub Actions", "React", "Content Repurposing"]
